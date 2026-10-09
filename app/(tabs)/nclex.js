@@ -1,9 +1,11 @@
 // Module 3 · NCLEX-RN — question bank builder, benchmarks, heatmap and score history.
 import React, { useMemo, useState } from "react";
 import { View, ScrollView, Pressable } from "react-native";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, Chip, tap, Grid, HScroll } from "../../src/ui";
 import { TutorCard } from "../../src/tutor";
+import { EnglishHub } from "../../src/english/Hub";
+import { DestPill } from "../../src/dest";
 import { useTheme, FONTS, mix } from "../../src/theme";
 import { useApp } from "../../src/state";
 import { NCLEX_FIT, destId, destOf, DESTINATIONS } from "../../src/data/global";
@@ -327,21 +329,34 @@ function StudyCard({ state }) {
   );
 }
 
-export default function Nclex() {
+export default function Exam() {
   const { state } = useApp();
   const bank = useMemo(() => BANK, []);
+  const p = useLocalSearchParams();
+  const [section, setSection] = useState(p.section === "english" ? "english" : "nclex");
+  React.useEffect(() => { if (p.section === "english" || p.section === "nclex") setSection(p.section); }, [p.section]);
   return (
     <Screen mod={MOD}>
-      <Hero mod={MOD} icon="Brain" eyebrow="Module 3 · NCLEX-RN" title="Benchmark exam engine"
-        sub="Three benchmark exams with 600 different questions, Next Gen case studies, a full question bank with rationales, and flashcards."
-        stats={[["Question bank", bank.length], ["Attempts", state.exams.length], ["Last result", state.exams[0] ? state.exams[0].score : "—"]]} />
-      <NclexFit dest={destId(state)} />
-      <StudyCard state={state} />
-      <TutorCard mod={MOD} />
-      <BankBuilder bank={bank} state={state} />
-      <Benchmarks state={state} />
-      <Heatmap exams={state.exams} />
-      <History exams={state.exams} />
+      <Seg mod={MOD} even value={section} onChange={setSection} options={[{ id: "nclex", label: "NCLEX", icon: "Brain" }, { id: "english", label: "OET & IELTS", icon: "Languages" }]} />
+      {section === "english" ? (
+        <>
+          <DestPill mod={MOD} />
+          <EnglishHub mod={MOD} />
+        </>
+      ) : (
+        <>
+          <Hero mod={MOD} icon="Brain" eyebrow="Exam · NCLEX-RN" title="Benchmark exam engine"
+            sub="Three benchmark exams with 600 different questions, Next Gen case studies, a full question bank with rationales, and flashcards."
+            stats={[["Question bank", bank.length], ["Attempts", state.exams.length], ["Last result", state.exams[0] ? state.exams[0].score : "—"]]} />
+          <NclexFit dest={destId(state)} />
+          <StudyCard state={state} />
+          <TutorCard mod={MOD} />
+          <BankBuilder bank={bank} state={state} />
+          <Benchmarks state={state} />
+          <Heatmap exams={state.exams} />
+          <History exams={state.exams} />
+        </>
+      )}
     </Screen>
   );
 }

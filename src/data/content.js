@@ -7,7 +7,7 @@ export const PHASES = [
   { id: "att", n: 2, title: "State Board Eligibility", sub: "Authorization to Test (ATT)", cost: [300, 550], time: "4–12 weeks",
     steps: ["Pick an exam state (compare them on the Boards tab)", "Submit the board application and fee", "Complete fingerprints / background check if the board requires it", "Register with Pearson VUE ($200) and receive your ATT"] },
   { id: "nclex", n: 3, title: "NCLEX-RN", sub: "Pearson VUE · Next Generation format", cost: [0, 150], time: "ATT window ≈ 90 days (varies by board)",
-    steps: ["Schedule a test date inside your ATT window", "Complete all three benchmark exams on the NCLEX tab", "Sit the NCLEX-RN", "Receive results and your license number"] },
+    steps: ["Schedule a test date inside your ATT window", "Complete all three benchmark exams on the Exam tab", "Sit the NCLEX-RN", "Receive results and your license number"] },
   { id: "eng", n: 4, title: "English Proficiency", sub: "IELTS Academic · PTE Academic · OET", cost: [200, 480], time: "Results in 2–14 days",
     steps: ["Confirm the minimum scores TruMerit accepts for VisaScreen", "Book the test and prepare", "Achieve the required scores", "Log the result date in the Vault (scores are valid 2 years for VisaScreen)"] },
   { id: "visa", n: 5, title: "VisaScreen", sub: "Healthcare worker certificate", cost: [540, 540], time: "6–12 weeks",

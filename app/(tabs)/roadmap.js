@@ -124,7 +124,7 @@ function PhaseRow({ p, i, US, prev }) {
               const sub = other ? other : !sr ? null : mine && sr.code === mine.code ? `Your ${REGION_WORD[dest]}` : mine ? `Only for ${sr.region}. Tick it to skip.` : null;
               return <Check key={id} mod={MOD} checked={!!state.steps[id]} disabled={st.locked} strike label={s} sub={sub} onToggle={() => dispatch({ type: "step", id })} />;
             })}
-            {/English/.test(p.title) ? <Btn mod={MOD} small kind="secondary" icon="Languages" title="English test prep" onPress={() => { tap(); router.push("/prep"); }} style={{ alignSelf: "flex-start", marginTop: 6 }} /> : null}
+            {/English/.test(p.title) ? <Btn mod={MOD} small kind="secondary" icon="Languages" title="English test prep" onPress={() => { tap(); router.push({ pathname: "/nclex", params: { section: "english" } }); }} style={{ alignSelf: "flex-start", marginTop: 6 }} /> : null}
             {st.locked && prev ? <Txt v="tiny" muted>Finish “{prev.title}” to unlock, or turn on flexible order.</Txt> : null}
             {p.links && p.links.length ? (
               <View style={{ gap: 6, marginTop: 6 }}>

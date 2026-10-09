@@ -936,7 +936,7 @@ export default function Quiz() {
   if (mode === "bank") {
     body = run && run.items && run.items.length
       ? <QuizRunner key={runKey} items={run.items} mode={run.label || "Question Bank"} tutor={run.tutor} onDone={record} onStat={(res) => dispatch({ type: "qstat", res })} />
-      : <Note mod={MOD} tone="warn" icon="AlertTriangle" title="No question set">Go back to the NCLEX tab and build a set from the question bank.</Note>;
+      : <Note mod={MOD} tone="warn" icon="AlertTriangle" title="No question set">Go back to the Exam tab and build a set from the question bank.</Note>;
   } else if (mode === "t1") {
     body = <Test1 timed={timed} onDone={record} />;
   } else if (mode === "t2") {

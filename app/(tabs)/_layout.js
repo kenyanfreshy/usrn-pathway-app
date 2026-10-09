@@ -8,8 +8,7 @@ import { useTheme, FONTS, tabColor } from "../../src/theme";
 const TABS = [
   ["index", "Today", "LayoutDashboard", "home"],
   ["roadmap", "Roadmap", "Map", "roadmap"],
-  ["nclex", "NCLEX", "Brain", "nclex"],
-  ["prep", "English", "Languages", "bedside"],
+  ["nclex", "Exam", "GraduationCap", "nclex"],
   ["visa", "Visa", "Plane", "imm"],
   ["more", "More", "LayoutGrid", "more"],
 ];
@@ -27,8 +26,8 @@ export default function TabLayout() {
     <Tabs screenOptions={{
       headerShown: false,
       tabBarActiveTintColor: t.c.ink, tabBarInactiveTintColor: t.c.muted,
-      tabBarLabelStyle: { fontFamily: FONTS.bodyBold, fontSize: 10.5 },
-      // Six equal columns on every phone; labels always sit under the icon (also on wide screens and landscape).
+      tabBarLabelStyle: { fontFamily: FONTS.bodyBold, fontSize: 11 },
+      // Five equal columns on every phone; labels always sit under the icon (also on wide screens and landscape).
       tabBarItemStyle: { flex: 1 }, tabBarLabelPosition: "below-icon",
       tabBarStyle: { backgroundColor: t.c.surface, borderTopColor: t.c.line, height: 62 + ins.bottom, paddingTop: 6, paddingBottom: Math.max(ins.bottom, 8) },
     }}>
@@ -39,6 +38,8 @@ export default function TabLayout() {
             tabBarIcon: ({ focused }) => <TabIcon name={icon} index={i} focused={focused} /> }} />
         );
       })}
+      {/* old English tab route: hidden, redirects into the Exam tab */}
+      <Tabs.Screen name="prep" options={{ href: null }} />
     </Tabs>
   );
 }
