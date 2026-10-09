@@ -4,11 +4,12 @@ import { View } from "react-native";
 import { Screen, Card, Row, Txt, Icon, Grad, Grid } from "../src/ui";
 import { BackRow, Medal } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
-import { useApp, BADGES, LEVELS } from "../src/state";
+import { useApp, badgesFor, LEVELS } from "../src/state";
+import { destId } from "../src/data/global";
 
 export default function Badges() {
   const { state, m, lvl } = useApp(); const t = useTheme("home");
-  const seen = state.badgesSeen || [];
+  const seen = state.badgesSeen || []; const BADGES = badgesFor(destId(state));
   const got = BADGES.filter((b) => seen.includes(b.id)).length;
   return (
     <Screen mod="home">

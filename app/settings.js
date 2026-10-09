@@ -8,6 +8,7 @@ import { useTheme, PALETTES } from "../src/theme";
 import { useApp } from "../src/state";
 import { BOARDS } from "../src/data/content";
 import { useBulletin } from "../src/bulletin";
+import { DESTINATIONS, destId } from "../src/data/global";
 
 const SPECIALTIES = ["Medical-surgical", "ICU / critical care", "Emergency", "Operating room", "Labor & delivery", "Pediatrics", "Oncology", "Telemetry / step-down", "Psychiatric", "Long-term care", "Other"];
 
@@ -50,16 +51,19 @@ export default function Settings() {
         </Grid>
         <Field label="Home country" value={p.homeCountry} onChangeText={set("homeCountry")} placeholder="e.g. Kenya" autoCapitalize="words" />
         <Select label="Specialty" value={p.specialty} onChange={set("specialty")} options={[{ value: "", label: "Choose…" }, ...SPECIALTIES]} />
-        <Select label="Target state" value={p.targetState} onChange={set("targetState")} placeholder="Not decided"
-          options={[{ value: "", label: "Not decided" }, ...BOARDS.map((b) => ({ value: b.name, label: b.name }))]} />
+        <Select label="Destination country" value={destId(state)} onChange={set("dest")} options={DESTINATIONS.map((d) => ({ value: d.id, label: `${d.flag} ${d.name}` }))} />
+        {destId(state) === "US" ? <Select label="Target state" value={p.targetState} onChange={set("targetState")} placeholder="Not decided"
+          options={[{ value: "", label: "Not decided" }, ...BOARDS.map((b) => ({ value: b.name, label: b.name }))]} /> : null}
       </Card>
 
       <Card mod="home">
         <Txt v="eyebrow">Your dates</Txt>
-        <Select label="Visa chargeability" value={p.country} onChange={set("country")} options={BULLETIN.rows.map((r) => ({ value: r.key, label: r.name }))} />
-        <DateField label="Priority date (if filed)" value={p.pd} onChange={set("pd")} />
-        <DateField label="NCLEX test date" value={p.testDate} onChange={set("testDate")} />
-        <DateField label="ATT window ends" value={p.attEnd} onChange={set("attEnd")} />
+        {destId(state) === "US" ? <>
+          <Select label="Visa chargeability" value={p.country} onChange={set("country")} options={BULLETIN.rows.map((r) => ({ value: r.key, label: r.name }))} />
+          <DateField label="Priority date (if filed)" value={p.pd} onChange={set("pd")} />
+        </> : null}
+        <DateField label={destId(state) === "NZ" ? "Theory exam date" : "NCLEX test date"} value={p.testDate} onChange={set("testDate")} />
+        {destId(state) === "US" ? <DateField label="ATT window ends" value={p.attEnd} onChange={set("attEnd")} /> : null}
         <Txt v="tiny" muted>Dates power the countdowns and visa wait estimate on Today.</Txt>
       </Card>
 

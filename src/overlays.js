@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { View, Modal, Animated, Easing, Dimensions, Share } from "react-native";
 import { useApp, BADGES, BADGE_HUES } from "./state";
+import { destOf, destId } from "./data/global";
 import { useTheme } from "./theme";
 import { Txt, Btn, Icon, Grad, Row, buzz } from "./ui";
 
@@ -50,10 +51,10 @@ function Toast() {
 }
 
 export function Overlays() {
-  const { celebrate, popCelebrate, m, lvl } = useApp(); const t = useTheme();
+  const { celebrate, popCelebrate, m, lvl, state } = useApp(); const t = useTheme();
   const item = celebrate[0];
   useEffect(() => { if (item) buzz(); }, [item]);
-  const share = () => Share.share({ message: `I'm ${Math.round(m.roadPct * 100)}% through my journey to the U.S. bedside — level: ${lvl.name}, ${m.streak}-day streak. Tracking it with USRN Pathway.` }).catch(() => {});
+  const share = () => Share.share({ message: `I'm ${Math.round(m.roadPct * 100)}% through my journey to the ${destOf(destId(state)).short} bedside — level: ${lvl.name}, ${m.streak}-day streak. Tracking it with USRN Pathway.` }).catch(() => {});
   return (
     <>
       <Toast />
@@ -63,7 +64,7 @@ export function Overlays() {
           {item ? (
             <View style={{ backgroundColor: t.c.surface, borderRadius: 26, padding: 26, alignItems: "center", gap: 10, width: "100%", maxWidth: 380 }}>
               <Txt v="eyebrow">{item.badge ? "Achievement unlocked" : "Level up"}</Txt>
-              {item.badge ? <Medal badge={item.badge} idx={BADGES.indexOf(item.badge)} size={108} /> : <Grad colors={["#2563eb", "#c026d3"]} style={{ width: 108, height: 108, borderRadius: 32, alignItems: "center", justifyContent: "center" }}><Icon name="Crown" size={50} color="#fff" /></Grad>}
+              {item.badge ? <Medal badge={item.badge} idx={Math.max(0, BADGES.findIndex((b) => b.id === item.badge.id))} size={108} /> : <Grad colors={["#2563eb", "#c026d3"]} style={{ width: 108, height: 108, borderRadius: 32, alignItems: "center", justifyContent: "center" }}><Icon name="Crown" size={50} color="#fff" /></Grad>}
               <Txt v="h1" style={{ textAlign: "center" }}>{item.badge ? item.badge.name : item.level}</Txt>
               <Txt v="body" muted style={{ textAlign: "center" }}>{item.badge ? item.badge.desc : "You reached a new level. Keep the momentum going."}</Txt>
               <Row gap={10} style={{ marginTop: 6 }}>

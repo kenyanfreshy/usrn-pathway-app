@@ -8,6 +8,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { AppProvider, useApp } from "../src/state";
 import { ProProvider } from "../src/pro";
 import { BulletinProvider } from "../src/bulletin";
+import { MigrationProvider } from "../src/migration";
 import { FONTS, useTheme } from "../src/theme";
 import { Overlays } from "../src/overlays";
 
@@ -58,7 +59,9 @@ export default function RootLayout() {
       <AppProvider>
         <ProProvider>
           <BulletinProvider>
-            <Shell />
+            <MigrationProvider>
+              <Shell />
+            </MigrationProvider>
           </BulletinProvider>
         </ProProvider>
       </AppProvider>

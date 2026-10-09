@@ -17,3 +17,23 @@ Visa screen without a new App Store / Google Play release.
 
 If the file has a mistake (bad date format, missing field) the app ignores it and keeps the last good dates.
 Also update `BULLETIN` in `src/data/content.js` whenever you ship a new app version, so fresh installs start current.
+
+---
+
+## Canada, Australia and New Zealand: `migration.json`
+
+`migration.json` feeds the migration monitors on the Visa tab (see `src/migration.js`). It has one block per country:
+`"CA"`, `"AU"`, `"NZ"`, each `{ "checked": "YYYY-MM-DD", "migration": { … } }`. The app keeps whichever copy is newer
+(the file or the data built into the app), country by country, and ignores a country block that is malformed.
+
+**Monthly check (the scheduled task prepares this for you to review):**
+
+- **Canada** → `CA.migration.express_entry.draws`: add any new *Healthcare and social services occupations* round from
+  the IRCC rounds page as `{ "date", "category", "crs", "invitations" }` (numbers, not text). Update `pnp[].status`
+  for provincial healthcare streams that opened, closed or ran a draw.
+- **Australia** → `AU.migration.states[].status` (state nomination programs reset each July), `points.minimum`,
+  and `rounds` only when the date is confirmed. Leave cut-off scores out unless Home Affairs publishes them.
+- **New Zealand** → `NZ.migration.green_list`, `aewv` and `smc` summaries when INZ changes wages, fees or rules.
+
+Then set that country's `checked` to today, commit and push. Keep `src/data/countries/*.json` in step when you ship
+a new app version, so fresh installs start current.

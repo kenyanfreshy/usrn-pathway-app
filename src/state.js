@@ -1,14 +1,15 @@
 // App state: reducer (ported from the web app), on-device persistence, metrics, levels and badges.
 import React, { createContext, useContext, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { PHASES, SAMPLE_DOCS, LESSONS, CAREERS, CREDIT, INSURE_LIST } from "./data/content";
+import { SAMPLE_DOCS, LESSONS, CAREERS, CREDIT, INSURE_LIST } from "./data/content";
 import { dkey, today, daysUntil, isoOffset } from "./util";
+import { phasesFor, destId, BADGE_ROLES } from "./data/global";
 
 const STORE_KEY = "usrn-pathway-v1";
 export const initialState = () => ({
   steps: { "cred-0": true, "cred-1": true, "cred-2": true, "cred-3": true, "att-0": true, "att-1": true },
   flexible: false, docs: SAMPLE_DOCS, exams: [], runs: {}, catSeen: [], lessons: {}, careers: {}, credit: {}, drive: {}, qstats: {},
-  profile: { name: "", lastName: "", homeCountry: "", specialty: "", targetState: "", country: "ph", pd: "", testDate: "", attEnd: "" },
+  profile: { dest: "US", name: "", lastName: "", homeCountry: "", specialty: "", targetState: "", country: "ph", pd: "", testDate: "", attEnd: "" },
   palette: "vivid", days: {}, qotd: {}, flash: 0, badgesSeen: null, alertsOn: false, onboarded: false,
   payments: [
     { id: "y1", phase: "cred", label: "CGFNS CES Professional Report (sample)", amount: 395, date: isoOffset(-200), sample: true },
@@ -68,15 +69,19 @@ function reducer0(s, a) {
   }
 }
 
+/** Phases of the destination the nurse picked (U.S., Canada, Australia or New Zealand). */
+export const phasesOf = (state) => phasesFor(destId(state));
 export function phaseStatus(state, i) {
-  const p = PHASES[i];
+  const PHASES = phasesOf(state); const p = PHASES[i];
   const done = p.steps.filter((_, j) => state.steps[`${p.id}-${j}`]).length;
   const complete = done === p.steps.length;
   const prevComplete = i === 0 || PHASES[i - 1].steps.every((_, j) => state.steps[`${PHASES[i - 1].id}-${j}`]);
   const locked = !state.flexible && !prevComplete && !complete;
   return { done, complete, locked, active: !locked && !complete };
 }
-export const phaseDone = (s, id) => PHASES.find((p) => p.id === id).steps.every((_, j) => s.steps[`${id}-${j}`]);
+export const phaseDone = (s, id) => { const p = phasesOf(s).find((x) => x.id === id); return !!p && p.steps.every((_, j) => s.steps[`${id}-${j}`]); };
+/** Done when the roadmap phase this badge follows (for the chosen destination) is complete. */
+const roleDone = (s, role) => { const r = BADGE_ROLES[destId(s)][role]; const p = phasesOf(s)[r[0]]; return !!p && p.steps.every((_, j) => s.steps[`${p.id}-${j}`]); };
 
 export const LEVELS = [[0, "Applicant"], [250, "Candidate"], [600, "NCLEX Ready"], [1000, "Licensed RN"], [1500, "Bedside Pro"], [2200, "Charge RN"], [3000, "Nurse Leader"]];
 export function levelOf(xp) {
@@ -91,6 +96,7 @@ export function streakOf(days) {
   return n;
 }
 export function metrics(s) {
+  const PHASES = phasesOf(s);
   const total = PHASES.reduce((n, p) => n + p.steps.length, 0);
   const done = PHASES.reduce((n, p) => n + p.steps.filter((_, j) => s.steps[`${p.id}-${j}`]).length, 0);
   const latest = (mode) => s.exams.find((e) => e.mode === mode);
@@ -115,15 +121,15 @@ export function metrics(s) {
 }
 export const BADGES = [
   { id: "first", icon: "Footprints", name: "First Steps", desc: "Complete your first roadmap step", test: (s, m) => m.done > 0 },
-  { id: "cred", icon: "GraduationCap", name: "Credentials Cleared", desc: "Finish the credentials evaluation phase", test: (s) => phaseDone(s, "cred") },
-  { id: "att", icon: "Ticket", name: "Cleared to Test", desc: "Receive your Authorization to Test", test: (s) => phaseDone(s, "att") },
+  { id: "cred", icon: "GraduationCap", name: "Credentials Cleared", desc: "Finish the credentials evaluation phase", test: (s) => roleDone(s, "cred") },
+  { id: "att", icon: "Ticket", name: "Cleared to Test", desc: "Receive your Authorization to Test", test: (s) => roleDone(s, "att") },
   { id: "bench", icon: "ClipboardCheck", name: "First Benchmark", desc: "Complete any NCLEX benchmark", test: (s) => s.exams.length > 0 },
   { id: "ace", icon: "Trophy", name: "Benchmark Ace", desc: "Score 75% or higher on a benchmark", test: (s) => s.exams.some((e) => e.mode !== "CAT Predictor" && e.mode !== "Comprehensive Predictor" && e.pct >= 75) },
   { id: "cat", icon: "Gauge", name: "Above the Line", desc: "Finish the CAT predictor above the passing line", test: (s) => s.exams.some((e) => (e.mode === "CAT Predictor" || e.mode === "Comprehensive Predictor") && String(e.score).startsWith("Above")) },
-  { id: "rn", icon: "BadgeCheck", name: "Licensed RN", desc: "Complete the NCLEX-RN phase", test: (s) => phaseDone(s, "nclex") },
-  { id: "eng", icon: "Languages", name: "Fluent & Verified", desc: "Complete English proficiency", test: (s) => phaseDone(s, "eng") },
-  { id: "visa", icon: "ShieldCheck", name: "VisaScreen Done", desc: "Receive your VisaScreen certificate", test: (s) => phaseDone(s, "visa") },
-  { id: "touch", icon: "PlaneLanding", name: "Touchdown", desc: "Complete the immigration phase", test: (s) => phaseDone(s, "imm") },
+  { id: "rn", icon: "BadgeCheck", name: "Licensed RN", desc: "Complete the NCLEX-RN phase", test: (s) => roleDone(s, "rn") },
+  { id: "eng", icon: "Languages", name: "Fluent & Verified", desc: "Complete English proficiency", test: (s) => roleDone(s, "eng") },
+  { id: "visa", icon: "ShieldCheck", name: "VisaScreen Done", desc: "Receive your VisaScreen certificate", test: (s) => roleDone(s, "visa") },
+  { id: "touch", icon: "PlaneLanding", name: "Touchdown", desc: "Complete the immigration phase", test: (s) => roleDone(s, "touch") },
   { id: "scholar", icon: "Award", name: "U.S. Clinical Readiness", desc: "Complete all six bedside lessons and earn the certificate", test: (s) => LESSONS.every((l) => s.lessons[l.id]) },
   { id: "streak3", icon: "Flame", name: "On Fire", desc: "Keep a 3-day activity streak", test: (s, m) => m.streak >= 3 },
   { id: "streak7", icon: "Zap", name: "Unstoppable", desc: "Keep a 7-day activity streak", test: (s, m) => m.streak >= 7 },
@@ -132,6 +138,11 @@ export const BADGES = [
   { id: "ladder", icon: "Award", name: "Ladder Climber", desc: "Log 5 clinical ladder entries", test: (s) => s.ladder.length >= 5 },
   { id: "credit", icon: "CreditCard", name: "720 Club", desc: "Finish the credit-building roadmap", test: (s) => CREDIT.every((_, i) => s.credit[i]) },
 ];
+/** Badges with the milestone names for the chosen destination. */
+export function badgesFor(dest) {
+  const roles = BADGE_ROLES[dest] || BADGE_ROLES.US;
+  return BADGES.map((b) => (roles[b.id] ? { ...b, name: roles[b.id][1], desc: roles[b.id][2] } : b));
+}
 export const BADGE_HUES = [["#0891b2", "#10b981"], ["#4f46e5", "#8b5cf6"], ["#ea580c", "#e11d48"], ["#9333ea", "#db2777"], ["#d97706", "#ea580c"], ["#059669", "#0284c7"]];
 
 const AppCtx = createContext(null);
@@ -169,7 +180,8 @@ export function AppProvider({ children }) {
     if (!Array.isArray(state.badgesSeen)) { dispatch({ type: "seen", ids: earned }); return; }
     const fresh = earned.filter((id) => !state.badgesSeen.includes(id));
     if (fresh.length) {
-      setCelebrate((q) => [...q, ...fresh.map((id) => ({ badge: BADGES.find((b) => b.id === id) }))]);
+      const list = badgesFor(destId(state));
+      setCelebrate((q) => [...q, ...fresh.map((id) => ({ badge: list.find((b) => b.id === id) }))]);
       dispatch({ type: "seen", ids: [...state.badgesSeen, ...fresh] });
     }
   }, [earnedKey, ready]);

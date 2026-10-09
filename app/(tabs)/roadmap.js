@@ -1,14 +1,16 @@
 // Roadmap tab: 6-phase milestone tracker, personalized timeline, cost tracker and document vault.
 import React, { useEffect, useState } from "react";
-import { View, Pressable, ScrollView } from "react-native";
+import { View, Pressable, ScrollView, Linking } from "react-native";
 import Svg, { Circle, Line, Text as SvgText } from "react-native-svg";
 import { Screen, Hero, Card, Row, Txt, Bar, Check, Chip, Note, Btn, Field, DateField, Select, SectionTitle, Icon, Grad, IconTile, tap, Grid, HScroll } from "../../src/ui";
 import { useTheme, mix, FONTS } from "../../src/theme";
-import { useApp, phaseStatus } from "../../src/state";
+import { useApp, phaseStatus, phasesOf } from "../../src/state";
+import { DestSwitcher, moneyIn } from "../../src/dest";
+import { destId, destOf, HERO, countryData } from "../../src/data/global";
 import { usePro, ProGate } from "../../src/pro";
 import { askPermission, scheduleExpiryAlerts, cancelAlerts } from "../../src/notify";
 import { today, todayKey, daysUntil, fmtDate, addYears, isISO, money, uid, addMonths, monYr } from "../../src/util";
-import { PHASES, DOC_STYLE, DOC_CATS, PHASE_COLORS, DUR } from "../../src/data/content";
+import { DOC_STYLE, DOC_CATS, PHASE_COLORS } from "../../src/data/content";
 import { useBulletin } from "../../src/bulletin";
 
 const MOD = "roadmap";
@@ -16,18 +18,22 @@ const MOD = "roadmap";
 export default function Roadmap() {
   const { state, dispatch } = useApp();
   const t = useTheme(MOD);
+  const PHASES = phasesOf(state); const dest = destId(state); const US = dest === "US"; const info = destOf(dest);
   const total = PHASES.reduce((n, p) => n + p.steps.length, 0);
-  const done = Object.keys(state.steps).filter((k) => state.steps[k]).length;
+  const done = PHASES.reduce((n, p) => n + p.steps.filter((_, j) => state.steps[`${p.id}-${j}`]).length, 0);
   const pct = Math.round((done / total) * 100);
-  const costLo = PHASES.reduce((n, p) => n + p.cost[0], 0), costHi = PHASES.reduce((n, p) => n + p.cost[1], 0);
-  const spentLo = PHASES.reduce((n, p, i) => n + (phaseStatus(state, i).complete ? p.cost[0] : 0), 0);
-  const spentHi = PHASES.reduce((n, p, i) => n + (phaseStatus(state, i).complete ? p.cost[1] : 0), 0);
+  const sum = (k) => PHASES.reduce((n, p) => n + (p.cost ? p.cost[k] : 0), 0);
+  const costLo = sum(0), costHi = sum(1);
+  const spentLo = PHASES.reduce((n, p, i) => n + (US && phaseStatus(state, i).complete ? p.cost[0] : 0), 0);
+  const spentHi = PHASES.reduce((n, p, i) => n + (US && phaseStatus(state, i).complete ? p.cost[1] : 0), 0);
+  const phasesDone = PHASES.filter((_, i) => phaseStatus(state, i).complete).length;
 
   return (
     <Screen mod={MOD}>
-      <Hero mod={MOD} icon="Map" eyebrow="Module 1 · Milestones" title="From foreign RN to U.S. bedside"
-        sub="Tick each step as you finish it. Phases unlock in order; switch on flexible order if you are running steps in parallel (most nurses study for NCLEX and English at the same time)."
-        stats={[["Progress", pct + "%"], ["Steps done", done + " / " + total], ["Est. total cost", money(costLo) + "–" + money(costHi)]]} />
+      <Hero mod={MOD} icon="Map" eyebrow={`Module 1 · Milestones · ${info.flag} ${info.short}`} title={HERO[dest].title} sub={HERO[dest].sub}
+        stats={[["Progress", pct + "%"], ["Steps done", done + " / " + total], US ? ["Est. total cost", money(costLo) + "–" + money(costHi)] : ["Phases done", phasesDone + " / " + PHASES.length]]} />
+
+      <Card mod={MOD}><DestSwitcher mod={MOD} note="Each destination has its own roadmap. Your ticks are saved separately, so you can compare countries." /></Card>
 
       <Card mod={MOD} style={{ gap: 12 }}>
         <Row style={{ justifyContent: "space-between" }}>
@@ -36,7 +42,7 @@ export default function Roadmap() {
         </Row>
         <Bar pct={done / total} mod={MOD} height={11} />
         <Check mod={MOD} checked={state.flexible} onToggle={() => dispatch({ type: "flex" })} label="Flexible order (unlock all phases)" />
-        <Grid min={150} gap={10}>
+        {US ? <Grid min={150} gap={10}>
           <View style={{ flexGrow: 1, padding: 12, borderRadius: 14, backgroundColor: t.soft, gap: 2 }}>
             <Txt v="eyebrow">Est. total cost</Txt>
             <Txt v="h3" color={t.tint}>{money(costLo)}–{money(costHi)}</Txt>
@@ -47,12 +53,18 @@ export default function Roadmap() {
             <Txt v="h3" color={t.tint2}>{money(spentLo)}–{money(spentHi)}</Txt>
             <Txt v="tiny" muted>Approximate spend so far</Txt>
           </View>
-        </Grid>
+        </Grid> : (
+          <View style={{ padding: 12, borderRadius: 14, backgroundColor: t.soft, gap: 4 }}>
+            <Txt v="eyebrow">Regulator</Txt>
+            <Txt v="smallB">{info.regulator}</Txt>
+            <Txt v="tiny" muted>Fees are shown in each phase in {info.cur}, as published by the regulator or agency. Checked {fmtDate(countryData(dest).checked)}.</Txt>
+          </View>
+        )}
       </Card>
 
       <View style={{ gap: 12 }}>
         <View style={{ position: "absolute", left: 19, top: 24, bottom: 24, width: 2, backgroundColor: t.c.line }} />
-        {PHASES.map((p, i) => <PhaseRow key={p.id} p={p} i={i} />)}
+        {PHASES.map((p, i) => <PhaseRow key={p.id} p={p} i={i} US={US} prev={PHASES[i - 1]} />)}
       </View>
 
       <Timeline />
@@ -63,7 +75,7 @@ export default function Roadmap() {
 }
 
 /* ---------- phase timeline row ---------- */
-function PhaseRow({ p, i }) {
+function PhaseRow({ p, i, US, prev }) {
   const { state, dispatch } = useApp();
   const t = useTheme(MOD);
   const st = phaseStatus(state, i);
@@ -94,18 +106,29 @@ function PhaseRow({ p, i }) {
             <Icon name={open ? "ChevronUp" : "ChevronDown"} size={18} color={t.c.muted} />
           </Row>
           <Row wrap gap={6}>
-            <Chip text={money(p.cost[0]) + (p.cost[1] !== p.cost[0] ? "–" + money(p.cost[1]) : "")} tone="mute" />
+            {US ? <Chip text={p.costText} tone="mute" /> : <Chip text={p.time.length > 34 ? "Timeline varies" : p.time} tone="mute" icon="Clock" />}
             {st.complete ? <Chip text="Complete" tone="ok" icon="Check" /> : st.locked ? <Chip text="Locked" tone="mute" icon="Lock" /> : <Chip mod={MOD} text={`${st.done}/${p.steps.length} in progress`} tone="acc" />}
           </Row>
         </Pressable>
         {open ? (
           <View style={{ paddingHorizontal: 14, paddingBottom: 14, gap: 4 }}>
             <Txt v="mono" muted style={{ fontSize: 12 }}>Typical timeline: {p.time}</Txt>
+            {!US ? <Txt v="mono" muted style={{ fontSize: 12 }}>Fees: {p.costText}</Txt> : null}
             {p.steps.map((s, j) => {
               const id = `${p.id}-${j}`;
               return <Check key={id} mod={MOD} checked={!!state.steps[id]} disabled={st.locked} strike label={s} onToggle={() => dispatch({ type: "step", id })} />;
             })}
-            {st.locked ? <Txt v="tiny" muted>Finish “{PHASES[i - 1].title}” to unlock, or turn on flexible order.</Txt> : null}
+            {st.locked && prev ? <Txt v="tiny" muted>Finish “{prev.title}” to unlock, or turn on flexible order.</Txt> : null}
+            {p.links && p.links.length ? (
+              <View style={{ gap: 6, marginTop: 6 }}>
+                <Txt v="eyebrow">Official pages</Txt>
+                {p.links.map(([label, url]) => (
+                  <Pressable key={url} onPress={() => { tap(); Linking.openURL(url).catch(() => {}); }} accessibilityRole="link">
+                    <Row gap={6}><Icon name="ExternalLink" size={13} color={t.tint} /><Txt v="small" color={t.tint} style={{ flex: 1 }}>{label}</Txt></Row>
+                  </Pressable>
+                ))}
+              </View>
+            ) : null}
           </View>
         ) : null}
       </Card>
@@ -115,24 +138,28 @@ function PhaseRow({ p, i }) {
 
 /* ---------- personalized timeline ---------- */
 const LABEL_W = 150, TRACK_W = 400, BAR_H = 28;
+const MOVE = { CA: [["Job offer & work permit", 6], ["PR application (est.)", 8]], AU: [["Skills assessment", 2], ["Visa (est.)", 6]], NZ: [["Job offer", 2], ["Visa (est.)", 3]] };
 function Timeline() {
   const { state } = useApp(); const BULLETIN = useBulletin();
   const t = useTheme(MOD);
   const TODAY = today();
+  const PHASES = phasesOf(state); const dest = destId(state); const US = dest === "US";
   const row = BULLETIN.rows.find((r) => r.key === state.profile.country) || BULLETIN.rows[0];
-  let cur = new Date(TODAY); let nclexStart = null; const bars = [];
+  let cur = new Date(TODAY); let examStart = null; const bars = [];
   PHASES.forEach((p, i) => {
-    if (p.id === "imm") return;
+    if (i === PHASES.length - 1) return;
     const st = phaseStatus(state, i);
     if (st.complete) { bars.push({ label: p.title, c: PHASE_COLORS[i], done: true }); return; }
-    const start = p.id === "eng" && nclexStart ? nclexStart : cur;
-    const end = addMonths(start, Math.max(0.5, DUR[p.id] * (1 - st.done / p.steps.length)));
-    if (p.id === "nclex") nclexStart = start;
+    // U.S.: most nurses prepare English alongside the NCLEX, so that phase runs in parallel.
+    const start = US && p.id === "eng" && examStart ? examStart : cur;
+    const end = addMonths(start, Math.max(0.5, p.months * (1 - st.done / p.steps.length)));
+    if (p.id === "nclex") examStart = start;
     bars.push({ label: p.title, c: PHASE_COLORS[i], start, end }); if (end > cur) cur = end;
   });
   let arrival = null, capped = false;
-  if (phaseStatus(state, 5).complete) bars.push({ label: "Immigration", c: PHASE_COLORS[5], done: true });
-  else {
+  const lastI = PHASES.length - 1;
+  if (phaseStatus(state, lastI).complete) bars.push({ label: PHASES[lastI].title, c: PHASE_COLORS[5], done: true });
+  else if (US) {
     const offerEnd = addMonths(cur, 6), pd = addMonths(cur, 3);
     const gap = (pd - new Date(row.fa + "T00:00:00")) / (86400000 * 30.44);
     const queueEnd = gap > 0 ? addMonths(TODAY, (12 * gap) / row.rate) : offerEnd;
@@ -141,6 +168,10 @@ function Timeline() {
     if (ready > offerEnd) bars.push({ label: "Visa queue (est.)", c: PHASE_COLORS[4], start: offerEnd, end: ready, wait: true });
     arrival = addMonths(ready, 4);
     bars.push({ label: "NVC, medical & interview", c: PHASE_COLORS[3], start: ready, end: arrival });
+  } else {
+    let start = cur;
+    MOVE[dest].forEach(([label, m], k) => { const end = addMonths(start, m); bars.push({ label, c: PHASE_COLORS[5 - k], start, end, wait: k === 1 }); start = end; });
+    arrival = start;
   }
   let spanEnd = arrival || addMonths(TODAY, 12);
   if (spanEnd - TODAY > 96 * 30.44 * 86400000) { spanEnd = addMonths(TODAY, 96); capped = true; }
@@ -153,7 +184,7 @@ function Timeline() {
       <View style={{ gap: 4 }}>
         <Txt v="eyebrow">Personalized timeline</Txt>
         <Txt v="h2">Projected path to arrival</Txt>
-        <Txt v="small" muted>From today, based on your progress, typical phase lengths, and the {row.name} EB-3 queue at {row.rate} months of bulletin movement per year.</Txt>
+        <Txt v="small" muted>{US ? `From today, based on your progress, typical phase lengths, and the ${row.name} EB-3 queue at ${row.rate} months of bulletin movement per year.` : "From today, based on your progress and typical phase lengths. Visa times vary a lot; see the Visa tab for current draws and processing times."}</Txt>
       </View>
       <Grad mod={MOD} style={{ borderRadius: 18, padding: 14, flexDirection: "row", alignItems: "center", gap: 12 }}>
         <View style={{ width: 42, height: 42, borderRadius: 14, backgroundColor: "rgba(255,255,255,0.2)", alignItems: "center", justifyContent: "center" }}>
@@ -200,7 +231,7 @@ function Timeline() {
           })}
         </View>
       </HScroll>
-      <Txt v="tiny" muted>Estimates only. Bulletin movement is unpredictable and can retrogress. Change your chargeability country in Settings or on the Visa tab.</Txt>
+      <Txt v="tiny" muted>{US ? "Estimates only. Bulletin movement is unpredictable and can retrogress. Change your chargeability country in Settings or on the Visa tab." : "Estimates only, for planning. Regulator and visa processing times change often; check the official pages linked in each phase."}</Txt>
     </Card>
   );
 }
@@ -209,15 +240,19 @@ function Timeline() {
 function CostTracker() {
   const { state, dispatch } = useApp();
   const t = useTheme(MOD);
-  const [f, setF] = useState({ phase: "cred", label: "", amount: "" }); const [err, setErr] = useState("");
-  const pays = state.payments || [];
+  const PHASES = phasesOf(state); const dest = destId(state); const US = dest === "US"; const cur = destOf(dest).cur;
+  const fmt = (n) => moneyIn(dest, n);
+  const [f, setF] = useState({ phase: PHASES[0].id, label: "", amount: "" }); const [err, setErr] = useState("");
+  useEffect(() => { if (!PHASES.some((p) => p.id === f.phase)) setF((x) => ({ ...x, phase: PHASES[0].id })); }, [dest]);
+  // Payments are kept per destination (each phase id belongs to one country).
+  const pays = (state.payments || []).filter((x) => PHASES.some((p) => p.id === x.phase));
   const by = PHASES.map((p, i) => ({ p, i, sum: pays.filter((x) => x.phase === p.id).reduce((n, x) => n + (+x.amount || 0), 0) }));
   const total = by.reduce((n, x) => n + x.sum, 0);
-  const lo = PHASES.reduce((n, p) => n + p.cost[0], 0), hi = PHASES.reduce((n, p) => n + p.cost[1], 0);
+  const lo = US ? PHASES.reduce((n, p) => n + p.cost[0], 0) : 0, hi = US ? PHASES.reduce((n, p) => n + p.cost[1], 0) : 0;
   const R = 70, C = 2 * Math.PI * R; let acc = 0;
   const add = () => {
     const amt = parseFloat(String(f.amount).replace(/,/g, ""));
-    if (!f.label.trim() || !(amt > 0)) { setErr("Add what you paid for and an amount above $0."); return; }
+    if (!f.label.trim() || !(amt > 0)) { setErr(`Add what you paid for and an amount above ${US ? "$0" : cur + " 0"}.`); return; }
     dispatch({ type: "addPay", pay: { id: uid(), phase: f.phase, label: f.label.trim(), amount: amt, date: todayKey() } });
     setF({ ...f, label: "", amount: "" }); setErr("");
   };
@@ -228,7 +263,7 @@ function CostTracker() {
         <Txt v="h2">What you've actually paid</Txt>
       </View>
       <View style={{ alignItems: "center", gap: 6 }}>
-        <Svg width={210} height={210} viewBox="0 0 200 200" accessibilityLabel={`Total paid ${money(total)}`}>
+        <Svg width={210} height={210} viewBox="0 0 200 200" accessibilityLabel={`Total paid ${fmt(total)}`}>
           <Circle cx={100} cy={100} r={R} fill="none" stroke={t.c.sunk} strokeWidth={26} />
           {by.filter((x) => x.sum > 0).map((x) => {
             const len = (x.sum / Math.max(total, 1)) * C;
@@ -236,17 +271,17 @@ function CostTracker() {
               strokeDasharray={`${Math.max(0, len - 2)} ${C}`} strokeDashoffset={-acc} rotation={-90} origin="100, 100" />;
             acc += len; return el;
           })}
-          <SvgText x={100} y={100} textAnchor="middle" fontSize={26} fontWeight="800" fill={t.c.ink} fontFamily={FONTS.displayX}>{money(total)}</SvgText>
+          <SvgText x={100} y={100} textAnchor="middle" fontSize={US ? 26 : 21} fontWeight="800" fill={t.c.ink} fontFamily={FONTS.displayX}>{fmt(total)}</SvgText>
           <SvgText x={100} y={120} textAnchor="middle" fontSize={10} fill={t.c.muted} fontFamily={FONTS.mono} letterSpacing={1}>PAID SO FAR</SvgText>
         </Svg>
-        <Txt v="small" muted style={{ textAlign: "center" }}>Estimated journey total {money(lo)}–{money(hi)}</Txt>
+        <Txt v="small" muted style={{ textAlign: "center" }}>{US ? `Estimated journey total ${money(lo)}–${money(hi)}` : `Log amounts in ${cur}. Fees for each phase are listed on the roadmap above.`}</Txt>
       </View>
       <Grid min={140} gap={8}>
         {by.map((x) => (
           <Row key={x.p.id} gap={8} style={{ flexGrow: 1, paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, backgroundColor: t.c.sunk }}>
             <View style={{ width: 10, height: 10, borderRadius: 3, backgroundColor: PHASE_COLORS[x.i] }} />
             <Txt v="small" numberOfLines={1} style={{ flex: 1 }}>{x.p.title}</Txt>
-            <Txt v="mono" style={{ fontSize: 12 }}>{money(x.sum)}</Txt>
+            <Txt v="mono" style={{ fontSize: 12 }}>{fmt(x.sum)}</Txt>
           </Row>
         ))}
       </Grid>
@@ -254,7 +289,7 @@ function CostTracker() {
         <Select mod={MOD} label="Phase" value={f.phase} options={PHASES.map((p) => ({ value: p.id, label: p.title }))} onChange={(v) => setF({ ...f, phase: v })} />
         <Row gap={10} center={false}>
           <Field mod={MOD} style={{ flex: 1.6 }} label="Paid for" value={f.label} onChangeText={(v) => setF({ ...f, label: v })} placeholder="e.g. IELTS fee" />
-          <Field mod={MOD} style={{ flex: 1 }} label="Amount ($)" value={f.amount} onChangeText={(v) => setF({ ...f, amount: v.replace(/[^\d.,]/g, "") })} keyboardType="numeric" mono placeholder="0" />
+          <Field mod={MOD} style={{ flex: 1 }} label={US ? "Amount ($)" : `Amount (${cur})`} value={f.amount} onChangeText={(v) => setF({ ...f, amount: v.replace(/[^\d.,]/g, "") })} keyboardType="numeric" mono placeholder="0" />
         </Row>
         {err ? <Txt v="small" color={t.c.crit}>{err}</Txt> : null}
         <Btn mod={MOD} icon="Plus" title="Log" onPress={add} />
@@ -267,7 +302,7 @@ function CostTracker() {
               <Txt v="small" numberOfLines={2}>{x.label}</Txt>
               {x.sample ? <Chip text="Sample" tone="mute" /> : null}
             </View>
-            <Txt v="mono">{money(x.amount)}</Txt>
+            <Txt v="mono">{fmt(x.amount)}</Txt>
             <Pressable onPress={() => { tap(); dispatch({ type: "delPay", id: x.id }); }} accessibilityRole="button" accessibilityLabel={"Remove " + x.label} hitSlop={8}
               style={{ padding: 5, borderRadius: 8, borderWidth: 1, borderColor: t.c.line, backgroundColor: t.c.surface }}>
               <Icon name="X" size={13} color={t.c.muted} />

@@ -7,6 +7,9 @@ import { useApp } from "../../src/state";
 import { SPONSORS, AEIRP_LIST, PHASE_COLORS } from "../../src/data/content";
 import { useBulletin, useBulletinSource, monthName } from "../../src/bulletin";
 import { fmtDate, parseISO, money, clamp } from "../../src/util";
+import { DestSwitcher, useDest } from "../../src/dest";
+import { CountryMonitor, CountryDirectory, COUNTRY_HERO } from "../../src/visaGlobal";
+import { useMigration } from "../../src/migration";
 
 const MOD = "imm";
 const BULLETIN_URL = "https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html";
@@ -290,11 +293,28 @@ function Offers() {
 
 export default function Visa() {
   const [chart, setChart] = useState("fa");
+  const { dest, info } = useDest(); const BULLETIN = useBulletin(); const mig = useMigration(dest);
+  const ph = BULLETIN.rows.find((r) => r.key === "ph"), row = BULLETIN.rows.find((r) => r.key === "row");
+  if (dest !== "US") {
+    const d = mig.migration;
+    const stats = dest === "CA" ? [["Latest draw", mig.headline.value], ["Draws this year", String(d.express_entry.draws.filter((x) => x.date.slice(0, 4) === (mig.checked || "").slice(0, 4)).length)], ["PNP streams", String(d.pnp.length)]]
+      : dest === "AU" ? [["Points minimum", String(d.points.minimum)], ["RN occupations", String(d.occupations.length)], ["States", String(d.states.length)]]
+      : [["Green List", "Tier 1"], ["AEWV", "Up to 5 yrs"], ["Checked", fmtDate(mig.checked)]];
+    return (
+      <Screen mod={MOD}>
+        <Hero mod={MOD} icon="Plane" eyebrow={`Module 4 · Immigration · ${info.flag} ${info.short}`} title={COUNTRY_HERO[dest].title} sub={COUNTRY_HERO[dest].sub} stats={stats} />
+        <Card mod={MOD}><DestSwitcher mod={MOD} /></Card>
+        <CountryMonitor dest={dest} />
+        <CountryDirectory dest={dest} />
+      </Screen>
+    );
+  }
   return (
     <Screen mod={MOD}>
-      <Hero mod={MOD} icon="Plane" eyebrow="Module 4 · Immigration" title="EB-3 visa bulletin monitor"
-        sub="Priority dates from the State Department's October 2026 bulletin. Final Action dates decide when a visa can be issued; Dates for Filing decide when you may submit documents."
-        stats={[["Bulletin", "Oct 2026"], ["Philippines FA", "15 Aug 2023"], ["Rest of world FA", "15 May 2024"]]} />
+      <Hero mod={MOD} icon="Plane" eyebrow="Module 4 · Immigration · 🇺🇸 U.S." title="EB-3 visa bulletin monitor"
+        sub={`Priority dates from the State Department's ${monthName(BULLETIN.month)} bulletin. Final Action dates decide when a visa can be issued; Dates for Filing decide when you may submit documents.`}
+        stats={[["Bulletin", monthName(BULLETIN.month).replace(/^(\w{3})\w* /, "$1 ")], ["Philippines FA", ph ? fmtDate(ph.fa) : "—"], ["Rest of world FA", row ? fmtDate(row.fa) : "—"]]} />
+      <Card mod={MOD}><DestSwitcher mod={MOD} /></Card>
       <Bulletin chart={chart} setChart={setChart} />
       <Calculator chart={chart} />
       <SponsorDirectory />

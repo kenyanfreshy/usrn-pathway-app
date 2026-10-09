@@ -1,0 +1,249 @@
+{
+  "_about": "Live migration data for the Canada, Australia and New Zealand monitors on the Visa tab. See data/README.md.",
+  "checked": "2026-10-09",
+  "CA": {
+    "checked": "2026-10-09",
+    "migration": {
+      "express_entry": {
+        "summary": "IRCC holds category-based Express Entry draws for 'Healthcare and social services occupations'. Registered nurses (NOC 31301) qualify if they have at least 12 months of full-time (or equal part-time) work in that one occupation within the last 3 years, in Canada or abroad, and also meet a federal program (e.g. Federal Skilled Worker). Draws are not on a fixed schedule; invited candidates must meet the minimum CRS score of that round. In 2026 there have been three healthcare draws so far.",
+        "draws": [
+          {
+            "date": "2026-09-04",
+            "category": "Healthcare and social services occupations",
+            "crs": 475,
+            "invitations": 3500
+          },
+          {
+            "date": "2026-06-25",
+            "category": "Healthcare and social services occupations",
+            "crs": 475,
+            "invitations": 4000
+          },
+          {
+            "date": "2026-02-20",
+            "category": "Healthcare and social services occupations",
+            "crs": 467,
+            "invitations": 4000
+          }
+        ],
+        "noc": "31301 (Registered nurses and registered psychiatric nurses); 31302 for nurse practitioners",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds.html"
+      },
+      "pnp": [
+        {
+          "province": "Alberta",
+          "stream": "Dedicated Health Care Pathway (Express Entry and non-Express Entry)",
+          "status": "open, by invitation (draws Jun–Sep 2026, as of 2026-10-09)",
+          "notes": "2026 allocation 518, 342 issued (176 left); Jun–Sep 2026 minimum scores ranged 45–64.",
+          "url": "https://www.alberta.ca/aaip-processing-information"
+        },
+        {
+          "province": "Alberta",
+          "stream": "Alberta Express Entry Stream – Priority Sectors (Health Care)",
+          "status": "by invitation (last draw 2026-09-18, min score 62, 100 invitations)",
+          "notes": "For candidates in the federal Express Entry pool with health care experience.",
+          "url": "https://www.alberta.ca/aaip-processing-information"
+        },
+        {
+          "province": "British Columbia",
+          "stream": "Skills Immigration – Health Authority stream (CARE priority)",
+          "status": "stream listed on WelcomeBC; current intake/invitation status not stated (check BC PNP invitations page)",
+          "notes": "Needs a full-time, indeterminate job offer from a BC health authority employer and employer support. Application fee CAD 1,750.",
+          "url": "https://www.welcomebc.ca/immigrate-to-b-c/skills-immigration"
+        },
+        {
+          "province": "Ontario",
+          "stream": "Ontario Workforce Priority stream",
+          "status": "launched 2026; the only open OINP stream (no separate healthcare stream)",
+          "notes": "Replaced the old OINP streams (incl. Express Entry streams) in 2026; needs a qualifying employer job offer. Some nursing roles have special experience rules.",
+          "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream"
+        },
+        {
+          "province": "Saskatchewan",
+          "stream": "International Healthcare Worker EOI Pool / Health Talent Pathway",
+          "status": "open (EOI pool accepting profiles; no cap stated)",
+          "notes": "RNs (NOC 31301) are eligible; employers may contact you; with a job offer you can apply to the Health Talent Pathway.",
+          "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-healthcare-worker-eoi-pool"
+        },
+        {
+          "province": "Nova Scotia",
+          "stream": "Nova Scotia Nominee Program (EOI selection)",
+          "status": "by invitation (2026 priorities include Health & Social Services)",
+          "notes": "Province selects from its EOI pool; no public healthcare draw list.",
+          "url": "https://liveinnovascotia.com/node/72"
+        }
+      ],
+      "notes": [
+        "Express Entry needs an IRCC-approved language test (e.g. IELTS General Training, CELPIP-General, PTE Core, TEF/TCF). IELTS Academic and CELBAN are for the nursing college, not for Express Entry.",
+        "You do not need a Canadian nursing license to get an Express Entry invitation, but you need one to work as an RN in Canada.",
+        "Ontario's OINP was redesigned in 2026: all old streams, including the Express Entry Human Capital Priorities and Employer Job Offer streams, are closed.",
+        "Quebec runs its own immigration selection and requires French; check Quebec's programs separately."
+      ]
+    }
+  },
+  "AU": {
+    "checked": "2026-10-09",
+    "migration": {
+      "occupations": [
+        {
+          "anzsco": "254412",
+          "title": "Registered Nurse (Aged Care)"
+        },
+        {
+          "anzsco": "254413",
+          "title": "Registered Nurse (Child and Family Health)"
+        },
+        {
+          "anzsco": "254414",
+          "title": "Registered Nurse (Community Health)"
+        },
+        {
+          "anzsco": "254415",
+          "title": "Registered Nurse (Critical Care and Emergency)"
+        },
+        {
+          "anzsco": "254416",
+          "title": "Registered Nurse (Developmental Disability)"
+        },
+        {
+          "anzsco": "254417",
+          "title": "Registered Nurse (Disability and Rehabilitation)"
+        },
+        {
+          "anzsco": "254418",
+          "title": "Registered Nurse (Medical)"
+        },
+        {
+          "anzsco": "254421",
+          "title": "Registered Nurse (Medical Practice)"
+        },
+        {
+          "anzsco": "254422",
+          "title": "Registered Nurse (Mental Health)"
+        },
+        {
+          "anzsco": "254423",
+          "title": "Registered Nurse (Perioperative)"
+        },
+        {
+          "anzsco": "254424",
+          "title": "Registered Nurse (Surgical)"
+        },
+        {
+          "anzsco": "254425",
+          "title": "Registered Nurse (Paediatrics)"
+        },
+        {
+          "anzsco": "254499",
+          "title": "Registered Nurses nec"
+        }
+      ],
+      "points": {
+        "minimum": 65,
+        "summary": "You need at least 65 points (age, English, work experience, qualifications, partner, Australian study and more) to lodge an Expression of Interest in SkillSelect. For the 189 visa, Home Affairs invites the highest-ranked EOIs per occupation in periodic rounds; ties are broken by date of effect. State nomination adds 5 points (190) or 15 points (491) and follows each state's own rules."
+      },
+      "rounds": [
+        {
+          "date": "2026-06-04",
+          "visa": "189",
+          "notes": "Reported by third parties to include RN occupations; invitation numbers and point cut-offs not confirmed on the official Home Affairs page."
+        },
+        {
+          "date": "2025-11-13",
+          "visa": "189",
+          "notes": "Reported by third parties to include RN occupations; cut-offs not confirmed on the official Home Affairs page."
+        },
+        {
+          "date": "2025-08-21",
+          "visa": "189 and 491 (family sponsored)",
+          "notes": "Reported by third parties; invitation numbers and RN cut-offs not confirmed on the official Home Affairs page."
+        }
+      ],
+      "states": [
+        {
+          "state": "NSW",
+          "status": "Registered Nurses (ANZSCO 2544) are on the NSW Skills List (190) and NSW Regional Skills List (491). 2026-27 round status not shown on the official page.",
+          "url": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists"
+        },
+        {
+          "state": "VIC",
+          "status": "2026-27 program reportedly not yet published as of early Oct 2026; nursing and allied health have been a Victorian priority group.",
+          "url": "https://liveinmelbourne.vic.gov.au/migrate/skilled-migration-visas"
+        },
+        {
+          "state": "QLD",
+          "status": "2026-27 program reportedly not yet open as of early Oct 2026; check official site.",
+          "url": "https://migration.qld.gov.au/"
+        },
+        {
+          "state": "WA",
+          "status": "State Nominated Migration Program (General and Graduate streams); Healthcare and Social Assistance is a priority sector in WA ranking. 2026-27 round status not confirmed on official page.",
+          "url": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program"
+        },
+        {
+          "state": "SA",
+          "status": "Reportedly reopened for 2026-27 on 26 Aug 2026; check SA occupation list before lodging a Registration of Interest.",
+          "url": "https://migration.sa.gov.au/"
+        },
+        {
+          "state": "TAS",
+          "status": "2026-27 program opened 17 Aug 2026 (official site); check nurse eligibility before lodging a Registration of Interest.",
+          "url": "https://www.migration.tas.gov.au/"
+        },
+        {
+          "state": "ACT",
+          "status": "Reportedly open via new portal since 30 Jul 2026; occupation list under review.",
+          "url": "https://www.act.gov.au/migration"
+        },
+        {
+          "state": "NT",
+          "status": "Reportedly reopened 21 Aug 2026; offline Priority Occupation stream remains closed.",
+          "url": "https://theterritory.com.au/migrate"
+        }
+      ],
+      "sid": {
+        "summary": "The Skills in Demand visa (subclass 482) replaced the Temporary Skill Shortage visa in December 2024. It has three streams: Core Skills (occupation on the Core Skills Occupation List and salary at or above the Core Skills Income Threshold), Specialist Skills (higher salary threshold), and Labour Agreement. Stay is up to 4 years, with no age limit, and it can lead to permanent residence through the Employer Nomination Scheme (186). The Core Skills Income Threshold was reported as AUD 79,499 for applications lodged from 1 July 2026. Many public health services (for example SA Health) sponsor nurses for roles they cannot fill locally.",
+        "url": "https://www.smartmoveaustralia.gov.au/visa-pathways/skills-demand-visa"
+      },
+      "notes": [
+        "ANMAC skills assessment is separate from Ahpra registration; a positive ANMAC result does not mean you can register to practice.",
+        "Home Affairs still uses ANZSCO codes for migration as of mid-2026; a move to the new OSCA classification is expected but not yet adopted.",
+        "State nomination programs reset each July and allocations are often used up before June; check official state pages often.",
+        "Employers such as WA Health sponsor only experienced nurses in areas of critical shortage, and will not sponsor visas for bridging courses or English testing."
+      ]
+    }
+  },
+  "NZ": {
+    "checked": "2026-10-09",
+    "migration": {
+      "green_list": {
+        "tier": "Tier 1 – Straight to Residence (no prior NZ work time needed)",
+        "occupation": "Registered Nurse (Green List Tier 1 health roles, e.g. Registered Nurse (Aged Care) and Registered Nurse (Critical Care and Emergency) – check the INZ Green List roles search for your exact occupation)",
+        "requirements": [
+          "Full New Zealand registration with the Nursing Council and a current Annual Practising Certificate",
+          "Job offer or current job in the Green List Tier 1 role with an accredited employer",
+          "Job must be permanent or fixed-term for at least 12 months (or contracts totalling at least 6 months)",
+          "Pay at least the rate set for that Tier 1 role; if none is set, at least the median wage (NZD 35.00/hour, from 9 March 2026)",
+          "Aged 55 or younger when you apply",
+          "Good health, good character and English ability; genuine relationship with any partner or children included"
+        ],
+        "processing": "80% of Straight to Residence applications decided within 3 months (INZ); fee from NZD 6,450",
+        "url": "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/straight-to-residence-visa"
+      },
+      "aewv": {
+        "summary": "Temporary work visa for a full-time job (at least 30 hours/week) with an accredited employer that has an approved job check. Since 10 March 2025 the AEWV no longer requires the median wage: the employer must pay at least the NZ minimum wage and the NZ market rate for the role. Skill evidence is not needed if you hold the required occupational registration or are Green List eligible. Valid up to 5 years; fee from NZD 1,540; 80% processed within 5 weeks. Partners and children apply for their own visas, and supporting dependent children has an income threshold.",
+        "url": "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/accredited-employer-work-visa"
+      },
+      "smc": {
+        "summary": "Residence visa needing 6 skilled resident points from one of: qualification (4–6), NZ occupational registration (3–6, by length of training), or income (3–6 at 1.5x, 2x or 3x the SMC wage threshold), topped up by up to 3 points for NZ skilled work (1 point per year, max 3). You also need a skilled job in NZ, age 55 or under, English, health and character. Fee from NZD 6,450. Nurses who qualify for Green List Tier 1 usually use Straight to Residence instead.",
+        "url": "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/skilled-migrant-category-resident-visa"
+      },
+      "notes": [
+        "Registration comes first: you cannot apply for Straight to Residence as a nurse until you are registered with the Nursing Council.",
+        "Health New Zealand is an accredited employer and runs a Health Immigration Service for candidates; it warns that its recruitment never asks candidates for money.",
+        "The immigration median wage rose to NZD 35.00/hour on 9 March 2026; it matters for residence, not for AEWV pay since March 2025.",
+        "A National Occupation List (NOL) is replacing ANZSCO for AEWV; NOL codes are not used for SMC, so check which code your visa uses."
+      ]
+    }
+  }
+}

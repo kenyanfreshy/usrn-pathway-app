@@ -11,6 +11,8 @@ import { useApp } from "../src/state";
 import { CHART_CASES, LICENSE_DOS, LICENSE_DONTS, INSURERS } from "../src/data/content";
 import { LESSONS, PASS_MARK, SBAR_SCENARIOS, CHART_CARDS } from "../src/data/bedside";
 import { fmtDate } from "../src/util";
+import { DestSwitcher } from "../src/dest";
+import { countryData, destId, destOf } from "../src/data/global";
 
 const MOD = "bedside";
 const LETTERS = ["a", "b", "c", "d", "e", "f"];
@@ -21,19 +23,54 @@ export default function Bedside() {
   const [view, setView] = useState("lessons");
   const lessons = state.lessons || {};
   const doneCount = LESSONS.filter((l) => isDone(lessons[l.id])).length;
+  const dest = destId(state); const info = destOf(dest);
   return (
     <Screen mod={MOD}>
       <BackRow title="Bedside" mod={MOD} />
       <Hero mod={MOD} icon="Stethoscope" eyebrow="Module 5 · Clinical transition" title="Ready for the U.S. bedside"
-        sub="Six lessons on the parts of U.S. hospital practice that most surprise internationally educated nurses. Pass each knowledge check to earn your U.S. Clinical Readiness Certificate."
+        sub={dest === "US" ? "Six lessons on the parts of U.S. hospital practice that most surprise internationally educated nurses. Pass each knowledge check to earn your U.S. Clinical Readiness Certificate."
+          : `Six lessons on U.S. hospital practice, plus practice notes for ${info.name} on the Country tab. Most skills (SBAR, delegation, safe charting) carry over; the laws and systems differ.`}
         stats={[["Lessons", LESSONS.length], ["Completed", doneCount + " / " + LESSONS.length], ["Total time", LESSONS.reduce((n, l) => n + l.mins, 0) + " min"]]} />
       <TutorCard mod={MOD} />
-      <Seg mod={MOD} value={view} onChange={setView} options={[{ id: "lessons", label: "Lessons", icon: "BookOpen" }, { id: "sbar", label: "SBAR", icon: "PhoneCall" }, { id: "chart", label: "Charting", icon: "FileEdit" }, { id: "license", label: "License", icon: "ShieldCheck" }]} />
+      <Seg mod={MOD} value={view} onChange={setView} options={[{ id: "lessons", label: "Lessons", icon: "BookOpen" }, { id: "sbar", label: "SBAR", icon: "PhoneCall" }, { id: "chart", label: "Charting", icon: "FileEdit" }, { id: "license", label: "License", icon: "ShieldCheck" }, { id: "country", label: "Country", icon: "Globe" }]} />
       {view === "lessons" ? <Lessons lessons={lessons} doneCount={doneCount} dispatch={dispatch} name={[state.profile.name, state.profile.lastName].filter(Boolean).join(" ")} /> : null}
       {view === "sbar" ? <SbarBuilder name={state.profile.name} /> : null}
       {view === "chart" ? <><FlipCards /><ChartTrainer /></> : null}
       {view === "license" ? <LicenseHub /> : null}
+      {view === "country" ? <CountryNotes dest={dest} /> : null}
     </Screen>
+  );
+}
+
+/* ---------------- country practice notes ---------------- */
+const NOTE_ICONS = ["Landmark", "Users", "Hospital", "Lock", "PhoneCall", "HeartPulse", "Scale"];
+function CountryNotes({ dest }) {
+  const t = useTheme(MOD); const d = countryData(dest); const info = destOf(dest);
+  return (
+    <View style={{ gap: 12 }}>
+      <Card mod={MOD}><DestSwitcher mod={MOD} /></Card>
+      {!d ? (
+        <Note mod={MOD} icon="Info" title="U.S. practice">The Lessons, SBAR, Charting and License tabs are written for U.S. hospitals. Pick Canada, Australia or New Zealand above to see how practice differs there.</Note>
+      ) : (
+        <>
+          <View style={{ gap: 4 }}>
+            <Txt v="eyebrow">{info.flag} {info.name}</Txt>
+            <Txt v="h2">{d.bedside.title}</Txt>
+            <Txt v="small" muted>What changes when you move from the U.S.-style lessons in this module to the bedside in {info.name}.</Txt>
+          </View>
+          {d.bedside.points.map(([h, text], k) => (
+            <Card key={h} mod={MOD} style={{ gap: 8 }}>
+              <Row gap={10}>
+                <IconTile mod={MOD} icon={NOTE_ICONS[k % NOTE_ICONS.length]} size={36} />
+                <Txt v="h3" style={{ flex: 1 }}>{h}</Txt>
+              </Row>
+              <Txt v="small">{text}</Txt>
+            </Card>
+          ))}
+          <Txt v="tiny" muted>Checked {fmtDate(d.checked)} against the regulator's published standards. Your employer's policies come first.</Txt>
+        </>
+      )}
+    </View>
   );
 }
 

@@ -1,0 +1,226 @@
+{
+  "country": "CA",
+  "checked": "2026-10-09",
+  "pathway": {
+    "title": "Registered Nurse in Canada",
+    "regulator": "Each province has its own nursing college: College of Nurses of Ontario (CNO), BC College of Nurses and Midwives (BCCNM), College of Registered Nurses of Alberta (CRNA), Nova Scotia College of Nursing, CRNS (Saskatchewan), CRNM (Manitoba); in Quebec, the Ordre des infirmieres et infirmiers du Quebec (OIIQ)",
+    "summary": "You choose one province and apply to its nursing college. Ontario, BC and Alberta no longer require an NNAS report: you verify your education with an approved credential service (or, in BC, through Inspire Global Assessments), meet the English requirement, close any gaps (Ontario now requires a Transition to Practice course for IENs), pass the NCLEX-RN and the provincial jurisprudence requirement. Permanent residence usually comes through Express Entry (healthcare category draws, NOC 31301) or a provincial nominee healthcare stream, often after a job offer.",
+    "phases": [
+      {
+        "id": "ca-1",
+        "title": "Choose a province and verify your education",
+        "sub": "NNAS is now optional in ON, BC and AB",
+        "time": "varies (often 1–3 months for credential reports)",
+        "cost": "varies by credential service (paid to the provider)",
+        "steps": [
+          "Pick one province first. Each college has its own rules, and a license in one province can later be used to apply in another.",
+          "Ontario (CNO): have your education validated by a CNO-approved provider (WES, ICAS or BCIT ICES). CNO still accepts NNAS expedited reports.",
+          "British Columbia (BCCNM): NNAS is no longer required. Apply to Inspire Global Assessments and BCCNM at the same time.",
+          "Alberta (CRNA): NNAS is not needed. Use an education assessment (IQAS, WES, U of T CES, ICAS or BCIT ICES), or registration verification if you are licensed in Australia, India, Ireland, Jamaica, New Zealand, Nigeria, Philippines, UK or US.",
+          "Other provinces: check the college. Nova Scotia has had a faster route since 2023 for nurses licensed in 7 countries; some colleges still use NNAS.",
+          "Ask your school and regulator to send documents directly; colleges reject copies you send yourself."
+        ],
+        "links": [
+          ["CNO approved credential assessment providers", "https://www.cno.org/become-a-nurse/approved-educational-credential-assessment-service-providers"],
+          ["BCCNM: internationally educated RN applicants", "https://bccnm.ca/RN/applications_registration/how_to_apply/InternationalEN/Pages/Default.aspx"],
+          ["CRNA application FAQs", "https://nurses.ab.ca/nursing-in-alberta/application-support/application-faqs/"],
+          ["NNAS", "https://www.nnas.ca/"]
+        ]
+      },
+      {
+        "id": "ca-2",
+        "title": "Apply to the nursing college and prove English",
+        "sub": "Application, fees and language test",
+        "time": "varies; CNO estimates about 12 months for the whole process",
+        "cost": "CNO application CAD 433 + HST (2026); BCCNM international assessment CAD 690, currently paid by the BC government for IEN applicants; CRNA fee not verified",
+        "steps": [
+          "Create your own online account with the college and submit the application yourself. Colleges warn against agents who apply for you.",
+          "Book an accepted English test. CELBAN minimum: Reading 8, Listening 9, Writing 7, Speaking 8.",
+          "IELTS Academic minimum (ON, BC, AB): overall 7.0, Listening 7.0, Speaking 7.0, Reading 6.5, Writing 6.5. Results are valid 2 years.",
+          "Alberta accepts only CELBAN or IELTS Academic. Ontario and BC also accept OET and PTE Academic; Ontario also accepts IELTS General Training. CELPIP is not accepted by these colleges.",
+          "You may be exempt if you studied nursing in English or practiced recently in an English setting (rules differ by province).",
+          "Arrange employer and license verifications, plus a criminal record check."
+        ],
+        "links": [
+          ["CNO language proficiency", "https://www.cno.org/become-a-nurse/registration-requirements/proficiency-in-english-or-french"],
+          ["BCCNM English proficiency", "https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx"],
+          ["CRNA English language proficiency", "https://www.nurses.ab.ca/nursing-in-alberta/registration-requirements/english-language-proficiency/"],
+          ["CNO fees", "https://www.cno.org/become-a-nurse/fees/application-membership-fees"]
+        ]
+      },
+      {
+        "id": "ca-3",
+        "title": "Competence assessment and bridging",
+        "sub": "Close any gaps the college finds",
+        "time": "varies (weeks for a course to a year or more for a full program)",
+        "cost": "varies; BC offers an IEN bursary (return-of-service)",
+        "steps": [
+          "BC: Inspire assesses your English, education and nursing competence. Most IENs need a competency assessment; BCCNM then lists any courses you must take.",
+          "Ontario: since April 1, 2025, IENs must complete a CNO-approved Transition to Practice course (offered by colleges and universities such as Centennial, Conestoga, Seneca, TMU, U of T).",
+          "Ontario: show nursing practice in the last 3 years. If you do not have it, the SPEP supervised practice program can meet this.",
+          "Alberta: if your practice is not current, options include the ARNAP assessment, the CRNA supervised practice program or a bridging program (finish bridging before you apply).",
+          "Quebec: OIIQ may require an integration program at a cegep before the exam."
+        ],
+        "links": [
+          ["CNO Transition to Practice courses", "https://www.cno.org/become-a-nurse/approved-nursing-programs/transition-to-practice-courses"],
+          ["Ontario Health SPEP", "https://www.ontariohealth.ca/news/ontario-health-boosts-nursing-workforce-with-innovative-program"],
+          ["BCCNM IEN FAQ", "https://bccnm.ca/RN/applications_registration/how_to_apply/InternationalEN/Pages/Frequentlyaskedquestions.aspx"],
+          ["CRNA IEN requirements", "https://nurses.ab.ca/strengthening-the-system/the-requirements-to-join-the-register-in-alberta-internationally-educated-nurses"]
+        ]
+      },
+      {
+        "id": "ca-4",
+        "title": "Pass the NCLEX-RN",
+        "sub": "Same exam as the United States",
+        "time": "test dates usually within about 30 days of booking",
+        "cost": "CAD 360 + tax per attempt; rises to CAD 570 for registrations from Feb 1, 2027",
+        "steps": [
+          "Wait until your college says you are eligible. Do not register before that.",
+          "Register and pay with Pearson VUE to get your Authorization to Test (ATT). In BC it is valid 90 days.",
+          "If you already passed NCLEX-RN (for example for a U.S. license), send the NCSBN result to the college; Alberta accepts passes from 1982 on.",
+          "If you fail, wait at least 45 days before a retake. Alberta asks transferring applicants to pass within 2 years of eligibility.",
+          "You can take the exam outside the province you apply to."
+        ],
+        "links": [
+          ["BCCNM NCLEX-RN exam", "https://bccnm.ca/RN/applications_registration/exam/Pages/Default.aspx"],
+          ["CNO RN examinations", "https://www.cno.org/become-a-nurse/examinations/registered-nurse-examinations"],
+          ["NCSBN fee change notice", "https://ncsbn.org/news/nclex-fee-changes-feb1"]
+        ]
+      },
+      {
+        "id": "ca-5",
+        "title": "Jurisprudence and registration",
+        "sub": "Get your license to practice",
+        "time": "weeks after all requirements are met",
+        "cost": "CNO: jurisprudence CAD 40 + initial registration CAD 69 + HST, then CAD 368 + HST yearly (2026); BCCNM practicing license CAD 781.10/year; CRNA: CNPS liability protection CAD 88 (fee for permit not verified)",
+        "steps": [
+          "Ontario: pass the online RN Jurisprudence Exam (any time after you apply), then pay the registration fee.",
+          "Alberta: complete the two jurisprudence e-learning modules in College Connect and buy CNPS liability protection.",
+          "BC: review BC practice standards, including the Indigenous Cultural Safety, Cultural Humility and Anti-racism standard, then pay the license fee.",
+          "Working before full registration: Ontario Temporary Class (needs a job offer from an approved employer, works under supervision); BC provisional registration while waiting for NCLEX.",
+          "Quebec: pass the OIIQ professional exam (3 tries within 2 years). Without the required French you can get a temporary permit for up to 1 year, renewable up to 3 times, while you pass the OQLF French exam."
+        ],
+        "links": [
+          ["CNO jurisprudence exam", "https://www.cno.org/become-a-nurse/examinations/jurisprudence-examination"],
+          ["CNO Temporary Class", "https://www.cno.org/become-a-nurse/classes-of-registration/temporary-class"],
+          ["BCCNM RN fees", "https://bccnm.ca/RN/applications_registration/fees"],
+          ["CRNA substantial equivalence worksheet", "https://cms.nurses.ab.ca/media/zt5n5dyr/permit-requirements-worksheet_substantial-equivalence-applicants.pdf"]
+        ]
+      },
+      {
+        "id": "ca-6",
+        "title": "Work permit and permanent residence",
+        "sub": "Express Entry or a provincial nominee stream",
+        "time": "varies (months to over a year)",
+        "cost": "varies (IRCC and provincial fees; BC PNP Skills Immigration fee CAD 1,750)",
+        "steps": [
+          "Create an Express Entry profile. You need a general language test approved by IRCC and an education credential assessment for IRCC.",
+          "For the healthcare category you need at least 12 months of full-time work in one listed job (RN = NOC 31301) in the last 3 years, in Canada or abroad.",
+          "Watch healthcare category draws; recent 2026 cut-offs were 467–475 CRS.",
+          "Look at provincial healthcare streams: Alberta Dedicated Health Care Pathway, BC Health Authority stream, Saskatchewan Health Talent Pathway. Most need a job offer.",
+          "Ontario closed its old OINP streams in 2026; the new Ontario Workforce Priority stream (now the only open OINP stream) needs a qualifying Ontario job offer.",
+          "Get a work permit (usually employer-supported) if you want to work before permanent residence."
+        ],
+        "links": [
+          ["IRCC Express Entry rounds", "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds.html"],
+          ["IRCC category-based selection", "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations/category-based-selection.html"],
+          ["Alberta AAIP processing and draws", "https://www.alberta.ca/aaip-processing-information"],
+          ["BC PNP Skills Immigration", "https://www.welcomebc.ca/immigrate-to-b-c/skills-immigration"]
+        ]
+      }
+    ]
+  },
+  "migration": {
+    "express_entry": {
+      "summary": "IRCC holds category-based Express Entry draws for 'Healthcare and social services occupations'. Registered nurses (NOC 31301) qualify if they have at least 12 months of full-time (or equal part-time) work in that one occupation within the last 3 years, in Canada or abroad, and also meet a federal program (e.g. Federal Skilled Worker). Draws are not on a fixed schedule; invited candidates must meet the minimum CRS score of that round. In 2026 there have been three healthcare draws so far.",
+      "draws": [
+        {"date": "2026-09-04", "category": "Healthcare and social services occupations", "crs": 475, "invitations": 3500},
+        {"date": "2026-06-25", "category": "Healthcare and social services occupations", "crs": 475, "invitations": 4000},
+        {"date": "2026-02-20", "category": "Healthcare and social services occupations", "crs": 467, "invitations": 4000}
+      ],
+      "noc": "31301 (Registered nurses and registered psychiatric nurses); 31302 for nurse practitioners",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds.html"
+    },
+    "pnp": [
+      {"province": "Alberta", "stream": "Dedicated Health Care Pathway (Express Entry and non-Express Entry)", "status": "open, by invitation (draws Jun–Sep 2026, as of 2026-10-09)", "notes": "2026 allocation 518, 342 issued (176 left); Jun–Sep 2026 minimum scores ranged 45–64.", "url": "https://www.alberta.ca/aaip-processing-information"},
+      {"province": "Alberta", "stream": "Alberta Express Entry Stream – Priority Sectors (Health Care)", "status": "by invitation (last draw 2026-09-18, min score 62, 100 invitations)", "notes": "For candidates in the federal Express Entry pool with health care experience.", "url": "https://www.alberta.ca/aaip-processing-information"},
+      {"province": "British Columbia", "stream": "Skills Immigration – Health Authority stream (CARE priority)", "status": "stream listed on WelcomeBC; current intake/invitation status not stated (check BC PNP invitations page)", "notes": "Needs a full-time, indeterminate job offer from a BC health authority employer and employer support. Application fee CAD 1,750.", "url": "https://www.welcomebc.ca/immigrate-to-b-c/skills-immigration"},
+      {"province": "Ontario", "stream": "Ontario Workforce Priority stream", "status": "launched 2026; the only open OINP stream (no separate healthcare stream)", "notes": "Replaced the old OINP streams (incl. Express Entry streams) in 2026; needs a qualifying employer job offer. Some nursing roles have special experience rules.", "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream"},
+      {"province": "Saskatchewan", "stream": "International Healthcare Worker EOI Pool / Health Talent Pathway", "status": "open (EOI pool accepting profiles; no cap stated)", "notes": "RNs (NOC 31301) are eligible; employers may contact you; with a job offer you can apply to the Health Talent Pathway.", "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-healthcare-worker-eoi-pool"},
+      {"province": "Nova Scotia", "stream": "Nova Scotia Nominee Program (EOI selection)", "status": "by invitation (2026 priorities include Health & Social Services)", "notes": "Province selects from its EOI pool; no public healthcare draw list.", "url": "https://liveinnovascotia.com/node/72"}
+    ],
+    "notes": [
+      "Express Entry needs an IRCC-approved language test (e.g. IELTS General Training, CELPIP-General, PTE Core, TEF/TCF). IELTS Academic and CELBAN are for the nursing college, not for Express Entry.",
+      "You do not need a Canadian nursing license to get an Express Entry invitation, but you need one to work as an RN in Canada.",
+      "Ontario's OINP was redesigned in 2026: all old streams, including the Express Entry Human Capital Priorities and Employer Job Offer streams, are closed.",
+      "Quebec runs its own immigration selection and requires French; check Quebec's programs separately."
+    ]
+  },
+  "directory": [
+    {"name": "Alberta Health Services", "type": "Public health employer", "region": "Alberta", "model": "Main hospital and continuing care operator in Alberta; hires RNs and accepts international applicants.", "site": "https://www.albertahealthservices.ca/", "careers": "https://www.albertahealthservices.ca/careers/careers.aspx", "notes": "Since 2025 AHS operates hospitals under oversight of Acute Care Alberta; other services moved to Primary Care Alberta, Recovery Alberta and Assisted Living Alberta."},
+    {"name": "Vancouver Coastal Health", "type": "Public health employer", "region": "British Columbia", "model": "Regional health authority hiring RNs in Vancouver, Richmond, North Shore and coastal areas.", "site": "https://www.vch.ca/", "careers": "https://www.vch.ca/en/careers", "notes": "Talent Acquisition team supports applicants; BC Health Authority PNP stream needs a health authority job offer."},
+    {"name": "Fraser Health", "type": "Public health employer", "region": "British Columbia", "model": "Largest BC health authority (Fraser Valley and Lower Mainland); hires RNs.", "site": "https://www.fraserhealth.ca/", "careers": "https://careers.fraserhealth.ca/", "notes": "Apply through the careers site."},
+    {"name": "Interior Health", "type": "Public health employer", "region": "British Columbia", "model": "Health authority for BC's interior; has an information page for international applicants.", "site": "https://www.interiorhealth.ca/", "careers": "https://www.interiorhealth.ca/careers/information-for-international-applicants", "notes": "Directs nurses to BCCNM and Health Match BC; lists rural recruitment incentives."},
+    {"name": "Health Match BC", "type": "Government program", "region": "British Columbia", "model": "Recruitment service funded by the BC government that recruits RNs for BC public health employers.", "site": "https://www.healthmatchbc.org/", "careers": "https://applicants.healthmatchbc.org/JobsBoard/HMBC/Default.aspx", "notes": "Government-funded; the province says these recruitment services are moving to BCHealthCareers.ca."},
+    {"name": "Saskatchewan Health Authority", "type": "Public health employer", "region": "Saskatchewan", "model": "Province-wide health authority; has a page for internationally trained health professionals.", "site": "https://www.saskhealthauthority.ca/", "careers": "https://www.saskhealthauthority.ca/careers-volunteering/careers/internationally-trained-health-care-professionals", "notes": "Saskatchewan also recruits through its Healthcare Recruitment Agency and the SINP healthcare EOI pool."},
+    {"name": "Nova Scotia Health", "type": "Public health employer", "region": "Nova Scotia", "model": "Province-wide health authority hiring nurses.", "site": "https://www.nshealth.ca/", "careers": "https://jobs.nshealth.ca/", "notes": "Apply through the jobs portal."},
+    {"name": "University Health Network", "type": "Public health employer", "region": "Ontario", "model": "Large Toronto academic hospital network hiring RNs.", "site": "https://www.uhn.ca/", "careers": "https://www.uhn.ca/corporate/Careers/pages/default.aspx", "notes": "Ontario hospitals are publicly funded but hire directly."},
+    {"name": "London Health Sciences Centre", "type": "Public health employer", "region": "Ontario", "model": "Takes part in SPEP supervised practice (at least 140 hours) and works with the CARE Centre for IENs; has a new-nurse program.", "site": "https://www.lhsc.on.ca/", "careers": "https://www.lhsc.on.ca/nursing/internationally-educated-nurses", "notes": "Also hires IENs in non-nursing roles while they finish CNO registration."},
+    {"name": "Ontario Health – Supervised Practice Experience Partnership (SPEP)", "type": "Government program", "region": "Ontario", "model": "Matches IENs with CNO-approved employers for supervised practice that can meet CNO's evidence-of-practice requirement.", "site": "https://www.ontariohealth.ca/", "careers": "https://www.ontariohealth.ca/news/ontario-health-boosts-nursing-workforce-with-innovative-program", "notes": "More than 5,500 IENs completed it since 2022; about 800 employers take part."}
+  ],
+  "bedside": {
+    "title": "Practicing in Canada",
+    "points": [
+      ["Provincial colleges set the rules", "Your license is from one provincial college, and you follow its practice standards (for example CNO or BCCNM standards). The CNA Code of Ethics guides all nurses."],
+      ["RN vs RPN/LPN", "Ontario has RPNs and other provinces have LPNs. They are regulated nurses with a smaller scope; RNs take the more complex, unstable patients and coordinate care."],
+      ["Publicly funded system", "Most hospital and doctor care is paid by the province, so patients rarely pay at the bedside. Most RNs work for health authorities or public hospitals and are often in a union."],
+      ["Privacy laws", "Health information is protected by provincial laws, such as PHIPA in Ontario, and by PIPEDA federally. Only access charts of patients in your care."],
+      ["Handover and teamwork", "Structured handover (often SBAR) at shift change and transfer is expected. Nurses speak up about safety concerns and work closely with physicians, NPs and allied health."],
+      ["Cultural safety", "Indigenous cultural safety and anti-racism are part of practice standards (BC has a specific standard). Expect training on this."],
+      ["Scope limits and controlled acts", "What you can do depends on your province and class. For example, Ontario Temporary Class RNs work under supervision and cannot perform controlled acts without an order."]
+    ]
+  },
+  "sources": [
+    ["IRCC Express Entry rounds of invitations (JSON data)", "https://www.canada.ca/content/dam/ircc/documents/json/ee_rounds_123_en.json"],
+    ["IRCC Express Entry rounds page", "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds.html"],
+    ["IRCC category-based selection", "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations/category-based-selection.html"],
+    ["CNO registration guide: outside Canada", "https://www.cno.org/become-a-nurse/registration-guides/outside-canada"],
+    ["CNO beginning your application", "https://cno.org/become-a-nurse/registration-guides/outside-canada/beginning-your-application"],
+    ["CNO approved ECA providers", "https://www.cno.org/become-a-nurse/approved-educational-credential-assessment-service-providers"],
+    ["CNO proficiency in English or French", "https://www.cno.org/become-a-nurse/registration-requirements/proficiency-in-english-or-french"],
+    ["CNO fees", "https://www.cno.org/become-a-nurse/fees/application-membership-fees"],
+    ["CNO Transition to Practice courses", "https://www.cno.org/become-a-nurse/approved-nursing-programs/transition-to-practice-courses"],
+    ["CNO Temporary Class", "https://www.cno.org/become-a-nurse/classes-of-registration/temporary-class"],
+    ["CNO ARG newsletter June 2025", "https://www.cno.org/Assets/CNO/Documents/Become-a-Nurse/arg-newsletter-202506-en.pdf"],
+    ["BCCNM IEN application", "https://bccnm.ca/RN/applications_registration/how_to_apply/InternationalEN/Pages/Default.aspx"],
+    ["BCCNM IEN FAQ", "https://bccnm.ca/RN/applications_registration/how_to_apply/InternationalEN/Pages/Frequentlyaskedquestions.aspx"],
+    ["BCCNM US applicants", "https://bccnm.ca/RN/applications_registration/how_to_apply/InternationalEN/Pages/IEN_US.aspx"],
+    ["BCCNM English proficiency", "https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx"],
+    ["BCCNM fees", "https://bccnm.ca/RN/applications_registration/fees"],
+    ["BCCNM NCLEX-RN exam", "https://bccnm.ca/RN/applications_registration/exam/Pages/Default.aspx"],
+    ["CRNA application FAQs", "https://nurses.ab.ca/nursing-in-alberta/application-support/application-faqs/"],
+    ["CRNA English language proficiency", "https://www.nurses.ab.ca/nursing-in-alberta/registration-requirements/english-language-proficiency/"],
+    ["CRNA substantial equivalence worksheet", "https://cms.nurses.ab.ca/media/zt5n5dyr/permit-requirements-worksheet_substantial-equivalence-applicants.pdf"],
+    ["CRNA IEN requirements (2023)", "https://nurses.ab.ca/strengthening-the-system/the-requirements-to-join-the-register-in-alberta-internationally-educated-nurses"],
+    ["NCSBN NCLEX fee change", "https://ncsbn.org/news/nclex-fee-changes-feb1"],
+    ["NNAS", "https://www.nnas.ca/"],
+    ["Alberta AAIP processing information", "https://www.alberta.ca/aaip-processing-information"],
+    ["WelcomeBC BC PNP news", "https://www.welcomebc.ca/immigrate-to-b-c/news"],
+    ["WelcomeBC Skills Immigration", "https://www.welcomebc.ca/immigrate-to-b-c/skills-immigration"],
+    ["Saskatchewan International Healthcare Worker EOI Pool", "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-healthcare-worker-eoi-pool"],
+    ["Live in Nova Scotia: 2026 selection priorities", "https://liveinnovascotia.com/node/72"],
+    ["Ontario Health SPEP", "https://www.ontariohealth.ca/news/ontario-health-boosts-nursing-workforce-with-innovative-program"],
+    ["Qualifications Quebec: nurse profession sheet", "https://qualificationsquebec.com/profession/infirmiers-autorises-infirmieres-autorisees-et-infirmiers-psychiatriques-autorises-infirmieres-psychiatriques-autorisees/"]
+  ],
+  "uncertain": [
+    "A December 2025 healthcare draw reported in the news was removed: the official IRCC rounds data that could be read only covers February 2026 onward. Draws listed are confirmed in IRCC data (latest round checked: 2026-10-01).",
+    "ontario.ca confirms Workforce Priority is the only open OINP stream, but does not give the exact date old streams closed or EOI registration opened. Reports of more streams later in 2026 are unconfirmed.",
+    "BC PNP Health Authority stream intake status and any 2026 priority-occupation details were not stated on the official page.",
+    "CRNA application/permit fees and BCCNM/Inspire competency assessment fees were not verified. CNO says practice within the last 3 years is part of evidence of practice; the exact rule was not re-read.",
+    "Whether the BC government still covers Inspire and BCCNM application costs should be rechecked (stated on BCCNM FAQ, no end date given).",
+    "Nova Scotia's 2023 fast track for nurses from 7 countries (Philippines, India, Nigeria, UK, US, Australia, NZ) was not rechecked on the NSCN site.",
+    "OIIQ pages could not be read directly; Quebec steps come from Qualifications Quebec. Fees and timelines are not verified.",
+    "Alberta health system restructuring is ongoing; the employer name for hospital nurses may change.",
+    "No national nurse recruitment agency was verified, so none is listed."
+  ]
+}

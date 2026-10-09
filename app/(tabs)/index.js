@@ -5,11 +5,14 @@ import { router } from "expo-router";
 import Svg, { Path, Circle, G, Text as SvgText, Defs, LinearGradient as SvgGradient, Stop } from "react-native-svg";
 import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, tap, Grid, HScroll } from "../../src/ui";
 import { useTheme, FONTS, PHASE_COLORS } from "../../src/theme";
-import { useApp, phaseStatus, BADGES } from "../../src/state";
+import { useApp, phaseStatus, phasesOf, badgesFor } from "../../src/state";
+import { DestSwitcher } from "../../src/dest";
+import { JOURNEY, destId, destOf } from "../../src/data/global";
+import { useMigration } from "../../src/migration";
 import { usePro } from "../../src/pro";
 import { Medal } from "../../src/overlays";
 import { daysUntil, fmtDate, parseISO, todayKey } from "../../src/util";
-import { PHASES, JPTS, JLABELS, DIAG, CAT_POOL } from "../../src/data/content";
+import { JPTS, DIAG, CAT_POOL } from "../../src/data/content";
 import { useBulletin } from "../../src/bulletin";
 import BANK_ALL from "../../src/data/questions.json";
 
@@ -68,6 +71,7 @@ function pointAt(sample, d) {
 const JW = 640; // rendered width of the map; scrolls sideways on narrow phones
 function Journey() {
   const { state } = useApp(); const t = useTheme("home");
+  const PHASES = phasesOf(state); const JLABELS = JOURNEY[destId(state)];
   const geo = useMemo(() => {
     const S = cubicSegs(JPTS); const samples = sampleSegs(S);
     const L = [0]; samples.forEach((s, i) => L.push(L[i] + s.len));
@@ -92,7 +96,7 @@ function Journey() {
   return (
     <Card mod="home" padding={14} style={{ backgroundColor: t.dark ? t.c.surface : t.soft, overflow: "hidden" }}>
       <Row wrap style={{ justifyContent: "space-between" }}>
-        <Txt v="h3">Your journey</Txt>
+        <Txt v="h3">Your journey {destOf(destId(state)).flag}</Txt>
         <Chip tone="acc" mod="roadmap" icon={done < 6 ? "MapPin" : "PartyPopper"} text={done < 6 ? `Next stop: ${JLABELS[done + 1]}` : "You made it"} />
       </Row>
       <HScroll mod="home" fade={t.dark ? t.c.surface : t.soft} hint="Swipe to see your whole journey" accessible accessibilityRole="image" accessibilityLabel={`Journey progress: ${done} of 6 phases complete`}>
@@ -277,6 +281,8 @@ export default function Today() {
   const greet = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
   const dateLine = `${WEEKDAYS[now.getDay()]}, ${MONTHS[now.getMonth()]} ${now.getDate()}`;
   const fullName = [p.name, p.lastName].filter(Boolean).join(" ");
+  const PHASES = phasesOf(state); const dest = destId(state); const info = destOf(dest); const US = dest === "US";
+  const BADGES = badgesFor(dest); const mig = useMigration(dest);
 
   let next = null;
   for (let i = 0; i < PHASES.length && !next; i++) {
@@ -314,7 +320,7 @@ export default function Today() {
             <View style={{ gap: 8 }}>
               <Txt v="hero" color="#fff">{fullName}</Txt>
               <Row wrap gap={6}>
-                {[p.specialty, p.homeCountry && "From " + p.homeCountry, p.targetState && "→ " + p.targetState].filter(Boolean).map((x) => (
+                {[p.specialty, p.homeCountry && "From " + p.homeCountry, US ? p.targetState && "→ " + p.targetState : "→ " + info.flag + " " + info.name].filter(Boolean).map((x) => (
                   <View key={x} style={{ paddingHorizontal: 10, paddingVertical: 4, borderRadius: 99, backgroundColor: "rgba(255,255,255,0.2)", borderWidth: 1, borderColor: "rgba(255,255,255,0.3)" }}>
                     <Txt v="smallB" color="#fff">{x}</Txt>
                   </View>
@@ -328,7 +334,7 @@ export default function Today() {
             </Pressable>
           )}
           <Txt v="body" color="rgba(255,255,255,0.95)" style={{ marginTop: 4 }}>
-            {next ? <>Your next move: <Txt v="bodyB" color="#fff">{next.ph.steps[next.j]}</Txt></> : "Every roadmap step is complete. Welcome to the U.S. bedside."}
+            {next ? <>Your next move: <Txt v="bodyB" color="#fff">{next.ph.steps[next.j]}</Txt></> : `Every roadmap step is complete. Welcome to the ${info.short} bedside.`}
           </Txt>
         </View>
         <Grid min={140} gap={8}>
@@ -351,6 +357,8 @@ export default function Today() {
           ))}
         </Grid>
       </Grad>
+
+      <Card mod="home"><DestSwitcher mod="home" /></Card>
 
       <Journey />
 
@@ -395,18 +403,24 @@ export default function Today() {
 
       {/* countdowns */}
       <Grid min={140} gap={10}>
-        <Countdown icon="CalendarClock" label="NCLEX day" date={p.testDate} live empty="Set your test date" onSet={toSettings} />
-        <Countdown icon="Hourglass" label="ATT closes" date={p.attEnd} empty="Add ATT window" onSet={toSettings} />
+        <Countdown icon="CalendarClock" label={dest === "NZ" ? "Exam day" : "NCLEX day"} date={p.testDate} live empty="Set your test date" onSet={toSettings} />
+        {US ? <Countdown icon="Hourglass" label="ATT closes" date={p.attEnd} empty="Add ATT window" onSet={toSettings} /> : null}
         {docSoon
           ? <Countdown icon="FileWarning" label={docSoon.d.title.length > 22 ? docSoon.d.title.slice(0, 21) + "…" : docSoon.d.title} date={docSoon.d.expires} />
           : <Countdown icon="FileCheck" label="Documents" empty="Add expiry dates" onSet={() => router.push("/roadmap")} />}
-        <Tile onPress={gap === null ? toSettings : () => router.push("/visa")} label={gap === null ? "Add priority date" : "Open visa bulletin"}>
+        {!US ? (
+          <Tile onPress={() => router.push("/visa")} label="Open migration monitor">
+            <Row gap={6}><Icon name="Plane" size={15} color={t.c.muted} /><Txt v="eyebrow" numberOfLines={1} style={{ flex: 1 }}>Visa · {info.short}</Txt></Row>
+            <Txt v="h2" color={t.tint} numberOfLines={1}>{mig.headline.value}</Txt>
+            <Txt v="tiny" muted numberOfLines={2}>{mig.headline.label}</Txt>
+          </Tile>
+        ) : <Tile onPress={gap === null ? toSettings : () => router.push("/visa")} label={gap === null ? "Add priority date" : "Open visa bulletin"}>
           <Row gap={6}><Icon name="Plane" size={15} color={t.c.muted} /><Txt v="eyebrow" numberOfLines={1} style={{ flex: 1 }}>Visa · {row.name.split(" ")[0]}</Txt></Row>
           {gap === null ? <Txt v="bodyB" color={t.tint}>Add priority date →</Txt>
             : gap <= 0 ? <Txt v="h1" color={t.c.ok}>Current</Txt>
             : <Row gap={6} style={{ alignItems: "flex-end" }}><Txt v="big" color={t.tint}>{(gap / row.rate).toFixed(1)}</Txt><Txt v="small" muted style={{ paddingBottom: 6 }}>yrs est.</Txt></Row>}
           <Txt v="tiny" muted style={{ fontFamily: FONTS.mono }}>Cutoff {fmtDate(row.fa)}</Txt>
-        </Tile>
+        </Tile>}
       </Grid>
 
       <QOTD />

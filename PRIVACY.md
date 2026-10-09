@@ -12,8 +12,9 @@ inputs — is stored only on your device. We do not run a server or user account
 If you turn on expiry reminders, the app schedules notifications on your phone. They are created and shown by your device; no
 information leaves it.
 
-## Visa bulletin updates
-To keep the visa bulletin dates current, the app downloads a small public data file from [GitHub, Inc.] when it opens.
+## Visa bulletin and migration updates
+To keep the U.S. visa bulletin dates and the Canada, Australia and New Zealand migration information current, the app
+downloads two small public data files from [GitHub, Inc.] when it opens.
 This is a standard file download: no information you entered in the app is sent with it. Like any web request, the host
 receives technical connection details such as your IP address; we do not receive or store them.
 

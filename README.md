@@ -8,6 +8,9 @@ The store version of USRN Pathway, built with Expo (React Native). Bundle ID / p
 - **No accounts, no server.** Progress, documents and settings stay on the phone (AsyncStorage). Expiry reminders are local notifications.
 - **Live visa bulletin.** The app downloads `data/visa-bulletin.json` from this GitHub repo on launch (`expo.extra.bulletinUrl`),
   so you update the dates monthly by editing that file — no app release needed. See `data/README.md`. The repo must be **public** for this to work.
+- **Four destinations.** U.S., Canada, Australia and New Zealand, each with its own 6-phase roadmap, migration monitor,
+  employer directory and bedside notes. Researched data with sources lives in `src/data/countries/*.json`; the migration
+  figures also refresh from `data/migration.json` (`expo.extra.migrationUrl`). The U.S. roadmap is in `src/data/content.js`.
 - **No AI features** in this version.
 
 ---

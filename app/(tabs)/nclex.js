@@ -2,10 +2,11 @@
 import React, { useMemo, useState } from "react";
 import { View, ScrollView, Pressable } from "react-native";
 import { router } from "expo-router";
-import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, tap, Grid, HScroll } from "../../src/ui";
+import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, Chip, tap, Grid, HScroll } from "../../src/ui";
 import { TutorCard } from "../../src/tutor";
 import { useTheme, FONTS, mix } from "../../src/theme";
 import { useApp } from "../../src/state";
+import { NCLEX_FIT, destId, destOf, DESTINATIONS } from "../../src/data/global";
 import { usePro, ProBadge } from "../../src/pro";
 import { shuffle } from "../../src/util";
 import { shuffleItem, TESTS } from "../../src/exam";
@@ -207,6 +208,25 @@ function History({ exams }) {
   );
 }
 
+/** Which destinations use the NCLEX-RN, and what this practice means for the nurse's chosen country. */
+function NclexFit({ dest }) {
+  const t = useTheme(MOD); const fit = NCLEX_FIT[dest]; const info = destOf(dest);
+  return (
+    <Card mod={MOD} style={{ gap: 10, borderColor: fit.uses ? t.c.line : t.c.warn }}>
+      <Row gap={10} center={false}>
+        <Icon name={fit.uses ? "CheckCircle2" : "Info"} size={20} color={fit.uses ? t.c.ok : t.c.warn} />
+        <View style={{ flex: 1, gap: 4 }}>
+          <Txt v="bodyB">{fit.uses ? `The NCLEX-RN applies to ${info.name}` : `${info.name} uses its own exam`}</Txt>
+          <Txt v="small" muted>{fit.text}</Txt>
+        </View>
+      </Row>
+      <Row wrap gap={6}>
+        {DESTINATIONS.map((d) => <Chip key={d.id} tone={NCLEX_FIT[d.id].uses ? "ok" : "mute"} icon={NCLEX_FIT[d.id].uses ? "Check" : "X"} text={`${d.flag} ${d.short}`} />)}
+      </Row>
+    </Card>
+  );
+}
+
 export default function Nclex() {
   const { state } = useApp();
   const bank = useMemo(() => BANK, []);
@@ -215,6 +235,7 @@ export default function Nclex() {
       <Hero mod={MOD} icon="Brain" eyebrow="Module 3 · NCLEX-RN" title="Benchmark exam engine"
         sub="Three benchmark exams with 600 different questions, Next Gen case studies, a full question bank with rationales, and flashcards."
         stats={[["Question bank", bank.length], ["Attempts", state.exams.length], ["Last result", state.exams[0] ? state.exams[0].score : "—"]]} />
+      <NclexFit dest={destId(state)} />
       <TutorCard mod={MOD} />
       <BankBuilder bank={bank} state={state} />
       <Benchmarks state={state} />
