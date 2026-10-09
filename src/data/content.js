@@ -210,13 +210,6 @@ export const CAREERS = [
   { id: "edu", title: "Nurse educator", items: ["Precept new graduates and log preceptor hours", "Join the unit education council", "Complete an MSN in nursing education", "Earn the NLN CNE (academic) or NPD-BC (hospital professional development)"] },
   { id: "ur", title: "Utilization review / insurance roles", items: ["3+ years acute care, often with case management exposure", "Learn InterQual or MCG criteria", "Understand inpatient vs. observation status rules", "Consider CCM or ACM certification", "Remote roles usually require a compact (multistate) license"] },
 ];
-LESSONS.push({ id: "license", title: "Protect your license", mins: 6, body: [
-    ["Whose lawyer is it?", "Your hospital's liability coverage is built around defending the hospital. It usually covers lawsuits from your work, but it generally won't pay a lawyer to represent only you before the Board of Nursing, where your license is decided. That is the main reason to carry your own policy."],
-    ["Chart like it will be read aloud", "Notes written during or right after care carry the most weight. Quote patients' exact words for refusals, threats and self-reported ingestions. Time-stamp every call, page and escalation."],
-    ["Keep the chart clinical", "The medical record is for the patient's care. Staffing problems, late pharmacy deliveries and conflicts with colleagues go in the incident reporting system, and the chart never mentions that a report was filed."],
-    ["Lines you never cross", "Never pre-chart, never document care you didn't give, and never copy forward an assessment you didn't repeat. Each one can be treated as falsification."] ],
-    check: { q: "The unit is short-staffed and your 14:00 reassessment happens at 15:10. What goes in the chart?", opts: ["\"Reassessment delayed due to short staffing\"", "The reassessment findings, timed 15:10 — and the staffing issue goes in an incident report", "Chart the reassessment at 14:00 since that's when it was due"], a: 1 } });
-
 export const CREDIT = [
   "Get your SSN and open a U.S. checking account with direct deposit",
   "Open a secured credit card ($200–$500 deposit) and put one small recurring bill on it",
