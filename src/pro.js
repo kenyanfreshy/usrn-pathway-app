@@ -16,15 +16,15 @@ try { const m = require("react-native-purchases"); Purchases = m.default; ERR = 
 // The store's answer always replaces it as soon as the app reaches RevenueCat.
 const CACHE_KEY = "usrn.pro.v1";
 const FIRST_OPEN_KEY = "usrn.firstOpen.v1";
-// A second RevenueCat offering holding real, store-priced discounted products ("Special offer").
-// Shown only to free users WIN_BACK_DAYS or more after they first opened the app.
-export const SPECIAL_OFFERING = extra.specialOfferingId || "special_offer";
-export const WIN_BACK_DAYS = 30;
 const ANDROID_PACKAGE = "com.alexkorir.usrnpathway";
 
 const extra = (Constants.expoConfig && Constants.expoConfig.extra) || {};
 export const ENTITLEMENT = extra.entitlementId || "pro";
 export const LINKS = { privacy: extra.privacyPolicyUrl, terms: extra.termsUrl, support: extra.supportEmail };
+// A second RevenueCat offering holding real, store-priced discounted products ("Special offer").
+// Shown only to free users WIN_BACK_DAYS or more after they first opened the app.
+export const SPECIAL_OFFERING = extra.specialOfferingId || "special_offer";
+export const WIN_BACK_DAYS = 30;
 
 export const PRO_FEATURES = [
   ["Network", "NGN case study simulation", "All six clinical-judgment steps with full distractor rationales"],
