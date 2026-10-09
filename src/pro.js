@@ -16,7 +16,7 @@ try { const m = require("react-native-purchases"); Purchases = m.default; ERR = 
 // The store's answer always replaces it as soon as the app reaches RevenueCat.
 const CACHE_KEY = "usrn.pro.v1";
 const FIRST_OPEN_KEY = "usrn.firstOpen.v1";
-const ANDROID_PACKAGE = "com.alexkorir.usrnpathway";
+const ANDROID_PACKAGE = "com.alexkorir.nursebound";
 
 const extra = (Constants.expoConfig && Constants.expoConfig.extra) || {};
 export const ENTITLEMENT = extra.entitlementId || "pro";

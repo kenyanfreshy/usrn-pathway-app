@@ -1,14 +1,30 @@
 {
-  "cli": { "version": ">= 12.0.0", "appVersionSource": "remote" },
+  "cli": {
+    "version": ">= 12.0.0",
+    "appVersionSource": "remote"
+  },
   "build": {
-    "development": { "developmentClient": true, "distribution": "internal" },
-    "preview": { "distribution": "internal", "android": { "buildType": "apk" } },
-    "production": { "autoIncrement": true }
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "autoIncrement": true
+    }
   },
   "submit": {
     "production": {
-      "ios": { "ascAppId": "REPLACE_WITH_APP_STORE_CONNECT_APP_ID" },
-      "android": { "track": "internal", "releaseStatus": "draft" }
+      "ios": {},
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
     }
   }
 }

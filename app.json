@@ -2,7 +2,7 @@
   "expo": {
     "name": "NurseBound",
     "slug": "usrn-pathway",
-    "scheme": "usrnpathway",
+    "scheme": "nursebound",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
@@ -13,7 +13,7 @@
       "backgroundColor": "#2563eb"
     },
     "ios": {
-      "bundleIdentifier": "com.alexkorir.usrnpathway",
+      "bundleIdentifier": "com.alexkorir.nursebound",
       "buildNumber": "1",
       "supportsTablet": false,
       "config": {
@@ -24,7 +24,7 @@
       }
     },
     "android": {
-      "package": "com.alexkorir.usrnpathway",
+      "package": "com.alexkorir.nursebound",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",

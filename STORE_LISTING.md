@@ -1,7 +1,7 @@
 # Store listing text (edit freely)
 
-_Renamed from USRN Pathway to NurseBound. The bundle ID / package (`com.alexkorir.usrnpathway`) stays the same: it is
-invisible to users, and changing it would create a brand-new app in both stores._
+_Renamed from USRN Pathway to NurseBound. Bundle ID / package: `com.alexkorir.nursebound`
+(Apple identifier description: "NurseBound"). Never change it after the first release._
 
 **App name (30 max, App Store and Google Play):** NurseBound
 **iOS subtitle (30 max):** NCLEX, OET & visa roadmap
