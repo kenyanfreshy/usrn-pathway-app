@@ -16,8 +16,12 @@
       "bundleIdentifier": "com.alexkorir.usrnpathway",
       "buildNumber": "1",
       "supportsTablet": false,
-      "config": { "usesNonExemptEncryption": false },
-      "infoPlist": { "ITSAppUsesNonExemptEncryption": false }
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.alexkorir.usrnpathway",
@@ -26,21 +30,36 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#2563eb"
       },
-      "permissions": ["com.android.vending.BILLING", "POST_NOTIFICATIONS"]
+      "permissions": [
+        "com.android.vending.BILLING",
+        "POST_NOTIFICATIONS"
+      ]
     },
     "plugins": [
       "expo-router",
       "expo-font",
-      ["expo-notifications", { "color": "#2563eb" }]
+      [
+        "expo-notifications",
+        {
+          "color": "#2563eb"
+        }
+      ]
     ],
-    "experiments": { "typedRoutes": false },
+    "experiments": {
+      "typedRoutes": false
+    },
     "extra": {
       "revenueCatAppleKey": "appl_REPLACE_ME",
       "revenueCatGoogleKey": "goog_REPLACE_ME",
       "entitlementId": "pro",
       "privacyPolicyUrl": "https://REPLACE_ME/privacy",
       "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
-      "supportEmail": "support@REPLACE_ME"
-    }
+      "supportEmail": "support@REPLACE_ME",
+      "router": {},
+      "eas": {
+        "projectId": "7d0d7a0e-4b70-46a7-b668-1c3ca3f5ed95"
+      }
+    },
+    "owner": "ronnykip"
   }
 }
