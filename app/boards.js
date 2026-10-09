@@ -1,22 +1,28 @@
 // Module 2 · Boards of Nursing: compare state boards, then plan an endorsement (Pro).
 import React, { useMemo, useState } from "react";
-import { View, TextInput, Pressable, Platform } from "react-native";
-import { Screen, Hero, Card, Row, Txt, Icon, Select, Check, Chip, Note, Bullets, tap, Grid } from "../src/ui";
+import { View, TextInput, Pressable, Platform, Linking } from "react-native";
+import { Screen, Hero, Card, Row, Txt, Icon, Select, Check, Chip, Note, Bullets, Btn, tap, Grid } from "../src/ui";
 import { BackRow } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
 import { ProGate } from "../src/pro";
 import { BOARDS, ENDORSE } from "../src/data/content";
+import { useApp } from "../src/state";
+import { destId, destOf, lifeOf, WORDS } from "../src/data/global";
+import { DestPill, YourRegionCard, useRegion } from "../src/dest";
+import { router } from "expo-router";
+import { SourcesBlock } from "../src/career/country";
+import { fmtDate } from "../src/util";
 
 const MOD = "boards";
 
-function SearchField({ value, onChangeText }) {
+function SearchField({ value, onChangeText, placeholder = "State or CES agency" }) {
   const t = useTheme(MOD); const [focus, setFocus] = useState(false);
   return (
     <View style={{ gap: 5 }}>
       <Txt v="smallB" muted>Search</Txt>
       <View style={{ flexDirection: "row", alignItems: "center", gap: 8, borderWidth: 1.5, borderColor: focus ? t.tint : t.c.line, borderRadius: 12, paddingHorizontal: 12, backgroundColor: t.c.surface }}>
         <Icon name="Search" size={17} color={focus ? t.tint : t.c.muted} />
-        <TextInput value={value} onChangeText={onChangeText} placeholder="State or CES agency" placeholderTextColor={t.c.muted}
+        <TextInput value={value} onChangeText={onChangeText} placeholder={placeholder} placeholderTextColor={t.c.muted}
           autoCorrect={false} autoCapitalize="none" returnKeyType="search" accessibilityLabel="Search boards"
           onFocus={() => setFocus(true)} onBlur={() => setFocus(false)}
           style={{ flex: 1, minWidth: 0, paddingVertical: Platform.OS === "ios" ? 12 : 9, color: t.c.ink, fontSize: 15, fontFamily: FONTS.body }} />
@@ -109,7 +115,68 @@ function EndorsementWizard() {
   );
 }
 
+/* ---------------- Canada, Australia, New Zealand ---------------- */
+function RegulatorCard({ r }) {
+  const t = useTheme(MOD); const { regions, region, word, pick } = useRegion();
+  const canPick = regions.includes(r); const mine = !!region && region.code === r.code;
+  return (
+    <Card mod={MOD} accent={mine} style={{ gap: 10, borderColor: mine ? t.tint : undefined, borderWidth: mine ? 2 : undefined }}>
+      <Row gap={12} center={false}>
+        <View style={{ minWidth: 46, height: 46, paddingHorizontal: 6, borderRadius: 15, backgroundColor: t.soft, borderWidth: 1, borderColor: t.tint, alignItems: "center", justifyContent: "center" }}>
+          <Txt v="smallB" color={t.tint} numberOfLines={1} adjustsFontSizeToFit>{r.code}</Txt>
+        </View>
+        <View style={{ flex: 1, gap: 2 }}>
+          <Txt v="h3">{r.name}</Txt>
+          <Txt v="tiny" muted>{[r.abbr, r.region].filter(Boolean).join(" · ")}</Txt>
+        </View>
+      </Row>
+      {r.notes ? <Txt v="small" muted>{r.notes}</Txt> : null}
+      {r.tags && r.tags.length ? <Row wrap gap={6}>{r.tags.map((x, k) => <Chip key={x} mod={MOD} tone={k % 2 ? "acc2" : "acc"} text={x} />)}</Row> : null}
+      <Row wrap gap={8}>
+        {canPick && !mine ? <Btn mod={MOD} small icon="MapPin" title={`Choose this ${word}`} onPress={() => pick(r.code)} /> : null}
+        {mine ? <Btn mod={MOD} small icon="ArrowRight" title="Continue to next step" onPress={() => { tap(); router.push("/roadmap"); }} /> : null}
+        {r.url ? <Btn mod={MOD} small kind="secondary" icon="Globe" title="Official site" onPress={() => { tap(); Linking.openURL(r.url).catch(() => {}); }} /> : null}
+      </Row>
+      {mine ? <Chip mod={MOD} tone="ok" icon="CheckCircle2" text={`Your ${word}`} /> : null}
+    </Card>
+  );
+}
+
+function Regulators({ dest }) {
+  const t = useTheme(MOD); const life = lifeOf(dest); const info = destOf(dest); const R = life.regulators;
+  const [q, setQ] = useState("");
+  const rows = R.list.filter((r) => [r.name, r.abbr, r.region, r.code, ...(r.tags || [])].join(" ").toLowerCase().includes(q.trim().toLowerCase()));
+  return (
+    <Screen mod={MOD}>
+      <BackRow mod={MOD} title={WORDS[dest].boards} />
+      <Hero mod={MOD} icon="Landmark" eyebrow={`Module 2 · Licensing · ${info.flag} ${info.short}`} title={R.title} sub={R.intro}
+        stats={[["Listed", R.list.length], ["Destination", info.short], ["Checked", fmtDate(life.checked)]]} />
+      <DestPill mod={MOD} />
+      <YourRegionCard mod={MOD} from="boards" />
+      {R.list.length > 5 ? <Card mod={MOD}><SearchField value={q} onChangeText={setQ} placeholder="Province, state or name" /></Card> : null}
+      {rows.map((r) => <RegulatorCard key={r.code + r.name} r={r} />)}
+      {rows.length === 0 ? <Note mod={MOD} icon="SearchX">No matches. Clear the search to see everything.</Note> : null}
+      <Card mod={MOD} accent style={{ gap: 12 }}>
+        <Row gap={10}>
+          <View style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: t.soft, alignItems: "center", justifyContent: "center" }}><Icon name="ArrowRightLeft" size={18} color={t.tint} /></View>
+          <Txt v="h3" style={{ flex: 1 }}>{R.mobility.title}</Txt>
+        </Row>
+        <Bullets numbered items={R.mobility.steps} />
+        {R.mobility.notes ? <Note mod={MOD} tone="acc2" icon="Info">{R.mobility.notes}</Note> : null}
+      </Card>
+      <SourcesBlock dest={dest} mod={MOD} />
+      <Txt v="tiny" muted>Requirements change. Confirm every step on the regulator's own website before you apply.</Txt>
+    </Screen>
+  );
+}
+
 export default function Boards() {
+  const { state } = useApp(); const dest = destId(state);
+  if (dest !== "US") return <Regulators dest={dest} />;
+  return <UsBoards />;
+}
+
+function UsBoards() {
   const t = useTheme(MOD);
   const [q, setQ] = useState(""); const [noSSN, setNoSSN] = useState(false); const [noJur, setNoJur] = useState(false); const [compact, setCompact] = useState(false);
   const [sort, setSort] = useState("fee");
@@ -127,6 +194,7 @@ export default function Boards() {
       <Hero mod={MOD} icon="Landmark" eyebrow="Module 2 · Boards of Nursing" title="Pick the right state board"
         sub="Compare boards that accept internationally educated applicants, then plan your move to another state."
         stats={[["Boards listed", BOARDS.length], ["No SSN to apply", BOARDS.filter((b) => !b.ssn).length], ["Compact states", BOARDS.filter((b) => b.nlc === "Yes").length]]} />
+      <DestPill mod={MOD} />
       <Note tone="warn" icon="AlertTriangle">Figures here are sample prototype data, not verified board requirements. Fees and rules change often — confirm every item on the board's own website before you apply.</Note>
       <Card mod={MOD} style={{ gap: 12 }}>
         <SearchField value={q} onChangeText={setQ} />

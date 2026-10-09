@@ -6,6 +6,9 @@ import { PHASES as US_PHASES } from "./content";
 import CA from "./countries/ca.json";
 import AU from "./countries/au.json";
 import NZ from "./countries/nz.json";
+import CA_LIFE from "./countries/ca-life.json";
+import AU_LIFE from "./countries/au-life.json";
+import NZ_LIFE from "./countries/nz-life.json";
 
 export const DESTINATIONS = [
   { id: "US", flag: "🇺🇸", name: "United States", short: "U.S.", cur: "USD", regulator: "State boards of nursing (NCSBN)" },
@@ -20,6 +23,17 @@ export const destId = (state) => (state && state.profile && DEST_IDS.includes(st
 const DATA = { CA, AU, NZ };
 /** The researched data file for a destination (null for the U.S., which uses content.js). */
 export const countryData = (dest) => DATA[dest] || null;
+const LIFE = { CA: CA_LIFE, AU: AU_LIFE, NZ: NZ_LIFE };
+/** Practice and everyday-life data (regulators, careers, money, health, driving, license protection, lesson notes). Null for the U.S. */
+export const lifeOf = (dest) => LIFE[dest] || null;
+
+/** Country wording used across screens. */
+export const WORDS = {
+  US: { boards: "Boards", boardsDesc: "State boards & endorsement", bedside: "U.S. bedside", cert: "U.S. Clinical Readiness", regulator: "Board of Nursing", privacy: "HIPAA" },
+  CA: { boards: "Colleges", boardsDesc: "Provincial nursing colleges & moving provinces", bedside: "Canadian bedside", cert: "Canada Clinical Readiness", regulator: "nursing college", privacy: "provincial privacy law" },
+  AU: { boards: "Registration", boardsDesc: "Ahpra registration & state health employers", bedside: "Australian bedside", cert: "Australia Clinical Readiness", regulator: "NMBA / Ahpra", privacy: "the Privacy Act" },
+  NZ: { boards: "Council", boardsDesc: "Nursing Council & Health NZ regions", bedside: "New Zealand bedside", cert: "New Zealand Clinical Readiness", regulator: "Nursing Council", privacy: "the Health Information Privacy Code" },
+};
 
 // Rough planning lengths in months for phases 1–5 (phase 6 is the visa / migration stage).
 const MONTHS = { CA: [2, 6, 6, 2, 1], AU: [0.5, 2, 2, 6, 2], NZ: [2, 2, 3, 2, 2] };
@@ -99,3 +113,22 @@ export const NCLEX_FIT = {
   AU: { uses: true, text: "Australia's Outcomes-Based Assessment starts with the NCLEX-RN, then an OSCE. Nurses on the IQRN fast track skip both." },
   NZ: { uses: false, text: "New Zealand doesn't use the NCLEX. The Nursing Council has its own theory exam and an OSCE. This practice still builds the clinical judgment both test." },
 };
+
+/* ---------- province choice (Canada) ----------
+ * Canada has no national license: the nurse picks one province and follows that college's rules.
+ * The choice is saved per destination in profile.regions, e.g. { CA: "ON" }. */
+export const PICKS_REGION = { CA: true };
+export const REGION_WORD = { CA: "province" };
+/** Provinces/territories with their college: [{ code, region, abbr, name, notes, tags, url }]. */
+export const regionsOf = (dest) => (PICKS_REGION[dest] && LIFE[dest] ? LIFE[dest].regulators.list : []);
+/** The region the nurse picked for the current destination (or null). */
+export function regionOf(state) {
+  const d = destId(state); const code = state && state.profile && state.profile.regions ? state.profile.regions[d] : null;
+  return regionsOf(d).find((r) => r.code === code) || null;
+}
+/** Which college a roadmap step is about, from its "Ontario (CNO):" style prefix; null if it applies to everyone. */
+export function stepRegion(dest, text) {
+  const m = /^([A-Z][A-Za-z .&]+?) \(([A-Z]{2,6})\):/.exec(text || "");
+  if (!m) return null;
+  return regionsOf(dest).find((r) => r.abbr === m[2] || r.region === m[1]) || null;
+}

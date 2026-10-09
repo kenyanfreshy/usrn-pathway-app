@@ -1,0 +1,665 @@
+{
+  "country": "CA",
+  "checked": "2026-10-09",
+  "regulators": {
+    "title": "Provincial nursing colleges",
+    "intro": "There is no national nursing license in Canada. Each province or territory licenses its own RNs through a nursing college, and each sets its own route for internationally educated nurses (IENs). Outside Quebec, RN applicants write the NCLEX-RN. Quebec's OIIQ uses its own professional exam and requires French. Several colleges changed names in 2025–2026.",
+    "list": [
+      {
+        "code": "ON",
+        "name": "College of Nurses of Ontario",
+        "abbr": "CNO",
+        "region": "Ontario",
+        "url": "https://www.cno.org/become-a-nurse/registration-guides/outside-canada",
+        "notes": "Since April 2025, CNO accepts education approved in any jurisdiction and any CNO-approved credential assessment provider. You also need the NCLEX-RN, an online jurisprudence exam, nursing practice in the last 3 years and a Transition to Practice course. The Temporary Class lets you work while you finish.",
+        "tags": [
+          "NCLEX-RN",
+          "Jurisprudence exam",
+          "Transition to Practice",
+          "Temporary Class"
+        ]
+      },
+      {
+        "code": "BC",
+        "name": "British Columbia College of Nurses and Midwives",
+        "abbr": "BCCNM",
+        "region": "British Columbia",
+        "url": "https://bccnm.ca/RN/applications_registration/how_to_apply/InternationalEN/Pages/Frequentlyaskedquestions.aspx",
+        "notes": "Apply to BCCNM and Inspire Global Assessments at the same time. An NNAS report is no longer required, and most IENs do a competency assessment. RNs educated in Australia, New Zealand or the UK have a faster route: one course, 250 supervised hours, then the NCLEX-RN.",
+        "tags": [
+          "NCLEX-RN",
+          "Inspire assessment",
+          "NNAS not required"
+        ]
+      },
+      {
+        "code": "AB",
+        "name": "College of Registered Nurses of Alberta",
+        "abbr": "CRNA",
+        "region": "Alberta",
+        "url": "https://nurses.ab.ca/nursing-in-alberta/international-applicants/options-for-confirming-competency/",
+        "notes": "Every pathway requires the NCLEX-RN. You can confirm your education with an NNAS advisory report or an approved credential assessment. If you don't fit a pathway, book a free registrant navigator consult (1-800-252-9392).",
+        "tags": [
+          "NCLEX-RN",
+          "NNAS or credential assessment"
+        ]
+      },
+      {
+        "code": "SK",
+        "name": "College of Registered Nurses of Saskatchewan",
+        "abbr": "CRNS",
+        "region": "Saskatchewan",
+        "url": "https://crns.ca/license_membership/becoming-a-nurse-in-sask/registered-nurse-sask/internationally-educated/",
+        "notes": "Requires an NNAS advisory report and 1,125 practice hours in the last 5 years (or a recent approved program). If English isn't your first language, take IELTS, CELBAN, OET or PTE.",
+        "tags": [
+          "NNAS",
+          "NCLEX-RN",
+          "English test"
+        ]
+      },
+      {
+        "code": "MB",
+        "name": "College of Registered Nurses of Manitoba",
+        "abbr": "CRNM",
+        "region": "Manitoba",
+        "url": "https://www.crnm.mb.ca/applicants/internationally-educated-nurses/",
+        "notes": "Get a credential assessment from an accepted provider first. There's an expedited route for nurses educated in Australia, Ireland, New Zealand, the UK or the US. Others may be referred for an RN Competence Assessment with Inspire (CAD 281.40). The application fee is CAD 483.",
+        "tags": [
+          "Credential assessment",
+          "Competence assessment"
+        ]
+      },
+      {
+        "code": "QC",
+        "name": "Ordre des infirmières et infirmiers du Québec",
+        "abbr": "OIIQ",
+        "region": "Quebec",
+        "url": "https://www.oiiq.org/acceder-profession/exercer-au-quebec/infirmiere-diplomee-hors-canada",
+        "notes": "Get a comparative evaluation from Quebec's immigration ministry (MIFI). OIIQ then grants equivalence or sends you to an integration program at a cégep. You work as a candidate (CEPI) until you pass the OIIQ exam (3 tries in 2 years). If you haven't passed the French test, you get a temporary permit for up to 1 year, renewable 3 times.",
+        "tags": [
+          "French required",
+          "OIIQ exam",
+          "Integration program"
+        ]
+      },
+      {
+        "code": "NB",
+        "name": "College of Nursing of New Brunswick",
+        "abbr": "CNNB",
+        "region": "New Brunswick",
+        "url": "https://cnnb-opinb.ca/en/ien/",
+        "notes": "Formerly NANB (new name announced February 2026). IENs need an NNAS assessment. Your pathway depends on a country zone: Kenya is Zone 2, and India and the Philippines are Zone 4. You write the NCLEX-RN as a graduate nurse on a temporary permit, and mandatory NBCC/CCNB courses may apply.",
+        "tags": [
+          "NNAS",
+          "NCLEX-RN",
+          "Country zones"
+        ]
+      },
+      {
+        "code": "NS",
+        "name": "Nova Scotia Nursing and Midwifery Regulator",
+        "abbr": "NSNMR",
+        "region": "Nova Scotia",
+        "url": "https://www.nsnmr.ca/registration-licensing/apply-be-nurse-nova-scotia/international-nurse-applicants",
+        "notes": "Replaces the Nova Scotia College of Nursing. If you're an RN from the Philippines, India, Nigeria, the UK, Australia or New Zealand with a Nova Scotia job offer, your employer emails the regulator, which then sends you application steps. Without a job offer, you start with an NNAS report. Applicants with a job offer are processed first.",
+        "tags": [
+          "Job-offer route",
+          "NNAS",
+          "Jurisprudence declaration"
+        ]
+      },
+      {
+        "code": "PE",
+        "name": "Prince Edward Island College of Nursing and Midwifery",
+        "abbr": "PEICNM",
+        "region": "Prince Edward Island",
+        "url": "https://peicnm.ca/",
+        "notes": "The province directs IENs to start with NNAS, then apply to PEICNM. A funded 14–16 week Transition to Registered Nursing in Canada program (with Saskatchewan Polytechnic) is open to PEI residents who are eligible for registration.",
+        "tags": [
+          "NNAS",
+          "Bridging program"
+        ]
+      },
+      {
+        "code": "NL",
+        "name": "Newfoundland and Labrador College of Nurses",
+        "abbr": "NLCN",
+        "region": "Newfoundland and Labrador",
+        "url": "https://nlcn.ca/apply/rn-applicants/internationally-educated-nurse-rn/",
+        "notes": "Formed in April 2026 from the RN and LPN colleges. Education from Australia, Hong Kong, India, Ireland, New Zealand, Nigeria, the Philippines, the UK or the US meets the education requirement. Others need an Inspire assessment. You must complete your own application (no consultants), and the fee is CAD 172.50.",
+        "tags": [
+          "Designated countries",
+          "NCLEX-RN",
+          "No consultants"
+        ]
+      },
+      {
+        "code": "YT",
+        "name": "Yukon Registered Nurses Association",
+        "abbr": "YRNA",
+        "region": "Yukon",
+        "url": "https://www.yrna.ca/registration",
+        "notes": "Since November 3, 2024, internationally trained nurses can apply directly to YRNA without first being registered elsewhere in Canada. IENs first complete an Inspire competency assessment and may get an interim license while it's pending.",
+        "tags": [
+          "Direct application",
+          "Inspire assessment"
+        ]
+      },
+      {
+        "code": "NT/NU",
+        "name": "College of Nurses of the Northwest Territories and Nunavut",
+        "abbr": "CNNN",
+        "region": "Northwest Territories & Nunavut",
+        "url": "https://cannn.ca/resources/internationally-educated-nurses/",
+        "notes": "One regulator for both territories. Recent practice must be in Canada, the US, Australia, New Zealand or the UK. Otherwise you need an approved bridging program or an Inspire assessment (CAD 2,415 incl. GST, by referral only).",
+        "tags": [
+          "Practice-country rule",
+          "Inspire assessment"
+        ]
+      }
+    ],
+    "mobility": {
+      "title": "Moving between provinces",
+      "steps": [
+        "Keep your current registration in good standing: no discipline or open investigations, and continuing competency up to date.",
+        "Apply to the new province's college as a nurse already registered in Canada. This is a separate, shorter route than the IEN process.",
+        "Have each college you're registered with send a verification of registration, and get a fresh police criminal record check.",
+        "Ontario: since January 1, 2026, CNO's automatic recognition registers you in about 2 business days after you sign an attestation. Send your verifications and police check within 7 days to remove the conditions on your certificate.",
+        "Arrange professional liability protection (CNPS) and health coverage in the new province before you start work."
+      ],
+      "notes": "Under Chapter 7 of the Canadian Free Trade Agreement, a nurse certified in one province should be recognized in another without significant extra training or exams, unless the government has approved an exception. Outside Ontario, each college still runs its own application. In July 2025, premiers committed to health workforce mobility, but they set no deadline."
+    }
+  },
+  "careers": [
+    {
+      "id": "crit",
+      "title": "Critical care or emergency certification (CNA CNCC(C) / ENC(C))",
+      "items": [
+        "Get registered as an RN in Canada. CNA certification requires current Canadian registration.",
+        "Log specialty hours: 1,950 hours in critical care or emergency over the past 5 years.",
+        "Or combine 1,000 specialty hours with a post-basic specialty course of at least 300 hours, taken in the last 10 years.",
+        "Ask your manager or educator to confirm your hours and endorse your application.",
+        "Pass the CNA exam to earn CNCC(C) (critical care) or ENC(C) (emergency).",
+        "Renew every 5 years with 2,925 specialty hours, plus either 100 learning hours or a repeat exam."
+      ]
+    },
+    {
+      "id": "np",
+      "title": "Nurse Practitioner",
+      "items": [
+        "Hold RN registration, or be eligible for it, in your province.",
+        "Complete a nurse practitioner program at master's level (BC requires a program equivalent to a master's).",
+        "Plan for the new national exam, the CNPLE: CNO requires it from July 1, 2026, and BCCNM from January 1, 2027.",
+        "In BC, you also need an OSCE (clinical exam) and recent practice: 900 NP hours or a recent NP program.",
+        "Ontario uses one NP class since July 1, 2026, with an annual attestation at renewal.",
+        "Budget for the exam: BCCNM lists CAD 887.50 plus tax per CNPLE attempt."
+      ]
+    },
+    {
+      "id": "edu",
+      "title": "Preceptor and educator path",
+      "items": [
+        "Settle into your unit first, then tell your manager you'd like to precept students or new hires.",
+        "In BC, designated preceptors of students or internationally trained nurses get a premium: CAD 1.50/hr for the shift under the NBA agreement (from August 2023).",
+        "Earn a CNA specialty certification. It shows expertise in your area.",
+        "Keep a log of the teaching and orientation you do. It counts toward CNA renewal learning hours.",
+        "Watch for clinical educator or instructor postings at your health authority or college."
+      ]
+    },
+    {
+      "id": "comm",
+      "title": "Community, gerontology or palliative certification",
+      "items": [
+        "Pick a CNA specialty: Community Health CCHN(C), Gerontology GNC(C) or Hospice Palliative Care CHPCN(C).",
+        "Build 1,950 hours in that specialty over 5 years. Direct care, education, policy and admin hours all count.",
+        "Or take a 300+ hour post-basic course and pair it with 1,000 hours.",
+        "Get your supervisor's endorsement and book the exam window.",
+        "Track 100 learning hours over 5 years so you can renew without a repeat exam."
+      ]
+    }
+  ],
+  "credit": [
+    "Get your SIN from Service Canada (online, by mail or in person; it's free).",
+    "Open a bank account. You don't need a job or a deposit, but bring original ID (photocopies aren't accepted).",
+    "Bring your credit report from home. Some lenders will look at foreign credit history, but Canadian credit bureaus only record credit used in Canada.",
+    "With no Canadian history, start with a secured credit card: your deposit sets the limit. Avoid unknown issuers and cards without Visa, Mastercard or Amex.",
+    "Pay on time every month. Payment history is the biggest factor in your score.",
+    "Keep your balance under 30% of your credit limit, even if you pay it off in full.",
+    "Check your free credit reports from Equifax and TransUnion. Scores run from 300 to 900.",
+    "Keep old no-fee cards open, apply for credit only when you need it, and get car-loan or mortgage quotes within 2 weeks so they count as one inquiry."
+  ],
+  "pay": [
+    [
+      "Collective agreements",
+      "Most hospital RNs are unionized and paid on a provincial grid. In BC, the grid has 9 steps, and you move up one step for every 1,950 hours worked."
+    ],
+    [
+      "Shift premiums",
+      "Evening, night and weekend work pays an hourly premium. BC's NBA agreement (from April 2023) pays CAD 1.40 for evenings, CAD 5.00 for nights and CAD 3.50 for weekends."
+    ],
+    [
+      "Specialty and seniority pay",
+      "BC pays OR, PAR, ER, ICU and CCU nurses CAD 2.00/hr, with seniority pay starting at 15 years. BC also reimburses the BCCNM registration fee."
+    ],
+    [
+      "What comes off your pay",
+      "Employers deduct income tax, Canada Pension Plan (CPP) contributions and Employment Insurance (EI) premiums from each paycheck."
+    ]
+  ],
+  "money": [
+    [
+      "SIN first",
+      "You need a Social Insurance Number to work and file taxes. Work-permit holders get a SIN starting with 9 that expires with the permit. Update it when your status changes."
+    ],
+    [
+      "Tax filing",
+      "Tax residency, not immigration status, sets what you owe. Most people file by April 30. You can apply for the GST/HST credit and Canada child benefit as soon as you arrive, then file every year to keep them."
+    ],
+    [
+      "RRSP",
+      "Your yearly RRSP room is 18% of last year's earned income, up to the annual limit (CAD 33,810 for 2026), minus any pension adjustment. In your first filing year you have no room yet."
+    ],
+    [
+      "TFSA",
+      "Growth and withdrawals are tax-free. Room starts the year you become a resident (age 18+), CAD 7,000 for 2026, and unused room carries forward. Over-contributing costs 1% a month."
+    ],
+    [
+      "FHSA",
+      "First-time buyers who are residents and 18+ can open a First Home Savings Account. Your first-year room is CAD 8,000, contributions are tax-deductible and qualifying home withdrawals are tax-free."
+    ],
+    [
+      "Workplace pension",
+      "Many public-sector nurses join a defined-benefit plan. BC health authority nurses, for example, contribute to the Municipal Pension Plan along with their employer."
+    ]
+  ],
+  "health": [
+    [
+      "Provincial health card",
+      "Public insurance covers medically necessary doctor and hospital care. Apply in your province as soon as you arrive. In Ontario you apply in person at ServiceOntario with 3 original documents."
+    ],
+    [
+      "Waiting periods differ",
+      "Ontario has no wait. BC: the rest of your arrival month plus 2 months. Saskatchewan: the first day of the third month. Quebec: up to 3 months. Alberta, Manitoba and Nova Scotia start coverage from your residency or permit date if you qualify."
+    ],
+    [
+      "Work-permit rules",
+      "Ontario: full-time for an Ontario employer for at least 6 months. Alberta: permit with 6+ months left and a plan to stay 12 months. Manitoba and Nova Scotia: permit of 12+ months. Quebec: permit over 6 months (most open permits don't qualify)."
+    ],
+    [
+      "Bridge coverage",
+      "BC advises buying private health insurance before you arrive and keeping it until public coverage starts. Most private plans don't cover pre-existing conditions, including pregnancy."
+    ],
+    [
+      "Quebec waiting period care",
+      "During RAMQ's waiting period, pregnancy-related care, care for victims of violence or sexual assault, and treatment of some infectious diseases are free."
+    ],
+    [
+      "Employer benefits",
+      "Union contracts usually include extended health, dental, life insurance, short-term sick leave and long-term disability. Enroll during your first weeks."
+    ],
+    [
+      "Injured at work",
+      "Workers' compensation is no-fault and employer-funded (WSIB in Ontario). Get first aid, tell your employer right away, and claim within 6 months."
+    ],
+    [
+      "Car insurance",
+      "Car insurance is mandatory. In BC, ICBC Basic Autoplan includes CAD 200,000 liability and no-fault injury benefits. Ontario insurance is compulsory and regulated by FSRA."
+    ]
+  ],
+  "insureList": [
+    "Applied for my provincial health card",
+    "Bought private bridge insurance if my province has a waiting period",
+    "Enrolled in my employer's extended health and dental plan",
+    "Checked my long-term disability coverage",
+    "Got professional liability protection (CNPS) if my province requires it",
+    "Saved my workplace injury reporting steps (WSIB, WorkSafeBC or equivalent)",
+    "Got my SIN and set up direct deposit",
+    "Arranged mandatory car insurance before driving my own car",
+    "Added family members to my health card and benefits",
+    "Booked my driver's license exchange or road test"
+  ],
+  "driving": {
+    "intro": "Canada drives on the right. Outside big-city transit, many shift workers find a car essential.",
+    "side": "right",
+    "points": [
+      "Ontario: you can drive on a foreign license for 60 days. Licenses from the Philippines, India, Nigeria or Kenya can't be exchanged, so you take a vision test, knowledge test and G2 road test, then a G road test at least 12 months later.",
+      "Ontario: from July 1, 2026, you can get credit for up to 1 year of foreign driving experience with an authentication letter from your issuing government.",
+      "BC: switch within 90 days. Without an exchange agreement, you take knowledge and road tests, and you need proof of 2+ years of experience to skip graduated licensing.",
+      "Alberta: exchange within 90 days. Non-exchange licenses need a Class 7 knowledge test, then a Class 5 road test. Full Class 5 needs 2+ years of experience.",
+      "Quebec: drive on a foreign license for 6 months. Non-agreement countries need a knowledge test (CAD 13.50) and a road test (CAD 33.75)."
+    ],
+    "rules": "In Ontario, stop for a school bus with flashing red lights from either direction unless a median divides the road, and right turns on red are banned on the island of Montreal."
+  },
+  "license": {
+    "intro": "Most provinces make professional liability protection a condition of registration (for example BC, Alberta, New Brunswick, Newfoundland and Labrador). In Ontario and Quebec you buy it yourself. For almost all nurses it comes from CNPS.",
+    "providers": [
+      {
+        "name": "CNPS",
+        "full": "Canadian Nurses Protective Society",
+        "who": "Nonprofit for nurses with a valid Canadian license. You join through MyCNPS or through your college's renewal, depending on your province.",
+        "notes": "Covers up to CAD 10M per claim from your practice, plus free confidential legal advice and help with criminal or coroner matters.",
+        "url": "https://cnps.ca/services/plp-core/"
+      },
+      {
+        "name": "CNPS Supplementary Protection",
+        "full": "CNPS Supplementary Protection Program",
+        "who": "Optional extra purchase through MyCNPS.",
+        "notes": "Extends CNPS help to complaints made against you to your nursing regulator, which core protection excludes.",
+        "url": "https://cnps.ca/join-or-renew/"
+      },
+      {
+        "name": "Employer coverage",
+        "full": "Hospital or health authority liability insurance",
+        "who": "Your employer.",
+        "notes": "Usually your first line of defense for work done on the job. CNPS covers practice claims that your employer doesn't adequately cover.",
+        "url": "https://cnps.ca/services/plp-core/"
+      }
+    ]
+  },
+  "lessonNotes": {
+    "sbar": "SBAR is widely used. Accreditation Canada makes information transfer at care transitions a required organizational practice, and the Canadian Patient Safety Institute co-developed a free SBAR toolkit with Toronto Rehab.",
+    "ehr": "Each college sets documentation standards. CNO's revised Documentation standard (in effect February 1, 2026) adds duties for technology, including AI, and for bias-free language.",
+    "hipaa": "Health privacy is provincial: PHIPA in Ontario, the Health Information Act in Alberta, PHIA in Nova Scotia and Newfoundland and Labrador, and PHIPAA in New Brunswick. Federal PIPEDA covers much private-sector data. Ontario's privacy commissioner fined a doctor CAD 5,000 in 2025 for snooping in patients' hospital records.",
+    "deleg": "You work with RPNs (registered practical nurses in Ontario) or LPNs, who are regulated, and with unregulated care providers such as PSWs and HCAs, who answer to the employer. Controlled acts can only be delegated formally (see CNO's Working with Unregulated Care Providers guideline).",
+    "code": "Goals-of-care orders vary by province: Alberta uses a Goals of Care Designation order, and BC uses MOST (M1–M3, C0–C2; CPR only in C2). Many Ontario hospitals have a Critical Care Response Team (CCRT) for deteriorating ward patients.",
+    "workplace": "Most hospital nurses are unionized under provincial collective agreements, for example BC's Nurses' Bargaining Association. If you're unsure whether a task is within your scope, ask your college's practice advisors (for example, CRNS's Ask a Nursing Advisor)."
+  },
+  "sources": [
+    [
+      "CNO – Registration guide, educated outside Canada",
+      "https://www.cno.org/become-a-nurse/registration-guides/outside-canada"
+    ],
+    [
+      "CNO – New registration requirements (April 2025)",
+      "https://cno.org/news/new-nursing-registration-requirements-take-effect"
+    ],
+    [
+      "CNO – Automatic recognition for Canadian nurses (2026)",
+      "https://cno.org/news/new-streamlining-how-canadas-nurses-register-with-cno"
+    ],
+    [
+      "CNO – Single NP classification",
+      "https://cno.org/standards-learning/nurse-practitioners/a-single-classification-of-nurse-practitioners-nps"
+    ],
+    [
+      "CNO – Revised Documentation standard",
+      "https://cno.org/news/council-approves-revised-documentation-practice-standard"
+    ],
+    [
+      "CNO – Dear CNO (UCPs and delegation)",
+      "https://cno.org/news/dear-cno-april-2024"
+    ],
+    [
+      "BCCNM – IEN FAQ",
+      "https://bccnm.ca/RN/applications_registration/how_to_apply/InternationalEN/Pages/Frequentlyaskedquestions.aspx"
+    ],
+    [
+      "BCCNM – IENs educated in AUS/NZ/UK/US",
+      "https://bccnm.ca/RN/applications_registration/how_to_apply/InternationalEN/Pages/IENs_educated_in_AUS_NZ_UK_US.aspx"
+    ],
+    [
+      "BCCNM – CNPLE",
+      "https://bccnm.ca/NP/applications_registration/exams/Pages/CNPLE.aspx"
+    ],
+    [
+      "BCCNM – NP eligibility",
+      "https://bccnm.ca/NP/applications_registration/how_to_apply/lEN/Pages/Step1.aspx"
+    ],
+    [
+      "CRNA – International applicants",
+      "https://nurses.ab.ca/nursing-in-alberta/international-applicants/options-for-confirming-competency/"
+    ],
+    [
+      "CRNS – Internationally educated RNs",
+      "https://crns.ca/license_membership/becoming-a-nurse-in-sask/registered-nurse-sask/internationally-educated/"
+    ],
+    [
+      "CRNM – Internationally educated nurses",
+      "https://www.crnm.mb.ca/applicants/internationally-educated-nurses/"
+    ],
+    [
+      "Qualifications Québec – Nurses (OIIQ path)",
+      "https://qualificationsquebec.com/profession/infirmiers-autorises-infirmieres-autorisees-et-infirmiers-psychiatriques-autorises-infirmieres-psychiatriques-autorisees/?print=1"
+    ],
+    [
+      "CNNB – IEN registration pathways FAQ",
+      "https://www.nanb.nb.ca/en/ien/faq-registration-pathways"
+    ],
+    [
+      "CNNB – IEN zones",
+      "https://cnnb-opinb.ca/en/ien/"
+    ],
+    [
+      "CNNB – New name announcement",
+      "https://www.nanb.nb.ca/en/news/article/press-release-nurses-association-new-brunswick-announces-new-name-college-nursing-new-brunswick"
+    ],
+    [
+      "NSNMR – International nurse applicants",
+      "https://www.nsnmr.ca/registration-licensing/apply-be-nurse-nova-scotia/international-nurse-applicants"
+    ],
+    [
+      "PEI Government – Internationally educated nurses",
+      "https://www.princeedwardisland.ca/en/information/health-pei/internationally-educated-nurses"
+    ],
+    [
+      "PEI Government – TRNC program",
+      "https://www.princeedwardisland.ca/en/service/transition-to-registered-nursing-in-canada-program"
+    ],
+    [
+      "NLCN – IEN RN",
+      "https://nlcn.ca/apply/rn-applicants/internationally-educated-nurse-rn/"
+    ],
+    [
+      "Yukon Government – Nurse licensing changes",
+      "https://yukon.ca/en/news/government-yukon-makes-it-easier-nurses-and-nurse-practitioners-work-yukon"
+    ],
+    [
+      "CNNN – Internationally educated nurses",
+      "https://cannn.ca/resources/internationally-educated-nurses/"
+    ],
+    [
+      "CFTA – Labour mobility",
+      "https://www.cfta-alec.ca/labour-mobility/"
+    ],
+    [
+      "CNA – Premiers' health mobility commitment (2025)",
+      "https://www.cna-aiic.ca/en/blogs/cn-content/2025/07/24/cna-welcomes-premiers-commitment-to-health"
+    ],
+    [
+      "CNA – Certification exam eligibility",
+      "https://www.cna-aiic.ca/en/certification/initial-certification/initial-exam-eligibility"
+    ],
+    [
+      "CNA – Certification specialties",
+      "https://www.cna-aiic.ca/en/certification/initial-certification/certification-nursing-practice-specialties"
+    ],
+    [
+      "CNA – Renewal eligibility",
+      "https://www.cna-aiic.ca/en/certification/renewing-your-certification/renewal-eligibility"
+    ],
+    [
+      "CNPS – Professional liability protection",
+      "https://cnps.ca/services/plp-core/"
+    ],
+    [
+      "CNPS – Join or renew (by province)",
+      "https://cnps.ca/join-or-renew/"
+    ],
+    [
+      "Service Canada – Apply for a SIN",
+      "https://www.canada.ca/en/employment-social-development/services/sin/apply.html"
+    ],
+    [
+      "CRA – Newcomers to Canada (T4055)",
+      "https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4055/t4055-newcomers-canada.html"
+    ],
+    [
+      "CRA – Filing for the first time",
+      "https://www.canada.ca/en/revenue-agency/news/newsroom/tax-tips/tax-tips-2025/new-canada-filing-tax-return-first-time.html"
+    ],
+    [
+      "CRA – RRSP deduction limit",
+      "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/contributing-a-rrsp-prpp/contributions-affect-your-rrsp-prpp-deduction-limit.html"
+    ],
+    [
+      "CRA – RRSP and TFSA dollar limits",
+      "https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html"
+    ],
+    [
+      "CRA – Before you contribute to a TFSA",
+      "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/tax-free-savings-account/contributing/before.html"
+    ],
+    [
+      "CRA – Opening an FHSA",
+      "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account/opening-your-fhsas.html"
+    ],
+    [
+      "CRA – Payroll",
+      "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll.html"
+    ],
+    [
+      "Ontario – OHIP",
+      "https://www.ontario.ca/page/apply-ohip-and-get-health-card"
+    ],
+    [
+      "BC – MSP wait period",
+      "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/how-to-enrol/coverage-wait-period"
+    ],
+    [
+      "Alberta – AHCIP temporary residents",
+      "https://www.alberta.ca/ahcip-temporary-residents"
+    ],
+    [
+      "eHealth Saskatchewan – Eligibility",
+      "https://www.ehealthsask.ca/residents/health-cards/Pages/Eligibility-for-Health-Benefits.aspx"
+    ],
+    [
+      "Manitoba – Moving to Manitoba",
+      "https://www.gov.mb.ca/health/mhsip/movingtomanitoba.html"
+    ],
+    [
+      "Nova Scotia – Health card if you move",
+      "https://www.novascotia.ca/healthcare-coverage-if-you-move-nova-scotia-health-card"
+    ],
+    [
+      "RAMQ – Eligibility conditions",
+      "https://www.ramq.gouv.qc.ca/en/citizens/health-insurance/know-eligibility-conditions"
+    ],
+    [
+      "FCAC – Getting your credit report",
+      "https://www.canada.ca/en/financial-consumer-agency/services/credit-reports-score/order-credit-report.html"
+    ],
+    [
+      "FCAC – Improving your credit score",
+      "https://www.canada.ca/en/financial-consumer-agency/services/credit-reports-score/improve-credit-score.html"
+    ],
+    [
+      "FCAC – Credit report basics",
+      "https://www.canada.ca/en/financial-consumer-agency/services/credit-reports-score/credit-report-score-basics.html"
+    ],
+    [
+      "FCAC – Choosing a credit card",
+      "https://www.canada.ca/en/financial-consumer-agency/services/credit-cards/choose-credit-card.html"
+    ],
+    [
+      "FCAC – Opening a bank account",
+      "https://www.canada.ca/en/financial-consumer-agency/services/banking/opening-bank-account.html"
+    ],
+    [
+      "Ontario – Exchange an out-of-province licence",
+      "https://www.ontario.ca/page/exchange-out-province-drivers-licence"
+    ],
+    [
+      "ICBC – Moving from another country",
+      "https://icbc.com/driver-licensing/moving-bc/moving-from-another-country"
+    ],
+    [
+      "Alberta – Exchange a licence",
+      "https://www.alberta.ca/exchange-non-alberta-licences"
+    ],
+    [
+      "SAAQ – Foreign driver's licence",
+      "https://saaq.gouv.qc.ca/en/drivers-licences/canadian-foreign-drivers-licence"
+    ],
+    [
+      "SAAQ – Right turn on red",
+      "https://saaq.gouv.qc.ca/en/road-safety/behaviours/turning-right-red-light/what-law-says"
+    ],
+    [
+      "Ontario MTO – Stopping for school buses",
+      "https://ontario.ca/document/official-ministry-transportation-mto-truck-handbook/stopping-school-buses"
+    ],
+    [
+      "ICBC – Basic insurance",
+      "https://icbc.com/insurance/products-coverage/basic-insurance"
+    ],
+    [
+      "Ontario – Vehicle insurance and registration",
+      "https://www.ontario.ca/document/official-mto-drivers-handbook/vehicle-insurance-and-registration"
+    ],
+    [
+      "WSIB – What workers should know",
+      "https://www.wsib.ca/sites/default/files/2019-03/0628a_what_workers_should_know_reporting.pdf"
+    ],
+    [
+      "OPC – Provincial laws substantially similar to PIPEDA",
+      "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/legislation-related-to-pipeda/provincial-legislation-deemed-substantially-similar-to-pipeda/"
+    ],
+    [
+      "OIPC Alberta – Health Information Act",
+      "https://oipc.ab.ca/legislation/hia/"
+    ],
+    [
+      "IPC Ontario – First PHIPA monetary penalty",
+      "https://www.ipc.on.ca/en/node/5168"
+    ],
+    [
+      "Women's College Hospital – Information transfer ROP",
+      "https://womenscollegehospital.ca/accreditation-q-tip-information-transfer-at-care-transitions"
+    ],
+    [
+      "UHN Toronto Rehab – SBAR",
+      "https://www.uhn.ca/TorontoRehab/Education/SBAR"
+    ],
+    [
+      "MyHealth Alberta – Goals of Care Designation",
+      "https://myhealth.alberta.ca/advance-care-planning/learn-about-the-goals-of-care-designation-order"
+    ],
+    [
+      "Island Health – MOST key messages",
+      "https://www.islandhealth.ca/sites/default/files/MOST/documents/most-key-messages.pdf"
+    ],
+    [
+      "Niagara Health – Critical Care Response Team",
+      "https://www.niagarahealth.on.ca/site/news/2015/02/13/critical-care-response-team-to-enhance-patient-safety-at-nhs"
+    ],
+    [
+      "VCH – NBA collective agreement highlights",
+      "https://vch.ca/en/nurses-bargaining-association-nba-members"
+    ],
+    [
+      "Island Health – BC nurse salary and benefits",
+      "https://www.islandhealth.ca/sites/default/files/careers/documents/BC-nurses-salary-benefits.pdf"
+    ]
+  ],
+  "uncertain": [
+    "CNO: older CNO pages say NNAS is required, but the current guide only asks for a CNO-approved credential assessment provider. Whether NNAS is still on that list wasn't confirmed.",
+    "Whether CNO requires proof of professional liability protection for registration wasn't confirmed. CNPS lists Ontario as an individual purchase.",
+    "PEICNM's own IEN requirements weren't read (site blocked). Only PEI government pages were checked.",
+    "CNNN (NWT/Nunavut): whether IENs must write the NCLEX-RN wasn't stated.",
+    "CRNM (Manitoba): the IEN page doesn't say whether IENs write the NCLEX-RN or whether NNAS is an accepted provider.",
+    "Saskatchewan: the eHealth page doesn't mention work permits. Whether permit holders follow the 'first day of third month' rule wasn't confirmed.",
+    "BC MSP: the work-permit length needed for eligibility wasn't confirmed.",
+    "Nova Scotia: for people arriving from outside Canada, coverage 'usually' starts on the residency date. Whether any waiting period applies to them wasn't fully confirmed.",
+    "BC wage-grid figures come from a 2021 Island Health sheet. Current grid rates weren't verified.",
+    "Overtime rates under nursing collective agreements weren't verified.",
+    "The ICBC list of license-exchange countries wasn't visible on the page read.",
+    "CNA certification: whether foreign nursing experience counts toward specialty hours wasn't confirmed. The eligibility page says licensure, experience and endorsement must be from Canada.",
+    "Interprovincial mobility outside Ontario: no other province's fast-track rule for nurses was confirmed. The July 2025 premiers' commitment had no nurse-specific deadline.",
+    "Renter's and home insurance weren't researched.",
+    "The FHSA lifetime limit wasn't shown on the CRA page read.",
+    "BC nurses rejected a tentative 2025–2029 NBA agreement in June 2026. The BC premiums shown are from the 2022–2025 agreement and may change when a new one is reached.",
+    "CNNB (New Brunswick): the date the new name took legal effect wasn't confirmed. The old nanb.nb.ca site still hosts some pages.",
+    "PEICNM: the date the merged college began operating wasn't confirmed (its regulations are dated January 2026)."
+  ]
+}

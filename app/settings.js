@@ -9,6 +9,7 @@ import { useApp } from "../src/state";
 import { BOARDS } from "../src/data/content";
 import { useBulletin } from "../src/bulletin";
 import { DESTINATIONS, destId } from "../src/data/global";
+import { RegionSelect } from "../src/dest";
 
 const SPECIALTIES = ["Medical-surgical", "ICU / critical care", "Emergency", "Operating room", "Labor & delivery", "Pediatrics", "Oncology", "Telemetry / step-down", "Psychiatric", "Long-term care", "Other"];
 
@@ -52,6 +53,7 @@ export default function Settings() {
         <Field label="Home country" value={p.homeCountry} onChangeText={set("homeCountry")} placeholder="e.g. Kenya" autoCapitalize="words" />
         <Select label="Specialty" value={p.specialty} onChange={set("specialty")} options={[{ value: "", label: "Choose…" }, ...SPECIALTIES]} />
         <Select label="Destination country" value={destId(state)} onChange={set("dest")} options={DESTINATIONS.map((d) => ({ value: d.id, label: `${d.flag} ${d.name}` }))} />
+        <RegionSelect mod="home" />
         {destId(state) === "US" ? <Select label="Target state" value={p.targetState} onChange={set("targetState")} placeholder="Not decided"
           options={[{ value: "", label: "Not decided" }, ...BOARDS.map((b) => ({ value: b.name, label: b.name }))]} /> : null}
       </Card>

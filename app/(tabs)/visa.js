@@ -7,7 +7,7 @@ import { useApp } from "../../src/state";
 import { SPONSORS, AEIRP_LIST, PHASE_COLORS } from "../../src/data/content";
 import { useBulletin, useBulletinSource, monthName } from "../../src/bulletin";
 import { fmtDate, parseISO, money, clamp } from "../../src/util";
-import { DestSwitcher, useDest } from "../../src/dest";
+import { DestPill, useDest } from "../../src/dest";
 import { CountryMonitor, CountryDirectory, COUNTRY_HERO } from "../../src/visaGlobal";
 import { useMigration } from "../../src/migration";
 
@@ -303,7 +303,7 @@ export default function Visa() {
     return (
       <Screen mod={MOD}>
         <Hero mod={MOD} icon="Plane" eyebrow={`Module 4 · Immigration · ${info.flag} ${info.short}`} title={COUNTRY_HERO[dest].title} sub={COUNTRY_HERO[dest].sub} stats={stats} />
-        <Card mod={MOD}><DestSwitcher mod={MOD} /></Card>
+        <DestPill mod={MOD} />
         <CountryMonitor dest={dest} />
         <CountryDirectory dest={dest} />
       </Screen>
@@ -314,7 +314,7 @@ export default function Visa() {
       <Hero mod={MOD} icon="Plane" eyebrow="Module 4 · Immigration · 🇺🇸 U.S." title="EB-3 visa bulletin monitor"
         sub={`Priority dates from the State Department's ${monthName(BULLETIN.month)} bulletin. Final Action dates decide when a visa can be issued; Dates for Filing decide when you may submit documents.`}
         stats={[["Bulletin", monthName(BULLETIN.month).replace(/^(\w{3})\w* /, "$1 ")], ["Philippines FA", ph ? fmtDate(ph.fa) : "—"], ["Rest of world FA", row ? fmtDate(row.fa) : "—"]]} />
-      <Card mod={MOD}><DestSwitcher mod={MOD} /></Card>
+      <DestPill mod={MOD} />
       <Bulletin chart={chart} setChart={setChart} />
       <Calculator chart={chart} />
       <SponsorDirectory />

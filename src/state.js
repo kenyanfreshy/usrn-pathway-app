@@ -3,13 +3,13 @@ import React, { createContext, useContext, useEffect, useMemo, useReducer, useRe
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SAMPLE_DOCS, LESSONS, CAREERS, CREDIT, INSURE_LIST } from "./data/content";
 import { dkey, today, daysUntil, isoOffset } from "./util";
-import { phasesFor, destId, BADGE_ROLES } from "./data/global";
+import { phasesFor, destId, BADGE_ROLES, lifeOf, WORDS } from "./data/global";
 
 const STORE_KEY = "usrn-pathway-v1";
 export const initialState = () => ({
   steps: { "cred-0": true, "cred-1": true, "cred-2": true, "cred-3": true, "att-0": true, "att-1": true },
   flexible: false, docs: SAMPLE_DOCS, exams: [], runs: {}, catSeen: [], lessons: {}, careers: {}, credit: {}, drive: {}, qstats: {},
-  profile: { dest: "US", name: "", lastName: "", homeCountry: "", specialty: "", targetState: "", country: "ph", pd: "", testDate: "", attEnd: "" },
+  profile: { dest: "US", regions: {}, name: "", lastName: "", homeCountry: "", specialty: "", targetState: "", country: "ph", pd: "", testDate: "", attEnd: "" },
   palette: "vivid", days: {}, qotd: {}, flash: 0, badgesSeen: null, alertsOn: false, onboarded: false,
   payments: [
     { id: "y1", phase: "cred", label: "CGFNS CES Professional Report (sample)", amount: 395, date: isoOffset(-200), sample: true },
@@ -22,7 +22,7 @@ export const initialState = () => ({
   ],
 });
 
-const ACTIVE = new Set(["step", "addDoc", "exam", "lesson", "career", "credit", "addLadder", "qotd", "flash", "addPay", "drive", "qstat"]);
+const ACTIVE = new Set(["step", "region", "addDoc", "exam", "lesson", "career", "credit", "addLadder", "qotd", "flash", "addPay", "drive", "qstat"]);
 function reducer(s, a) {
   const n = reducer0(s, a);
   if (n !== s && ACTIVE.has(a.type)) return { ...n, days: { ...(n.days || {}), [dkey(new Date())]: true } };
@@ -51,6 +51,12 @@ function reducer0(s, a) {
     case "addLadder": return { ...s, ladder: [a.entry, ...s.ladder] };
     case "delLadder": return { ...s, ladder: s.ladder.filter((e) => e.id !== a.id) };
     case "profile": return { ...s, profile: { ...s.profile, ...a.patch } };
+    case "region": {
+      // Pick a province (Canada): save it and tick the roadmap step "Pick one province first".
+      const regions = { ...(s.profile.regions || {}), [a.dest]: a.code };
+      const steps = a.step ? { ...s.steps, [a.step]: true } : s.steps;
+      return { ...s, steps, profile: { ...s.profile, regions } };
+    }
     case "palette": return { ...s, palette: a.key };
     case "qotd": return { ...s, qotd: { ...(s.qotd || {}), [a.key]: a.rec } };
     case "flash": return { ...s, flash: (s.flash || 0) + 1 };
@@ -83,6 +89,14 @@ export const phaseDone = (s, id) => { const p = phasesOf(s).find((x) => x.id ===
 /** Done when the roadmap phase this badge follows (for the chosen destination) is complete. */
 const roleDone = (s, role) => { const r = BADGE_ROLES[destId(s)][role]; const p = phasesOf(s)[r[0]]; return !!p && p.steps.every((_, j) => s.steps[`${p.id}-${j}`]); };
 
+/** Credit checklist for the destination, and the key each item is saved under (U.S. keeps the original numeric keys). */
+export const creditList = (s) => { const l = lifeOf(destId(s)); return l ? l.credit : CREDIT; };
+export const creditKey = (s, i) => (destId(s) === "US" ? i : `${destId(s)}-${i}`);
+/** Career tracks for the destination; ids are prefixed per country so ticks don't collide. */
+export const careersOf = (s) => { const d = destId(s); const l = lifeOf(d); return l ? l.careers.map((c) => ({ ...c, id: `${d}-${c.id}` })) : CAREERS; };
+export const insureListOf = (s) => { const l = lifeOf(destId(s)); return l ? l.insureList : INSURE_LIST; };
+export const insureKey = (s, i) => (destId(s) === "US" ? "ins" + i : `${destId(s)}-ins${i}`);
+
 export const LEVELS = [[0, "Applicant"], [250, "Candidate"], [600, "NCLEX Ready"], [1000, "Licensed RN"], [1500, "Bedside Pro"], [2200, "Charge RN"], [3000, "Nurse Leader"]];
 export function levelOf(xp) {
   let i = 0; LEVELS.forEach((l, k) => { if (xp >= l[0]) i = k; });
@@ -105,9 +119,10 @@ export function metrics(s) {
   const nclexPct = bench.reduce((n, e) => n + (e ? e.pct / 100 : 0), 0) / 3;
   const lessonsDone = LESSONS.filter((l) => s.lessons[l.id]).length;
   const lessonPct = lessonsDone / LESSONS.length;
-  const careerTotal = CAREERS.reduce((n, c) => n + c.items.length, 0) + CREDIT.length + INSURE_LIST.length;
-  const creditDone = CREDIT.filter((_, i) => s.credit[i]).length;
-  const careerDone = Object.values(s.careers).filter(Boolean).length + creditDone;
+  const CAR = careersOf(s), CRED = creditList(s), INS = insureListOf(s);
+  const careerTotal = CAR.reduce((n, c) => n + c.items.length, 0) + CRED.length + INS.length;
+  const creditDone = CRED.filter((_, i) => s.credit[creditKey(s, i)]).length;
+  const careerDone = CAR.reduce((n, c) => n + c.items.filter((_, i) => s.careers[c.id + i]).length, 0) + INS.filter((_, i) => s.careers[insureKey(s, i)]).length + creditDone;
   const careerPct = Math.min(1, careerDone / careerTotal);
   const risky = s.docs.filter((d) => { const n = daysUntil(d.expires); return n !== null && n <= 90; }).length;
   const vaultPct = s.docs.length ? 1 - risky / s.docs.length : 0;
@@ -136,12 +151,17 @@ export const BADGES = [
   { id: "flash", icon: "Layers", name: "Card Shark", desc: "Review 25 flashcards", test: (s) => (s.flash || 0) >= 25 },
   { id: "bank", icon: "Library", name: "Bank Explorer", desc: "Answer 100 question-bank questions", test: (s, m) => m.answered >= 100 },
   { id: "ladder", icon: "Award", name: "Ladder Climber", desc: "Log 5 clinical ladder entries", test: (s) => s.ladder.length >= 5 },
-  { id: "credit", icon: "CreditCard", name: "720 Club", desc: "Finish the credit-building roadmap", test: (s) => CREDIT.every((_, i) => s.credit[i]) },
+  { id: "credit", icon: "CreditCard", name: "720 Club", desc: "Finish the credit-building roadmap", test: (s) => creditList(s).every((_, i) => s.credit[creditKey(s, i)]) },
 ];
 /** Badges with the milestone names for the chosen destination. */
 export function badgesFor(dest) {
-  const roles = BADGE_ROLES[dest] || BADGE_ROLES.US;
-  return BADGES.map((b) => (roles[b.id] ? { ...b, name: roles[b.id][1], desc: roles[b.id][2] } : b));
+  const roles = BADGE_ROLES[dest] || BADGE_ROLES.US; const US = !lifeOf(dest);
+  return BADGES.map((b) => {
+    if (roles[b.id]) return { ...b, name: roles[b.id][1], desc: roles[b.id][2] };
+    if (b.id === "scholar" && !US) return { ...b, name: (WORDS[dest] || WORDS.US).cert, desc: "Complete all six bedside lessons and earn the certificate" };
+    if (b.id === "credit" && !US) return { ...b, name: "Credit Builder", desc: "Finish the credit-building checklist" };
+    return b;
+  });
 }
 export const BADGE_HUES = [["#0891b2", "#10b981"], ["#4f46e5", "#8b5cf6"], ["#ea580c", "#e11d48"], ["#9333ea", "#db2777"], ["#d97706", "#ea580c"], ["#059669", "#0284c7"]];
 

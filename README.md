@@ -11,6 +11,9 @@ The store version of USRN Pathway, built with Expo (React Native). Bundle ID / p
 - **Four destinations.** U.S., Canada, Australia and New Zealand, each with its own 6-phase roadmap, migration monitor,
   employer directory and bedside notes. Researched data with sources lives in `src/data/countries/*.json`; the migration
   figures also refresh from `data/migration.json` (`expo.extra.migrationUrl`). The U.S. roadmap is in `src/data/content.js`.
+  The destination is part of the profile (U.S. by default; a first-run welcome card lets the nurse pick). Boards, Bedside,
+  Career and Driving switch to the chosen country using `src/data/countries/*-life.json` (regulators, careers, pay, tax,
+  health cover, credit, driving, liability protection and lesson notes, each with sources).
 - **No AI features** in this version.
 
 ---

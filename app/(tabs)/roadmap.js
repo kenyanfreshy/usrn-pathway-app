@@ -5,8 +5,8 @@ import Svg, { Circle, Line, Text as SvgText } from "react-native-svg";
 import { Screen, Hero, Card, Row, Txt, Bar, Check, Chip, Note, Btn, Field, DateField, Select, SectionTitle, Icon, Grad, IconTile, tap, Grid, HScroll } from "../../src/ui";
 import { useTheme, mix, FONTS } from "../../src/theme";
 import { useApp, phaseStatus, phasesOf } from "../../src/state";
-import { DestSwitcher, moneyIn } from "../../src/dest";
-import { destId, destOf, HERO, countryData } from "../../src/data/global";
+import { DestPill, moneyIn, YourRegionCard } from "../../src/dest";
+import { destId, destOf, HERO, countryData, regionOf, stepRegion, REGION_WORD } from "../../src/data/global";
 import { usePro, ProGate } from "../../src/pro";
 import { askPermission, scheduleExpiryAlerts, cancelAlerts } from "../../src/notify";
 import { today, todayKey, daysUntil, fmtDate, addYears, isISO, money, uid, addMonths, monYr } from "../../src/util";
@@ -33,7 +33,8 @@ export default function Roadmap() {
       <Hero mod={MOD} icon="Map" eyebrow={`Module 1 · Milestones · ${info.flag} ${info.short}`} title={HERO[dest].title} sub={HERO[dest].sub}
         stats={[["Progress", pct + "%"], ["Steps done", done + " / " + total], US ? ["Est. total cost", money(costLo) + "–" + money(costHi)] : ["Phases done", phasesDone + " / " + PHASES.length]]} />
 
-      <Card mod={MOD}><DestSwitcher mod={MOD} note="Each destination has its own roadmap. Your ticks are saved separately, so you can compare countries." /></Card>
+      <DestPill mod={MOD} />
+      <YourRegionCard mod={MOD} from="roadmap" />
 
       <Card mod={MOD} style={{ gap: 12 }}>
         <Row style={{ justifyContent: "space-between" }}>
@@ -116,7 +117,11 @@ function PhaseRow({ p, i, US, prev }) {
             {!US ? <Txt v="mono" muted style={{ fontSize: 12 }}>Fees: {p.costText}</Txt> : null}
             {p.steps.map((s, j) => {
               const id = `${p.id}-${j}`;
-              return <Check key={id} mod={MOD} checked={!!state.steps[id]} disabled={st.locked} strike label={s} onToggle={() => dispatch({ type: "step", id })} />;
+              // Canada: steps written for one province are marked, so the nurse can follow only their college's rules.
+              const dest = destId(state); const mine = regionOf(state); const sr = stepRegion(dest, s);
+              const other = /^Other provinces:/.test(s) && mine ? (["ON", "BC", "AB"].includes(mine.code) ? "Not for your province. Tick it to skip." : `Your ${REGION_WORD[dest]}: check ${mine.abbr}'s rules`) : null;
+              const sub = other ? other : !sr ? null : mine && sr.code === mine.code ? `Your ${REGION_WORD[dest]}` : mine ? `Only for ${sr.region}. Tick it to skip.` : null;
+              return <Check key={id} mod={MOD} checked={!!state.steps[id]} disabled={st.locked} strike label={s} sub={sub} onToggle={() => dispatch({ type: "step", id })} />;
             })}
             {st.locked && prev ? <Txt v="tiny" muted>Finish “{prev.title}” to unlock, or turn on flexible order.</Txt> : null}
             {p.links && p.links.length ? (

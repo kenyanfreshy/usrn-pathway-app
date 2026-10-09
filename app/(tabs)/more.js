@@ -4,15 +4,20 @@ import { View, Pressable } from "react-native";
 import { router } from "expo-router";
 import { Screen, Hero, Card, Row, Txt, Icon, IconTile, Grad, tap, Grid } from "../../src/ui";
 import { useTheme } from "../../src/theme";
-import { useApp, BADGES } from "../../src/state";
+import { useApp, badgesFor } from "../../src/state";
+import { destId, destOf, WORDS } from "../../src/data/global";
+import { DestPill } from "../../src/dest";
 import { usePro } from "../../src/pro";
 
-const TOOLS = [
-  { to: "/boards", mod: "boards", icon: "Landmark", title: "Boards", desc: "State boards & endorsement" },
-  { to: "/bedside", mod: "bedside", icon: "Stethoscope", title: "Bedside", desc: "6 U.S. hospital lessons, SBAR builder, charting & license protection" },
-  { to: "/career", mod: "career", icon: "TrendingUp", title: "Career", desc: "Charge tools, careers, money & insurance" },
-  { to: "/driving", mod: "drive", icon: "Car", title: "Driving", desc: "Why to learn before you travel" },
-];
+const toolsFor = (dest) => {
+  const W = WORDS[dest]; const US = dest === "US"; const name = destOf(dest).name;
+  return [
+    { to: "/boards", mod: "boards", icon: "Landmark", title: W.boards, desc: W.boardsDesc },
+    { to: "/bedside", mod: "bedside", icon: "Stethoscope", title: "Bedside", desc: US ? "6 U.S. hospital lessons, SBAR builder, charting & license protection" : `6 bedside lessons with ${name} notes, handover, charting & liability protection` },
+    { to: "/career", mod: "career", icon: "TrendingUp", title: "Career", desc: US ? "Charge tools, careers, money & insurance" : `Career paths, pay, tax & health cover in ${name}` },
+    { to: "/driving", mod: "drive", icon: "Car", title: "Driving", desc: US ? "Why to learn before you travel" : `Licenses in ${name} & why to learn first` },
+  ];
+};
 
 function ToolCard({ tool }) {
   const t = useTheme(tool.mod);
@@ -67,13 +72,14 @@ function Disclaimer() {
 
 export default function More() {
   const { state, lvl, m } = useApp(); const { isPro } = usePro(); const t = useTheme("more");
-  const seen = (state.badgesSeen || []).length;
+  const seen = (state.badgesSeen || []).length; const dest = destId(state); const BADGES = badgesFor(dest); const TOOLS = toolsFor(dest);
   const name = [state.profile.name, state.profile.lastName].filter(Boolean).join(" ");
   return (
     <Screen mod="more">
-      <Hero mod="more" icon="LayoutGrid" eyebrow="USRN Pathway" title="More tools" sub="State boards, bedside skills, career and money, and getting on the road."
+      <Hero mod="more" icon="LayoutGrid" eyebrow="USRN Pathway" title="More tools" sub={dest === "US" ? "State boards, bedside skills, career and money, and getting on the road." : `Licensing, bedside skills, career and money, and getting on the road in ${destOf(dest).name}.`}
         stats={[["Level", lvl.name], ["XP", m.xp], ["Badges", `${seen}/${BADGES.length}`]]} />
 
+      <DestPill mod="more" />
       <Grid min={150} gap={12}>
         {TOOLS.map((tool) => <ToolCard key={tool.to} tool={tool} />)}
       </Grid>

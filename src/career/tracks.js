@@ -38,7 +38,7 @@ export function MagnetEbp() {
     <Grid basis={280} gap={12}>
       <Card mod={MOD}>
         <IconHead icon="Landmark">Shared governance</IconHead>
-        <Txt v="small">Magnet hospitals give bedside nurses a formal voice through unit practice councils. Joining one is the fastest way to be seen by leadership, and it counts on most clinical ladders.</Txt>
+        <Txt v="small">Magnet hospitals, and many others, give bedside nurses a formal voice through unit practice councils. Joining one is the fastest way to be seen by leadership, and it usually counts toward a clinical ladder or professional development program.</Txt>
         <RichBullets v="small" items={["Bring one measurable problem from your shift", "Volunteer to collect audit data", "Present results at the council meeting"]} />
       </Card>
       <Card mod={MOD}>

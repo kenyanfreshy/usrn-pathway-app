@@ -29,11 +29,11 @@ export const WIN_BACK_DAYS = 30;
 export const PRO_FEATURES = [
   ["Network", "NGN Clinical Judgment Simulator", "A 150-item exam with four unfolding Next Gen case studies (chart tabs, six clinical-judgment steps), plus single-case practice"],
   ["BellRing", "Automated expiry alerts", "Phone reminders 90 and 30 days before IELTS/PTE scores and licenses expire"],
-  ["ArrowRightLeft", "Endorsement wizard", "Nursys transfer steps between states, e.g. NY → CA or TX"],
+  ["ArrowRightLeft", "Endorsement wizard (U.S.)", "Nursys transfer steps between states, e.g. NY → CA or TX"],
   ["LayoutGrid", "Charge nurse command center", "Acuity balancer, SBAR generator, clinical ladder dossier"],
-  ["Receipt", "Overtime tax shield", "Overtime deduction, W-4 withholding and 403(b)/457(b)/HSA calculators"],
+  ["Receipt", "Overtime tax shield (U.S.)", "Overtime deduction, W-4 withholding and 403(b)/457(b)/HSA calculators"],
 ];
-export const FREE_FEATURES = ["6-phase milestone roadmap", "State board comparison", "Monthly visa bulletin", "Diagnostic Baseline (Test 1)", "Question bank, lessons and guides"];
+export const FREE_FEATURES = ["Roadmaps for the U.S., Canada, Australia and New Zealand", "Licensing guides for each country", "Visa bulletin and migration monitors", "Diagnostic Baseline (Test 1)", "Question bank, lessons and guides"];
 
 const ProCtx = createContext({ isPro: false, ready: false, packages: [], storeAvailable: false, membership: null });
 export const usePro = () => useContext(ProCtx);

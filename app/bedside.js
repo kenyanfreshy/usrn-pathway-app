@@ -11,8 +11,9 @@ import { useApp } from "../src/state";
 import { CHART_CASES, LICENSE_DOS, LICENSE_DONTS, INSURERS } from "../src/data/content";
 import { LESSONS, PASS_MARK, SBAR_SCENARIOS, CHART_CARDS } from "../src/data/bedside";
 import { fmtDate } from "../src/util";
-import { DestSwitcher } from "../src/dest";
-import { countryData, destId, destOf } from "../src/data/global";
+import { DestPill } from "../src/dest";
+import { countryData, destId, destOf, lifeOf, WORDS } from "../src/data/global";
+import { SourcesBlock } from "../src/career/country";
 
 const MOD = "bedside";
 const LETTERS = ["a", "b", "c", "d", "e", "f"];
@@ -27,16 +28,17 @@ export default function Bedside() {
   return (
     <Screen mod={MOD}>
       <BackRow title="Bedside" mod={MOD} />
-      <Hero mod={MOD} icon="Stethoscope" eyebrow="Module 5 · Clinical transition" title="Ready for the U.S. bedside"
+      <Hero mod={MOD} icon="Stethoscope" eyebrow={`Module 5 · Clinical transition · ${info.flag} ${info.short}`} title={`Ready for the ${WORDS[dest].bedside}`}
         sub={dest === "US" ? "Six lessons on the parts of U.S. hospital practice that most surprise internationally educated nurses. Pass each knowledge check to earn your U.S. Clinical Readiness Certificate."
-          : `Six lessons on U.S. hospital practice, plus practice notes for ${info.name} on the Country tab. Most skills (SBAR, delegation, safe charting) carry over; the laws and systems differ.`}
+          : `Six bedside lessons with notes on how each one works in ${info.name}, plus the Country tab for local practice. Most skills (handover, delegation, safe charting) carry over; the laws and systems differ.`}
         stats={[["Lessons", LESSONS.length], ["Completed", doneCount + " / " + LESSONS.length], ["Total time", LESSONS.reduce((n, l) => n + l.mins, 0) + " min"]]} />
+      <DestPill mod={MOD} />
       <TutorCard mod={MOD} />
       <Seg mod={MOD} value={view} onChange={setView} options={[{ id: "lessons", label: "Lessons", icon: "BookOpen" }, { id: "sbar", label: "SBAR", icon: "PhoneCall" }, { id: "chart", label: "Charting", icon: "FileEdit" }, { id: "license", label: "License", icon: "ShieldCheck" }, { id: "country", label: "Country", icon: "Globe" }]} />
-      {view === "lessons" ? <Lessons lessons={lessons} doneCount={doneCount} dispatch={dispatch} name={[state.profile.name, state.profile.lastName].filter(Boolean).join(" ")} /> : null}
+      {view === "lessons" ? <Lessons dest={dest} lessons={lessons} doneCount={doneCount} dispatch={dispatch} name={[state.profile.name, state.profile.lastName].filter(Boolean).join(" ")} /> : null}
       {view === "sbar" ? <SbarBuilder name={state.profile.name} /> : null}
-      {view === "chart" ? <><FlipCards /><ChartTrainer /></> : null}
-      {view === "license" ? <LicenseHub /> : null}
+      {view === "chart" ? <><FlipCards /><ChartTrainer dest={dest} /></> : null}
+      {view === "license" ? <LicenseHub dest={dest} /> : null}
       {view === "country" ? <CountryNotes dest={dest} /> : null}
     </Screen>
   );
@@ -48,9 +50,8 @@ function CountryNotes({ dest }) {
   const t = useTheme(MOD); const d = countryData(dest); const info = destOf(dest);
   return (
     <View style={{ gap: 12 }}>
-      <Card mod={MOD}><DestSwitcher mod={MOD} /></Card>
       {!d ? (
-        <Note mod={MOD} icon="Info" title="U.S. practice">The Lessons, SBAR, Charting and License tabs are written for U.S. hospitals. Pick Canada, Australia or New Zealand above to see how practice differs there.</Note>
+        <Note mod={MOD} icon="Info" title="U.S. practice">The Lessons, SBAR, Charting and License tabs are written for U.S. hospitals. Change your destination with the button at the top to see how practice differs in Canada, Australia or New Zealand.</Note>
       ) : (
         <>
           <View style={{ gap: 4 }}>
@@ -68,6 +69,7 @@ function CountryNotes({ dest }) {
             </Card>
           ))}
           <Txt v="tiny" muted>Checked {fmtDate(d.checked)} against the regulator's published standards. Your employer's policies come first.</Txt>
+          <SourcesBlock dest={dest} mod={MOD} />
         </>
       )}
     </View>
@@ -75,7 +77,7 @@ function CountryNotes({ dest }) {
 }
 
 /* ---------------- certificate ---------------- */
-function Certificate({ lessons, name }) {
+function Certificate({ lessons, name, dest }) {
   const t = useTheme(MOD);
   const scored = LESSONS.map((l) => lessons[l.id]).filter((v) => v && typeof v === "object");
   const pct = scored.length ? Math.round(scored.reduce((n, v) => n + v.best / v.max, 0) / scored.length * 100) : null;
@@ -85,11 +87,11 @@ function Certificate({ lessons, name }) {
       <View style={{ borderRadius: 19, padding: 20, gap: 10, alignItems: "center", backgroundColor: t.c.surface }}>
         <View style={{ width: 56, height: 56, borderRadius: 28, backgroundColor: "#FEF3C7", alignItems: "center", justifyContent: "center" }}><Icon name="Award" size={30} color="#B45309" /></View>
         <Txt v="eyebrow" color="#B45309">Certificate of completion</Txt>
-        <Txt v="h2" style={{ textAlign: "center" }}>U.S. Clinical Readiness</Txt>
+        <Txt v="h2" style={{ textAlign: "center" }}>{WORDS[dest].cert}</Txt>
         <Txt v="body" muted style={{ textAlign: "center" }}>Awarded to</Txt>
         <Txt v="h1" style={{ textAlign: "center" }}>{name || "You"}</Txt>
         <Txt v="small" muted style={{ textAlign: "center" }}>
-          for completing all six USRN Pathway bedside lessons: SBAR and escalation, defensive documentation, HIPAA and social media, delegation, patient rights and code status, and workplace advocacy.
+          for completing all six USRN Pathway bedside lessons: SBAR and escalation, defensive documentation, privacy and social media, delegation, patient rights and code status, and workplace advocacy.
         </Txt>
         <Row gap={8} style={{ flexWrap: "wrap", justifyContent: "center" }}>
           {pct !== null ? <Chip mod={MOD} tone="ok" icon="CheckCircle2" text={`Average score ${pct}%`} /> : null}
@@ -102,7 +104,8 @@ function Certificate({ lessons, name }) {
 }
 
 /* ---------------- lessons ---------------- */
-function Lessons({ lessons, doneCount, dispatch, name }) {
+function Lessons({ dest, lessons, doneCount, dispatch, name }) {
+  const life = lifeOf(dest); const info = destOf(dest);
   const t = useTheme(MOD);
   const [cur, setCur] = useState(LESSONS[0].id);
   const L = LESSONS.find((l) => l.id === cur) || LESSONS[0];
@@ -110,12 +113,12 @@ function Lessons({ lessons, doneCount, dispatch, name }) {
   const choose = (id) => setCur(id);
   return (
     <>
-      {doneCount === LESSONS.length ? <Certificate lessons={lessons} name={name} /> : null}
+      {doneCount === LESSONS.length ? <Certificate lessons={lessons} name={name} dest={dest} /> : null}
       <Row gap={12}>
         <View style={{ flex: 1 }}><Bar mod={MOD} pct={doneCount / LESSONS.length} /></View>
         <Txt v="mono">{doneCount}/{LESSONS.length}</Txt>
       </Row>
-      {doneCount < LESSONS.length ? <Txt v="tiny" muted>Complete all {LESSONS.length} lessons to unlock your U.S. Clinical Readiness Certificate.</Txt> : null}
+      {doneCount < LESSONS.length ? <Txt v="tiny" muted>Complete all {LESSONS.length} lessons to unlock your {WORDS[dest].cert} Certificate.</Txt> : null}
       <View style={{ gap: 8 }}>
         {LESSONS.map((l, i) => {
           const on = cur === l.id; const v = lessons[l.id]; const done = isDone(v);
@@ -146,9 +149,16 @@ function Lessons({ lessons, doneCount, dispatch, name }) {
         </Row>
 
         <View style={{ padding: 14, borderRadius: 14, backgroundColor: t.soft, gap: 6 }}>
-          <Row gap={6}><Icon name="Lightbulb" size={16} color={t.tint} /><Txt v="eyebrow" color={t.tint}>Why this matters in the U.S.</Txt></Row>
+          <Row gap={6}><Icon name="Lightbulb" size={16} color={t.tint} /><Txt v="eyebrow" color={t.tint}>{dest === "US" ? "Why this matters in the U.S." : "Why this matters · U.S. example"}</Txt></Row>
           <Txt v="body">{L.why}</Txt>
         </View>
+
+        {life && life.lessonNotes && life.lessonNotes[L.id] ? (
+          <View style={{ padding: 14, borderRadius: 14, backgroundColor: t.soft2, gap: 6, borderWidth: 1, borderColor: t.tint2 }}>
+            <Row gap={6}><Txt v="body">{info.flag}</Txt><Txt v="eyebrow" color={t.tint2}>How this works in {info.name}</Txt></Row>
+            <Txt v="body">{life.lessonNotes[L.id]}</Txt>
+          </View>
+        ) : null}
 
         {L.sections.map(([h, body]) => (
           <View key={h} style={{ gap: 6 }}>
@@ -354,7 +364,7 @@ function FlipCards() {
 }
 
 /* ---------------- "which note holds up?" trainer ---------------- */
-function ChartTrainer() {
+function ChartTrainer({ dest }) {
   const t = useTheme(MOD);
   const [i, setI] = useState(0); const [pick, setPick] = useState(null);
   const c = CHART_CASES[i]; const flip = (i % 2) === 1;
@@ -366,7 +376,7 @@ function ChartTrainer() {
         {CHART_CASES.map((x, k) => <Chip key={x.id} mod={MOD} icon={x.icon} text={x.title} tone={k === i ? "acc" : "mute"} active={k === i} onPress={() => { setI(k); setPick(null); }} />)}
       </Row>
       <Txt v="h3">Which note holds up?</Txt>
-      <Txt v="small" muted>Which note would hold up in a Board investigation or a deposition? Tap one.</Txt>
+      <Txt v="small" muted>{dest === "US" ? "Which note would hold up in a Board investigation or a deposition? Tap one." : "Which note would hold up in a regulator investigation or in court? Tap one."}</Txt>
       {cards.map(([kind, text], k) => {
         const good = kind === "good";
         return (
@@ -396,12 +406,20 @@ function ChartTrainer() {
   );
 }
 
-function LicenseHub() {
+/** U.S. wording → the destination's regulator wording. */
+const localize = (text, dest) => dest === "US" ? text : text
+  .replace(/before the Board of Nursing/g, "before the " + WORDS[dest].regulator)
+  .replace(/Boards treat/g, "Regulators treat")
+  .replace(/Protections for incident reports vary by state\./g, "Protections for incident reports vary by jurisdiction.");
+
+function LicenseHub({ dest }) {
   const t = useTheme(MOD);
   const open = (url) => { Linking.openURL(url).catch(() => {}); };
+  const life = lifeOf(dest);
+  const DOS = LICENSE_DOS.map(([a, b], i) => (i === 0 && life ? ["Know your liability protection", `Find out what covers you at work and outside it, and whether it includes help if a complaint goes to the ${WORDS[dest].regulator}. The card below explains how it works in ${destOf(dest).name}.`] : [a, localize(b, dest)])), DONTS = LICENSE_DONTS.map(([a, b]) => [a, localize(b, dest)]);
   return (
     <>
-      {[["Do", LICENSE_DOS, "ok", "ShieldCheck"], ["Don't", LICENSE_DONTS, "crit", "ShieldX"]].map(([h, list, tone, ic]) => {
+      {[["Do", DOS, "ok", "ShieldCheck"], ["Don't", DONTS, "crit", "ShieldX"]].map(([h, list, tone, ic]) => {
         const fg = t.c[tone]; const bg = t.c[tone + "Soft"];
         return (
           <Card key={h} mod={MOD} style={{ gap: 14, borderColor: bg, borderWidth: 1.5 }}>
@@ -422,7 +440,39 @@ function LicenseHub() {
         );
       })}
 
-      <Card mod={MOD} style={{ gap: 14 }}>
+      {life ? (
+        <Card mod={MOD} style={{ gap: 14 }}>
+          <Row gap={12} center={false}>
+            <IconTile mod={MOD} icon="Shield" size={42} />
+            <View style={{ flex: 1, gap: 2 }}>
+              <Txt v="eyebrow">Professional liability protection · {destOf(dest).flag}</Txt>
+              <Txt v="h2">Who protects you in {destOf(dest).name}</Txt>
+            </View>
+          </Row>
+          <Txt v="body">{life.license.intro}</Txt>
+          <Grid min={240} gap={10}>
+            {life.license.providers.map((x) => (
+              <View key={x.name} style={{ flexGrow: 1, padding: 14, borderRadius: 16, backgroundColor: t.c.sunk, borderWidth: 1, borderColor: t.c.line, gap: 8 }}>
+                <View style={{ gap: 2 }}>
+                  <Txt v="h2" color={t.tint}>{x.name}</Txt>
+                  {x.full && x.full !== x.name ? <Txt v="smallB">{x.full}</Txt> : null}
+                  <Txt v="tiny" muted>{x.who}</Txt>
+                </View>
+                <Txt v="small">{x.notes}</Txt>
+                {x.url ? (
+                  <Pressable onPress={() => { tap(); open(x.url); }} accessibilityRole="link" accessibilityLabel={"Open " + x.name} hitSlop={8}
+                    style={{ flexDirection: "row", alignItems: "center", gap: 4, alignSelf: "flex-start", paddingVertical: 4 }}>
+                    <Txt v="smallB" color={t.tint}>Official page</Txt>
+                    <Icon name="ArrowUpRight" size={15} color={t.tint} />
+                  </Pressable>
+                ) : null}
+              </View>
+            ))}
+          </Grid>
+          <Txt v="tiny" muted>Checked {fmtDate(life.checked)}. This is information, not an endorsement. Confirm what your employer covers.</Txt>
+        </Card>
+      ) : null}
+      {!life ? <Card mod={MOD} style={{ gap: 14 }}>
         <Row gap={12} center={false}>
           <IconTile mod={MOD} icon="Shield" size={42} />
           <View style={{ flex: 1, gap: 2 }}>
@@ -463,7 +513,7 @@ function LicenseHub() {
           ]} />
           <Txt v="tiny" muted>This is a comparison, not an endorsement. Terms change; confirm on your quote.</Txt>
         </Accordion>
-      </Card>
+      </Card> : null}
     </>
   );
 }

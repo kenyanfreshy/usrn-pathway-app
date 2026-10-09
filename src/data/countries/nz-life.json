@@ -1,0 +1,465 @@
+{
+  "country": "NZ",
+  "checked": "2026-10-09",
+  "regulators": {
+    "title": "Nursing Council & Health NZ regions",
+    "intro": "One national regulator, the Nursing Council of New Zealand (Te Kaunihera Tapuhi o Aotearoa), registers all nurses and issues the Annual Practising Certificate (APC). Health New Zealand | Te Whatu Ora is the main public employer, organized into four regions.",
+    "list": [
+      {
+        "code": "NZ",
+        "name": "Nursing Council of New Zealand",
+        "abbr": "NCNZ",
+        "region": "All of New Zealand",
+        "url": "https://www.nursingcouncil.org.nz/IQN/Competence-Assessment-Frequently-Asked-Questions.aspx",
+        "notes": "Verify documents with TruMerit first, then apply (NZD 485). You may need an online theory exam (Pearson), a 2-day orientation course and an OSCE at Nurse Maude, Christchurch. All IQNs complete the free 'Welcome to Aotearoa New Zealand' online courses.",
+        "tags": [
+          "TruMerit",
+          "Theory exam",
+          "OSCE",
+          "APC yearly"
+        ]
+      },
+      {
+        "code": "NOR",
+        "name": "Health NZ Northern",
+        "abbr": "Northern",
+        "region": "Northland, Waitematā, Auckland, Counties Manukau",
+        "url": "https://www.tewhatuora.govt.nz/corporate-information/about-us/map",
+        "notes": "Auckland and Northland districts. Apply through the Health NZ careers site; Health NZ says it never asks candidates for money.",
+        "tags": [
+          "Auckland"
+        ]
+      },
+      {
+        "code": "MID",
+        "name": "Health NZ Te Manawa Taki",
+        "abbr": "Midland",
+        "region": "Waikato, Lakes, Bay of Plenty, Taranaki, Tairāwhiti",
+        "url": "https://www.tewhatuora.govt.nz/corporate-information/about-us/map",
+        "notes": "Central North Island districts. Jobs are listed on the national Health NZ careers site.",
+        "tags": []
+      },
+      {
+        "code": "CEN",
+        "name": "Health NZ Te Ikaroa",
+        "abbr": "Central",
+        "region": "Whanganui, Hawke's Bay, MidCentral, Wairarapa, Hutt Valley, Capital and Coast",
+        "url": "https://www.tewhatuora.govt.nz/corporate-information/about-us/map",
+        "notes": "Lower North Island, including Wellington. PDRP rules vary by district, so check yours when you start.",
+        "tags": [
+          "Wellington"
+        ]
+      },
+      {
+        "code": "SI",
+        "name": "Health NZ Te Waipounamu",
+        "abbr": "South Island",
+        "region": "Nelson Marlborough, Canterbury, West Coast, South Canterbury, Southern",
+        "url": "https://www.tewhatuora.govt.nz/corporate-information/about-us/map",
+        "notes": "Whole South Island. The only accredited OSCE center (Nurse Maude) is in Christchurch.",
+        "tags": [
+          "Christchurch"
+        ]
+      },
+      {
+        "code": "JOBS",
+        "name": "Health New Zealand | Te Whatu Ora careers",
+        "abbr": "Health NZ",
+        "region": "National",
+        "url": "https://careers.tewhatuora.govt.nz/",
+        "notes": "Search district and national office jobs. Offers free webinars on the registration process for overseas health workers.",
+        "tags": [
+          "Job search",
+          "Webinars"
+        ]
+      }
+    ],
+    "mobility": {
+      "title": "Working in Australia too (TTMRA)",
+      "steps": [
+        "Get registered in New Zealand and hold a current NCNZ APC.",
+        "Apply online to Ahpra / the Nursing and Midwifery Board of Australia under Trans-Tasman Mutual Recognition (online is open to nurses with a current NCNZ APC).",
+        "Answer the English-language questions accurately; Ahpra may ask for form TELG-40 if your answers are incomplete.",
+        "If your NZ registration has conditions, you may need to submit a competence assessment plan to the NMBA.",
+        "Keep your NZ APC current if you will keep practicing in New Zealand."
+      ],
+      "notes": "Mutual recognition works both ways: nurses with current Australian (Ahpra) registration apply to NCNZ under the Trans-Tasman Mutual Recognition Act 1997 (NCNZ fee NZD 340)."
+    }
+  },
+  "careers": [
+    {
+      "id": "pdrp",
+      "title": "PDRP levels (competent → proficient → expert)",
+      "items": [
+        "Join your employer's Professional Development and Recognition Programme (PDRP) once you start.",
+        "RN levels: Competent, Proficient, Expert, Designated Senior Nurse (EN levels: Competent, Proficient, Accomplished).",
+        "Build a portfolio against NCNZ standards: APC copy, practice hours, self-assessment verified by a senior nurse, professional development evidence, reflections.",
+        "Have your manager or a designated senior nurse verify it; submit through your district's ePortfolio.",
+        "Under the NZNO Nurses' MECA, Proficient and higher levels attract an allowance.",
+        "A PDRP-assessed portfolio exempts you from the NCNZ recertification audit."
+      ]
+    },
+    {
+      "id": "np",
+      "title": "Nurse Practitioner (Mātanga Tapuhi) scope",
+      "items": [
+        "Gain advanced nursing experience in your chosen area.",
+        "Complete an NCNZ-accredited clinical master's program (includes 300 hours of clinical learning).",
+        "Complete at least 150 hours of prescribing practicum under a Designated Authorised Prescriber.",
+        "Prepare a portfolio and pass the NCNZ panel assessment of competence.",
+        "As an NP you can prescribe medicines relevant to your area of practice, within your scope."
+      ]
+    },
+    {
+      "id": "postgrad",
+      "title": "Specialty postgraduate study",
+      "items": [
+        "Talk to your manager about your career plan and a specialty area.",
+        "Look at postgraduate certificates, diplomas or clinical master's programs.",
+        "Check Health NZ postgraduate funding in your district; it can cover tuition and clinical release.",
+        "Note: at least one district requires NZ residency or citizenship for this funding.",
+        "Have a recent performance review or PDRP confirmation letter ready to apply.",
+        "Watch for each district's yearly application window; incomplete applications are not processed."
+      ]
+    },
+    {
+      "id": "lead",
+      "title": "Senior nurse, educator or charge roles",
+      "items": [
+        "Keep your PDRP at Proficient or Expert; it is needed for career progression.",
+        "Take on preceptor or team leader duties on your ward.",
+        "Add relevant postgraduate study (e.g. education or leadership papers).",
+        "Apply for Designated Senior Nurse PDRP level once in a senior role.",
+        "Use the six NCNZ competence pou, including Rangatiratanga and leadership, to frame your evidence."
+      ]
+    }
+  ],
+  "credit": [
+    "Apply for your IRD number through myIR (new-arrival process) before your visa's last arrival date.",
+    "Open a New Zealand bank account and have your pay deposited there.",
+    "Put utilities or a phone plan in your own name and pay every bill on time.",
+    "Know the 3 credit reporting agencies: Centrix, Equifax and Experian.",
+    "Get a free copy of your credit report from each agency (a fee only speeds it up).",
+    "Missed payments and defaults are reported; fix errors with the agency and the lender that reported them.",
+    "Check your report again before applying for a car loan or mortgage."
+  ],
+  "pay": [
+    [
+      "Collective agreement",
+      "Most Health NZ nurses are paid under the NZNO Nurses' MECA. A new agreement was ratified in May 2026: 2.5% in year one and 2% in year two over a 20-month term, plus a one-off lump sum."
+    ],
+    [
+      "Pay steps",
+      "RNs move up a step scale from a graduate step to the top step (RN Step 7, reached after about 6 years). Most Health NZ nurses are on the top step."
+    ],
+    [
+      "Penal rates & overtime",
+      "Shift work attracts penal rates on top of base pay (check your MECA for exact rates). Weekday overtime is 1.5x for the first 3 hours, then double time."
+    ],
+    [
+      "PDRP allowance",
+      "Proficient, Expert and senior PDRP levels add an allowance (NZD 3,000–4,500 a year, August 2025 figure)."
+    ]
+  ],
+  "money": [
+    [
+      "IRD number",
+      "Apply free through a myIR account using your passport, Immigration NZ application number and any overseas tax number. Approved numbers arrive by text or email in about 2 days."
+    ],
+    [
+      "Tax code (IR330)",
+      "Give your employer an IR330 tax code declaration; your main job is usually code M. Without one, tax is taken at the 45% non-declaration rate."
+    ],
+    [
+      "PAYE",
+      "Income tax and the ACC earners' levy come out of every pay. Rates are progressive from 10.5% to 39% (2025–26 bands)."
+    ],
+    [
+      "KiwiSaver",
+      "Default employee and employer rates rose from 3% to 3.5% on 1 April 2026 and rise to 4% on 1 April 2028. Only citizens and residents can join; temporary work visa holders cannot."
+    ],
+    [
+      "Government KiwiSaver contribution",
+      "Members get 25 cents per dollar they contribute, up to NZD 260.72 a year (2026). Not available if income is over NZD 180,000."
+    ],
+    [
+      "Temporary 3% option",
+      "KiwiSaver members can apply to stay at 3% for 3 to 12 months, then contributions return to the default rate."
+    ]
+  ],
+  "health": [
+    [
+      "Public health eligibility",
+      "You qualify for publicly funded care if you hold a work visa for 2 years or more (a current visa valid 2+ years counts). Children 18 and under of eligible parents also qualify."
+    ],
+    [
+      "Enroll with a GP",
+      "Only eligible people can enroll. Enrolled patients pay lower, government-subsidized fees; practices set their own prices. Children under 13 have free GP visits."
+    ],
+    [
+      "ACC (accidents)",
+      "ACC is no-fault cover for everyone in New Zealand, including visitors, for accident injuries. Because of ACC, you generally cannot sue for personal injury."
+    ],
+    [
+      "Work injuries",
+      "If injured at work, your employer pays 80% of your usual pay for the first week; ACC weekly compensation is up to 80% of earnings after that."
+    ],
+    [
+      "Private health insurance",
+      "Optional, and only available if you are eligible for the public system. If not eligible, buy comprehensive travel insurance before you arrive."
+    ],
+    [
+      "Income protection",
+      "Optional insurance that pays up to 75% of pre-disability income if illness stops you working."
+    ],
+    [
+      "Contents insurance",
+      "Renters need their own; landlords only insure the building. Choose replacement or indemnity cover."
+    ],
+    [
+      "Car insurance",
+      "Not compulsory, but third-party cover is the recommended minimum. ACC covers injuries from crashes; insurance covers vehicles and property."
+    ]
+  ],
+  "insureList": [
+    "Applied for my IRD number through myIR",
+    "Gave my employer a completed IR330 tax code declaration",
+    "Checked my work visa makes me eligible for public health care (2+ years)",
+    "Enrolled with a GP practice",
+    "Know how to apply for ACC weekly compensation (MyACC or 0800 101 996)",
+    "Arranged travel or private health insurance if I'm not yet eligible",
+    "Bought contents insurance for my rental",
+    "Got at least third-party car insurance",
+    "Considered income protection insurance",
+    "Joined NZNO (or another body) for professional indemnity cover"
+  ],
+  "driving": {
+    "intro": "A car helps with shift work, especially outside the main cities. New Zealand drives on the left.",
+    "side": "left",
+    "points": [
+      "If you arrived between 1 November 2024 and 31 October 2026, you can drive on an overseas car license for up to 18 months from your last arrival. If you arrive from 1 November 2026, the limit goes back to 12 months. Motorcycle and truck licenses: 12 months.",
+      "If your license is not in English, carry an approved English translation or an International Driving Permit.",
+      "Convert at an overseas license conversion agent: form DL5, passport, license, eyesight check and fee.",
+      "Licenses from the Philippines, Kenya, India and Nigeria are not on the exempt list, so you must pass a theory test and then a practical driving test.",
+      "Car insurance is optional, but third-party cover is the recommended minimum."
+    ],
+    "rules": "Holding a phone while driving is illegal (fine plus 20 demerit points), and the alcohol limit is zero for drivers under 20."
+  },
+  "license": {
+    "intro": "The NCNZ registration and APC requirements we reviewed do not list indemnity insurance. Most nurses get professional indemnity cover through NZNO or College of Nurses membership.",
+    "providers": [
+      {
+        "name": "NZNO",
+        "full": "New Zealand Nurses Organisation Tōpūtanga Tapuhi Kaitiaki o Aotearoa",
+        "who": "Included with financial or student membership of the union.",
+        "notes": "Covers NCNZ, HDC, coroner, ACC and Privacy Act matters plus civil claims: up to NZD 500,000 per claim, NZD 1,000,000 a year.",
+        "url": "https://nzno.org.nz/membership/indemnity"
+      },
+      {
+        "name": "College of Nurses",
+        "full": "College of Nurses Aotearoa (NZ) Inc.",
+        "who": "Included for College members with a current APC (not international or retired members).",
+        "notes": "Civil liability and Nursing Council or HDC complaints, each up to NZD 1,000,000 per policy period, no excess.",
+        "url": "https://www.nurse.org.nz/membership/indemnity-insurance-cover"
+      }
+    ]
+  },
+  "lessonNotes": {
+    "sbar": "ISBAR (Identify, Situation, Background, Assessment, Request/Recommendation) is the handover tool used in NZ districts such as Capital & Coast, for handover, transfers and calls about a deteriorating patient.",
+    "ehr": "Follow your district's documentation policy. The NCNZ Code of Conduct and its social media guideline warn that electronic messages and posts can breach confidentiality even without a name.",
+    "hipaa": "The Privacy Act 2020 and the Health Information Privacy Code 2020 (HIPC) apply instead of HIPAA. The HIPC was amended in March 2026. HIPC rules cover how health agencies and nurses collect, use, hold and share health information.",
+    "deleg": "RNs are accountable for directing and delegating to the wider healthcare team (such as health care assistants). Since 20 January 2025, enrolled nurses work under a new scope, with access to guidance from an RN, and the rules for RN direction and delegation of ENs have changed.",
+    "code": "Goals of care are recorded on a 'shared goals of care' form agreed with the patient and whānau. The New Zealand Early Warning Score (NZEWS) on the national vital signs chart triggers escalation; a score of 10+ or any blue-zone sign triggers a rapid response. Patients and whānau can escalate concerns through Kōrero mai.",
+    "workplace": "NZNO is both union and professional body; the NZNO Nurses' MECA covers most Health NZ nurses. Cultural safety (kawa whakaruruhau) and Te Tiriti o Waitangi are core to the six NCNZ competence pou."
+  },
+  "sources": [
+    [
+      "NCNZ – IQN competence assessment FAQ",
+      "https://www.nursingcouncil.org.nz/IQN/Competence-Assessment-Frequently-Asked-Questions.aspx"
+    ],
+    [
+      "NCNZ – Fees",
+      "https://nursingcouncil.org.nz/Public/NCNZ/Registration-section/Fees.aspx"
+    ],
+    [
+      "NCNZ – Annual practising certificates",
+      "https://nursingcouncil.org.nz/NCNZ/nursing-section/Annual_practising_certificates.aspx"
+    ],
+    [
+      "NCNZ – Continuing competence",
+      "https://nursingcouncil.org.nz/NCNZ/nursing-section/Continuing_competence.aspx"
+    ],
+    [
+      "NCNZ – Recertification audits",
+      "https://nursingcouncil.org.nz/NCNZ/nursing-section/Recertification_audits.aspx"
+    ],
+    [
+      "NCNZ – Nurse practitioner",
+      "https://www.nursingcouncil.org.nz/NCNZ/Education-section/Nurse_practitioner.aspx"
+    ],
+    [
+      "NCNZ – IQNs with Australian registration (TTMR)",
+      "https://www.nursingcouncil.org.nz/IQN/T2.aspx"
+    ],
+    [
+      "NCNZ – Code of Conduct",
+      "https://www.nursingcouncil.org.nz/Public/NCNZ/nursing-section/Code_of_Conduct.aspx"
+    ],
+    [
+      "NCNZ – Code of Conduct consultation 2026",
+      "https://www.nursingcouncil.org.nz/common/Uploaded files/Public/Consultations/CodeOfConduct_2026/Consultation_CodeofConduct_ConsultDoc_2026_3.pdf"
+    ],
+    [
+      "NCNZ – EN scope FAQs 2025",
+      "https://www.nursingcouncil.org.nz/common/Uploaded%20files/Public/Nursing/Enrolled%20Nurse/FAQs%20enrolled%20nurse%20scope%202025.pdf"
+    ],
+    [
+      "NCNZ – RN/EN scopes and standards webinar 2025",
+      "https://nursingcouncil.org.nz/common/Uploaded files/Public/Nursing/Guidance to new EN and RN scopes and standards/20250508 Webinar Final for website EN and RN changes.pdf"
+    ],
+    [
+      "NZ Gazette – RN Scope of Practice Amendment Notice 2024",
+      "https://gazette.govt.nz/notice/id/2024-sl5813"
+    ],
+    [
+      "NMBA – Registration forms (TTMR online)",
+      "https://www.nursingmidwiferyboard.gov.au/registration-and-endorsement/forms"
+    ],
+    [
+      "Health NZ – Regions map",
+      "https://www.tewhatuora.govt.nz/corporate-information/about-us/map"
+    ],
+    [
+      "Health NZ – Careers",
+      "https://careers.tewhatuora.govt.nz/"
+    ],
+    [
+      "Health NZ – PDRP overview",
+      "https://www.tewhatuora.govt.nz/for-health-professionals/health-workforce-development/nursing/pdrp/"
+    ],
+    [
+      "Health NZ – NZNO nursing workforce factsheet",
+      "https://www.tewhatuora.govt.nz/assets/For-health-professionals/Employment-relations/Nursing-and-Midwifery/NZNO-Nursing-Workforce-Factsheet-August-Final.pdf"
+    ],
+    [
+      "Health Minister announcement – nurses ratify agreement (May 2026)",
+      "https://www.national.org.nz/news/20260515-honsimeonbrown"
+    ],
+    [
+      "Health NZ Nelson Marlborough – Postgraduate funding",
+      "https://nmdhb.govt.nz/about-us/careers-and-education/health-workforce-new-zealand-postgraduate-funding"
+    ],
+    [
+      "Health NZ Nelson Marlborough – Eligibility for free healthcare",
+      "https://nmdhb.govt.nz/patients-and-visitors/eligibility-criteria-for-free-healthcare"
+    ],
+    [
+      "Health NZ South Canterbury – General practice",
+      "https://scdhb.health.nz/services/community/general-practice"
+    ],
+    [
+      "Immigration NZ – Insurance guide for migrants",
+      "https://www.live-work.immigration.govt.nz/resources/insurance-in-new-zealand-a-guide-for-migrants"
+    ],
+    [
+      "Inland Revenue – New arrival IRD number",
+      "https://www.ird.govt.nz/managing-my-tax/ird-numbers/ird-numbers-for-individuals/new-arrival-to-new-zealand---ird-number-application"
+    ],
+    [
+      "Inland Revenue – Tax codes",
+      "https://www.ird.govt.nz/income-tax/income-tax-for-individuals/tax-codes-and-tax-rates-for-individuals/about-tax-codes"
+    ],
+    [
+      "Inland Revenue – Tax rates for individuals",
+      "https://www.ird.govt.nz/income-tax/income-tax-for-individuals/tax-codes-and-tax-rates-for-individuals/tax-rates-for-individuals"
+    ],
+    [
+      "Inland Revenue – KiwiSaver changes",
+      "https://www.ird.govt.nz/kiwisaver-changes"
+    ],
+    [
+      "Inland Revenue – Joining KiwiSaver",
+      "https://www.ird.govt.nz/kiwisaver/kiwisaver-individuals/joining-kiwisaver"
+    ],
+    [
+      "ACC – What we cover",
+      "https://www.acc.co.nz/im-injured/what-we-cover"
+    ],
+    [
+      "ACC – Weekly compensation for employees",
+      "https://www.acc.co.nz/im-injured/financial-support/weekly-compensation/weekly-compensation-for-employees"
+    ],
+    [
+      "govt.nz – Check your own credit report",
+      "https://www.govt.nz/browse/consumer-rights-and-complaints/debt-and-credit-records/check-your-own-credit-report/"
+    ],
+    [
+      "Land Transport (Driver Licensing) Amendment Rule 2024",
+      "https://www.legislation.govt.nz/regulation/public/2024/0222/latest/whole.html"
+    ],
+    [
+      "AA – Overseas licence conversions",
+      "https://www.aa.co.nz/drivers/driver-licences/overseas-licence-conversions/"
+    ],
+    [
+      "AA Insurance – Third party insurance",
+      "https://aa.co.nz/insurance/car-and-vehicle-insurance/third-party-car-insurance/third-party-insurance/"
+    ],
+    [
+      "NZ Police – Road safety rules",
+      "https://www.police.govt.nz/node/27810"
+    ],
+    [
+      "Tourism NZ – Driving in New Zealand",
+      "https://www.newzealand.com/int/driving"
+    ],
+    [
+      "Privacy Commissioner – HIPC 2020",
+      "https://privacy.org.nz/privacy-act-2020/codes-of-practice/hipc2020/"
+    ],
+    [
+      "HQSC – Kōrero mai",
+      "https://www.hqsc.govt.nz/our-work/improved-service-delivery/patient-deterioration/workstreams/patient-family-and-whanau-escalation/"
+    ],
+    [
+      "HQSC – Measurement guidance (NZEWS)",
+      "https://www.hqsc.govt.nz/assets/Our-work/Improved-service-delivery/Patient-deterioration/Publications-resources/Measurement_guidance_for_national_roll-out.pdf"
+    ],
+    [
+      "HQSC – Shared goals of care factsheet",
+      "https://www.hqsc.govt.nz/assets/Our-work/Improved-service-delivery/Patient-deterioration/Publications-resources/13260-SGOC-Factsheets-HOSPITAL-EXEC-1.pdf"
+    ],
+    [
+      "Capital & Coast – ISBAR guideline",
+      "https://www.ccdhb.org.nz/working-with-us/nursing/clinical-learning-environment-undergraduates/clinical-learning-environment/isbar-2014.pdf"
+    ],
+    [
+      "NZNO – Membership",
+      "https://www.nzno.org.nz/membership"
+    ],
+    [
+      "NZNO – Professional indemnity",
+      "https://nzno.org.nz/membership/indemnity"
+    ],
+    [
+      "College of Nurses Aotearoa – Indemnity cover",
+      "https://www.nurse.org.nz/membership/indemnity-insurance-cover"
+    ]
+  ],
+  "uncertain": [
+    "Whether the government will extend the 18-month overseas car license limit for people arriving on or after 1 November 2026. Check NZTA before you arrive.",
+    "Current NCNZ English-language evidence options were not read directly.",
+    "Whether Ahpra adds extra requirements for NZ-registered nurses who first qualified outside NZ (beyond the online TTMR application) was not verified.",
+    "Whether NCNZ or employers require nurses to hold their own indemnity insurance was not stated in the sources read.",
+    "Exact 2026 RN pay step amounts after the May 2026 settlement were not verified (only March 2025 factsheet figures and percentage increases).",
+    "The May 2026 settlement terms come from the Health Minister's announcement on a party website, not the agreement text.",
+    "2026–27 income tax bands and the 2026–27 ACC earners' levy rate were not confirmed (IRD showed 2025–26 bands; levy listed as NZD 1.75 per 100 without a stated year).",
+    "illion: the govt.nz credit report page lists Centrix, Equifax and Experian, not illion; illion's current NZ consumer service was not checked.",
+    "Whether the national PDRP refresh (expected early 2026) has been completed.",
+    "The revised NCNZ Code of Conduct (consulted Jan–Mar 2026) may have been published later in 2026; the 2012 Code was the current one in the sources read.",
+    "A current NCNZ direction and delegation guideline document was not located; the delegation note relies on the 2025 RN scope notice and EN scope FAQs.",
+    "Name of the rapid response / medical emergency team varies by hospital and was not verified.",
+    "Health NZ International Recruitment Centre relocation support details are from a 2022 page and may have changed.",
+    "NZNO membership fees were not checked."
+  ]
+}

@@ -3,11 +3,11 @@ import React, { useEffect, useMemo, useState } from "react";
 import { View, Pressable, ScrollView } from "react-native";
 import { router } from "expo-router";
 import Svg, { Path, Circle, G, Text as SvgText, Defs, LinearGradient as SvgGradient, Stop } from "react-native-svg";
-import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, tap, Grid, HScroll } from "../../src/ui";
+import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, Field, tap, Grid, HScroll } from "../../src/ui";
 import { useTheme, FONTS, PHASE_COLORS } from "../../src/theme";
 import { useApp, phaseStatus, phasesOf, badgesFor } from "../../src/state";
-import { DestSwitcher } from "../../src/dest";
-import { JOURNEY, destId, destOf } from "../../src/data/global";
+import { DestPill, DestChoices, RegionSelect } from "../../src/dest";
+import { JOURNEY, destId, destOf, regionOf } from "../../src/data/global";
 import { useMigration } from "../../src/migration";
 import { usePro } from "../../src/pro";
 import { Medal } from "../../src/overlays";
@@ -273,6 +273,35 @@ function TopBar() {
   );
 }
 
+/* ---------- first-run welcome: name + destination (the U.S. is preselected) ---------- */
+function Welcome() {
+  const { state, dispatch } = useApp(); const t = useTheme("home");
+  const [name, setName] = useState(state.profile.name || "");
+  const start = () => {
+    if (name.trim() && name.trim() !== state.profile.name) dispatch({ type: "profile", patch: { name: name.trim() } });
+    dispatch({ type: "onboarded" });
+  };
+  return (
+    <Card mod="home" accent style={{ gap: 14 }}>
+      <Row gap={12}>
+        <IconTile mod="home" icon="Sparkles" size={44} />
+        <View style={{ flex: 1, gap: 2 }}>
+          <Txt v="eyebrow">Welcome to USRN Pathway</Txt>
+          <Txt v="h2">Set up your pathway</Txt>
+        </View>
+      </Row>
+      <Field mod="home" label="First name (optional)" value={name} onChangeText={setName} placeholder="e.g. Grace" autoCapitalize="words" />
+      <View style={{ gap: 6 }}>
+        <Txt v="smallB" muted>Where are you headed?</Txt>
+        <DestChoices mod="home" />
+      </View>
+      <RegionSelect mod="home" label="Which province will you register in first?" />
+      <Txt v="tiny" muted>The roadmap, visa, licensing, bedside, career and driving guides all follow this choice. You can change it any time in Profile & settings.</Txt>
+      <Btn mod="home" icon="ArrowRight" title="Start my pathway" onPress={start} full />
+    </Card>
+  );
+}
+
 /* ---------- screen ---------- */
 export default function Today() {
   const { state, dispatch, m, lvl } = useApp(); const t = useTheme("home"); const p = state.profile;
@@ -308,6 +337,7 @@ export default function Today() {
   return (
     <Screen mod="home">
       <TopBar />
+      {!state.onboarded ? <Welcome /> : null}
 
       {/* greeting hero */}
       <Grad mod="home" style={{ borderRadius: 26, padding: 20, gap: 16, overflow: "hidden" }}>
@@ -320,7 +350,7 @@ export default function Today() {
             <View style={{ gap: 8 }}>
               <Txt v="hero" color="#fff">{fullName}</Txt>
               <Row wrap gap={6}>
-                {[p.specialty, p.homeCountry && "From " + p.homeCountry, US ? p.targetState && "→ " + p.targetState : "→ " + info.flag + " " + info.name].filter(Boolean).map((x) => (
+                {[p.specialty, p.homeCountry && "From " + p.homeCountry, US ? p.targetState && "→ " + p.targetState : "→ " + info.flag + " " + (regionOf(state) ? regionOf(state).region : info.name)].filter(Boolean).map((x) => (
                   <View key={x} style={{ paddingHorizontal: 10, paddingVertical: 4, borderRadius: 99, backgroundColor: "rgba(255,255,255,0.2)", borderWidth: 1, borderColor: "rgba(255,255,255,0.3)" }}>
                     <Txt v="smallB" color="#fff">{x}</Txt>
                   </View>
@@ -358,7 +388,7 @@ export default function Today() {
         </Grid>
       </Grad>
 
-      <Card mod="home"><DestSwitcher mod="home" /></Card>
+      <DestPill mod={"home"} />
 
       <Journey />
 

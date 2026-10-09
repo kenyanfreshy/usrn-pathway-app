@@ -1,0 +1,574 @@
+{
+  "country": "AU",
+  "checked": "2026-10-09",
+  "regulators": {
+    "title": "National registration & state employers",
+    "intro": "Nurses in Australia hold one national registration with the Nursing and Midwifery Board of Australia (NMBA), administered by Ahpra. State and territory health departments do not register nurses; they run the public hospitals that hire and sometimes sponsor you. Get registered first, then apply for jobs.",
+    "list": [
+      {
+        "code": "AU",
+        "name": "Nursing and Midwifery Board of Australia / Ahpra",
+        "abbr": "NMBA",
+        "region": "National",
+        "url": "https://www.nursingmidwiferyboard.gov.au/Accreditation/IQNM/Before-you-apply.aspx",
+        "notes": "Start with the free Self-check: Stream A does Orientation Part 1 then applies; Stream B must pass the OBA (NCLEX-RN, then an in-person OSCE in Australia). Since 23 April 2025, RNs with 1,800+ hours since 2017 in the UK, Ireland, US, British Columbia, Ontario, Singapore or Spain can skip NMBA exams.",
+        "tags": [
+          "Self-check",
+          "NCLEX-RN",
+          "OSCE",
+          "National"
+        ]
+      },
+      {
+        "code": "NSW",
+        "name": "NSW Health – Internationally qualified nurses and midwives",
+        "abbr": "NSW Health",
+        "region": "New South Wales",
+        "url": "https://www.health.nsw.gov.au/nursing/careers/Pages/overseas-recruitment.aspx",
+        "notes": "Must already hold NMBA registration. Usually at least 24 months' experience is needed for visa sponsorship; overseas recruitment mainly targets rural/remote areas and mental health.",
+        "tags": [
+          "Registration first",
+          "Rural focus",
+          "24 months exp."
+        ]
+      },
+      {
+        "code": "VIC",
+        "name": "Department of Health Victoria – Working as a nurse or midwife",
+        "abbr": "DH Vic",
+        "region": "Victoria",
+        "url": "https://www.health.vic.gov.au/nursing-and-midwifery/international-nurse-and-midwife-graduates",
+        "notes": "Applications go directly to each employer via the public Health jobs listings. Postgraduate scholarships exist but require citizenship or permanent residency.",
+        "tags": [
+          "Apply to employer"
+        ]
+      },
+      {
+        "code": "QLD",
+        "name": "Queensland Health – International applicants",
+        "abbr": "QH",
+        "region": "Queensland",
+        "url": "https://www.careers.health.qld.gov.au/apply-for-a-job/international",
+        "notes": "Says it is currently hiring nurses and midwives from overseas and its team can assist with the visa process; relocation support may cover some costs.",
+        "tags": [
+          "Visa help",
+          "Relocation support"
+        ]
+      },
+      {
+        "code": "WA",
+        "name": "WA Health – Employment requirements for nurses and midwives",
+        "abbr": "WA Health",
+        "region": "Western Australia",
+        "url": "https://www.osrecruitment.health.wa.gov.au/Nursing-and-midwifery-careers",
+        "notes": "Needs NMBA registration, a criminal record clearance and, for child areas, a working with children check. Sponsorship is only negotiated with experienced nurses in critical-shortage areas; ENs are generally not eligible.",
+        "tags": [
+          "Sponsorship limited",
+          "Police check"
+        ]
+      },
+      {
+        "code": "SA",
+        "name": "SA Health – Nurse or Midwife careers",
+        "abbr": "SA Health",
+        "region": "South Australia",
+        "url": "https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/careers/i+am+a/nursing+and+midwifery+professional",
+        "notes": "Overseas applicants apply through SA Health's recruitment drive listing; see its International applicant guidelines. Mentions salary packaging.",
+        "tags": [
+          "Recruitment drive",
+          "Salary packaging"
+        ]
+      },
+      {
+        "code": "TAS",
+        "name": "Tasmanian Health Service – Guide for overseas qualified nursing staff",
+        "abbr": "THS",
+        "region": "Tasmania",
+        "url": "https://www.health.tas.gov.au/sites/default/files/2024-04/welcome_to_tasmania_-_a_guide_for_overseas_qualified_nursing_staff.pdf",
+        "notes": "Statewide service in three regions (North, North West, South) with four major public hospitals. Guide includes a relocation checklist; contact healthjobstas@health.tas.gov.au.",
+        "tags": [
+          "Relocation checklist"
+        ]
+      },
+      {
+        "code": "ACT",
+        "name": "ACT Government – Health careers",
+        "abbr": "ACT Health",
+        "region": "Australian Capital Territory",
+        "url": "https://www.act.gov.au/work-with-act-government/act-government-health-careers",
+        "notes": "Jobs at ACT Health and Canberra Health Services are listed on the ACT Government jobs site.",
+        "tags": [
+          "Canberra Health Services"
+        ]
+      },
+      {
+        "code": "NT",
+        "name": "NT Health – Nursing and midwifery recruitment",
+        "abbr": "NT Health",
+        "region": "Northern Territory",
+        "url": "https://health.nt.gov.au/careers/nursing-and-midwifery/recruitment",
+        "notes": "Hold Australian registration before applying. You need immunization records before you start. After a job offer, you get a national criminal history check and a working with children clearance (Ochre Card) at your own cost. Many roles are remote.",
+        "tags": [
+          "Remote",
+          "Police check",
+          "WWCC"
+        ]
+      }
+    ],
+    "mobility": {
+      "title": "One registration, every state",
+      "steps": [
+        "Register once with the NMBA through Ahpra; national registration lets you work anywhere in Australia.",
+        "Renew every year by 31 May. You can still renew in the one-month late period (late fee); after that registration lapses and you're removed from the register.",
+        "Apply directly to the employer or health service in the new state.",
+        "Complete that employer's checks, e.g. criminal history check, working with children check, immunization records.",
+        "Update your driver license and car registration under the new state's rules."
+      ],
+      "notes": "All registered nurses meet the same national standards. Nurses who can legally practice in New Zealand have entitlements under the Trans-Tasman Mutual Recognition Act 1997 and still apply online to the NMBA."
+    }
+  },
+  "careers": [
+    {
+      "id": "crit",
+      "title": "Postgraduate critical care",
+      "items": [
+        "Get general registration and start in an acute ward to build Australian experience.",
+        "Most graduate certificates need at least 1 year post-registration experience and current work in the specialty (e.g. ACN Graduate Certificate in Critical Care Nursing).",
+        "Expect about 1 year part-time study; ACN offers cardiac, emergency or intensive care electives. No Commonwealth supported places; FEE-HELP if eligible.",
+        "Ask your employer about employed-model transition programs into specialty areas.",
+        "In Victoria, public-sector postgraduate scholarships prioritize intensive care and emergency, but need citizenship or permanent residency.",
+        "With a relevant postgraduate qualification plus 12 months in the area, NSW nurses can apply for Clinical Nurse Specialist grade 1."
+      ]
+    },
+    {
+      "id": "np",
+      "title": "Nurse Practitioner endorsement (NMBA)",
+      "items": [
+        "Hold current general RN registration in Australia with no conditions related to performance or conduct.",
+        "Build advanced clinical practice: the equivalent of 3 years full time (5,000 hours) within the past 6 years.",
+        "Typical master's entry (NT Health): 2 years FTE as an RN in the field, 2 years FTE advanced practice and a relevant postgraduate qualification.",
+        "Complete an NMBA-approved nurse practitioner master's program.",
+        "Apply to the NMBA for endorsement and practice within the Nurse Practitioner standards for practice.",
+        "Look for NP candidate positions (e.g. NT Health fixed-term roles while you study)."
+      ]
+    },
+    {
+      "id": "cns",
+      "title": "Clinical Nurse Specialist → Clinical Nurse Consultant",
+      "items": [
+        "NSW CNS grade 1: relevant post-registration qualification plus 12 months in the area, or 4 years post-registration including 3 in the specialty.",
+        "CNS is a personal grading in NSW, so you can apply without waiting for a vacancy.",
+        "CNC grade 1 (NSW): at least 5 years FTE post-registration plus approved post-registration qualifications.",
+        "CNC grade 2 adds 3 years FTE in the specialty; grade 3 needs 7 years post-registration with 5 in the specialty.",
+        "Titles and criteria differ by state; check your state award or enterprise agreement."
+      ]
+    },
+    {
+      "id": "edu",
+      "title": "Clinical Nurse Educator / Nurse Educator",
+      "items": [
+        "Act as a resource and mentor on your ward; this is also part of NSW CNS criteria.",
+        "NSW Clinical Nurse Educator: relevant clinical or education post-registration qualifications, or equivalent experience.",
+        "NSW Nurse Educator grades 1–3 move from hospital-level courses to a portfolio, then a district or tertiary program.",
+        "Postgraduate diplomas, degrees, master's or doctorates can earn a continuing education allowance under the NSW award.",
+        "Keep meeting the NMBA continuing professional development standard each year."
+      ]
+    }
+  ],
+  "credit": [
+    "Open an Australian bank account; some banks (e.g. CommBank) let you open one up to 14 days before arrival.",
+    "Verify your ID in a branch with your passport soon after you land (CommBank: within 20 days of opening the account, or it may close).",
+    "Your credit report is held by credit reporting bodies Equifax and Experian; each may hold different information.",
+    "Get a free report from each once every 3 months, or within 90 days of being refused credit.",
+    "Lenders can see up to 24 months of your repayment history, so pay every bill and loan on time.",
+    "Check your report for errors and get them fixed before applying for new credit.",
+    "Your credit score is a one-number summary of your report; higher is generally better."
+  ],
+  "pay": [
+    [
+      "Awards and agreements",
+      "Private and aged care nurses are covered by the national Nurses Award 2020 minimums; public hospital nurses are paid under state awards or enterprise agreements (e.g. NSW Public Health System Nurses' and Midwives' (State) Award 2025)."
+    ],
+    [
+      "Pay steps",
+      "Pay rises with years of experience. NSW Health RNs move up each year to the 8th year, and you must give evidence of previous employment before your rate is set."
+    ],
+    [
+      "Shift and weekend penalties",
+      "Under the Nurses Award, afternoon shifts add 12.5% and night shifts 15%; Saturday is paid at 150% and Sunday at 175%. NSW public night shifts starting 4pm–4am attract 20% from July 2025."
+    ],
+    [
+      "Overtime and public holidays",
+      "Nurses Award overtime is 150% for the first 2 hours then 200% (Sunday 200%, public holidays 250%). Ordinary hours on a public holiday are paid at 200%."
+    ]
+  ],
+  "money": [
+    [
+      "Tax File Number (TFN)",
+      "Apply free online with the ATO after you arrive; the TFN letter is mailed and can take up to 28 days."
+    ],
+    [
+      "Tax withheld from pay (PAYG)",
+      "Fill in a TFN declaration for each employer. Without a TFN, employers must withhold the top rate. Claim the tax-free threshold from one payer only; foreign residents generally can't claim it."
+    ],
+    [
+      "Medicare levy",
+      "Most taxpayers pay a Medicare levy of 2% of taxable income. If you aren't entitled to Medicare, you may be able to claim an exemption. A separate Medicare levy surcharge can apply to higher earners without private hospital cover."
+    ],
+    [
+      "Superannuation",
+      "Employers pay super guarantee of 12% (2026) on top of wages. From 1 July 2026 (Payday Super), it must reach your fund within 7 business days of each payday."
+    ],
+    [
+      "Salary packaging",
+      "Public and not-for-profit hospital staff can salary package up to AUD 17,000 (grossed-up) a year FBT-free. Meal entertainment and venue hire are outside that cap if not salary packaged."
+    ],
+    [
+      "Super when you leave",
+      "Former temporary visa holders can claim their super (DASP) after leaving Australia once their visa has ended. Australian citizens, permanent residents and New Zealand citizens can't."
+    ]
+  ],
+  "health": [
+    [
+      "Medicare",
+      "Permanent residents living in Australia can enroll in Medicare. Permanent visa applicants with work rights may also qualify. Temporary visa holders are eligible only under specific visas, orders or reciprocal agreements."
+    ],
+    [
+      "Visa condition 8501",
+      "Many temporary work visas (e.g. 482, 485) carry condition 8501: keep adequate health insurance for your whole stay, including family on the visa. Buy Overseas Visitors Health Cover (OVHC)."
+    ],
+    [
+      "Reciprocal agreements",
+      "Australia has health agreements with the UK, Ireland, NZ, Sweden, Netherlands, Finland, Belgium, Norway, Slovenia, Malta and Italy. The Philippines, India, Kenya and Nigeria are not on the list."
+    ],
+    [
+      "Private hospital cover",
+      "Waiting periods are up to 12 months for pre-existing conditions and pregnancy, and 2 months for most other hospital care."
+    ],
+    [
+      "Lifetime Health Cover loading",
+      "New migrants avoid a 2%-per-year loading if they take hospital cover by the later of 1 July after their 31st birthday or 1 year after full Medicare registration."
+    ],
+    [
+      "Workers compensation",
+      "Employers must insure workers. If hurt at work, the scheme in your state or territory can pay part of your wages, medical and rehab costs."
+    ],
+    [
+      "Car insurance",
+      "CTP insurance (a 'Green Slip' in NSW) is compulsory to register a car. It covers injuries only, not damage to cars or property."
+    ]
+  ],
+  "insureList": [
+    "Applied for my Tax File Number after arriving",
+    "Gave each employer a TFN declaration (tax-free threshold from one payer only)",
+    "Checked my visa for condition 8501 and bought compliant OVHC",
+    "Enrolled in Medicare (if I'm a permanent resident or eligible)",
+    "Checked whether a reciprocal health agreement applies to me",
+    "Confirmed my employer's PII covers my duties and arranged my own for private or volunteer work",
+    "Chose a super fund and gave the details to my employer",
+    "Decided on private hospital cover before my Lifetime Health Cover deadline",
+    "Know how to report a workplace injury for workers compensation",
+    "Bought CTP with my car registration and considered cover for vehicle damage"
+  ],
+  "driving": {
+    "intro": "Australia drives on the left. Licensing rules are set by each state or territory, so check where you live.",
+    "side": "left",
+    "points": [
+      "NSW: permanent residents can drive on an overseas license for 3 months after arrival, then need a NSW license. Temporary visa holders staying over 6 months must get one within 6 months.",
+      "Visitors need an English translation or International Driving Permit if their license isn't in English (NSW).",
+      "Licenses from the Philippines, India, Kenya and Nigeria aren't on NSW's recognized list, so expect a knowledge test and a driving test. Queensland also names India as non-recognized.",
+      "Queensland: permanent residents must transfer to a Queensland license after living there for 3 months.",
+      "The national Experienced Driver Recognition shortcut for over-25s ended in early 2026."
+    ],
+    "rules": "In NSW you may not hold a phone while driving (cameras catch it), and learner and P-plate drivers can't use a phone at all, even hands-free."
+  },
+  "license": {
+    "intro": "You must have professional indemnity insurance (PII) to practice and you declare it each year at renewal. Your employer's cover usually covers your employed duties only.",
+    "providers": [
+      {
+        "name": "Employer cover",
+        "full": "Employer professional indemnity arrangements",
+        "who": "Provided by your hospital or health service while you work as an employee.",
+        "notes": "Covers only work done as part of your employment, not private or self-employed work.",
+        "url": "https://www.nursingmidwiferyboard.gov.au/Codes-Guidelines-Statements/FAQ/Fact-sheet-PII.aspx"
+      },
+      {
+        "name": "QNMU",
+        "full": "Queensland Nurses and Midwives' Union (ANMF Qld branch)",
+        "who": "Included with financial union membership; other ANMF branches may offer union-based cover too.",
+        "notes": "PII plus public and products liability for employees and contractors, including coronial inquests, with no excess.",
+        "url": "https://www.qnmu.org.au/Web/Membership/Professional_Indemnity_Insurance.aspx"
+      },
+      {
+        "name": "Guild Insurance",
+        "full": "Guild Insurance nurse professional indemnity",
+        "who": "Private policy you buy yourself.",
+        "notes": "Covers claims and legal costs, including regulator complaints and coronial inquiries, with run-off cover.",
+        "url": "https://www.guildinsurance.com.au/industry/nurses"
+      }
+    ]
+  },
+  "lessonNotes": {
+    "sbar": "Australia uses ISBAR (Identify, Situation, Background, Assessment, Recommendation). National standards require structured clinical handover.",
+    "ehr": "The NSQHS Communicating for Safety Standard requires contemporaneous documentation and at least three approved patient identifiers.",
+    "hipaa": "The Privacy Act 1988 and its 13 Australian Privacy Principles apply instead of HIPAA. Some states add their own laws, e.g. the Health Records and Information Privacy Act 2002 (NSW) and Health Records Act 2001 (Vic).",
+    "deleg": "RNs delegate to enrolled nurses (ENs) and assistants in nursing (AINs, including personal care workers) using the NMBA Decision-making framework. You stay accountable, and delegates can't re-delegate.",
+    "code": "NSW uses Resuscitation Plans (formerly 'No CPR' or 'Not for Resuscitation' orders). Escalation calls vary: 'MET call' and 'Code Blue' in Victoria; NSW 'Between the Flags' charts trigger a Rapid Response call in the red zone.",
+    "workplace": "The ANMF has 8 state and territory branches and over 356,000 members, and pay is set by awards or enterprise agreements. Under Ahpra rules, practitioners and employers must report serious risks such as impairment, intoxication or major departures from standards."
+  },
+  "sources": [
+    [
+      "NMBA – new assessment model for IQNMs",
+      "https://www.nursingmidwiferyboard.gov.au/Codes-Guidelines-Statements/FAQ/Transition-to-a-new-assessment-model-for-internationally-qualified-nurses-and-midwives"
+    ],
+    [
+      "NMBA – Before you apply (IQNM)",
+      "https://www.nursingmidwiferyboard.gov.au/Accreditation/IQNM/Before-you-apply.aspx"
+    ],
+    [
+      "NMBA – Immigration and employment",
+      "https://www.nursingmidwiferyboard.gov.au/Accreditation/IQNM/Before-you-apply/Immigration-and-employment.aspx"
+    ],
+    [
+      "NMBA – IQRN registration standard media release (2025)",
+      "https://www.nursingmidwiferyboard.gov.au/News/2025-01-27-media-release-IQRN"
+    ],
+    [
+      "NMBA – General registration for IQRN",
+      "https://www.nursingmidwiferyboard.gov.au/Registration-Standards/General-registration-for-IQRN"
+    ],
+    [
+      "NMBA – PII fact sheet",
+      "https://www.nursingmidwiferyboard.gov.au/Codes-Guidelines-Statements/FAQ/Fact-sheet-PII.aspx"
+    ],
+    [
+      "NMBA – Decision-making framework news",
+      "https://www.nursingmidwiferyboard.gov.au/News/2020-02-03-decision-making.aspx"
+    ],
+    [
+      "NMBA – NP endorsement fact sheet",
+      "https://www.nursingmidwiferyboard.gov.au/Codes-Guidelines-Statements/FAQ/Fact-sheet-endorsement-as-a-nurse-practitioner"
+    ],
+    [
+      "NMBA – Code of conduct fact sheet",
+      "https://www.nursingmidwiferyboard.gov.au/Codes-Guidelines-Statements/FAQ/Fact-sheet-Code-of-conduct-for-nurses-and-Code-of-conduct-for-midwives"
+    ],
+    [
+      "NMBA – Renewal by 31 May",
+      "https://www.nursingmidwiferyboard.gov.au/News/2019-05-17-nurses-and-midwives-encouraged-to-renew-registration-by-31-may"
+    ],
+    [
+      "Ahpra – 10 years of national registration",
+      "https://ahpra.gov.au/News/2022-07-01-10-year-anniversary.aspx"
+    ],
+    [
+      "Ahpra – Mandatory notifications",
+      "https://www.ahpra.gov.au/Notifications/mandatorynotifications/Mandatory-notifications.aspx"
+    ],
+    [
+      "ANMF – Delegation guidance note",
+      "https://anmf.org.au/media/nbppnbx3/anmf-guidance-note-delegation-by-registered-nurses-and-midwives.pdf"
+    ],
+    [
+      "ANMF – Our organisation",
+      "https://anmf.org.au/about/our-organisation"
+    ],
+    [
+      "ANMJ – How do I become a Nurse Practitioner?",
+      "https://anmj.org.au/how-do-i-become-a-nurse-practitioner/"
+    ],
+    [
+      "NSW Health – Internationally qualified nurses",
+      "https://www.health.nsw.gov.au/nursing/careers/Pages/overseas-recruitment.aspx"
+    ],
+    [
+      "NSW Public Health System Nurses' and Midwives' (State) Award 2025",
+      "https://www.health.nsw.gov.au/careers/conditions/Awards/nurses.PDF"
+    ],
+    [
+      "NSWNMA – Know your rights: CNS",
+      "https://www.nswnma.asn.au/wp-content/uploads/2023/08/KYR-CNS.pdf"
+    ],
+    [
+      "Victoria DH – Working as a nurse or midwife",
+      "https://www.health.vic.gov.au/nursing-and-midwifery/international-nurse-and-midwife-graduates"
+    ],
+    [
+      "Victoria DH – Postgraduate scholarships",
+      "https://health.vic.gov.au/nursing-and-midwifery/scholarships-for-postgraduate-nurses-and-midwives"
+    ],
+    [
+      "Queensland Health – International applicants",
+      "https://www.careers.health.qld.gov.au/apply-for-a-job/international"
+    ],
+    [
+      "WA Health – Nursing and midwifery careers",
+      "https://www.osrecruitment.health.wa.gov.au/Nursing-and-midwifery-careers"
+    ],
+    [
+      "SA Health – Nurse or Midwife",
+      "https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/careers/i+am+a/nursing+and+midwifery+professional"
+    ],
+    [
+      "Tasmania – Guide for overseas qualified nursing staff",
+      "https://www.health.tas.gov.au/sites/default/files/2024-04/welcome_to_tasmania_-_a_guide_for_overseas_qualified_nursing_staff.pdf"
+    ],
+    [
+      "ACT Government – Health careers",
+      "https://www.act.gov.au/work-with-act-government/act-government-health-careers"
+    ],
+    [
+      "NT Health – Nursing recruitment",
+      "https://health.nt.gov.au/careers/nursing-and-midwifery/recruitment"
+    ],
+    [
+      "NT Health – Nursing and midwifery jobs",
+      "https://healthjobs.nt.gov.au/explore-health-sectors/nursing-and-midwifery"
+    ],
+    [
+      "ACN – Graduate Certificate in Critical Care Nursing",
+      "https://www.acn.edu.au/education/postgraduate-course/critical-care-nursing"
+    ],
+    [
+      "Fair Work – Nurses Award 2020",
+      "https://awards.fairwork.gov.au/MA000034.html"
+    ],
+    [
+      "ATO – TFN application for migrants and visitors",
+      "https://www.ato.gov.au/forms-and-instructions/tfn-application-for-permanent-migrants-and-temporary-visitors"
+    ],
+    [
+      "ATO – TFN declaration form (NAT 3092)",
+      "https://education.nsw.gov.au/content/dam/main-education/public-schools/astp/media/documents/TFN_declaration_form_N3092.pdf"
+    ],
+    [
+      "ATO – What is the Medicare levy",
+      "https://ato.gov.au/individuals-and-families/medicare-and-private-health-insurance/medicare-levy/what-is-the-medicare-levy"
+    ],
+    [
+      "ATO – Final SG rate increase (12%)",
+      "https://www.ato.gov.au/businesses-and-organisations/small-business-newsroom/the-final-sg-rate-increase-is-coming-on-1-july"
+    ],
+    [
+      "Fair Work – Payday Super from 1 July 2026",
+      "https://www.fairwork.gov.au/newsroom/news/payday-super-new-rules-starting-1-july-2026"
+    ],
+    [
+      "ATO – FBT exempt organisations",
+      "https://www.ato.gov.au/businesses-and-organisations/hiring-and-paying-your-workers/fringe-benefits-tax/fbt-concessions-for-not-for-profit-organisations/fbt-exempt-organisations"
+    ],
+    [
+      "ATO – DASP",
+      "https://www.ato.gov.au/tax-and-super-professionals/for-superannuation-professionals/apra-regulated-funds/paying-benefits/departing-australia-superannuation-payment"
+    ],
+    [
+      "Services Australia – Medicare eligibility (operational blueprint)",
+      "https://operational.servicesaustralia.gov.au/public/Pages/your-health/011-23032034-01.html"
+    ],
+    [
+      "Home Affairs – Adequate health insurance factsheet",
+      "https://immi.homeaffairs.gov.au/supporting/files/adequate-health-insurance-factsheet.pdf"
+    ],
+    [
+      "privatehealth.gov.au – Working visa applicants",
+      "https://privatehealth.gov.au/health_insurance/overseas/workingvisa.htm"
+    ],
+    [
+      "privatehealth.gov.au – Lifetime Health Cover",
+      "https://www.privatehealth.gov.au/health_insurance/surcharges_incentives/lifetime_health_cover.htm"
+    ],
+    [
+      "privatehealth.gov.au – Waiting periods",
+      "https://www.privatehealth.gov.au/health_insurance/howitworks/waiting_periods.htm"
+    ],
+    [
+      "Darling Downs Health – RHCA countries",
+      "https://www.darlingdowns.health.qld.gov.au/patients-and-visitors/how-to-access-healthcare-if-you-are-visiting-from-overseas"
+    ],
+    [
+      "Safe Work Australia – Workers' compensation",
+      "https://www.safeworkaustralia.gov.au/workers-compensation"
+    ],
+    [
+      "OAIC – Access your credit report",
+      "https://oaic.gov.au/privacy/credit-reporting/access-your-credit-report"
+    ],
+    [
+      "CreditSmart (ARCA) – Improve your credit health",
+      "https://www.creditsmart.org.au/smart-blog/4-steps-to-improve-your-credit-health"
+    ],
+    [
+      "CommBank – Moving to Australia",
+      "https://www.commbank.com.au/moving-to-australia.html"
+    ],
+    [
+      "NSW Gov – Driving with an overseas licence",
+      "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/visiting-or-moving-to-nsw/visiting-from-overseas-or-interstate"
+    ],
+    [
+      "NSW Gov – Test exemptions (recognized countries)",
+      "https://www.nsw.gov.au/topics/driver-and-rider-licences/visiting-or-moving-to-nsw/moving-overseas-licence/test-exemptions"
+    ],
+    [
+      "Service NSW – Transfer an overseas licence",
+      "https://www.service.nsw.gov.au/transaction/transfer-an-overseas-driver-licence"
+    ],
+    [
+      "Queensland Gov – Transferring to a Queensland licence",
+      "https://www.qld.gov.au/transport/licensing/driver-licensing/overseas/transfer"
+    ],
+    [
+      "Austroads – Recognised Overseas Licences Scheme",
+      "https://austroads.gov.au/drivers-and-vehicles/overseas-drivers/recognised-overseas-licences-scheme"
+    ],
+    [
+      "NSW Gov – Mobile phones and driving",
+      "https://www.nsw.gov.au/driving-boating-and-transport/roads-safety-and-rules/safe-driving/mobiles-screens-and-gps"
+    ],
+    [
+      "NSW Green Slips – What am I covered for?",
+      "https://www.greenslips.nsw.gov.au/what-am-i-covered-for"
+    ],
+    [
+      "OAIC – Australian Privacy Principles",
+      "https://www.oaic.gov.au/privacy/australian-privacy-principles"
+    ],
+    [
+      "OAIC – State and territory privacy legislation",
+      "https://www.oaic.gov.au/privacy/privacy-legislation/state-and-territory-privacy-legislation"
+    ],
+    [
+      "ACSQHC – Communicating for Safety Standard",
+      "https://www.safetyandquality.gov.au/standards/nsqhs-standards/communicating-safety-standard"
+    ],
+    [
+      "Aged Care Quality – ISBAR",
+      "https://www.agedcarequality.gov.au/quality-standards/isbar-identify-situation-background-assessment-and-recommendation"
+    ],
+    [
+      "ACSQHC – NSW Between the Flags implementation",
+      "https://www.safetyandquality.gov.au/sites/default/files/migrated/Implementation-of-the-NSW-Health-Between-the-Flags-Program.pdf"
+    ],
+    [
+      "Western Health – MET Call and Code Blue",
+      "https://digitalhealth.wh.org.au/wp-content/uploads/2023/04/MET-Call-and-Code-Blue-1.pdf"
+    ],
+    [
+      "NSW Health PD2014_030 – Resuscitation Plans",
+      "https://www1.health.nsw.gov.au/pds/ActivePDSDocuments/PD2014_030.pdf"
+    ]
+  ],
+  "uncertain": [
+    "Services Australia's main Medicare pages blocked automated reading; which temporary visas (e.g. 482) can get Medicare was not confirmed.",
+    "Moneysmart pages could not be loaded, so Moneysmart's own credit and banking guidance wasn't used. Not verified: whether overseas credit history counts in Australia.",
+    "Current NMBA/Ahpra fees (orientation, NCLEX, OSCE, application) were seen on an older FAQ and may have changed, so they are left out.",
+    "Whether a given Philippine, Indian, Kenyan or Nigerian qualification lands in Stream A or B is decided case by case through the Self-check.",
+    "VicRoads and other non-NSW/QLD license conversion timelines were not verified.",
+    "Visa sponsorship policies for SA, TAS, ACT, NT and VIC public health services were not confirmed.",
+    "NSW PD2014_030 (Resuscitation Plans) showed a review date of 31 Dec 2025; whether it has been replaced is unconfirmed.",
+    "Rapid response team names (MET, Rapid Response, Code Blue) vary by hospital and state; only Victorian and NSW examples were verified.",
+    "Income protection and home and contents insurance were not covered by an official source.",
+    "Nurses Award and state award dollar rates change every year (Nurses Award varied 1 July 2026), so no dollar figures are given.",
+    "The NP endorsement standard's exact wording was summarized from the ANMJ and NT Health, not the NMBA standard PDF itself."
+  ]
+}
