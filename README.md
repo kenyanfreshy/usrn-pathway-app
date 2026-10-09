@@ -1,0 +1,111 @@
+# USRN Pathway — iPhone & Android app (Expo)
+
+The store version of USRN Pathway, built with Expo (React Native). Bundle ID / package: `com.alexkorir.usrnpathway`.
+
+- **Store-only payments.** Pro is sold through Apple In-App Purchase and Google Play Billing, managed by RevenueCat.
+  The stores set local prices and currencies for each country — no outside payment links (that keeps the app within App Store
+  guideline 3.1.1 and Google Play's payments policy worldwide).
+- **No accounts, no server.** Progress, documents and settings stay on the phone (AsyncStorage). Expiry reminders are local notifications.
+- **No AI features** in this version.
+
+---
+
+## 1. Run it on your computer (once)
+
+Needs Node.js 20+ and the free Expo account.
+
+```bash
+cd usrn-app
+npm install
+npm run setup          # installs every library at the version that matches the Expo SDK
+npx expo install --fix # double-checks versions
+npx expo-doctor        # should report no problems
+```
+
+Before your first store submission, move to the newest Expo SDK (the stores require recent Android/iOS targets):
+
+```bash
+npx expo install expo@latest --fix
+```
+
+Because the app uses in-app purchases, it runs in a **development build**, not the Expo Go app:
+
+```bash
+npm install -g eas-cli
+eas login
+eas init                                   # links the project to your Expo account
+eas build --profile development --platform ios      # or android
+npm start                                  # then open the dev build on your phone
+```
+
+On iPhone, the development build needs your device registered (`eas device:create`).
+
+## 2. Set up Pro (RevenueCat + the stores)
+
+1. **App Store Connect → your app → Monetization**
+   - Subscription group "USRN Pathway Pro" → auto-renewable subscription `usrn_pro_monthly` (1 month).
+   - In-App Purchase → **Non-Consumable** `usrn_pro_lifetime` (the one-time all-access pass).
+   - Pricing: pick a base price (for example US$14.99 / US$59) and then **edit prices per country** — set the Philippines, Kenya,
+     India, Nigeria and Ghana to the regional prices you want (Apple only offers fixed price points, so choose the closest).
+   - Add the review screenshot and description Apple asks for on each product.
+2. **Google Play Console → Monetize → Products**
+   - Subscription `usrn_pro` with a monthly base plan; in-app product `usrn_pro_lifetime`.
+   - Set country prices the same way (Play lets you edit each country's price).
+3. **RevenueCat** (free to start): create a project, add the iOS and Android apps, connect App Store Connect (shared secret /
+   in-app purchase key) and Google Play (service account).
+   - Entitlement: `pro`. Attach both products from both stores.
+   - Offering `default` (set as current) with packages **Monthly** (`$rc_monthly`) and **Lifetime** (`$rc_lifetime`).
+   - Copy the public SDK keys into `app.json → expo.extra.revenueCatAppleKey / revenueCatGoogleKey`.
+4. Put your real **privacy policy URL** and **support email** in `app.json → expo.extra`. `PRIVACY.md` is a starting draft you
+   can host on any web page. The Terms link uses Apple's standard EULA; replace it if you write your own.
+5. Test with Apple **Sandbox** testers and Google Play **license testers** before release.
+
+The paywall (`app/paywall.js`) shows the store's localized prices, the renewal terms, **Restore purchases**, and Terms/Privacy links —
+all required by Apple and Google for subscriptions. In development builds there is also a "Unlock Pro for testing" switch that does
+not exist in store builds.
+
+**What Pro unlocks:** NGN case study, expiry reminders, endorsement wizard, charge nurse command center, overtime & taxes tools.
+Everything else is free (roadmap, board comparison, visa bulletin, Diagnostic Baseline, the full question bank, lessons and guides).
+To change this, move `<ProGate>` wrappers in the screen files.
+
+## 3. Build and submit
+
+```bash
+eas build --profile production --platform all
+eas submit --platform ios       # fill in ascAppId in eas.json first (App Store Connect → App Information → Apple ID)
+eas submit --platform android   # first Android upload must be done once by hand in Play Console; after that this works
+```
+
+**Google Play, new personal developer accounts:** before the app can go public you must run a **closed test with at least 12 testers
+for 14 days in a row**. Start recruiting testers early.
+
+## 4. Store listing checklist
+
+- Screenshots: 6.9" and 6.5" iPhone; Android phone. Take them from the Today, Roadmap, NCLEX and Visa screens.
+- Category: **Education** (secondary: Medical).
+- Age rating: answer "Medical/Treatment Information — infrequent/mild"; no other sensitive content.
+- **Apple App Privacy:** the app itself collects nothing. RevenueCat processes **Purchase History** and an anonymous **app user ID**
+  for "App Functionality" — declare those (not linked to identity, not used for tracking).
+- **Google Data safety:** declare "Purchase history" collected for app functionality, processed by RevenueCat/Google Play; data is
+  encrypted in transit; users can request deletion by email.
+- Text for the listing is in `STORE_LISTING.md`.
+- Keep the educational disclaimer in the description. Reviewers look closely at medical, legal and financial content.
+
+## Project map
+
+```
+app/                 screens (Expo Router)
+  (tabs)/            Today · Roadmap · NCLEX · Visa · More
+  boards.js bedside.js career.js driving.js quiz.js
+  paywall.js settings.js badges.js
+src/
+  ui.js theme.js     design system (colors, type, components)
+  state.js           saved progress, XP, levels, badges
+  pro.js             RevenueCat purchases + ProGate
+  notify.js          local expiry reminders
+  data/content.js    all text and reference data
+  data/questions.json  487-question bank (461 active)
+  career/            Career & wealth sections
+```
+
+Edit wording in `src/data/content.js`; edit questions in `src/data/questions.json` (set `"active": false` to hide one).

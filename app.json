@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "USRN Pathway",
+    "slug": "usrn-pathway",
+    "scheme": "usrnpathway",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2563eb"
+    },
+    "ios": {
+      "bundleIdentifier": "com.alexkorir.usrnpathway",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "config": { "usesNonExemptEncryption": false },
+      "infoPlist": { "ITSAppUsesNonExemptEncryption": false }
+    },
+    "android": {
+      "package": "com.alexkorir.usrnpathway",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2563eb"
+      },
+      "permissions": ["com.android.vending.BILLING", "POST_NOTIFICATIONS"]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      ["expo-notifications", { "color": "#2563eb" }]
+    ],
+    "experiments": { "typedRoutes": false },
+    "extra": {
+      "revenueCatAppleKey": "appl_REPLACE_ME",
+      "revenueCatGoogleKey": "goog_REPLACE_ME",
+      "entitlementId": "pro",
+      "privacyPolicyUrl": "https://REPLACE_ME/privacy",
+      "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
+      "supportEmail": "support@REPLACE_ME"
+    }
+  }
+}
