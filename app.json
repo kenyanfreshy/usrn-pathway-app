@@ -28,7 +28,8 @@
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#2563eb"
+        "backgroundColor": "#14123A",
+        "backgroundImage": "./assets/adaptive-bg.png"
       },
       "permissions": [
         "com.android.vending.BILLING",
