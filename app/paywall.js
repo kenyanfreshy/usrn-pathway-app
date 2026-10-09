@@ -271,9 +271,9 @@ export default function Paywall() {
   if (isPro && membership) {
     if (membership.lifetime) memberLine = "All-access pass · yours for good, no renewals.";
     else if (membership.trial && membership.willRenew) memberLine = `Free trial until ${fmtDate(isoDay(membership.expires))}, then it renews unless you cancel at least 24 hours before.`;
-    else if (membership.trial) memberLine = `Free trial until ${fmtDate(isoDay(membership.expires))}. You've cancelled, so you won't be charged.`;
+    else if (membership.trial) memberLine = `Free trial until ${fmtDate(isoDay(membership.expires))}. You've canceled, so you won't be charged.`;
     else if (membership.willRenew) memberLine = `Renews on ${fmtDate(isoDay(membership.expires))}.`;
-    else memberLine = `Cancelled · Pro stays on until ${fmtDate(isoDay(membership.expires))}.`;
+    else memberLine = `Canceled · Pro stays on until ${fmtDate(isoDay(membership.expires))}.`;
   } else if (isPro) memberLine = "Every Pro tool is unlocked.";
 
   return (

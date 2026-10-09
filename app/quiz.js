@@ -289,7 +289,7 @@ function NGN({ onDone }) {
             {i < NGN_ITEMS.length - 1 ? <Btn mod={MOD} icon="ArrowRight" title="Next" onPress={() => setI(i + 1)} />
               : <Btn mod={MOD} icon="Send" title="Submit case study" disabled={!all} onPress={finish} />}
           </Row>
-          {i === NGN_ITEMS.length - 1 && !all ? <Txt v="tiny" muted>Answer all six steps to submit. Unanswered steps are grey in the bar above.</Txt> : null}
+          {i === NGN_ITEMS.length - 1 && !all ? <Txt v="tiny" muted>Answer all six steps to submit. Unanswered steps are gray in the bar above.</Txt> : null}
         </Card>
       )}
     </View>
