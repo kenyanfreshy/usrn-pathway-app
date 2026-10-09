@@ -1,6 +1,6 @@
-# USRN Pathway — iPhone & Android app (Expo)
+# NurseBound — iPhone & Android app (Expo)
 
-The store version of USRN Pathway, built with Expo (React Native). Bundle ID / package: `com.alexkorir.usrnpathway`.
+The store version of NurseBound, built with Expo (React Native). Bundle ID / package: `com.alexkorir.usrnpathway` (kept from the old name, USRN Pathway; never change it after release).
 
 - **Store-only payments.** Pro is sold through Apple In-App Purchase and Google Play Billing, managed by RevenueCat.
   The stores set local prices and currencies for each country — no outside payment links (that keeps the app within App Store

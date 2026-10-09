@@ -91,7 +91,7 @@ function Certificate({ lessons, name, dest }) {
         <Txt v="body" muted style={{ textAlign: "center" }}>Awarded to</Txt>
         <Txt v="h1" style={{ textAlign: "center" }}>{name || "You"}</Txt>
         <Txt v="small" muted style={{ textAlign: "center" }}>
-          for completing all six USRN Pathway bedside lessons: SBAR and escalation, defensive documentation, privacy and social media, delegation, patient rights and code status, and workplace advocacy.
+          for completing all six NurseBound bedside lessons: SBAR and escalation, defensive documentation, privacy and social media, delegation, patient rights and code status, and workplace advocacy.
         </Txt>
         <Row gap={8} style={{ flexWrap: "wrap", justifyContent: "center" }}>
           {pct !== null ? <Chip mod={MOD} tone="ok" icon="CheckCircle2" text={`Average score ${pct}%`} /> : null}

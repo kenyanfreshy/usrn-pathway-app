@@ -1,8 +1,8 @@
-# USRN Pathway — Privacy Policy
+# NurseBound — Privacy Policy
 
 _Last updated: October 9, 2026._
 
-USRN Pathway ("the app") is published by Alex Korir ("we").
+NurseBound ("the app") is published by Alex Korir ("we").
 
 ## What stays on your phone
 Everything you enter — your name, profile details, roadmap progress, documents list and dates, quiz results, notes and calculator

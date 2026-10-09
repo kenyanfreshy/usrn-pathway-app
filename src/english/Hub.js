@@ -41,7 +41,7 @@ export function EnglishHub({ mod: MOD }) {
       {tab === "speak" ? <ProGate mod={MOD} feature="Speaking simulator" desc="OET role-play cards with a 3 + 5 minute timer and self-scoring on the five clinical communication criteria, plus IELTS cue cards."><Speaking mod={MOD} /></ProGate> : null}
       {tab === "diag" ? <Diagnostic mod={MOD} /> : null}
       <SourceList mod={MOD} sources={[...RULES_META.sources, ...EN.sources.filter(([, u]) => !RULES_META.sources.some(([, v]) => v === u))]} uncertain={RULES_META.uncertain} />
-      <Txt v="tiny" muted>Practice material written for USRN Pathway. Not affiliated with or endorsed by OET, IELTS, Pearson or CELBAN. Score rules checked {RULES_META.checked}.</Txt>
+      <Txt v="tiny" muted>Practice material written for NurseBound. Not affiliated with or endorsed by OET, IELTS, Pearson or CELBAN. Score rules checked {RULES_META.checked}.</Txt>
     </>
   );
 }

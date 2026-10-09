@@ -1,4 +1,4 @@
-// Content ported from the USRN Pathway web app. Edit text here; screens read from these constants.
+// Content ported from the NurseBound web app. Edit text here; screens read from these constants.
 import { isoOffset } from "../util";
 
 export const PHASES = [

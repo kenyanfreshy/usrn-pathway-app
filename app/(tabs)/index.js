@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { View, Pressable, ScrollView } from "react-native";
 import { router } from "expo-router";
 import Svg, { Path, Circle, G, Text as SvgText, Defs, LinearGradient as SvgGradient, Stop } from "react-native-svg";
-import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, Field, tap, Grid, HScroll } from "../../src/ui";
+import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, Field, Check, tap, Grid, HScroll } from "../../src/ui";
 import { useTheme, FONTS, PHASE_COLORS } from "../../src/theme";
 import { useApp, phaseStatus, phasesOf, badgesFor } from "../../src/state";
 import { DestPill, DestChoices, RegionSelect } from "../../src/dest";
@@ -253,7 +253,7 @@ function TopBar() {
   return (
     <Row gap={10}>
       <IconTile mod="home" icon="Stethoscope" size={34} />
-      <Txt v="h3" style={{ flex: 1 }} numberOfLines={1}>USRN Pathway</Txt>
+      <Txt v="h3" style={{ flex: 1 }} numberOfLines={1}>NurseBound</Txt>
       {isPro ? (
         <Row gap={4} style={{ backgroundColor: "#f59e0b", paddingHorizontal: 10, paddingVertical: 5, borderRadius: 99 }} accessible accessibilityLabel="Pro member">
           <Icon name="Crown" size={13} color="#1a1204" /><Txt v="eyebrow" color="#1a1204">Pro</Txt>
@@ -273,6 +273,71 @@ function TopBar() {
   );
 }
 
+/* ---------- next step: Done moves on to the following step; completed steps can be marked not done ---------- */
+function NextStep({ next }) {
+  const { state, dispatch } = useApp(); const t = useTheme("home");
+  const [last, setLast] = useState(null); // { id, text } of the step just marked done
+  const [open, setOpen] = useState(false);
+  const PHASES = phasesOf(state);
+  const completed = PHASES.flatMap((ph, i) => ph.steps.map((txt, j) => ({ id: `${ph.id}-${j}`, txt, ph, i }))).filter((x) => state.steps[x.id]);
+  const done = () => { const id = `${next.ph.id}-${next.j}`; dispatch({ type: "step", id }); setLast({ id, text: next.ph.steps[next.j] }); };
+  const undo = (id) => { if (state.steps[id]) dispatch({ type: "step", id }); if (last && last.id === id) setLast(null); };
+  return (
+    <View style={{ gap: 10 }}>
+      {last && state.steps[last.id] ? (
+        <Row gap={10} style={{ padding: 12, borderRadius: 14, backgroundColor: t.c.okSoft }}>
+          <Icon name="CheckCircle2" size={18} color={t.c.ok} />
+          <Txt v="small" style={{ flex: 1 }} numberOfLines={2}><Txt v="smallB" color={t.c.ok}>Done: </Txt>{last.text}</Txt>
+          <Pressable onPress={() => { tap(); undo(last.id); }} accessibilityRole="button" accessibilityLabel="Undo, mark not done" hitSlop={8}
+            style={{ paddingHorizontal: 10, paddingVertical: 5, borderRadius: 99, borderWidth: 1, borderColor: t.c.ok }}>
+            <Txt v="smallB" color={t.c.ok}>Undo</Txt>
+          </Pressable>
+        </Row>
+      ) : null}
+      {next ? (
+        <Card key={`${next.ph.id}-${next.j}`} style={{ borderColor: PHASE_COLORS[next.i], borderWidth: 1.5 }}>
+          <Row gap={12}>
+            <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: PHASE_COLORS[next.i], alignItems: "center", justifyContent: "center" }}>
+              <Icon name="ArrowUpRight" size={22} color="#fff" />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Txt v="eyebrow">{last ? "Up next" : "Next step"} · {next.ph.title}</Txt>
+              <Txt v="bodyB">{next.ph.steps[next.j]}</Txt>
+            </View>
+          </Row>
+          <Btn title="Done" icon="Check" mod="roadmap" small onPress={done} style={{ alignSelf: "flex-end" }} />
+        </Card>
+      ) : (
+        <Card style={{ borderColor: t.c.ok, borderWidth: 1.5 }}>
+          <Row gap={10}><Icon name="PartyPopper" size={22} color={t.c.ok} /><Txt v="bodyB" style={{ flex: 1 }}>Every unlocked roadmap step is done.</Txt></Row>
+        </Card>
+      )}
+      {completed.length ? (
+        <Card style={{ gap: 8 }}>
+          <Pressable onPress={() => { tap(); setOpen(!open); }} accessibilityRole="button" accessibilityState={{ expanded: open }}>
+            <Row gap={8}>
+              <Icon name="ListChecks" size={18} color={t.tint} />
+              <Txt v="bodyB" style={{ flex: 1 }}>Completed steps ({completed.length})</Txt>
+              <Icon name={open ? "ChevronUp" : "ChevronDown"} size={18} color={t.c.muted} />
+            </Row>
+          </Pressable>
+          {open ? (
+            <View style={{ gap: 2 }}>
+              <Txt v="tiny" muted>Untick a step to mark it not done. It goes back on your roadmap.</Txt>
+              {completed.map((x) => (
+                <View key={x.id} style={{ flexDirection: "row", gap: 8, alignItems: "flex-start" }}>
+                  <View style={{ width: 6, alignSelf: "stretch", borderRadius: 3, backgroundColor: PHASE_COLORS[x.i], marginVertical: 6 }} />
+                  <View style={{ flex: 1 }}><Check mod="roadmap" checked strike label={x.txt} sub={x.ph.title} onToggle={() => undo(x.id)} /></View>
+                </View>
+              ))}
+            </View>
+          ) : null}
+        </Card>
+      ) : null}
+    </View>
+  );
+}
+
 /* ---------- first-run welcome: name + destination (the U.S. is preselected) ---------- */
 function Welcome() {
   const { state, dispatch } = useApp(); const t = useTheme("home");
@@ -286,7 +351,7 @@ function Welcome() {
       <Row gap={12}>
         <IconTile mod="home" icon="Sparkles" size={44} />
         <View style={{ flex: 1, gap: 2 }}>
-          <Txt v="eyebrow">Welcome to USRN Pathway</Txt>
+          <Txt v="eyebrow">Welcome to NurseBound</Txt>
           <Txt v="h2">Set up your pathway</Txt>
         </View>
       </Row>
@@ -415,21 +480,8 @@ export default function Today() {
         <Txt v="tiny" muted>Readiness blends roadmap 40%, benchmarks 30%, lessons 15%, document health 15%.</Txt>
       </Card>
 
-      {/* next step */}
-      {next ? (
-        <Card style={{ borderColor: PHASE_COLORS[next.i], borderWidth: 1.5 }}>
-          <Row gap={12}>
-            <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: PHASE_COLORS[next.i], alignItems: "center", justifyContent: "center" }}>
-              <Icon name="ArrowUpRight" size={22} color="#fff" />
-            </View>
-            <View style={{ flex: 1 }}>
-              <Txt v="eyebrow">Next step · {next.ph.title}</Txt>
-              <Txt v="bodyB">{next.ph.steps[next.j]}</Txt>
-            </View>
-          </Row>
-          <Btn title="Done" icon="Check" mod="roadmap" small onPress={() => dispatch({ type: "step", id: `${next.ph.id}-${next.j}` })} style={{ alignSelf: "flex-end" }} />
-        </Card>
-      ) : null}
+      {/* next step, with undo and the list of completed steps */}
+      <NextStep next={next} />
 
       {/* countdowns */}
       <Grid min={140} gap={10}>

@@ -53,7 +53,7 @@ function BackupCard() {
       {open ? (
         <View style={{ gap: 8 }}>
           <Txt v="smallB" muted>Paste your backup text</Txt>
-          <TextInput value={text} onChangeText={(v) => { setText(v); setSure(false); setMsg(null); }} multiline placeholder="USRN-PATHWAY-BACKUP v1 …" placeholderTextColor={t.c.muted}
+          <TextInput value={text} onChangeText={(v) => { setText(v); setSure(false); setMsg(null); }} multiline placeholder="NURSEBOUND-BACKUP v1 …" placeholderTextColor={t.c.muted}
             autoCorrect={false} autoCapitalize="none" accessibilityLabel="Backup text"
             style={{ minHeight: 96, maxHeight: 180, borderWidth: 1.5, borderColor: t.c.line, borderRadius: 12, padding: 10, color: t.c.ink, backgroundColor: t.c.surface, fontFamily: FONTS.mono, fontSize: 12, textAlignVertical: "top" }} />
           <Row wrap gap={8}>

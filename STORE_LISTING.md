@@ -1,14 +1,17 @@
 # Store listing text (edit freely)
 
-**App name (30 max):** USRN Pathway
-**iOS subtitle (30 max):** NCLEX, visa & nursing roadmap
+_Renamed from USRN Pathway to NurseBound. The bundle ID / package (`com.alexkorir.usrnpathway`) stays the same: it is
+invisible to users, and changing it would create a brand-new app in both stores._
+
+**App name (30 max, App Store and Google Play):** NurseBound
+**iOS subtitle (30 max):** NCLEX, OET & visa roadmap
 **Google short description (80 max):** NCLEX prep and roadmaps for nurses moving to the U.S., Canada, Australia or NZ.
 
 **Promotional text (iOS, 170 max):**
 Roadmaps for the U.S., Canada, Australia and New Zealand, 600+ NCLEX-RN questions, a daily study plan, OET practice and interview prep — all on your phone.
 
 **Description:**
-USRN Pathway guides internationally educated nurses from credential evaluation to the bedside in the United States, Canada, Australia or New Zealand — and beyond.
+NurseBound guides internationally educated nurses from credential evaluation to the bedside in the United States, Canada, Australia or New Zealand — and beyond.
 
 ROADMAP & DOCUMENTS
 • Pick your destination (and your province in Canada): a 6-phase roadmap for the U.S., Canada, Australia or New Zealand, with official links and fees for each step
@@ -51,7 +54,7 @@ PRO (optional — 2-week free trial for new subscribers, then a monthly subscrip
 
 Your data stays on your phone. No account needed — back it up and restore it on a new phone in Settings.
 
-USRN Pathway is for education only. It is not legal, immigration, medical or financial advice.
+NurseBound is for education only. It is not legal, immigration, medical or financial advice.
 
 **Keywords (iOS, 100 max):** nclex,ngn,nursing,nurse,visa,eb-3,ahpra,express entry,canada,australia,new zealand,ielts,oet
 

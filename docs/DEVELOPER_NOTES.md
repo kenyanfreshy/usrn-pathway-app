@@ -1,4 +1,4 @@
-# USRN Pathway (Expo) — foundation guide for screen authors
+# NurseBound (Expo) — foundation guide for screen authors
 
 Project: `/home/claude/usrn-app` (Expo Router, JavaScript, no TypeScript). The web version this ports is
 `/tmp/claude-0/-home-claude/c3b6f838-ecd0-5197-ba4b-a5ac9af1cf90/scratchpad/web_app.jsx` — copy its wording, data, logic and

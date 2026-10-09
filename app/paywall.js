@@ -23,7 +23,7 @@ import { fmtDate } from "../src/util";
 let RC = {};
 try { RC = require("react-native-purchases"); } catch (e) { RC = {}; }
 
-/* USRN Pathway palette (from the app icon) */
+/* NurseBound palette (from the app icon) */
 const C = {
   bg: "#0B0F19", bg2: "#141238", card: "rgba(255,255,255,0.045)", cardOn: "rgba(6,182,212,0.12)",
   line: "rgba(255,255,255,0.12)", ink: "#F1F5F9", muted: "#A9B4C8", faint: "#7C879C",
@@ -283,9 +283,9 @@ export default function Paywall() {
         {/* header */}
         <View style={{ alignItems: "center", gap: 12 }}>
           <View style={{ shadowColor: C.cyanDeep, shadowOpacity: 0.5, shadowRadius: 22, shadowOffset: { width: 0, height: 6 }, elevation: 10 }}>
-            <Image source={require("../assets/icon.png")} style={{ width: 84, height: 84, borderRadius: 20 }} accessibilityIgnoresInvertColors accessible accessibilityLabel="USRN Pathway app icon" />
+            <Image source={require("../assets/icon.png")} style={{ width: 84, height: 84, borderRadius: 20 }} accessibilityIgnoresInvertColors accessible accessibilityLabel="NurseBound app icon" />
           </View>
-          <Txt color={C.cyan} style={{ fontSize: 15, letterSpacing: 4.5, fontWeight: "800", fontFamily: SANS }}>USRN PATHWAY PRO</Txt>
+          <Txt color={C.cyan} style={{ fontSize: 15, letterSpacing: 4.5, fontWeight: "800", fontFamily: SANS }}>NURSEBOUND PRO</Txt>
           <Headlines />
         </View>
 
@@ -352,7 +352,7 @@ export default function Paywall() {
         <View style={{ alignItems: "center" }}><LinkText onPress={manage}>Manage Subscription</LinkText></View>
 
         <Txt v="small" color={C.muted} style={{ textAlign: "center", fontSize: 14, lineHeight: 20 }}>
-          USRN Pathway is intended for education, planning and organization only. It is not legal, immigration, medical or financial advice. Always confirm requirements with your state board of nursing, USCIS and qualified professionals.
+          NurseBound is intended for education, planning and organization only. It is not legal, immigration, medical or financial advice. Always confirm requirements with your state board of nursing, USCIS and qualified professionals.
         </Txt>
 
         <Row gap={10} style={{ justifyContent: "center" }}>

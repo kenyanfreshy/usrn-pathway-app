@@ -325,7 +325,7 @@ function CostTracker() {
 function docSummary(state) {
   const p = state.profile; const dest = destOf(destId(state)); const PH = phasesOf(state);
   const name = [p.name, p.lastName].filter(Boolean).join(" ") || "Nurse";
-  const lines = [`Document summary · ${name}`, `Destination: ${dest.name}`, `Prepared ${fmtDate(todayKey())} with USRN Pathway`, ""];
+  const lines = [`Document summary · ${name}`, `Destination: ${dest.name}`, `Prepared ${fmtDate(todayKey())} with NurseBound`, ""];
   const cats = [...new Set(state.docs.map((d) => d.cat))];
   cats.forEach((c) => {
     lines.push(c.toUpperCase());

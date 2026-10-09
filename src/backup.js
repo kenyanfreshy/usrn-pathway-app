@@ -5,7 +5,8 @@
 import { Share } from "react-native";
 import { initialState } from "./state";
 
-const HEADER = "USRN-PATHWAY-BACKUP v1";
+const HEADER = "NURSEBOUND-BACKUP v1";
+const LEGACY = "USRN-PATHWAY-BACKUP v1"; // backups saved before the app was renamed
 const KEEP = Object.keys(initialState());
 
 /** The backup text: a header line, then JSON of everything that matters. */
@@ -18,7 +19,7 @@ export function makeBackup(state) {
 /** Opens the share sheet. Returns true if shared. */
 export async function shareBackup(state) {
   try {
-    const r = await Share.share({ title: "USRN Pathway backup", message: makeBackup(state) });
+    const r = await Share.share({ title: "NurseBound backup", message: makeBackup(state) });
     return r && r.action === Share.sharedAction;
   } catch (e) { return false; }
 }
@@ -26,7 +27,7 @@ export async function shareBackup(state) {
 /** Parses pasted backup text. Returns { state } or { error }. */
 export function readBackup(text) {
   const raw = String(text || "").trim();
-  if (!raw.startsWith(HEADER)) return { error: "This doesn't look like a USRN Pathway backup. Paste the whole text, starting with “USRN-PATHWAY-BACKUP”." };
+  if (!raw.startsWith(HEADER) && !raw.startsWith(LEGACY)) return { error: "This doesn't look like a NurseBound backup. Paste the whole text, starting with “NURSEBOUND-BACKUP”." };
   const start = raw.indexOf("{"); const end = raw.lastIndexOf("}");
   if (start < 0 || end < start) return { error: "The backup text is incomplete. Paste all of it." };
   let data;

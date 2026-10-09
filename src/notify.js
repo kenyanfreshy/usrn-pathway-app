@@ -40,7 +40,7 @@ export async function scheduleTrialReminder(endsISO, priceText) {
     await Notifications.scheduleNotificationAsync({
       identifier: TRIAL_ID,
       content: {
-        title: "Your USRN Pathway Pro trial ends in 2 days",
+        title: "Your NurseBound Pro trial ends in 2 days",
         body: `After ${fmtDate(end.toISOString().slice(0, 10))} it renews at ${priceText}. Keep it, or cancel any time in your store subscriptions.`,
       },
       trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: at, channelId: "expiry" },

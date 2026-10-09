@@ -13,7 +13,7 @@
 //   bowtie     1 condition, 2 actions, 2 params  0/1 per box (5 points)
 // Any item may carry a trend table { cols, rows } shown above the stem.
 //
-// Written for USRN Pathway. Educational practice only; not affiliated with or endorsed by NCSBN.
+// Written for NurseBound. Educational practice only; not affiliated with or endorsed by NCSBN.
 
 export const NGN_STEPS = ["Recognize Cues", "Analyze Cues", "Prioritize Hypotheses", "Generate Solutions", "Take Action", "Evaluate Outcomes"];
 

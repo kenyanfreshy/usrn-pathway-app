@@ -54,7 +54,7 @@ export function Overlays() {
   const { celebrate, popCelebrate, m, lvl, state } = useApp(); const t = useTheme();
   const item = celebrate[0];
   useEffect(() => { if (item) buzz(); }, [item]);
-  const share = () => Share.share({ message: `I'm ${Math.round(m.roadPct * 100)}% through my journey to the ${destOf(destId(state)).short} bedside — level: ${lvl.name}, ${m.streak}-day streak. Tracking it with USRN Pathway.` }).catch(() => {});
+  const share = () => Share.share({ message: `I'm ${Math.round(m.roadPct * 100)}% through my journey to the ${destOf(destId(state)).short} bedside — level: ${lvl.name}, ${m.streak}-day streak. Tracking it with NurseBound.` }).catch(() => {});
   return (
     <>
       <Toast />

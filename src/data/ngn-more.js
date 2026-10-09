@@ -1,8 +1,8 @@
-// Four additional NGN unfolding case studies for USRN Pathway (same schema as NGN_CASES in src/data/ngn.js).
+// Four additional NGN unfolding case studies for NurseBound (same schema as NGN_CASES in src/data/ngn.js).
 // New item features used here:
 //   kind "bowtie"   condition (1 of 4) · actions (2 of 5) · parameters to monitor (2 of 5)
 //   item.table      trend exhibit { cols, rows } shown above the stem (any item kind)
-// Written for USRN Pathway. Educational practice only; not affiliated with or endorsed by NCSBN.
+// Written for NurseBound. Educational practice only; not affiliated with or endorsed by NCSBN.
 
 export const NEW_CASES = [
   /* ------------------------------------------------------------------ 5 */

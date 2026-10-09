@@ -54,7 +54,7 @@ and the button reads "Subscribe now".
 
 ## App Store Connect (iPhone)
 
-1. **Monetization → Subscriptions →** create a subscription group named "USRN Pathway Pro", then two subscriptions:
+1. **Monetization → Subscriptions →** create a subscription group named "NurseBound Pro", then two subscriptions:
    `usrn_pro_annual` (duration **1 year**) and `usrn_pro_monthly` (duration **1 month**). Put annual at the higher level in the group. Give each a display name ("Pro annual", "Pro monthly"), a description and a review screenshot of the paywall.
 2. **Subscription Prices → Add pricing:** choose the United States and US$14.99. Apple fills in every other country.
    Then use **Edit country or region prices** to set groups B and C from the table.
