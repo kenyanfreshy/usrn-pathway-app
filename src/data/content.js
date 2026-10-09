@@ -188,32 +188,8 @@ export const BULLETIN = {
   ],
 };
 
-export const LESSONS = [
-  { id: "sbar", title: "SBAR and closed-loop escalation", mins: 6, body: [
-    ["Why it matters", "U.S. physicians expect a short, organized call. A nurse who opens with the concern and a clear request is taken seriously. Long histories before the point lose the listener."],
-    ["The structure", "Situation: who you are, the patient, the problem in one sentence. Background: diagnosis, relevant history, what has been done. Assessment: what you think is happening. Recommendation: exactly what you want — come to bedside, a new order, a transfer."],
-    ["Closed loop", "Read back every verbal order. Say the drug, dose, route and time back to the prescriber and wait for confirmation. Document the call, the time, and the response."],
-    ["When you are not heard", "Use the chain of command: charge nurse, house supervisor, rapid response team. Calling a rapid response is a right, not a failure. Words that signal urgency: \"I am concerned\", \"I am uncomfortable\", \"This is a safety issue\" (the CUS phrases)."] ],
-    check: { q: "The provider gives a verbal order for metoprolol 5 mg IV now. What completes the loop?", opts: ["Give it and chart later", "Read back the order and wait for confirmation", "Ask the charge nurse to call back"], a: 1 } },
-  { id: "code", title: "Code status, POLST and ICU boundaries", mins: 7, body: [
-    ["Full code is the default", "In U.S. hospitals every patient is full code unless an order says otherwise. Families do not change code status by telling the nurse; a provider order is required."],
-    ["Common orders", "DNR / DNAR: no CPR if the heart stops. DNI: no intubation. Some patients choose partial limits, such as no CPR but yes to medications. Read the order exactly."],
-    ["POLST", "A Physician (or Portable) Orders for Life-Sustaining Treatment form travels with the patient between settings. It turns wishes into medical orders. Check that the hospital has reconciled it into an inpatient order."],
-    ["Palliative vs. comfort care", "Palliative care treats symptoms alongside curative treatment. Comfort-focused care stops curative treatment. Neither means \"do nothing\": pain, dyspnea and anxiety are treated aggressively."] ],
-    check: { q: "A daughter says, \"Mom doesn't want CPR,\" but there is no DNR order. If the patient arrests, what do you do?", opts: ["Do not start CPR", "Start CPR and escalate the code-status conversation to the provider", "Call the daughter first"], a: 1 } },
-  { id: "deleg", title: "The U.S. delegation framework", mins: 6, body: [
-    ["Five rights of delegation", "Right task, right circumstance, right person, right directions and communication, right supervision and evaluation. You keep accountability for the outcome."],
-    ["What stays with the RN", "Assessment, care planning, teaching, evaluation, and care of unstable patients. CNAs and PCTs collect data (vital signs, intake/output, glucose checks where allowed), help with ADLs and mobility."],
-    ["Respiratory therapists", "RTs are licensed partners, not delegates. They manage ventilators, nebulizers and often ABGs under protocol. Coordinate, don't delegate."],
-    ["Giving clear directions", "Say what, when, and what to report: \"Vitals at 14:00. Tell me right away if systolic is under 100 or heart rate is over 110.\" Then follow up."] ],
-    check: { q: "Which task is appropriate to delegate to a CNA?", opts: ["Teaching insulin injection", "Ambulating a stable post-op day 2 patient", "Assessing a new chest pain complaint"], a: 1 } },
-  { id: "ehr", title: "EHR documentation and HIPAA", mins: 5, body: [
-    ["If it wasn't charted", "Chart in real time where possible. Late entries are allowed but must be labeled as late with the actual time of the event. Never chart care before it happens."],
-    ["Epic and Cerner habits", "Use flowsheets for vital signs and assessments; use notes for events and reasoning. Avoid copy-forward of old assessments. Acknowledge new orders and complete the MAR scan for every dose."],
-    ["HIPAA in practice", "Access only the records you need for your patients. Audits track every chart opened. Do not discuss patients in elevators or post anything identifiable online, even without names."],
-    ["Protecting yourself", "Objective language: \"Patient states…\", measured values, times. Document notifications: who, when, what was said, and the response."] ],
-    check: { q: "You forgot to chart a 10:00 dressing change. It is now 15:00. What do you do?", opts: ["Chart it with a 10:00 time and no note", "Enter a late entry labeled as late, noting the 10:00 care time", "Skip it since it was done"], a: 1 } },
-];
+// Bedside lessons live in src/data/bedside.js.
+export { LESSONS } from "./bedside";
 
 export const ACUITY = [
   { k: "pressors", label: "Titrating vasopressors", w: 3 }, { k: "crrt", label: "CRRT", w: 3 }, { k: "neuro", label: "q1h neuro checks", w: 2 },

@@ -35,7 +35,13 @@ function reducer0(s, a) {
     case "addDoc": return { ...s, docs: [a.doc, ...s.docs] };
     case "delDoc": return { ...s, docs: s.docs.filter((d) => d.id !== a.id) };
     case "exam": return { ...s, exams: [a.rec, ...s.exams].slice(0, 30) };
-    case "lesson": return { ...s, lessons: { ...s.lessons, [a.id]: true } };
+    case "lesson": {
+      // Keep the best knowledge-check score. Older saves stored just `true`, which still counts as complete.
+      const prev = s.lessons[a.id]; const r = a.result;
+      if (!r) return { ...s, lessons: { ...s.lessons, [a.id]: prev || true } };
+      const keep = prev && typeof prev === "object" && prev.best >= r.best ? prev : r;
+      return { ...s, lessons: { ...s.lessons, [a.id]: keep } };
+    }
     case "career": return { ...s, careers: { ...s.careers, [a.id]: !s.careers[a.id] } };
     case "credit": return { ...s, credit: { ...s.credit, [a.id]: !s.credit[a.id] } };
     case "drive": return { ...s, drive: { ...(s.drive || {}), [a.id]: !(s.drive || {})[a.id] } };
@@ -115,7 +121,7 @@ export const BADGES = [
   { id: "eng", icon: "Languages", name: "Fluent & Verified", desc: "Complete English proficiency", test: (s) => phaseDone(s, "eng") },
   { id: "visa", icon: "ShieldCheck", name: "VisaScreen Done", desc: "Receive your VisaScreen certificate", test: (s) => phaseDone(s, "visa") },
   { id: "touch", icon: "PlaneLanding", name: "Touchdown", desc: "Complete the immigration phase", test: (s) => phaseDone(s, "imm") },
-  { id: "scholar", icon: "BookOpen", name: "Bedside Scholar", desc: "Complete every bedside lesson", test: (s) => LESSONS.every((l) => s.lessons[l.id]) },
+  { id: "scholar", icon: "Award", name: "U.S. Clinical Readiness", desc: "Complete all six bedside lessons and earn the certificate", test: (s) => LESSONS.every((l) => s.lessons[l.id]) },
   { id: "streak3", icon: "Flame", name: "On Fire", desc: "Keep a 3-day activity streak", test: (s, m) => m.streak >= 3 },
   { id: "streak7", icon: "Zap", name: "Unstoppable", desc: "Keep a 7-day activity streak", test: (s, m) => m.streak >= 7 },
   { id: "flash", icon: "Layers", name: "Card Shark", desc: "Review 25 flashcards", test: (s) => (s.flash || 0) >= 25 },

@@ -9,7 +9,7 @@ import { usePro } from "../../src/pro";
 
 const TOOLS = [
   { to: "/boards", mod: "boards", icon: "Landmark", title: "Boards", desc: "State boards & endorsement" },
-  { to: "/bedside", mod: "bedside", icon: "Stethoscope", title: "Bedside", desc: "U.S. hospital lessons, charting & license protection" },
+  { to: "/bedside", mod: "bedside", icon: "Stethoscope", title: "Bedside", desc: "6 U.S. hospital lessons, SBAR builder, charting & license protection" },
   { to: "/career", mod: "career", icon: "TrendingUp", title: "Career", desc: "Charge tools, careers, money & insurance" },
   { to: "/driving", mod: "drive", icon: "Car", title: "Driving", desc: "Why to learn before you travel" },
 ];
