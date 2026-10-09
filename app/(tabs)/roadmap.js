@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Pressable, ScrollView } from "react-native";
 import Svg, { Circle, Line, Text as SvgText } from "react-native-svg";
-import { Screen, Hero, Card, Row, Txt, Bar, Check, Chip, Note, Btn, Field, DateField, Select, SectionTitle, Icon, Grad, IconTile, tap, Grid } from "../../src/ui";
+import { Screen, Hero, Card, Row, Txt, Bar, Check, Chip, Note, Btn, Field, DateField, Select, SectionTitle, Icon, Grad, IconTile, tap, Grid, HScroll } from "../../src/ui";
 import { useTheme, mix, FONTS } from "../../src/theme";
 import { useApp, phaseStatus } from "../../src/state";
 import { usePro, ProGate } from "../../src/pro";
@@ -164,7 +164,7 @@ function Timeline() {
           <Txt v="h1" color="#fff">{!arrival ? "Arrived 🎉" : capped ? "8+ years" : monYr(arrival)}</Txt>
         </View>
       </Grad>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <HScroll mod={MOD} fade={t.c.surface} hint="Swipe to see the full timeline">
         <View style={{ width: LABEL_W + 12 + TRACK_W, gap: 8 }}>
           <View style={{ height: 18, marginLeft: LABEL_W + 12, width: TRACK_W }}>
             <Txt v="tiny" muted style={{ position: "absolute", left: 0, fontFamily: FONTS.mono }}>Today</Txt>
@@ -199,7 +199,7 @@ function Timeline() {
             );
           })}
         </View>
-      </ScrollView>
+      </HScroll>
       <Txt v="tiny" muted>Estimates only. Bulletin movement is unpredictable and can retrogress. Change your chargeability country in Settings or on the Visa tab.</Txt>
     </Card>
   );

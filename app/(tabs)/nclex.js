@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from "react";
 import { View, ScrollView, Pressable } from "react-native";
 import { router } from "expo-router";
-import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, tap, Grid } from "../../src/ui";
+import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, tap, Grid, HScroll } from "../../src/ui";
 import { TutorCard } from "../../src/tutor";
 import { useTheme, FONTS } from "../../src/theme";
 import { useApp } from "../../src/state";
@@ -128,6 +128,7 @@ function Benchmarks({ state }) {
 }
 
 function Heatmap({ exams }) {
+  const t = useTheme(MOD);
   const rows = exams.filter((e) => e.byCat).slice(0, 6).reverse();
   if (!rows.length) return null;
   const cats = [...new Set(rows.flatMap((e) => Object.keys(e.byCat)))].sort();
@@ -136,7 +137,7 @@ function Heatmap({ exams }) {
     <Card mod={MOD}>
       <Txt v="h3">Category heatmap</Txt>
       <Txt v="tiny" muted>Last {rows.length} scored attempts, oldest → newest</Txt>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <HScroll mod={MOD} fade={t.c.surface} hint="Swipe to see all attempts">
         <View style={{ gap: 6 }}>
           <Row gap={4}>
             <View style={{ width: LW }}><Txt v="eyebrow">Category</Txt></View>
@@ -163,7 +164,7 @@ function Heatmap({ exams }) {
             </Row>
           ))}
         </View>
-      </ScrollView>
+      </HScroll>
     </Card>
   );
 }

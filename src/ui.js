@@ -182,28 +182,29 @@ export function Bar({ pct = 0, mod, height = 9 }) {
   );
 }
 
-/** Segmented control (scrolls horizontally when it doesn't fit). options: [{id,label,icon}] */
 /**
- * Segmented tabs. When the tabs don't fit on screen they scroll sideways, and the bar shows it:
- * faded edges with ‹ › arrow buttons, a "Swipe for more" hint until the person scrolls once, and the
- * selected tab is scrolled into view.
+ * Horizontal scroller that shows when there's more to see: faded edges with ‹ › arrow buttons, and an optional
+ * "Swipe for more" hint until the person scrolls once. Use it for every sideways-scrolling row in the app.
+ *   fade:     background color behind the row (hex), used for the edge fade
+ *   hint:     text for the hint line (pass null to hide it)
+ *   focusKey / getFocus: scroll a child into view when focusKey changes (getFocus returns {x, w})
  */
-export function Seg({ value, onChange, options, mod }) {
+export function HScroll({ children, mod, fade, hint = "Swipe for more", contentContainerStyle, focusKey, getFocus, style, ...rest }) {
   const t = useTheme(mod);
-  const ref = React.useRef(null); const pos = React.useRef({});
+  const ref = React.useRef(null);
   const [w, setW] = useState(0); const [cw, setCw] = useState(0); const [x, setX] = useState(0); const [moved, setMoved] = useState(false);
   const overflow = w > 0 && cw > w + 2;
   const canLeft = overflow && x > 4; const canRight = overflow && x + w < cw - 4;
+  const bg = /^#[0-9a-f]{6}$/i.test(fade || "") ? fade : null;
   const scrollBy = (d) => { tap(); setMoved(true); ref.current && ref.current.scrollTo({ x: Math.max(0, Math.min(cw - w, x + d * w * 0.7)), animated: true }); };
   React.useEffect(() => {
-    const p = pos.current[value];
+    const p = getFocus && getFocus();
     if (overflow && p && ref.current && (p.x < x || p.x + p.w > x + w)) ref.current.scrollTo({ x: Math.max(0, p.x - 24), animated: true });
-  }, [value, overflow]);
-  const fade = (dir) => (dir === "left" ? [t.c.sunk, t.c.sunk + "00"] : [t.c.sunk + "00", t.c.sunk]);
-  const Edge = ({ dir }) => (
+  }, [focusKey, overflow]);
+  const edge = (dir) => (
     <View pointerEvents="box-none" style={{ position: "absolute", top: 0, bottom: 0, [dir]: 0, width: 46, flexDirection: "row", justifyContent: dir === "left" ? "flex-start" : "flex-end", alignItems: "center" }}>
-      <LinearGradient pointerEvents="none" colors={fade(dir)} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ position: "absolute", top: 0, bottom: 0, left: 0, right: 0 }} />
-      <Pressable onPress={() => scrollBy(dir === "left" ? -1 : 1)} hitSlop={6} accessibilityRole="button" accessibilityLabel={dir === "left" ? "Show earlier tabs" : "Show more tabs"}
+      {bg ? <LinearGradient pointerEvents="none" colors={dir === "left" ? [bg, bg + "00"] : [bg + "00", bg]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ position: "absolute", top: 0, bottom: 0, left: 0, right: 0 }} /> : null}
+      <Pressable onPress={() => scrollBy(dir === "left" ? -1 : 1)} hitSlop={6} accessibilityRole="button" accessibilityLabel={dir === "left" ? "Scroll back" : "Show more"}
         style={{ width: 28, height: 28, borderRadius: 14, marginHorizontal: 4, backgroundColor: t.c.surface, borderWidth: 1, borderColor: t.c.line, alignItems: "center", justifyContent: "center", shadowColor: "#000", shadowOpacity: 0.12, shadowRadius: 4, shadowOffset: { width: 0, height: 1 }, elevation: 2 }}>
         <Icon name={dir === "left" ? "ChevronLeft" : "ChevronRight"} size={16} color={t.tint} />
       </Pressable>
@@ -211,33 +212,47 @@ export function Seg({ value, onChange, options, mod }) {
   );
   return (
     <View style={{ gap: 6 }}>
-      <View style={{ backgroundColor: t.c.sunk, borderRadius: 16, borderWidth: 1, borderColor: t.c.line, overflow: "hidden" }} onLayout={(e) => setW(e.nativeEvent.layout.width)}>
-        <ScrollView ref={ref} horizontal showsHorizontalScrollIndicator={false} scrollEventThrottle={16}
+      <View style={style} onLayout={(e) => setW(e.nativeEvent.layout.width)}>
+        <ScrollView ref={ref} horizontal showsHorizontalScrollIndicator={false} scrollEventThrottle={16} {...rest}
           onContentSizeChange={(cwidth) => setCw(cwidth)}
           onScroll={(e) => { const nx = e.nativeEvent.contentOffset.x; setX(nx); if (nx > 8) setMoved(true); }}
-          contentContainerStyle={{ gap: 4, padding: 4, paddingRight: overflow ? 40 : 4 }}>
-          {options.map((o) => {
-            const on = o.id === value;
-            return (
-              <Pressable key={o.id} onPress={() => { tap(); onChange(o.id); }} accessibilityRole="tab" accessibilityState={{ selected: on }}
-                onLayout={(e) => { pos.current[o.id] = { x: e.nativeEvent.layout.x, w: e.nativeEvent.layout.width }; }}
-                style={{ flexDirection: "row", alignItems: "center", gap: 6, paddingVertical: 8, paddingHorizontal: 12, borderRadius: 12, backgroundColor: on ? t.c.surface : "transparent", borderWidth: on ? 1 : 0, borderColor: t.c.line }}>
-                {o.icon ? <Icon name={o.icon} size={15} color={on ? t.tint : t.c.muted} /> : null}
-                <Txt v="smallB" color={on ? t.tint : t.c.muted}>{o.label}</Txt>
-              </Pressable>
-            );
-          })}
+          contentContainerStyle={[contentContainerStyle, overflow ? { paddingRight: 40 } : null]}>
+          {children}
         </ScrollView>
-        {canLeft ? <Edge dir="left" /> : null}
-        {canRight ? <Edge dir="right" /> : null}
+        {canLeft ? edge("left") : null}
+        {canRight ? edge("right") : null}
       </View>
-      {overflow && !moved ? (
+      {hint && overflow && !moved ? (
         <Pressable onPress={() => scrollBy(1)} accessibilityRole="button" style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-end", gap: 4 }}>
-          <Txt v="tiny" color={t.c.muted}>Swipe the tabs for more ({options.length} sections)</Txt>
+          <Txt v="tiny" color={t.c.muted}>{hint}</Txt>
           <Icon name="ArrowRight" size={13} color={t.c.muted} />
         </Pressable>
       ) : null}
     </View>
+  );
+}
+
+/** Segmented tabs. Scroll sideways when they don't fit, with arrows and a hint (see HScroll). options: [{id,label,icon}] */
+export function Seg({ value, onChange, options, mod }) {
+  const t = useTheme(mod);
+  const pos = React.useRef({});
+  return (
+    <HScroll mod={mod} fade={t.c.sunk} hint={`Swipe the tabs for more (${options.length} sections)`}
+      focusKey={value} getFocus={() => pos.current[value]}
+      style={{ backgroundColor: t.c.sunk, borderRadius: 16, borderWidth: 1, borderColor: t.c.line, overflow: "hidden" }}
+      contentContainerStyle={{ gap: 4, padding: 4 }}>
+      {options.map((o) => {
+        const on = o.id === value;
+        return (
+          <Pressable key={o.id} onPress={() => { tap(); onChange(o.id); }} accessibilityRole="tab" accessibilityState={{ selected: on }}
+            onLayout={(e) => { pos.current[o.id] = { x: e.nativeEvent.layout.x, w: e.nativeEvent.layout.width }; }}
+            style={{ flexDirection: "row", alignItems: "center", gap: 6, paddingVertical: 8, paddingHorizontal: 12, borderRadius: 12, backgroundColor: on ? t.c.surface : "transparent", borderWidth: on ? 1 : 0, borderColor: t.c.line }}>
+            {o.icon ? <Icon name={o.icon} size={15} color={on ? t.tint : t.c.muted} /> : null}
+            <Txt v="smallB" color={on ? t.tint : t.c.muted}>{o.label}</Txt>
+          </Pressable>
+        );
+      })}
+    </HScroll>
   );
 }
 

@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { View, ScrollView, Pressable, Animated, PanResponder } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import Svg, { Line, Polyline, Circle, Text as SvgText } from "react-native-svg";
-import { Screen, Card, Row, Txt, Btn, Chip, Note, Bar, Option, Check, Select, Accordion, Sheet, Icon, Grad, tap, buzz, Grid, Seg, IconTile } from "../src/ui";
+import { Screen, Card, Row, Txt, Btn, Chip, Note, Bar, Option, Check, Select, Accordion, Sheet, Icon, Grad, tap, buzz, Grid, Seg, IconTile, HScroll } from "../src/ui";
 import { BackRow, Medal } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
 import { useApp } from "../src/state";
@@ -280,9 +280,9 @@ function NgnCase({ cs, onDone, onExit }) {
   return (
     <View style={{ gap: 14 }}>
       <Ehr cs={cs} />
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 6 }}>
+      <HScroll mod={MOD} fade={t.c.bg} hint="Swipe to see all six steps" contentContainerStyle={{ gap: 6 }}>
         {items.map((it, j) => <Chip key={it.id} mod={MOD} tone={j === i && !done ? "acc" : answered(it) ? "acc2" : "mute"} active={j === i && !done} text={`${j + 1}. ${it.step}`} onPress={() => { setI(j); }} />)}
-      </ScrollView>
+      </HScroll>
       {done ? (
         <View style={{ gap: 12 }}>
           <Card mod={MOD} style={{ gap: 4 }}>

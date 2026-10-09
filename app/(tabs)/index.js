@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { View, Pressable, ScrollView } from "react-native";
 import { router } from "expo-router";
 import Svg, { Path, Circle, G, Text as SvgText, Defs, LinearGradient as SvgGradient, Stop } from "react-native-svg";
-import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, tap, Grid } from "../../src/ui";
+import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, tap, Grid, HScroll } from "../../src/ui";
 import { useTheme, FONTS, PHASE_COLORS } from "../../src/theme";
 import { useApp, phaseStatus, BADGES } from "../../src/state";
 import { usePro } from "../../src/pro";
@@ -95,7 +95,7 @@ function Journey() {
         <Txt v="h3">Your journey</Txt>
         <Chip tone="acc" mod="roadmap" icon={done < 6 ? "MapPin" : "PartyPopper"} text={done < 6 ? `Next stop: ${JLABELS[done + 1]}` : "You made it"} />
       </Row>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} accessible accessibilityRole="image" accessibilityLabel={`Journey progress: ${done} of 6 phases complete`}>
+      <HScroll mod="home" fade={t.dark ? t.c.surface : t.soft} hint="Swipe to see your whole journey" accessible accessibilityRole="image" accessibilityLabel={`Journey progress: ${done} of 6 phases complete`}>
         <View style={{ width: JW, height: H }}>
           <Svg width={JW} height={H} viewBox="0 0 760 210">
             <Defs>
@@ -123,7 +123,7 @@ function Journey() {
           </Svg>
           {iconAt(0)}{iconAt(JPTS.length - 1)}
         </View>
-      </ScrollView>
+      </HScroll>
     </Card>
   );
 }
