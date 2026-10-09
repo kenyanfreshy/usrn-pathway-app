@@ -252,46 +252,7 @@ export const CREDIT = [
   "Target 720+ before applying for an auto loan or mortgage",
 ];
 
-export const NGN_CASE = {
-  title: "Post-op day 2 — sigmoid colectomy",
-  chart: [
-    ["Nurses' notes 07:40", "72-year-old, POD 2 after sigmoid colectomy. New confusion: oriented to self only (yesterday oriented ×4). Skin warm, flushed. Reports abdominal pain 3/10. Incision edges approximated, no drainage."],
-    ["Vital signs 07:40", "T 38.9 °C (102 °F) · HR 118 · RR 24 · BP 88/50 (MAP 63) · SpO₂ 93% RA"],
-    ["Labs 06:00", "WBC 17.8 × 10³/µL · Lactate 4.1 mmol/L · Na 139 mEq/L · Creatinine 1.6 mg/dL (baseline 0.9) · Hgb 11.9 g/dL"],
-    ["I&O", "Urine output 90 mL over the last 6 hours"],
-  ],
-};
-
-export const NGN_ITEMS = [
-  { id: "n1", step: "Recognize Cues", kind: "multi", stem: "Select all findings that require immediate follow-up.",
-    options: [["a", "Temperature 38.9 °C"], ["b", "Heart rate 118"], ["c", "BP 88/50"], ["d", "Lactate 4.1 mmol/L"], ["e", "New confusion"], ["f", "Pain 3/10"], ["g", "Sodium 139 mEq/L"], ["h", "Urine output 90 mL / 6 h"]],
-    answer: ["a", "b", "c", "d", "e", "h"],
-    rationale: "Fever, tachycardia, hypotension, lactate ≥ 4, acute confusion and oliguria (< 0.5 mL/kg/h) are signs of sepsis with hypoperfusion. Pain 3/10 and a normal sodium are expected." },
-  { id: "n2", step: "Analyze Cues", kind: "cloze", stem: "Complete the sentence.",
-    blanks: [
-      { id: "b1", pre: "The client's findings are most consistent with", opts: ["sepsis-induced hypoperfusion", "post-op ileus", "expected post-op inflammation"], answer: "sepsis-induced hypoperfusion" },
-      { id: "b2", pre: "as shown by", opts: ["hypotension and a lactate of 4.1", "pain of 3/10", "a sodium of 139"], answer: "hypotension and a lactate of 4.1" },
-      { id: "b3", pre: "and the rising creatinine suggests", opts: ["acute kidney injury", "dehydration only", "lab error"], answer: "acute kidney injury" } ],
-    rationale: "Lactate ≥ 4 mmol/L or hypotension define sepsis with hypoperfusion and trigger the full fluid bolus. Creatinine near double baseline with oliguria points to AKI from poor perfusion. Anastomotic leak is a likely source after colectomy." },
-  { id: "n3", step: "Prioritize Hypotheses", kind: "single", stem: "Which condition is the client at highest immediate risk of developing?",
-    options: [["a", "Septic shock"], ["b", "Wound dehiscence"], ["c", "Deep vein thrombosis"], ["d", "Paralytic ileus"]], answer: "a",
-    rationale: "Persistent hypotension needing vasopressors after fluids defines septic shock, with the highest short-term mortality. The others are real post-op risks but not the most immediate threat." },
-  { id: "n4", step: "Generate Solutions", kind: "matrix", stem: "For each potential order, mark whether it is indicated or not indicated.", cols: ["Indicated", "Not indicated"],
-    rows: [
-      ["r1", "Obtain blood cultures before antibiotics", "Indicated"], ["r2", "30 mL/kg IV crystalloid bolus", "Indicated"],
-      ["r3", "Broad-spectrum antibiotics within 1 hour", "Indicated"], ["r4", "Repeat lactate within 2–4 hours", "Indicated"],
-      ["r5", "Furosemide 40 mg IV for low urine output", "Not indicated"], ["r6", "Hold IV fluids because of the client's age", "Not indicated"] ],
-    rationale: "These follow the Surviving Sepsis hour-1 bundle. Diuretics in a hypoperfused patient worsen the kidney injury. Age alone is not a reason to withhold resuscitation, though lungs are reassessed after each bolus." },
-  { id: "n5", step: "Take Action", kind: "multi", stem: "Select all actions the nurse should take now.",
-    options: [["a", "Call the provider using SBAR and request a sepsis evaluation / rapid response"], ["b", "Draw blood cultures before the first antibiotic dose"], ["c", "Start the prescribed fluid bolus"], ["d", "Increase vital signs to at least every 15 minutes"], ["e", "Encourage the client to ambulate to raise BP"], ["f", "Give acetaminophen and recheck vitals in 4 hours before calling"]],
-    answer: ["a", "b", "c", "d"],
-    rationale: "Escalate now, follow the bundle order (cultures, then antibiotics), resuscitate, and watch closely. Ambulating a hypotensive, confused client risks a fall; treating the fever and waiting delays sepsis care." },
-  { id: "n6", step: "Evaluate Outcomes", kind: "matrix", stem: "Three hours later: for each finding, mark whether the client's condition has improved, not changed, or declined.", cols: ["Improved", "No change", "Declined"],
-    rows: [
-      ["e1", "MAP 70 mm Hg", "Improved"], ["e2", "Lactate 1.9 mmol/L", "Improved"], ["e3", "Urine output 45 mL/h", "Improved"],
-      ["e4", "New bilateral fine crackles, SpO₂ 89%", "Declined"], ["e5", "Oriented to self only", "No change"] ],
-    rationale: "Perfusion markers are improving. New crackles with falling SpO₂ suggest fluid overload — report it, slow fluids per order, and expect vasopressors if MAP falls. Mental status has not yet improved." },
-];
+// NGN case studies live in src/data/ngn.js.
 
 export const DIFF = { 1: -1, 2: 0, 3: 1 };
 

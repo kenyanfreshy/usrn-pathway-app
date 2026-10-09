@@ -83,7 +83,7 @@ export default function More() {
         <View style={{ height: 1, backgroundColor: t.c.line, marginHorizontal: 12 }} />
         <LinkRow icon="UserCog" title="Profile & settings" sub={name ? `${name} · dates, theme and reset` : "Your name, dates, theme and reset"} to="/settings" />
         <View style={{ height: 1, backgroundColor: t.c.line, marginHorizontal: 12 }} />
-        <LinkRow icon="Crown" title="USRN Pathway Pro" sub={isPro ? "You're a Pro member — thank you" : "NGN case study, expiry alerts, endorsement wizard and more"} to="/paywall" colors={["#f59e0b", "#db2777"]}
+        <LinkRow icon="Crown" title="USRN Pathway Pro" sub={isPro ? "You're a Pro member — thank you" : "NGN case studies, expiry alerts, endorsement wizard and more"} to="/paywall" colors={["#f59e0b", "#db2777"]}
           right={isPro ? <View style={{ backgroundColor: "#f59e0b", paddingHorizontal: 8, paddingVertical: 3, borderRadius: 99 }}><Txt v="eyebrow" color="#1a1204">Pro</Txt></View> : null} />
       </Card>
 

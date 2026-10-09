@@ -51,7 +51,7 @@ The paywall (`app/paywall.js`) shows the store's local prices, the free trial (o
 the renewal terms, **Restore purchases**, **Manage subscription**, and Terms/Privacy links — all required by Apple and Google. In development builds there is also a "Unlock Pro for testing" switch that does
 not exist in store builds.
 
-**What Pro unlocks:** NGN case study, expiry reminders, endorsement wizard, charge nurse command center, overtime & taxes tools.
+**What Pro unlocks:** NGN case studies, expiry reminders, endorsement wizard, charge nurse command center, overtime & taxes tools.
 Everything else is free (roadmap, board comparison, visa bulletin, Diagnostic Baseline, the full question bank, lessons and guides).
 To change this, move `<ProGate>` wrappers in the screen files.
 
@@ -91,7 +91,8 @@ src/
   pro.js             RevenueCat purchases + ProGate
   notify.js          local expiry reminders
   data/content.js    all text and reference data
-  data/questions.json  487-question bank (461 active)
+  data/questions.json  NCLEX-RN question bank (419 active)
+  data/ngn.js        Next Generation NCLEX case studies
   career/            Career & wealth sections
 ```
 

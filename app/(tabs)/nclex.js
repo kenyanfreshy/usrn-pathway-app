@@ -37,9 +37,9 @@ function TopicChip({ label, n, on, onPress }) {
 function BankBuilder({ bank, state }) {
   const t = useTheme(MOD);
   const st = state.qstats || {};
-  const [src, setSrc] = useState("NCLEX"); const [topics, setTopics] = useState([]); const [count, setCount] = useState(10);
+  const [topics, setTopics] = useState([]); const [count, setCount] = useState(10);
   const [tutor, setTutor] = useState(true); const [filter, setFilter] = useState("all");
-  const pool0 = bank.filter((q) => src === "All" || q.bank === src);
+  const pool0 = bank;
   const topicCounts = {}; pool0.forEach((q) => { topicCounts[q.topic] = (topicCounts[q.topic] || 0) + 1; });
   const pool = pool0.filter((q) => (!topics.length || topics.includes(q.topic)) && (filter === "all" || (filter === "unseen" && !st[q.id]) || (filter === "missed" && st[q.id] && !st[q.id][2])));
   const seen = bank.filter((q) => st[q.id]).length; const mastered = bank.filter((q) => st[q.id] && st[q.id][2]).length;
@@ -55,14 +55,13 @@ function BankBuilder({ bank, state }) {
         <IconTile mod={MOD} icon="Library" size={48} />
         <View style={{ flex: 1, gap: 2 }}>
           <Txt v="h2">Question bank</Txt>
-          <Txt v="small" muted>{bank.length} questions with full rationales — NCLEX-RN plus CCRN-level critical care.</Txt>
+          <Txt v="small" muted>{bank.length} NCLEX-RN questions with full rationales, organized by the NCSBN client-needs categories.</Txt>
         </View>
       </Row>
       <Row gap={8} wrap>
         {[["Seen", seen], ["Mastered", mastered], ["To review", missed]].map(([k, v]) => <MiniStat key={k} k={k} v={v} />)}
       </Row>
       <Bar mod={MOD} pct={bank.length ? seen / bank.length : 0} />
-      <Seg mod={MOD} value={src} onChange={(v) => { setSrc(v); setTopics([]); }} options={[{ id: "NCLEX", label: "NCLEX-RN" }, { id: "CCRN", label: "CCRN" }, { id: "All", label: "All" }]} />
       <Seg mod={MOD} value={filter} onChange={setFilter} options={[{ id: "all", label: "All questions" }, { id: "unseen", label: "Unseen" }, { id: "missed", label: "Missed" }]} />
       <View style={{ gap: 8 }}>
         <Row>
@@ -95,7 +94,7 @@ function BankBuilder({ bank, state }) {
 
 const MODES = [
   { id: "diag", n: "Test 1", title: "Diagnostic Baseline", desc: "8 items across the Client Needs categories with a category breakdown.", icon: "Activity" },
-  { id: "ngn", n: "Test 2", title: "NGN Case Study", desc: "One unfolding sepsis case across all six clinical-judgment steps.", icon: "Network" },
+  { id: "ngn", n: "Test 2", title: "NGN Case Study", desc: "Four unfolding Next Gen cases: heart failure, septic shock, compartment syndrome and post-op sepsis.", icon: "Network" },
   { id: "cat", n: "Test 3", title: "CAT Predictor", desc: "Adaptive item selection with a stopping rule and ability trace.", icon: "Gauge" },
   { id: "flash", n: "Review", title: "Flashcards", desc: "Swipe through high-yield takeaways. Right = got it, left = again.", icon: "Layers" },
 ];
