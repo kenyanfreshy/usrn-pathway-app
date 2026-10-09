@@ -8,7 +8,8 @@ import { useApp, phaseStatus } from "../../src/state";
 import { usePro, ProGate } from "../../src/pro";
 import { askPermission, scheduleExpiryAlerts, cancelAlerts } from "../../src/notify";
 import { today, todayKey, daysUntil, fmtDate, addYears, isISO, money, uid, addMonths, monYr } from "../../src/util";
-import { PHASES, DOC_STYLE, DOC_CATS, BULLETIN, PHASE_COLORS, DUR } from "../../src/data/content";
+import { PHASES, DOC_STYLE, DOC_CATS, PHASE_COLORS, DUR } from "../../src/data/content";
+import { useBulletin } from "../../src/bulletin";
 
 const MOD = "roadmap";
 
@@ -115,7 +116,7 @@ function PhaseRow({ p, i }) {
 /* ---------- personalized timeline ---------- */
 const LABEL_W = 150, TRACK_W = 400, BAR_H = 28;
 function Timeline() {
-  const { state } = useApp();
+  const { state } = useApp(); const BULLETIN = useBulletin();
   const t = useTheme(MOD);
   const TODAY = today();
   const row = BULLETIN.rows.find((r) => r.key === state.profile.country) || BULLETIN.rows[0];

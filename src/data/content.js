@@ -175,7 +175,10 @@ export const CAT_POOL = [
     { id: "d", text: "Switch to insulin permanently", why: "Not indicated." } ], takeaway: "Metformin + contrast: hold, check creatinine/eGFR, resume per protocol." },
 ];
 
+// Built-in fallback. The live copy is data/visa-bulletin.json (downloaded by src/bulletin.js).
 export const BULLETIN = {
+  month: "2026-10",
+  checked: "2026-10-08",
   label: "October 2026 Visa Bulletin · EB-3 Skilled Workers & Professionals",
   rows: [
     { key: "row", name: "All Chargeability", fa: "2024-05-15", dff: "2024-08-01", alert: "Final Action retrogressed vs. September", tone: "crit", rate: 8 },

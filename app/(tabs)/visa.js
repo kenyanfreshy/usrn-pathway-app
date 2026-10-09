@@ -4,7 +4,8 @@ import { View, Pressable, Linking } from "react-native";
 import { Screen, Hero, Card, Row, Txt, Icon, Seg, Select, DateField, Chip, Note, Accordion, SectionTitle, Bullets, CopyButton, Btn, Grad, tap, Grid } from "../../src/ui";
 import { useTheme, FONTS } from "../../src/theme";
 import { useApp } from "../../src/state";
-import { BULLETIN, SPONSORS, AEIRP_LIST, PHASE_COLORS } from "../../src/data/content";
+import { SPONSORS, AEIRP_LIST, PHASE_COLORS } from "../../src/data/content";
+import { useBulletin, useBulletinSource, monthName } from "../../src/bulletin";
 import { fmtDate, parseISO, money, clamp } from "../../src/util";
 
 const MOD = "imm";
@@ -54,12 +55,19 @@ function StepBtn({ icon, onPress, disabled, label }) {
 }
 
 function Bulletin({ chart, setChart }) {
-  const t = useTheme(MOD);
+  const t = useTheme(MOD); const BULLETIN = useBulletin(); const source = useBulletinSource();
+  const updated = BULLETIN.checked ? fmtDate(BULLETIN.checked) : null;
   return (
     <Card mod={MOD} style={{ gap: 14 }}>
       <View style={{ gap: 4 }}>
         <Txt v="bodyB">{BULLETIN.label}</Txt>
-        <Txt v="tiny" muted>Snapshot, not a live feed. New bulletins publish mid-month at <Link v="tiny" url={BULLETIN_URL}>travel.state.gov ↗</Link>.</Txt>
+        <Row gap={6}>
+          <Icon name={source === "online" ? "RefreshCw" : "Clock"} size={13} color={t.c.muted} />
+          <Txt v="tiny" muted style={{ flex: 1 }}>
+            {monthName(BULLETIN.month)} bulletin{updated ? ` · last updated ${updated}` : ""}{source === "online" ? "" : " · will refresh when you're online"}
+          </Txt>
+        </Row>
+        <Txt v="tiny" muted>Dates update in the app each month. Always confirm with the official bulletin at <Link v="tiny" url={BULLETIN_URL}>travel.state.gov ↗</Link> before acting.</Txt>
       </View>
       <Seg mod={MOD} value={chart} onChange={setChart} options={[{ id: "fa", label: "Final Action", icon: "Stamp" }, { id: "dff", label: "Dates for Filing", icon: "FileText" }]} />
       <Grid min={150} gap={10}>
@@ -77,6 +85,7 @@ function Bulletin({ chart, setChart }) {
 
 function Calculator({ chart }) {
   const { state, dispatch } = useApp(); const t = useTheme(MOD);
+  const BULLETIN = useBulletin();
   const country = state.profile.country || "ph", pd = state.profile.pd || "";
   const row = BULLETIN.rows.find((r) => r.key === country) || BULLETIN.rows[0];
   const [rate, setRate] = useState(row.rate);

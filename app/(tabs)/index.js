@@ -9,7 +9,8 @@ import { useApp, phaseStatus, BADGES } from "../../src/state";
 import { usePro } from "../../src/pro";
 import { Medal } from "../../src/overlays";
 import { daysUntil, fmtDate, parseISO, todayKey } from "../../src/util";
-import { PHASES, BULLETIN, JPTS, JLABELS, DIAG, CAT_POOL } from "../../src/data/content";
+import { PHASES, JPTS, JLABELS, DIAG, CAT_POOL } from "../../src/data/content";
+import { useBulletin } from "../../src/bulletin";
 import BANK_ALL from "../../src/data/questions.json";
 
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -284,6 +285,7 @@ export default function Today() {
     if (j >= 0) next = { ph, j, i };
   }
   const docSoon = state.docs.filter((d) => d.expires).map((d) => ({ d, n: daysUntil(d.expires) })).filter((x) => x.n !== null && x.n >= 0).sort((a, b) => a.n - b.n)[0];
+  const BULLETIN = useBulletin();
   const row = BULLETIN.rows.find((r) => r.key === p.country) || BULLETIN.rows[0];
   const pdD = parseISO(p.pd), faD = parseISO(row.fa);
   const gap = pdD && faD ? (pdD - faD) / (86400000 * 30.44) : null;

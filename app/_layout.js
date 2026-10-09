@@ -7,6 +7,7 @@ import * as Font from "expo-font";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { AppProvider, useApp } from "../src/state";
 import { ProProvider } from "../src/pro";
+import { BulletinProvider } from "../src/bulletin";
 import { FONTS, useTheme } from "../src/theme";
 import { Overlays } from "../src/overlays";
 
@@ -56,7 +57,9 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <AppProvider>
         <ProProvider>
-          <Shell />
+          <BulletinProvider>
+            <Shell />
+          </BulletinProvider>
         </ProProvider>
       </AppProvider>
     </SafeAreaProvider>

@@ -6,7 +6,8 @@ import { Screen, Card, Row, Txt, Icon, Grad, Field, DateField, Select, Btn, Note
 import { BackRow } from "../src/ui-extra";
 import { useTheme, PALETTES } from "../src/theme";
 import { useApp } from "../src/state";
-import { BOARDS, BULLETIN } from "../src/data/content";
+import { BOARDS } from "../src/data/content";
+import { useBulletin } from "../src/bulletin";
 
 const SPECIALTIES = ["Medical-surgical", "ICU / critical care", "Emergency", "Operating room", "Labor & delivery", "Pediatrics", "Oncology", "Telemetry / step-down", "Psychiatric", "Long-term care", "Other"];
 
@@ -21,7 +22,7 @@ function Avatar({ size = 56 }) {
 }
 
 export default function Settings() {
-  const { state, dispatch, lvl, m } = useApp(); const t = useTheme("home"); const p = state.profile;
+  const { state, dispatch, lvl, m } = useApp(); const t = useTheme("home"); const p = state.profile; const BULLETIN = useBulletin();
   const [confirm, setConfirm] = useState(false); const [didReset, setDidReset] = useState(false);
   const set = (k) => (v) => dispatch({ type: "profile", patch: { [k]: v } });
   const fullName = [p.name, p.lastName].filter(Boolean).join(" ");

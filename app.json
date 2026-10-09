@@ -58,7 +58,8 @@
       "router": {},
       "eas": {
         "projectId": "7d0d7a0e-4b70-46a7-b668-1c3ca3f5ed95"
-      }
+      },
+      "bulletinUrl": "https://raw.githubusercontent.com/kenyanfreshy/usrn-pathway-app/main/data/visa-bulletin.json"
     },
     "owner": "ronnykip"
   }

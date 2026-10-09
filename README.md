@@ -6,6 +6,8 @@ The store version of USRN Pathway, built with Expo (React Native). Bundle ID / p
   The stores set local prices and currencies for each country — no outside payment links (that keeps the app within App Store
   guideline 3.1.1 and Google Play's payments policy worldwide).
 - **No accounts, no server.** Progress, documents and settings stay on the phone (AsyncStorage). Expiry reminders are local notifications.
+- **Live visa bulletin.** The app downloads `data/visa-bulletin.json` from this GitHub repo on launch (`expo.extra.bulletinUrl`),
+  so you update the dates monthly by editing that file — no app release needed. See `data/README.md`. The repo must be **public** for this to work.
 - **No AI features** in this version.
 
 ---
