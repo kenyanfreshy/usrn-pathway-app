@@ -16,7 +16,6 @@ const toolsFor = (dest) => {
     { to: "/bedside", mod: "bedside", icon: "Stethoscope", title: "Bedside", desc: US ? "6 U.S. hospital lessons, SBAR builder, charting & license protection" : `6 bedside lessons with ${name} notes, handover, charting & liability protection` },
     { to: "/career", mod: "career", icon: "TrendingUp", title: "Career", desc: US ? "Charge tools, careers, money & insurance" : `Career paths, pay, tax & health cover in ${name}` },
     { to: "/driving", mod: "drive", icon: "Car", title: "Driving", desc: US ? "Why to learn before you travel" : `Licenses in ${name} & why to learn first` },
-    { to: "/english", mod: "bedside", icon: "Languages", title: "English", desc: "OET, IELTS & PTE scores, writing and speaking practice" },
     { to: "/interview", mod: "career", icon: "MessageSquare", title: "Interviews", desc: US ? "Job interviews & the visa interview" : "Job interviews & arriving" },
     { to: "/plan", mod: "nclex", icon: "Route", title: "Study plan", desc: "Daily plan to your exam date & smart review" },
   ];

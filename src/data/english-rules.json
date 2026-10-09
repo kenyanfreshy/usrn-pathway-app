@@ -1,0 +1,398 @@
+{
+ "checked": "2026-10-09",
+ "jurisdictions": [
+  {
+   "id": "US",
+   "dest": "US",
+   "name": "United States (VisaScreen)",
+   "body": "HRSA / TruMerit VisaScreen",
+   "oet": {
+    "L": 320,
+    "R": 340,
+    "W": 350,
+    "S": 360
+   },
+   "ielts": {
+    "overall": 6.5,
+    "L": null,
+    "R": null,
+    "W": null,
+    "S": 7.0
+   },
+   "combine": {
+    "allowed": null,
+    "window": null,
+    "floors": null,
+    "sameTest": null
+   },
+   "validity": null,
+   "notes": "HRSA minimums for exams taken on or after May 12, 2026; earlier exams are certified under the old list (OET C+ in L/R/W, B in Speaking). TruMerit does not accept at-home tests, and scores must be sent directly by the test provider.",
+   "url": "https://www.hrsa.gov/office-global-health/foreign-healthcare-worker-requirements"
+  },
+  {
+   "id": "CA-ON",
+   "dest": "CA",
+   "province": "ON",
+   "name": "Canada – Ontario",
+   "body": "College of Nurses of Ontario (CNO)",
+   "oet": {
+    "L": 350,
+    "R": 330,
+    "W": 320,
+    "S": 350
+   },
+   "ielts": {
+    "overall": 7.0,
+    "L": 7.0,
+    "R": 6.5,
+    "W": 6.5,
+    "S": 7.0
+   },
+   "combine": {
+    "allowed": false,
+    "window": null,
+    "floors": null,
+    "sameTest": true
+   },
+   "validity": "Test written within 2 years of registering",
+   "notes": "All components must be met in one complete attempt. IELTS General Training is also accepted, and an IELTS One Skill Retake within 60 days replaces that skill's score.",
+   "url": "https://www.cno.org/en/become-a-nurse/registration-requirements/language-proficiency/"
+  },
+  {
+   "id": "CA-BC",
+   "dest": "CA",
+   "province": "BC",
+   "name": "Canada – British Columbia",
+   "body": "BCCNM (assessment by Inspire Global Assessments for IENs who applied after Jan 31, 2023)",
+   "oet": {
+    "L": 350,
+    "R": 300,
+    "W": 300,
+    "S": 350
+   },
+   "ielts": {
+    "overall": 7.0,
+    "L": 7.0,
+    "R": 6.5,
+    "W": 6.5,
+    "S": 7.0
+   },
+   "combine": {
+    "allowed": null,
+    "window": null,
+    "floors": null,
+    "sameTest": null
+   },
+   "validity": "Evidence no more than 2 years old",
+   "notes": "BCCNM states OET as grades (L B, R C+, W C+, S B); the numbers here are the lowest score in each grade. IELTS, OET and PTE must be taken in person.",
+   "url": "https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx"
+  },
+  {
+   "id": "CA-AB",
+   "dest": "CA",
+   "province": "AB",
+   "name": "Canada – Alberta",
+   "body": "College of Registered Nurses of Alberta (CRNA)",
+   "oet": null,
+   "ielts": {
+    "overall": 7.0,
+    "L": 7.0,
+    "R": 6.5,
+    "W": 6.5,
+    "S": 7.0
+   },
+   "combine": {
+    "allowed": null,
+    "window": null,
+    "floors": null,
+    "sameTest": null
+   },
+   "validity": "Results expire 2 years from the test date (CRNA may consider older results if you tell them)",
+   "notes": "CRNA accepts only CELBAN and IELTS Academic; OET is not accepted. Non-test routes (e.g. nursing education in English) may apply.",
+   "url": "https://nurses.ab.ca/nursing-in-alberta/registration-requirements/english-language-proficiency"
+  },
+  {
+   "id": "AU",
+   "dest": "AU",
+   "name": "Australia",
+   "body": "NMBA / Ahpra",
+   "oet": {
+    "L": 350,
+    "R": 360,
+    "W": 350,
+    "S": 360
+   },
+   "ielts": {
+    "overall": 7.0,
+    "L": 7.0,
+    "R": 7.0,
+    "W": 6.5,
+    "S": 7.0
+   },
+   "combine": {
+    "allowed": true,
+    "window": "Up to two sittings no more than 12 months apart",
+    "floors": "IELTS: overall 7 in each sitting and no component below 6.5 in either sitting. OET: each sitting must include all four parts, with no score below L320, R340, W350, S350 in either sitting.",
+    "sameTest": true
+   },
+   "validity": "Results generally under 2 years old when you apply (for two sittings, counted from the earlier sitting)",
+   "notes": "Scores for tests taken on or after 23 April 2026; tests on or before 22 April 2026 use the old minimums (OET B/B/C+/B). At-home and remotely proctored tests are not accepted, except OET on computer at a test centre.",
+   "url": "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests.aspx"
+  },
+  {
+   "id": "NZ",
+   "dest": "NZ",
+   "name": "New Zealand",
+   "body": "Nursing Council of New Zealand (NCNZ)",
+   "oet": {
+    "L": 350,
+    "R": 350,
+    "W": 300,
+    "S": 350
+   },
+   "ielts": {
+    "overall": null,
+    "L": 7.0,
+    "R": 7.0,
+    "W": 6.5,
+    "S": 7.0
+   },
+   "combine": {
+    "allowed": true,
+    "window": "Within 12 months of the first sitting",
+    "floors": null,
+    "sameTest": null
+   },
+   "validity": "All sittings within the 3 years before you apply",
+   "notes": "Only OET and IELTS Academic are accepted. Online computer-based tests are not accepted; computer tests at an approved centre are (including OET on computer, whose Speaking part is hosted online).",
+   "url": "https://nursingcouncil.org.nz/IQN/H5"
+  }
+ ],
+ "oetGrades": [
+  {
+   "grade": "A",
+   "min": 450,
+   "max": 500
+  },
+  {
+   "grade": "B",
+   "min": 350,
+   "max": 440
+  },
+  {
+   "grade": "C+",
+   "min": 300,
+   "max": 340
+  },
+  {
+   "grade": "C",
+   "min": 200,
+   "max": 290
+  },
+  {
+   "grade": "D",
+   "min": 100,
+   "max": 190
+  },
+  {
+   "grade": "E",
+   "min": 0,
+   "max": 90
+  }
+ ],
+ "converter": {
+  "source": "IDP IELTS (IELTS co-owner): 'OET vs IELTS test score' – https://ielts.idp.com/philippines/english-tests/oet/oet-vs-ielts-test-score",
+  "caution": "Indicative only. Regulators set their own minimums for each test and do not use this table (e.g. Australia asks for OET 360 in Reading where it asks for IELTS 7.0). Never use it to decide eligibility.",
+  "rows": [
+   {
+    "ielts": "8.0–9.0",
+    "ieltsMin": 8.0,
+    "ieltsMax": 9.0,
+    "oet": "450–500 (A)",
+    "oetMin": 450,
+    "oetMax": 500
+   },
+   {
+    "ielts": "7.0–7.5",
+    "ieltsMin": 7.0,
+    "ieltsMax": 7.5,
+    "oet": "350–440 (B)",
+    "oetMin": 350,
+    "oetMax": 440
+   },
+   {
+    "ielts": "6.5",
+    "ieltsMin": 6.5,
+    "ieltsMax": 6.5,
+    "oet": "300–340 (C+)",
+    "oetMin": 300,
+    "oetMax": 340
+   },
+   {
+    "ielts": "5.5–6.0",
+    "ieltsMin": 5.5,
+    "ieltsMax": 6.0,
+    "oet": "200–290 (C)",
+    "oetMin": 200,
+    "oetMax": 290
+   },
+   {
+    "ielts": "4.0–5.0",
+    "ieltsMin": 4.0,
+    "ieltsMax": 5.0,
+    "oet": "100–190 (D)",
+    "oetMin": 100,
+    "oetMax": 190
+   },
+   {
+    "ielts": "Below 4.0",
+    "ieltsMin": null,
+    "ieltsMax": null,
+    "oet": "0–90 (E)",
+    "oetMin": 0,
+    "oetMax": 90
+   }
+  ]
+ },
+ "decision": {
+  "oetGood": [
+   "Built for healthcare: OET is designed for 12 healthcare professions, and its tasks reflect real workplace tasks.",
+   "Writing and Speaking are specific to your profession: nurses write a nursing letter (such as a referral or discharge letter) and do nurse–patient role-plays.",
+   "Listening and Reading use healthcare workplace material, so clinical experience helps you understand the content.",
+   "Accepted for nurses in the US (VisaScreen), Australia, New Zealand, Ontario and British Columbia."
+  ],
+  "ieltsGood": [
+   "Widely accepted: IDP says IELTS is accepted by more than 13,500 organisations in over 140 countries.",
+   "Accepted by all six destinations here, including Alberta, which does not accept OET.",
+   "General academic content: no clinical knowledge is needed, which can help if you have been away from practice.",
+   "IELTS One Skill Retake (within 60 days) is accepted by Ontario and Australia, so you can retake one skill instead of the whole test.",
+   "Ontario also accepts IELTS General Training."
+  ],
+  "acceptance": {
+   "US": [
+    "OET",
+    "IELTS Academic",
+    "PTE Academic",
+    "TOEFL iBT",
+    "Michigan English Test (MET)",
+    "Cambridge English (B2 First, C1 Advanced, C2 Proficiency)"
+   ],
+   "CA-ON": [
+    "CELBAN",
+    "IELTS Academic",
+    "IELTS General Training",
+    "OET",
+    "PTE Academic"
+   ],
+   "CA-BC": [
+    "CELBAN",
+    "IELTS Academic",
+    "OET",
+    "PTE Academic"
+   ],
+   "CA-AB": [
+    "CELBAN",
+    "IELTS Academic"
+   ],
+   "AU": [
+    "OET",
+    "IELTS Academic",
+    "PTE Academic",
+    "TOEFL iBT",
+    "Cambridge C1 Advanced",
+    "Cambridge C2 Proficiency"
+   ],
+   "NZ": [
+    "OET",
+    "IELTS Academic"
+   ]
+  }
+ },
+ "sources": [
+  [
+   "HRSA foreign health care worker requirements (as of May 12, 2026)",
+   "https://www.hrsa.gov/office-global-health/foreign-healthcare-worker-requirements"
+  ],
+  [
+   "TruMerit VisaScreen",
+   "https://www.trumerit.org/services/certification/visascreen-visa-credentials-assessment/"
+  ],
+  [
+   "TruMerit: updated ELP requirements (exams on/after May 12, 2026)",
+   "https://www.trumerit.org/updated-english-language-proficiency-elp-exams-and-score-requirements-by-the-health-resources-and-services-administration-hrsa/"
+  ],
+  [
+   "TruMerit: why were my ELP scores rejected (at-home not accepted)",
+   "https://www.trumerit.org/help/why-were-my-english-language-proficiency-exam-scores-rejected/"
+  ],
+  [
+   "CNO language proficiency",
+   "https://www.cno.org/en/become-a-nurse/registration-requirements/language-proficiency/"
+  ],
+  [
+   "BCCNM English proficiency (RN)",
+   "https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx"
+  ],
+  [
+   "CRNA English language proficiency",
+   "https://nurses.ab.ca/nursing-in-alberta/registration-requirements/english-language-proficiency"
+  ],
+  [
+   "Ahpra accepted English language tests (reviewed 23/04/2026)",
+   "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests.aspx"
+  ],
+  [
+   "Ahpra English language skills FAQ",
+   "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/FAQ.aspx"
+  ],
+  [
+   "NMBA English language skills registration standard",
+   "https://www.nursingmidwiferyboard.gov.au/Registration-Standards/English-language-skills.aspx"
+  ],
+  [
+   "NCNZ English language requirements (IQN)",
+   "https://nursingcouncil.org.nz/IQN/H5"
+  ],
+  [
+   "OET results and assessment",
+   "https://www.occupationalenglishtest.org/test-information/results-assessment/"
+  ],
+  [
+   "OET test regulations",
+   "https://oet.com/test_regulations"
+  ],
+  [
+   "IELTS scoring in detail",
+   "https://ielts.org/take-a-test/your-results/ielts-scoring-in-detail"
+  ],
+  [
+   "IDP IELTS: OET vs IELTS test score",
+   "https://ielts.idp.com/philippines/english-tests/oet/oet-vs-ielts-test-score"
+  ],
+  [
+   "IDP IELTS: organisations that accept IELTS",
+   "https://ielts.idp.com/about/who-accepts-ielts/organisations-that-accept-ielts"
+  ]
+ ],
+ "uncertain": [
+  "US: HRSA and TruMerit pages do not say whether section scores from different sittings can be combined, so combine is null. The brief's 'no clubbing' could not be confirmed. Ask TruMerit.",
+  "US: no official limit on how old test scores can be was found on HRSA or TruMerit pages (validity is null). State boards of nursing may have their own rules.",
+  "US: TruMerit ties the new minimums to exams 'taken on or after May 12, 2026' but does not explicitly define this as the test date.",
+  "BC: BCCNM states OET as grades only. The numbers (B=350, C+=300) are the lowest score in each OET grade band, not numbers BCCNM publishes. BC does not say whether sittings can be combined. Inspire Global Assessments' own test list was not found or checked.",
+  "Alberta: CRNA does not say whether sittings can be combined.",
+  "NZ: NCNZ sets no floor per sitting and does not say whether sittings must be of the same test (sameTest null). Check with NCNZ before combining OET and IELTS.",
+  "OET grade bands: the official OET results page lists each grade's top score (A 500, B 440, C+ 340, C 290, D 190, E 90) in 10-point steps. Lower bounds come from that and from IDP's table. oet.com could not be fetched on 2026-10-09.",
+  "Converter: no OET-published OET↔IELTS table was found. The rows are from IDP (an IELTS co-owner and OET partner), which does not name who made the comparison. It is indicative only and conflicts with regulator rules (Australia: OET R/S 360, IELTS 7.0).",
+  "Other Canadian provinces were not checked one by one. Each provincial regulator sets its own tests and scores, and many accept CELBAN and IELTS Academic. Check the regulator before booking.",
+  "IELTS test-date frequency and number of test centres were not stated on ielts.org pages fetched, so they are left out."
+ ],
+ "briefCorrections": [
+  "US OET 'C+ (300) in L/R/W and B (350) Speaking' is the old rule (May 24, 2022 to May 12, 2026). For exams on or after May 12, 2026: Listening 320, Reading 340, Writing 350, Speaking 360 (HRSA; TruMerit).",
+  "US 'no clubbing' is not stated on HRSA or TruMerit pages. Mark it unverified and do not show it as a rule.",
+  "Canada IELTS 'L7.5/R6.5/W7/S7' is wrong for Ontario, BC and Alberta. All three require overall 7.0, Listening 7.0, Reading 6.5, Writing 6.5, Speaking 7.0 (CNO, BCCNM, CRNA).",
+  "Australia OET 'B in all four' is wrong. Before 23 Apr 2026 it was L B, R B, W C+, S B. For tests from 23 Apr 2026 it is L350, R360, W350, S360, so a Reading or Speaking score of 350 (grade B) is no longer enough (Ahpra accepted tests).",
+  "Australia clubbing '2 tests within 6 months' is out of date. Now it is up to two sittings of the same test, no more than 12 months apart, with floors in each sitting (OET L320/R340/W350/S350; IELTS overall 7 each sitting and no component below 6.5) (Ahpra accepted tests; Ahpra FAQ).",
+  "NZ IELTS Writing 6.5 is correct (L/R/S 7.0). NZ OET is L/R/S 350 and Writing 300 (NCNZ).",
+  "NZ clubbing 'within 12 months' is correct (12 months from the first sitting, and all sittings within 3 years before applying). But 'no subtest < 6.5/300' is not on the NCNZ page. NCNZ states no floor per sitting, so remove it (NCNZ)."
+ ]
+}

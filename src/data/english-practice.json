@@ -1,0 +1,1390 @@
+{
+  "caseNotes": [
+    {
+      "id": "c1",
+      "title": "Post-MI discharge to cardiac rehabilitation",
+      "reader": "Ms. Laura Chen, Cardiac Rehabilitation Nurse Coordinator, Riverside Cardiac Rehabilitation Center",
+      "task": "Using the information in the case notes, write a letter of referral to Ms. Laura Chen, Cardiac Rehabilitation Nurse Coordinator, Riverside Cardiac Rehabilitation Center, [Address], requesting that Mr. Hartley be enrolled in outpatient cardiac rehabilitation. In your answer: expand the relevant notes into complete sentences; do not use note form. The body of the letter should be approximately 180–200 words. Reading time: 5 minutes. Writing time: 40 minutes.",
+      "sections": [
+        {
+          "heading": "Patient details",
+          "lines": [
+            {
+              "text": "Mr. Daniel Hartley, DOB 03/14/1968 (58 y/o)",
+              "relevant": true,
+              "why": "The reader must be able to identify the patient."
+            },
+            {
+              "text": "Admitted 10/01/2026; discharge 10/05/2026 (today)",
+              "relevant": true,
+              "why": "Discharge timing tells the rehab team when to schedule him."
+            },
+            {
+              "text": "Occupation: accountant, full-time, office-based",
+              "relevant": true,
+              "why": "Job demands shape return-to-work advice in rehab, and his worry about work is a stated concern."
+            }
+          ]
+        },
+        {
+          "heading": "Social background",
+          "lines": [
+            {
+              "text": "Married; lives with wife in 2-story house",
+              "relevant": false,
+              "why": "He is independent, so home layout does not affect outpatient rehab."
+            },
+            {
+              "text": "Smoker: 20 cigarettes/day x 30 yrs; quit on admission",
+              "relevant": true,
+              "why": "A major modifiable risk factor that rehab will target."
+            },
+            {
+              "text": "Alcohol: 2–3 beers on weekends",
+              "relevant": false,
+              "why": "Within low-risk limits; no action needed by rehab."
+            },
+            {
+              "text": "Enjoys gardening and fishing",
+              "relevant": false,
+              "why": "Hobbies do not change the referral request."
+            },
+            {
+              "text": "Has a dog; wife walking it for now",
+              "relevant": false,
+              "why": "Domestic detail with no clinical impact."
+            },
+            {
+              "text": "Advised not to drive x 1 week; wife driving",
+              "relevant": false,
+              "why": "The restriction ends before rehab starts, so transport to sessions is not an issue."
+            }
+          ]
+        },
+        {
+          "heading": "Medical history",
+          "lines": [
+            {
+              "text": "Hypertension (dx 2019)",
+              "relevant": true,
+              "why": "A cardiac risk factor rehab will monitor and address."
+            },
+            {
+              "text": "Hyperlipidemia; declined statin 2022",
+              "relevant": true,
+              "why": "Past refusal flags a risk to medication adherence."
+            },
+            {
+              "text": "Appendectomy age 15",
+              "relevant": false,
+              "why": "Old, unrelated surgery."
+            },
+            {
+              "text": "Fractured R wrist 2010, healed",
+              "relevant": false,
+              "why": "Resolved; no effect on exercise training."
+            },
+            {
+              "text": "Seasonal allergic rhinitis; loratadine PRN",
+              "relevant": false,
+              "why": "Minor, unrelated condition."
+            },
+            {
+              "text": "Allergy: penicillin (rash)",
+              "relevant": true,
+              "why": "Allergies must always be communicated for safety."
+            }
+          ]
+        },
+        {
+          "heading": "Hospital course",
+          "lines": [
+            {
+              "text": "10/01: anterior STEMI; emergency PCI, 1 drug-eluting stent to LAD",
+              "relevant": true,
+              "why": "The core diagnosis and procedure behind the referral."
+            },
+            {
+              "text": "Troponin peaked 10/01, now trending down",
+              "relevant": false,
+              "why": "Lab detail; the diagnosis already conveys this."
+            },
+            {
+              "text": "Nausea post-PCI, resolved with ondansetron",
+              "relevant": false,
+              "why": "Brief, resolved problem."
+            },
+            {
+              "text": "10/02 echo: LVEF 45%, mild anterior hypokinesis",
+              "relevant": true,
+              "why": "Heart function guides exercise prescription and intensity."
+            },
+            {
+              "text": "Radial access site: no hematoma",
+              "relevant": false,
+              "why": "Healed site; no ongoing care needed."
+            },
+            {
+              "text": "Requested vegetarian meals; menu changed",
+              "relevant": false,
+              "why": "Inpatient preference, not relevant to rehab."
+            },
+            {
+              "text": "Bowels open 10/04",
+              "relevant": false,
+              "why": "Routine inpatient observation."
+            },
+            {
+              "text": "Mobilizing independently; walks 200 m on ward, no chest pain/SOB",
+              "relevant": true,
+              "why": "Current exercise tolerance is the rehab team's baseline."
+            },
+            {
+              "text": "Anxious re: return to work and 'having another attack'",
+              "relevant": true,
+              "why": "Psychosocial needs are part of cardiac rehab."
+            }
+          ]
+        },
+        {
+          "heading": "Discharge plan",
+          "lines": [
+            {
+              "text": "Meds: aspirin 81 mg daily, ticagrelor 90 mg BID, atorvastatin 80 mg nightly, metoprolol succinate 25 mg daily, lisinopril 5 mg daily, nitroglycerin 0.4 mg SL PRN chest pain",
+              "relevant": true,
+              "why": "Rehab staff need the regimen to monitor response and adherence."
+            },
+            {
+              "text": "Nicotine patch 21 mg/24 h",
+              "relevant": true,
+              "why": "Shows cessation is in progress and needs support."
+            },
+            {
+              "text": "Cardiology clinic appointment in 4 weeks",
+              "relevant": false,
+              "why": "Arranged by cardiology; the rehab team need not act on it."
+            },
+            {
+              "text": "Pt keen to start rehab within 2 weeks",
+              "relevant": true,
+              "why": "Motivation and timing help the reader prioritize enrollment."
+            }
+          ]
+        }
+      ],
+      "model": "[Date]\n\nMs. Laura Chen\nCardiac Rehabilitation Nurse Coordinator\nRiverside Cardiac Rehabilitation Center\n[Address]\n\nDear Ms. Chen,\n\nRe: Mr. Daniel Hartley, DOB 03/14/1968\n\nI am writing to refer Mr. Hartley, who is being discharged today following an anterior ST-elevation myocardial infarction (STEMI), for enrollment in your outpatient cardiac rehabilitation program. He is motivated and keen to start within the next two weeks.\n\nOn October 1, he underwent emergency percutaneous coronary intervention, with a drug-eluting stent placed in the left anterior descending artery. An echocardiogram the following day showed a mildly reduced left ventricular ejection fraction of 45%. He is now mobilizing independently and can walk 200 meters without chest pain or breathlessness.\n\nHis history includes hypertension and hyperlipidemia. Although he declined a statin in 2022, he is now taking atorvastatin, together with aspirin, ticagrelor, metoprolol and lisinopril, and sublingual nitroglycerin as needed. Dual antiplatelet therapy must not be interrupted without cardiology advice. He is allergic to penicillin. He smoked 20 cigarettes daily until admission and is using nicotine patches.\n\nI would be grateful if you could provide supervised exercise training, smoking-cessation support and education on medication adherence. He has also expressed anxiety about returning to his office job as an accountant and having another heart attack, so psychological support would be beneficial.\n\nShould you require any further information, please do not hesitate to contact me.\n\nYours sincerely,\n\n[Your name]\nRegistered Nurse\nCardiology Ward, [Hospital]"
+    },
+    {
+      "id": "c2",
+      "title": "Venous leg ulcer: community wound-care referral",
+      "reader": "Ms. Priya Nair, Home Health Nurse, Northside Home Health Nursing Service",
+      "task": "Using the information in the case notes, write a letter of referral to Ms. Priya Nair, Home Health Nurse, Northside Home Health Nursing Service, [Address], requesting ongoing wound care for Mrs. Brooks at home. In your answer: expand the relevant notes into complete sentences; do not use note form. The body of the letter should be approximately 180–200 words. Reading time: 5 minutes. Writing time: 40 minutes.",
+      "sections": [
+        {
+          "heading": "Patient details",
+          "lines": [
+            {
+              "text": "Mrs. Helen Brooks, DOB 06/22/1952 (74 y/o)",
+              "relevant": true,
+              "why": "The reader must be able to identify the patient."
+            },
+            {
+              "text": "Admitted 10/02/2026; discharge 10/09/2026 (today)",
+              "relevant": true,
+              "why": "Tells the home health nurse when care must begin."
+            },
+            {
+              "text": "Prefers to be called Helen",
+              "relevant": false,
+              "why": "A nice touch for the visit, but not needed in the letter."
+            }
+          ]
+        },
+        {
+          "heading": "Social background",
+          "lines": [
+            {
+              "text": "Widowed; lives alone, ground-floor apt; daughter visits weekly",
+              "relevant": true,
+              "why": "Limited support means she relies on nursing visits."
+            },
+            {
+              "text": "Retired schoolteacher",
+              "relevant": false,
+              "why": "Past occupation does not affect wound care."
+            },
+            {
+              "text": "Enjoys crossword puzzles; sings in church choir",
+              "relevant": false,
+              "why": "Hobbies do not change the care plan."
+            },
+            {
+              "text": "Has a cat",
+              "relevant": false,
+              "why": "Domestic detail with no clinical impact."
+            },
+            {
+              "text": "Mobilizes with walker; independent in ADLs except footwear",
+              "relevant": true,
+              "why": "She needs help with footwear over bulky bandaging and cannot self-manage the leg, so she relies on nursing visits."
+            }
+          ]
+        },
+        {
+          "heading": "Medical history",
+          "lines": [
+            {
+              "text": "Type 2 diabetes (dx 2009); HbA1c 8.1% (10/03)",
+              "relevant": true,
+              "why": "Poor glucose control slows healing and raises infection risk."
+            },
+            {
+              "text": "Chronic venous insufficiency, both legs",
+              "relevant": true,
+              "why": "The cause of the ulcer and the reason for compression."
+            },
+            {
+              "text": "Hypothyroidism, stable on levothyroxine",
+              "relevant": false,
+              "why": "Stable and unrelated to the wound."
+            },
+            {
+              "text": "Cataract surgery L eye 2021",
+              "relevant": false,
+              "why": "Old, unrelated surgery."
+            },
+            {
+              "text": "Hysterectomy 1995",
+              "relevant": false,
+              "why": "Old, unrelated surgery."
+            },
+            {
+              "text": "Allergies: sulfonamides (rash); adhesive tape (blistering)",
+              "relevant": true,
+              "why": "Directly affects dressing choice and patient safety."
+            }
+          ]
+        },
+        {
+          "heading": "Hospital course",
+          "lines": [
+            {
+              "text": "Admitted w/ cellulitis around R lower leg venous ulcer (medial gaiter area); erythema resolved, afebrile since 10/05",
+              "relevant": true,
+              "why": "Explains the admission and current status."
+            },
+            {
+              "text": "IV cefazolin x 5 days → oral cephalexin 500 mg QID until 10/14",
+              "relevant": true,
+              "why": "The nurse must check the course is completed."
+            },
+            {
+              "text": "CRP 112 mg/L (10/02) → 14 mg/L (10/08)",
+              "relevant": false,
+              "why": "Lab trend; resolution is already conveyed."
+            },
+            {
+              "text": "Wound swab: MSSA, sensitive to cephalexin",
+              "relevant": false,
+              "why": "Already reflected in the antibiotic choice."
+            },
+            {
+              "text": "ABI 10/06: R 0.92, L 0.95",
+              "relevant": true,
+              "why": "An ABI of 0.8 or above shows adequate arterial supply, so full compression is safe to apply."
+            },
+            {
+              "text": "10/08 ulcer: 4.2 x 3.1 cm, depth 0.3 cm; 70% granulation, 30% slough; moderate serous exudate; mild periwound maceration",
+              "relevant": true,
+              "why": "Baseline the nurse will measure progress against."
+            },
+            {
+              "text": "Melatonin given x 2 nights for poor sleep",
+              "relevant": false,
+              "why": "Short-term inpatient issue."
+            },
+            {
+              "text": "Influenza vaccine given 10/07",
+              "relevant": false,
+              "why": "Completed; no action needed by the reader."
+            },
+            {
+              "text": "Continent of bladder and bowel",
+              "relevant": false,
+              "why": "Routine finding with no impact on the plan."
+            }
+          ]
+        },
+        {
+          "heading": "Discharge plan",
+          "lines": [
+            {
+              "text": "Cleanse w/ normal saline; silicone foam dressing (no adhesive tape); change q3 days or if strike-through; next due 10/12",
+              "relevant": true,
+              "why": "The core instruction the home health nurse will carry out."
+            },
+            {
+              "text": "Multilayer compression bandaging, reapply at each dressing change; monitor for infection",
+              "relevant": true,
+              "why": "Compression is central to venous ulcer healing."
+            },
+            {
+              "text": "PCP appointment in 2 weeks for diabetes review",
+              "relevant": false,
+              "why": "Arranged with her primary care provider; the nurse need not act on it."
+            },
+            {
+              "text": "Going home by hospital transport",
+              "relevant": false,
+              "why": "Logistics already handled."
+            }
+          ]
+        }
+      ],
+      "model": "[Date]\n\nMs. Priya Nair\nHome Health Nurse\nNorthside Home Health Nursing Service\n[Address]\n\nDear Ms. Nair,\n\nRe: Mrs. Helen Brooks, DOB 06/22/1952\n\nI am writing to refer Mrs. Brooks, a 74-year-old widow who lives alone and mobilizes with a walker, for home care of a right lower leg venous ulcer following discharge today. Her next dressing change is due on October 12.\n\nShe was admitted on October 2 with cellulitis surrounding the ulcer; this resolved after five days of intravenous cefazolin. She must complete oral cephalexin 500 mg four times daily until October 14. On October 8, the ulcer measured 4.2 x 3.1 cm and was 0.3 cm deep, with 70% granulation tissue, 30% slough, moderate serous exudate and mild periwound maceration.\n\nThe ulcer results from chronic venous insufficiency, and healing may be delayed by her suboptimally controlled type 2 diabetes (HbA1c 8.1%). Please note that she is allergic to sulfonamides and that adhesive tape causes blistering.\n\nAs her right ankle-brachial index is 0.92, compression is appropriate. I would appreciate it if you could cleanse the wound with normal saline and apply a silicone foam dressing and multilayer compression bandaging every three days, or sooner if exudate strikes through. She will need help with footwear over the bandaging. Please also monitor for recurrent infection.\n\nPlease do not hesitate to contact me if you have any questions.\n\nYours sincerely,\n\n[Your name]\nRegistered Nurse\nMedical Ward, [Hospital]"
+    }
+  ],
+  "letterSteps": [
+    {
+      "id": "s1",
+      "title": "Salutation & opening",
+      "tip": "Address the named reader with title and surname, then add a 'Re:' line with the patient's full name and DOB. If you know the name, close with 'Yours sincerely'.",
+      "example": "Dear Ms. Chen,\n\nRe: Mr. Daniel Hartley, DOB 03/14/1968"
+    },
+    {
+      "id": "s2",
+      "title": "Reason for referral (urgent need first)",
+      "tip": "In the first 1–2 sentences, state who the patient is, why you are writing, and what you want the reader to do. Put the most urgent or time-sensitive point first.",
+      "example": "I am writing to refer Mr. Hartley, who is being discharged today following an anterior ST-elevation myocardial infarction (STEMI), for enrollment in your outpatient cardiac rehabilitation program. He is motivated and keen to start within the next two weeks."
+    },
+    {
+      "id": "s3",
+      "title": "Relevant hospital course & current status",
+      "tip": "Summarize only what this reader needs: the key diagnosis, procedure and results, then current function. Use past tenses for events and the present for current status.",
+      "example": "On October 1, he underwent emergency percutaneous coronary intervention, with a drug-eluting stent placed in the left anterior descending artery. An echocardiogram the following day showed a mildly reduced left ventricular ejection fraction of 45%. He is now mobilizing independently and can walk 200 meters without chest pain or breathlessness."
+    },
+    {
+      "id": "s4",
+      "title": "Medications, allergies & risks",
+      "tip": "Group medications and history in one paragraph. Always include allergies. Highlight any safety-critical instruction with clear modal verbs such as 'must not'.",
+      "example": "His history includes hypertension and hyperlipidemia. Although he declined a statin in 2022, he is now taking atorvastatin, together with aspirin, ticagrelor, metoprolol and lisinopril, and sublingual nitroglycerin as needed. Dual antiplatelet therapy must not be interrupted without cardiology advice. He is allergic to penicillin. He smoked 20 cigarettes daily until admission and is using nicotine patches."
+    },
+    {
+      "id": "s5",
+      "title": "Ongoing care plan & close",
+      "tip": "Make polite, specific requests ('I would be grateful if you could...'), mention psychosocial needs, then end with a brief offer of further information.",
+      "example": "I would be grateful if you could provide supervised exercise training, smoking-cessation support and education on medication adherence. He has also expressed anxiety about returning to his office job as an accountant and having another heart attack, so psychological support would be beneficial.\n\nShould you require any further information, please do not hesitate to contact me."
+    }
+  ],
+  "register": [
+    [
+      "He had a bad heart attack.",
+      "He sustained an anterior myocardial infarction.",
+      "Use precise diagnoses, not general descriptions."
+    ],
+    [
+      "Please see him.",
+      "I would be grateful if you could assess him.",
+      "Polite, specific request suited to a colleague."
+    ],
+    [
+      "He is OK now.",
+      "His condition is now stable.",
+      "'OK' is too informal and too vague."
+    ],
+    [
+      "The wound is dirty.",
+      "The wound bed contains 30% slough.",
+      "Objective, measurable description."
+    ],
+    [
+      "She didn't take her medicines.",
+      "She reports missing several doses of her medication.",
+      "Factual and non-judgmental."
+    ],
+    [
+      "He drinks too much.",
+      "He reports drinking about four standard drinks daily.",
+      "Quantify rather than judge."
+    ],
+    [
+      "The patient is very fat.",
+      "The patient has a BMI of 34.",
+      "Respectful, clinical and measurable."
+    ],
+    [
+      "She is confused.",
+      "She is oriented to person but not to time or place.",
+      "Describes exactly what was assessed."
+    ],
+    [
+      "She lives alone and nobody helps her.",
+      "She lives alone with limited social support.",
+      "Concise and neutral."
+    ],
+    [
+      "Don't stop the blood thinners.",
+      "Dual antiplatelet therapy must not be interrupted.",
+      "Names the drug class; 'must not' signals safety."
+    ],
+    [
+      "He is scared about his job.",
+      "He has expressed anxiety about returning to work.",
+      "Reports the patient's concern professionally."
+    ],
+    [
+      "Her sugar is high.",
+      "Her diabetes is suboptimally controlled (HbA1c 8.1%).",
+      "Correct terminology plus evidence."
+    ],
+    [
+      "The leg is red and hot.",
+      "There is erythema and increased warmth of the leg.",
+      "Standard clinical signs vocabulary."
+    ],
+    [
+      "Call me if there's any problem.",
+      "Please do not hesitate to contact me should you have any concerns.",
+      "Conventional, courteous letter close."
+    ]
+  ],
+  "task1": [
+    {
+      "id": "t1",
+      "title": "Nurse workload and medication errors by ward, 2025 (fictional data)",
+      "kind": "bar",
+      "unit": "patients per nurse / errors per 1,000 patient-days",
+      "categories": [
+        "ICU",
+        "Pediatrics",
+        "Cardiology",
+        "Surgical",
+        "Medical"
+      ],
+      "series": [
+        {
+          "name": "Patients per nurse (day shift)",
+          "values": [
+            2,
+            4,
+            5,
+            6,
+            8
+          ]
+        },
+        {
+          "name": "Medication errors per 1,000 patient-days",
+          "values": [
+            1.8,
+            2.6,
+            3.9,
+            4.4,
+            7.1
+          ]
+        }
+      ],
+      "prompt": "The chart below shows the average number of patients per nurse and the medication error rate in five wards of a hospital in 2025. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      "overview": "Overall, the more patients each nurse cared for, the higher the medication error rate tended to be. The medical ward had the highest figures for both measures, whereas the intensive care unit (ICU) had the lowest.",
+      "model": "The bar chart compares the number of patients cared for by each nurse with the rate of medication errors, measured per 1,000 patient-days, in five wards of a hospital in 2025.\n\nOverall, the more patients each nurse cared for, the higher the medication error rate tended to be. The medical ward had the highest figures for both measures, whereas the intensive care unit (ICU) had the lowest.\n\nIn the ICU, each nurse looked after only two patients, and the error rate was the lowest, at 1.8 per 1,000 patient-days. Pediatrics came next, with one nurse for every four patients and a rate of 2.6 errors.\n\nThe cardiology and surgical wards were in the middle of the range. Nurses there cared for five and six patients respectively, and their error rates were fairly similar, at 3.9 and 4.4. By contrast, the medical ward had by far the heaviest workload, at eight patients per nurse, and its error rate of 7.1 was almost four times that of the ICU.",
+      "template": [
+        "Paraphrase the prompt: The bar chart compares [measure 1] with [measure 2] in [place/time].",
+        "Overview: Overall, [main relationship], with [highest] and [lowest] standing out.",
+        "Body 1: Describe the lowest-workload wards with exact figures.",
+        "Body 2: Describe the middle and highest wards; finish with one striking comparison (e.g. 'almost four times')."
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "30-day readmission rates by condition, 2016–2024 (fictional data)",
+      "kind": "line",
+      "unit": "%",
+      "categories": [
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "series": [
+        {
+          "name": "Heart failure",
+          "values": [
+            24.0,
+            23.6,
+            23.1,
+            22.4,
+            21.0,
+            21.5,
+            20.8,
+            20.1,
+            19.6
+          ]
+        },
+        {
+          "name": "COPD",
+          "values": [
+            20.5,
+            20.3,
+            20.0,
+            19.8,
+            18.2,
+            19.0,
+            19.2,
+            19.4,
+            19.5
+          ]
+        },
+        {
+          "name": "Pneumonia",
+          "values": [
+            17.2,
+            16.9,
+            16.5,
+            16.0,
+            17.8,
+            16.4,
+            15.5,
+            15.0,
+            14.6
+          ]
+        }
+      ],
+      "prompt": "The graph below shows the percentage of patients readmitted to hospital within 30 days of discharge for three conditions between 2016 and 2024. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      "overview": "Overall, readmission rates for heart failure and pneumonia declined over the period, while the COPD rate fluctuated but finished only slightly below its starting level. Heart failure had the highest rate throughout, and pneumonia the lowest.",
+      "model": "The line graph illustrates the percentage of patients readmitted to hospital within 30 days of discharge for heart failure, chronic obstructive pulmonary disease (COPD) and pneumonia between 2016 and 2024.\n\nOverall, readmission rates for heart failure and pneumonia declined over the period, while the COPD rate fluctuated but finished only slightly below its starting level. Heart failure had the highest rate throughout, and pneumonia the lowest.\n\nHeart failure readmissions started at 24% in 2016 and fell steadily to 21% in 2020. After a slight rise to 21.5% the following year, the figure resumed its downward trend, reaching 19.6% in 2024.\n\nThe COPD rate edged down from 20.5% to 19.8% by 2019, then dropped sharply to 18.2% in 2020. It subsequently recovered year on year, finishing at 19.5%, almost level with heart failure by the end of the period. Pneumonia followed a different pattern: after decreasing to 16% in 2019, it jumped to 17.8% in 2020, its only rise, before falling consistently to 14.6% in 2024, the lowest figure shown.",
+      "template": [
+        "Paraphrase the prompt: The line graph illustrates [what] for [groups] between [start] and [end].",
+        "Overview: Overall, [general trends] + [highest/lowest line] (no figures here).",
+        "Body 1: Track the most important line from start to finish, noting any reversal.",
+        "Body 2: Compare the other two lines, focusing on the 2020 changes and final values."
+      ]
+    }
+  ],
+  "task2": [
+    {
+      "id": "e1",
+      "type": "Opinion",
+      "prompt": "Some people believe that governments should spend more money on preventing illness through public health programs than on treating people who are already sick. To what extent do you agree or disagree?",
+      "plan": [
+        "Intro: Paraphrase the debate; state that you largely agree, while treatment funding must be protected.",
+        "Body 1: Prevention reduces long-term costs and disease burden (e.g. vaccination, smoking cessation, screening).",
+        "Body 2: Concession: sick people need care now; cutting treatment is unethical and some illness cannot be prevented.",
+        "Conclusion: Restate a balanced view: increase prevention gradually without reducing essential treatment."
+      ],
+      "intro": "Health budgets are limited, so governments must decide how to divide funding between preventing disease and treating it. I largely agree that prevention deserves a greater share of public spending, although this should not come at the expense of patients who need care today.",
+      "conclusion": "In conclusion, investing more in public health programs is a sensible long-term strategy because it reduces both illness and future costs. However, this shift should be gradual and must not leave currently sick patients without the treatment they need.",
+      "phrases": [
+        "In the long term, ...",
+        "A compelling argument for this is that ...",
+        "Admittedly, ...",
+        "This is not to say that ..."
+      ]
+    },
+    {
+      "id": "e2",
+      "type": "Discussion",
+      "prompt": "Some people think that vaccination should be compulsory for all healthcare workers, while others believe it should remain a personal choice. Discuss both views and give your own opinion.",
+      "plan": [
+        "Intro: Paraphrase both views; state that you favor mandatory vaccination with medical exemptions.",
+        "Body 1: Personal choice view: bodily autonomy, trust, and the risk of staff shortages if workers leave.",
+        "Body 2: Mandatory view: duty to protect vulnerable patients, reduced outbreaks and staff absence.",
+        "Conclusion: Summarize both; restate your opinion with exemptions and education."
+      ],
+      "intro": "Whether healthcare workers should be required to be vaccinated is a contentious issue. While some argue that vaccination is a personal decision, others maintain that it is a professional obligation. This essay will discuss both views before arguing that vaccination should be mandatory, with exemptions for genuine medical reasons.",
+      "conclusion": "In conclusion, although respecting individual choice is important, healthcare workers have a particular duty to protect vulnerable patients. I therefore believe vaccination should be compulsory, provided that medical exemptions are allowed and staff receive clear information about its benefits.",
+      "phrases": [
+        "On the one hand, ...",
+        "Proponents of this view argue that ...",
+        "Conversely, ...",
+        "Taking both sides into account, ..."
+      ]
+    },
+    {
+      "id": "e3",
+      "type": "Problem/Solution",
+      "prompt": "Artificial intelligence (AI) is increasingly being used in hospitals to support nursing care. What problems might this cause for nurses and patients, and what measures could be taken to solve them?",
+      "plan": [
+        "Intro: Paraphrase; state that AI brings risks such as over-reliance and privacy concerns, which training and regulation can address.",
+        "Body 1: Problems: nurses may trust inaccurate outputs; reduced human contact; data privacy risks.",
+        "Body 2: Solutions: training in critical use of AI, human oversight of decisions, protected time for face-to-face care, strict data protection rules.",
+        "Conclusion: Summarize; AI should support, not replace, nursing judgment."
+      ],
+      "intro": "Artificial intelligence is rapidly being introduced into hospitals, where it can help nurses monitor patients and manage documentation. However, it may also lead to over-reliance on technology and threats to patient privacy. This essay will examine these problems and suggest how they could be addressed.",
+      "conclusion": "In conclusion, while AI may encourage over-reliance and put patient data at risk, these problems can be reduced through targeted staff training, human oversight and strong data protection. Ultimately, AI should support nurses' clinical judgment rather than replace it.",
+      "phrases": [
+        "One major drawback is that ...",
+        "This could result in ...",
+        "An effective solution would be to ...",
+        "As a result, ..."
+      ]
+    }
+  ],
+  "vocab": [
+    [
+      "shows",
+      "illustrates / presents",
+      "The graph illustrates a steady decline in readmissions."
+    ],
+    [
+      "bad",
+      "detrimental / harmful",
+      "Long shifts can have a detrimental effect on patient safety."
+    ],
+    [
+      "big",
+      "substantial / considerable",
+      "There was a substantial increase in emergency admissions."
+    ],
+    [
+      "go up",
+      "rise / increase",
+      "Infection rates rose sharply in 2020."
+    ],
+    [
+      "go down",
+      "decline / fall",
+      "The number of smokers declined over the decade."
+    ],
+    [
+      "get worse",
+      "deteriorate",
+      "Without treatment, her condition may deteriorate rapidly."
+    ],
+    [
+      "get better",
+      "improve",
+      "Patient outcomes improved after the program was introduced."
+    ],
+    [
+      "about",
+      "approximately / roughly",
+      "Approximately 20% of patients were readmitted."
+    ],
+    [
+      "lots of",
+      "a large number of / numerous",
+      "A large number of nurses reported burnout."
+    ],
+    [
+      "very important",
+      "crucial / essential",
+      "Early mobilization is crucial after surgery."
+    ],
+    [
+      "need",
+      "require",
+      "Rural hospitals require more specialist staff."
+    ],
+    [
+      "enough",
+      "sufficient / adequate",
+      "Many wards lack sufficient staff at night."
+    ],
+    [
+      "help",
+      "support / facilitate (facilitate + a process, not a person)",
+      "Telehealth can facilitate access to specialist care."
+    ],
+    [
+      "think",
+      "believe / argue / maintain",
+      "Some experts argue that prevention is more cost-effective."
+    ],
+    [
+      "find out",
+      "determine / identify",
+      "The study aimed to determine the causes of medication errors."
+    ],
+    [
+      "look into",
+      "investigate / examine",
+      "Researchers investigated the impact of nurse staffing."
+    ],
+    [
+      "deal with",
+      "address / tackle",
+      "Governments must address the shortage of nurses."
+    ],
+    [
+      "because of",
+      "owing to / as a result of",
+      "Owing to staff shortages, waiting times increased."
+    ],
+    [
+      "good for",
+      "beneficial to",
+      "Regular exercise is beneficial to heart health."
+    ],
+    [
+      "problem",
+      "issue / challenge",
+      "Staff retention remains a major challenge for hospitals."
+    ]
+  ],
+  "oetRoleplays": [
+    {
+      "id": "r1",
+      "title": "Anxious post-op patient reluctant to walk",
+      "setting": "Surgical ward, hospital",
+      "nurse": "Setting: Surgical ward\nNurse: You are talking to Ms. Jordan Lee, 58, on day 1 after an open bowel resection. The surgical team wants her to walk today, but she has refused to get out of bed. Pain is 4/10 at rest with her current analgesia.\nTask:\n• Find out why the patient is reluctant to walk.\n• Explain the benefits of early mobilization (e.g. lower risk of blood clots and chest infection, faster return of bowel function).\n• Reassure her about the wound and explain how pain will be managed (e.g. analgesia beforehand, supporting the wound with a pillow).\n• Agree on a gradual plan for today (e.g. check for dizziness, sit on the edge of the bed, then a chair, then a short supported walk).",
+      "tasks": [
+        "Find out why the patient is reluctant to walk.",
+        "Explain the benefits of early mobilization (lower risk of blood clots and chest infection, faster return of bowel function).",
+        "Reassure her about the wound and explain pain management (analgesia beforehand, supporting the wound with a pillow).",
+        "Agree on a gradual plan for today (check for dizziness, sit on the edge of the bed, then a chair, then a short supported walk)."
+      ],
+      "patient": "You are Ms. Jordan Lee, 58, day 1 after bowel surgery. You are frightened that your stitches will burst if you stand up, and you felt dizzy when you sat up this morning. You think rest is the best way to heal. You are initially unwilling, but if the nurse listens to your fears and explains things clearly, you agree to try sitting in a chair first.",
+      "phrases": [
+        "It sounds like you're worried about your wound. Can you tell me more about that?",
+        "Many people feel the same way after surgery; that's completely understandable.",
+        "Walking early actually helps you recover faster and lowers the risk of blood clots.",
+        "How about we give you some pain relief first, then try sitting in the chair together?",
+        "I'll be right beside you the whole time, and we can stop whenever you need to."
+      ]
+    },
+    {
+      "id": "r2",
+      "title": "Teaching insulin injection to a newly diagnosed patient with diabetes",
+      "setting": "Diabetes education clinic, outpatient department",
+      "nurse": "Setting: Diabetes education clinic\nNurse: You are talking to Mr. Chris Novak, 34, who has just been diagnosed with type 1 diabetes and has been prescribed an insulin pen. This is his first education session.\nTask:\n• Find out what he already knows and how he feels about injecting insulin.\n• Explain the steps of using the pen (e.g. attach a new needle, do a 2-unit safety test, inject at 90°, hold for 10 seconds).\n• Explain the need to rotate injection sites (abdomen, thighs) to prevent lumpy skin, which can affect how insulin is absorbed.\n• Explain how to recognize and treat low blood sugar (e.g. 15 g fast-acting glucose, recheck in 15 minutes, repeat if still below 70 mg/dL) and arrange follow-up.",
+      "tasks": [
+        "Find out what he already knows and how he feels about injecting insulin.",
+        "Explain the steps of using the pen (new needle, 2-unit safety test, inject at 90°, hold for 10 seconds).",
+        "Explain site rotation (abdomen, thighs) to prevent lumpy skin, which can affect insulin absorption.",
+        "Explain how to recognize and treat low blood sugar (15 g fast-acting glucose, recheck in 15 minutes, repeat if still below 70 mg/dL) and arrange follow-up."
+      ],
+      "patient": "You are Mr. Chris Novak, 34, a warehouse supervisor recently diagnosed with type 1 diabetes. You are afraid of needles and worried about having a 'hypo' at work in front of colleagues. You know very little about insulin. You are willing to learn if the nurse is patient and checks your understanding.",
+      "phrases": [
+        "Before we start, could you tell me what you already know about insulin?",
+        "A lot of people feel nervous about needles at first. The needles are very fine.",
+        "Let me show you first, and then you can try it yourself.",
+        "Just to make sure I've explained it clearly, could you tell me what you'd do if you felt shaky at work?",
+        "I'll book you in for a follow-up next week so we can check how you're managing."
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "id": "A",
+      "name": "Relationship building",
+      "checks": [
+        "Did I greet the patient, introduce myself and explain the purpose of the conversation?",
+        "Did I show empathy with phrases like 'That sounds worrying'?",
+        "Did I stay respectful and non-judgmental throughout?"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Understanding and incorporating the patient's perspective",
+      "checks": [
+        "Did I ask about the patient's ideas, concerns and expectations?",
+        "Did I pick up on cues such as hesitation or worry?",
+        "Did I link my explanations to what the patient said mattered to them?"
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Providing structure",
+      "checks": [
+        "Did I signpost topics ('First, I'd like to ask... Now let's talk about...')?",
+        "Did I cover the tasks in a logical order?",
+        "Did I summarize and close the conversation clearly?"
+      ]
+    },
+    {
+      "id": "D",
+      "name": "Information gathering",
+      "checks": [
+        "Did I begin with open questions before closed ones?",
+        "Did I avoid asking several questions at once?",
+        "Did I clarify or summarize what the patient told me?"
+      ]
+    },
+    {
+      "id": "E",
+      "name": "Information giving",
+      "checks": [
+        "Did I check what the patient already knew before explaining?",
+        "Did I use plain language and explain any medical terms?",
+        "Did I check understanding with teach-back, not 'Do you understand?'"
+      ]
+    }
+  ],
+  "linguistic": [
+    {
+      "name": "Intelligibility",
+      "tip": "Speak at a steady pace, stress key words, and pronounce word endings (-ed, -s) clearly so the patient never has to strain to understand."
+    },
+    {
+      "name": "Fluency",
+      "tip": "Aim for smooth, even speech. Use short fillers like 'Let me see...' instead of long silences, and avoid restarting sentences."
+    },
+    {
+      "name": "Appropriateness of language",
+      "tip": "Use plain, patient-friendly words ('blood clot', not 'thrombus') and a warm, polite tone that suits the situation."
+    },
+    {
+      "name": "Resources of grammar and expression",
+      "tip": "Show range: conditionals ('If you feel dizzy, ...'), modals ('You might find...'), and accurate tenses; vary your phrasing rather than repeating it."
+    }
+  ],
+  "ieltsSpeaking": {
+    "part1": [
+      "Do you work or are you a student?",
+      "What do you enjoy most about your job or studies?",
+      "What is a typical working day like for you?",
+      "How do you usually relax after a busy day?",
+      "Do you prefer to spend free time indoors or outdoors? Why?",
+      "How often do you use public transportation?",
+      "What kind of food do you usually eat at home?",
+      "Do you think you get enough sleep? Why or why not?"
+    ],
+    "part2": [
+      {
+        "topic": "Describe a healthcare worker who made a positive impression on you.",
+        "bullets": [
+          "You should say: who this person was",
+          "where you met them",
+          "what they did",
+          "and explain why they made a positive impression on you."
+        ]
+      },
+      {
+        "topic": "Describe a time when you helped someone who was unwell.",
+        "bullets": [
+          "You should say: who the person was",
+          "what was wrong with them",
+          "what you did to help",
+          "and explain how you felt about this experience."
+        ]
+      },
+      {
+        "topic": "Describe a healthy habit you would like to develop.",
+        "bullets": [
+          "You should say: what the habit is",
+          "why you want to develop it",
+          "how you plan to do it",
+          "and explain how it would benefit your life."
+        ]
+      }
+    ],
+    "part3": [
+      "Should governments prioritize preventive healthcare over hospital treatment?",
+      "How has technology changed the relationship between patients and health professionals?",
+      "Why do some countries struggle to keep enough nurses and doctors in their health systems?",
+      "Should people who live unhealthy lifestyles pay more for healthcare?",
+      "What role should schools play in teaching young people about health?",
+      "Will artificial intelligence ever be able to replace healthcare workers? Why or why not?"
+    ]
+  },
+  "diagnostic": [
+    {
+      "id": "d1",
+      "section": "OET Listening",
+      "passage": "Transcript (ward handover):\nNurse 1: Bed 6 is Mr. Ellis, 71, day two after a hip fracture repair. Vitals have been stable overnight, and his pain's controlled. The thing I'm watching is his urine output. It's been about 20 mL an hour for the last three hours. I've flushed the catheter, and there are no clots.\nNurse 2: Has anyone been told?\nNurse 1: The surgical resident's aware. If it's still under 30 by 8 o'clock, she wants a fluid bolus and a call back.",
+      "stem": "What is the outgoing nurse's main concern about Mr. Ellis?",
+      "options": [
+        [
+          "a",
+          "His urine output is below the expected level"
+        ],
+        [
+          "b",
+          "His urinary catheter is blocked"
+        ],
+        [
+          "c",
+          "His vital signs have become unstable"
+        ],
+        [
+          "d",
+          "His pain is poorly controlled"
+        ]
+      ],
+      "answer": "a",
+      "why": "a: She says urine output is 'the thing I'm watching' at 20 mL/h, below the 30 mL/h threshold. b: Wrong; the catheter was flushed with no clots. c: Wrong; vitals were stable overnight. d: Wrong; his pain is controlled."
+    },
+    {
+      "id": "d2",
+      "section": "OET Listening",
+      "passage": "Transcript (consultation):\nNurse: You mentioned you stopped the metformin. Can you tell me what happened?\nPatient: Well, the first week was fine, but then I was running to the bathroom all the time. Diarrhea, every day. I drive for work, so I just couldn't cope.\nNurse: That's a common side effect, especially early on. Were you taking it with food?\nPatient: No, usually first thing in the morning, before breakfast.\nNurse: Taking it with meals often helps. There's also an extended-release form the doctor could consider.",
+      "stem": "Why did the patient stop taking metformin?",
+      "options": [
+        [
+          "a",
+          "He was worried it would make driving unsafe"
+        ],
+        [
+          "b",
+          "He developed diarrhea that disrupted his daily life"
+        ],
+        [
+          "c",
+          "He kept forgetting to take it before breakfast"
+        ],
+        [
+          "d",
+          "His doctor told him to switch to extended-release"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: Daily diarrhea made work impossible. a: Driving is mentioned only as why the diarrhea was a problem, not a safety worry. c: He took it before breakfast; he did not forget it. d: The nurse suggests extended-release as an option; no doctor has advised it yet."
+    },
+    {
+      "id": "d3",
+      "section": "OET Listening",
+      "passage": "Transcript (staff briefing):\nEducator: Quick update on the falls policy. Nothing's changed about who gets assessed; it's still every adult patient. What's different is timing. Until now you had 24 hours to complete the falls risk assessment. From Monday, it has to be done within six hours of arrival on the ward. And if a patient scores high risk, the bed alarm goes on straight away. You no longer need the charge nurse to approve it.",
+      "stem": "What is one change to the falls policy?",
+      "options": [
+        [
+          "a",
+          "Only patients over 65 will be assessed"
+        ],
+        [
+          "b",
+          "The assessment must be completed sooner after arrival on the ward"
+        ],
+        [
+          "c",
+          "Charge nurses must now approve all bed alarms"
+        ],
+        [
+          "d",
+          "High-risk patients will be reassessed every six hours"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: The deadline moves from 24 hours to six hours. a: Wrong; it is still every adult patient. c: The opposite; approval is no longer needed. d: 'Six hours' refers to the initial assessment, not reassessment."
+    },
+    {
+      "id": "d4",
+      "section": "OET Listening",
+      "passage": "Transcript (handover):\nNurse 1: One more thing about Ms. Grant in room 12. Her chart says no known drug allergies, but when I was settling her in, she told me she came out in hives all over the last time she took amoxicillin. She's written up for IV piperacillin-tazobactam, first dose due at 2.\nNurse 2: That's a penicillin.\nNurse 1: Exactly. So before that dose, can you get the allergy documented and let the prescriber know so they can review the order? I haven't had a chance.",
+      "stem": "What does the outgoing nurse ask her colleague to do?",
+      "options": [
+        [
+          "a",
+          "Give the first dose and watch closely for hives"
+        ],
+        [
+          "b",
+          "Record the allergy and contact the prescriber before the dose"
+        ],
+        [
+          "c",
+          "Ask the patient to confirm her allergy in writing"
+        ],
+        [
+          "d",
+          "Stop all antibiotics for Ms. Grant"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: She asks for the allergy to be documented and the prescriber informed before the dose. a: Unsafe; giving a penicillin to a patient with a reported penicillin allergy is not requested. c: Not mentioned. d: Only this order needs review; the prescriber decides on alternatives."
+    },
+    {
+      "id": "d5",
+      "section": "OET Listening",
+      "passage": "Transcript (consultation):\nNurse: Could you show me how you use your inhaler?\nPatient: Sure. I shake it, breathe out, then press it as I breathe in... and that's it, I breathe straight out again.\nNurse: Good, you've got the start right, and pressing it as you begin to breathe in is exactly right. The part I'd change is at the end. After you breathe in, try to hold your breath for about 10 seconds, or as long as is comfortable. That gives the medicine time to settle in your lungs.",
+      "stem": "Which part of the patient's technique does the nurse want to improve?",
+      "options": [
+        [
+          "a",
+          "Shaking the inhaler"
+        ],
+        [
+          "b",
+          "Pressing the inhaler while breathing in"
+        ],
+        [
+          "c",
+          "Holding the breath after inhaling"
+        ],
+        [
+          "d",
+          "Breathing out before using the inhaler"
+        ]
+      ],
+      "answer": "c",
+      "why": "c: The patient breathes straight out; the nurse asks for a 10-second breath-hold. a and d: The nurse says 'you've got the start right.' b: She praises the timing of pressing and breathing in."
+    },
+    {
+      "id": "d6",
+      "section": "OET Reading",
+      "passage": "Guideline extract: Peripheral intravenous catheters (PIVCs)\nAssess every PIVC site at least once per shift using the visual infusion phlebitis (VIP) score. Routine replacement at fixed intervals is not required in adults. Replace the catheter when clinically indicated, for example at a VIP score of 2 or above, or if the device is no longer needed or not functioning. Document the insertion date, site and gauge in the patient's record.",
+      "stem": "According to the extract, when should an adult's PIVC be replaced?",
+      "options": [
+        [
+          "a",
+          "Every 72 hours"
+        ],
+        [
+          "b",
+          "At the start of each shift"
+        ],
+        [
+          "c",
+          "When there is a clinical reason"
+        ],
+        [
+          "d",
+          "Only at discharge"
+        ]
+      ],
+      "answer": "c",
+      "why": "c: The extract says replace 'when clinically indicated.' a: Fixed-interval replacement is 'not required.' b: Each shift is for assessment, not replacement. d: Discharge is not mentioned; the extract gives clinical criteria instead."
+    },
+    {
+      "id": "d7",
+      "section": "OET Reading",
+      "passage": "Policy extract: High-alert medications\nAn independent double-check by a second licensed nurse is required before starting an IV insulin or heparin infusion and at every rate change. The second nurse must verify the order, concentration, pump settings and patient identity separately, without being prompted by the first nurse. Both nurses sign the medication record.",
+      "stem": "Why must the second nurse check 'without being prompted'?",
+      "options": [
+        [
+          "a",
+          "To save time during busy shifts"
+        ],
+        [
+          "b",
+          "To ensure the check is genuinely independent"
+        ],
+        [
+          "c",
+          "To allow students to perform the check"
+        ],
+        [
+          "d",
+          "To reduce the amount of documentation"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: Checking without prompts prevents the second nurse from simply confirming the first nurse's possible error. a: Saving time is not given as a reason. c: The policy requires a licensed nurse. d: Both nurses must still sign."
+    },
+    {
+      "id": "d8",
+      "section": "OET Reading",
+      "passage": "Memo\nTo: All ward nursing staff\nRe: Sepsis screening\nFrom November 1, the sepsis screening tool must be completed for any patient with an early warning score of 5 or more, or whenever you suspect infection, regardless of the score. Positive screens must be escalated to the medical team within 15 minutes. Laminated cards showing the screening criteria are available at each nurses' station.",
+      "stem": "According to the memo, nurses should complete the sepsis screen when...",
+      "options": [
+        [
+          "a",
+          "every patient is admitted"
+        ],
+        [
+          "b",
+          "the early warning score is 5 or more, or infection is suspected"
+        ],
+        [
+          "c",
+          "the medical team requests it"
+        ],
+        [
+          "d",
+          "a blood culture result is positive"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: Both triggers are stated in the memo. a: Screening is not for all admissions. c: The 15-minute rule is about escalating a positive screen, not a request from doctors. d: Blood cultures are not mentioned."
+    },
+    {
+      "id": "d9",
+      "section": "OET Reading",
+      "passage": "Research abstract (fictional study)\nBackground: Readmission after heart failure (HF) hospitalization remains common. Methods: In a randomized trial, 412 adults discharged after an HF admission received either usual care or usual care plus nurse-led telephone calls on days 3, 7 and 14. Results: 30-day readmission was lower in the intervention group (14.1% vs 21.3%; p=0.04). There was no significant difference at 90 days (29.8% vs 31.5%; p=0.71). Self-care confidence was higher in the intervention group at 30 days. Conclusion: Short-term nurse-led telephone follow-up may reduce early readmissions; sustained benefit may require longer support.",
+      "stem": "What did the study find?",
+      "options": [
+        [
+          "a",
+          "The calls reduced readmissions at both 30 and 90 days"
+        ],
+        [
+          "b",
+          "The calls reduced early readmissions, but the effect was not sustained at 90 days"
+        ],
+        [
+          "c",
+          "The calls had no effect on readmissions"
+        ],
+        [
+          "d",
+          "Usual care improved self-care confidence more than the calls"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: 30-day readmission was significantly lower, but the 90-day difference was not significant. a: The 90-day result was not significant. c: The 30-day effect was significant. d: Confidence was higher in the intervention group."
+    },
+    {
+      "id": "d10",
+      "section": "OET Reading",
+      "passage": "Research abstract (fictional study)\nAim: To compare 2-hourly with 4-hourly repositioning on high-specification foam mattresses in nursing home residents. Design: Single-site observational study, n=96. Findings: Pressure injury incidence was similar in both groups (5.2% vs 6.1%). Conclusion: 4-hourly repositioning may be acceptable for some residents on high-specification mattresses. However, the small sample and single setting limit generalizability, and individualized risk assessment remains essential.",
+      "stem": "What is the authors' position on their findings?",
+      "options": [
+        [
+          "a",
+          "The results should be applied with caution"
+        ],
+        [
+          "b",
+          "2-hourly repositioning should be stopped in all settings"
+        ],
+        [
+          "c",
+          "High-specification mattresses prevent all pressure injuries"
+        ],
+        [
+          "d",
+          "4-hourly repositioning caused more pressure injuries"
+        ]
+      ],
+      "answer": "a",
+      "why": "a: They note a small sample, a single setting and the need for individual assessment. b: Too strong; they say 'may be acceptable for some residents.' c: Injuries still occurred in both groups. d: Rates were similar, and the study did not show causation."
+    },
+    {
+      "id": "d11",
+      "section": "IELTS Reading",
+      "passage": "Telehealth in remote communities\nFor decades, people living far from cities have faced long journeys to see a specialist. Video consultations were first trialed in the 1990s, but poor internet connections limited their use. Over the past ten years, faster networks and cheaper devices have made remote appointments far more practical. Supporters argue that telehealth saves patients time and money, particularly for routine follow-up. Critics, however, point out that a full physical examination is impossible on screen and that some older patients may find the technology difficult. Some regions have responded by placing trained nurses in local clinics, where they support patients during video calls with specialists.",
+      "stem": "True, False or Not Given? Video consultations were first tested in the 1990s.",
+      "options": [
+        [
+          "a",
+          "True"
+        ],
+        [
+          "b",
+          "False"
+        ],
+        [
+          "c",
+          "Not Given"
+        ]
+      ],
+      "answer": "a",
+      "why": "True: 'first trialed in the 1990s' means the same as 'first tested.' False would need a contradiction, and Not Given would need missing information, but the passage states this directly."
+    },
+    {
+      "id": "d12",
+      "section": "IELTS Reading",
+      "passage": "Telehealth in remote communities\nFor decades, people living far from cities have faced long journeys to see a specialist. Video consultations were first trialed in the 1990s, but poor internet connections limited their use. Over the past ten years, faster networks and cheaper devices have made remote appointments far more practical. Supporters argue that telehealth saves patients time and money, particularly for routine follow-up. Critics, however, point out that a full physical examination is impossible on screen and that some older patients may find the technology difficult. Some regions have responded by placing trained nurses in local clinics, where they support patients during video calls with specialists.",
+      "stem": "True, False or Not Given? Internet connections in the 1990s were good enough for regular video consultations.",
+      "options": [
+        [
+          "a",
+          "True"
+        ],
+        [
+          "b",
+          "False"
+        ],
+        [
+          "c",
+          "Not Given"
+        ]
+      ],
+      "answer": "b",
+      "why": "False: the passage says 'poor internet connections limited their use,' which contradicts the statement. It is not Not Given because the passage does discuss connection quality."
+    },
+    {
+      "id": "d13",
+      "section": "IELTS Reading",
+      "passage": "Telehealth in remote communities\nFor decades, people living far from cities have faced long journeys to see a specialist. Video consultations were first trialed in the 1990s, but poor internet connections limited their use. Over the past ten years, faster networks and cheaper devices have made remote appointments far more practical. Supporters argue that telehealth saves patients time and money, particularly for routine follow-up. Critics, however, point out that a full physical examination is impossible on screen and that some older patients may find the technology difficult. Some regions have responded by placing trained nurses in local clinics, where they support patients during video calls with specialists.",
+      "stem": "True, False or Not Given? Most older patients prefer in-person appointments to video calls.",
+      "options": [
+        [
+          "a",
+          "True"
+        ],
+        [
+          "b",
+          "False"
+        ],
+        [
+          "c",
+          "Not Given"
+        ]
+      ],
+      "answer": "c",
+      "why": "Not Given: the passage says some older patients may find the technology difficult, but it says nothing about what most of them prefer. It is not True or False because preference is never discussed."
+    },
+    {
+      "id": "d14",
+      "section": "IELTS Reading",
+      "passage": "Noise on hospital wards\nAlthough rest is essential to recovery, hospital wards are rarely quiet. Equipment alarms, conversations at the nurses' station and trolleys all contribute to night-time noise, and studies regularly record levels well above international recommendations. Poor sleep in hospital has been linked to confusion, higher pain scores and slower recovery. Many alarms are 'non-actionable', meaning they require no response from staff. Repeated exposure to such alarms can lead to alarm fatigue, in which nurses become desensitized and respond more slowly. Some hospitals have introduced 'quiet hours', dimming lights and reducing non-urgent activity overnight, with encouraging early results.",
+      "stem": "According to the passage, alarm fatigue occurs when...",
+      "options": [
+        [
+          "a",
+          "alarms are too quiet for staff to hear"
+        ],
+        [
+          "b",
+          "staff become less responsive after repeated exposure to alarms"
+        ],
+        [
+          "c",
+          "nurses work too many night shifts"
+        ],
+        [
+          "d",
+          "patients are woken repeatedly by alarms"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: Nurses 'become desensitized and respond more slowly.' a: Volume is not mentioned. c: Shift patterns are not discussed. d: Patient sleep is discussed separately, not as the definition of alarm fatigue."
+    },
+    {
+      "id": "d15",
+      "section": "IELTS Reading",
+      "passage": "Noise on hospital wards\nAlthough rest is essential to recovery, hospital wards are rarely quiet. Equipment alarms, conversations at the nurses' station and trolleys all contribute to night-time noise, and studies regularly record levels well above international recommendations. Poor sleep in hospital has been linked to confusion, higher pain scores and slower recovery. Many alarms are 'non-actionable', meaning they require no response from staff. Repeated exposure to such alarms can lead to alarm fatigue, in which nurses become desensitized and respond more slowly. Some hospitals have introduced 'quiet hours', dimming lights and reducing non-urgent activity overnight, with encouraging early results.",
+      "stem": "True, False or Not Given? Quiet hours have been proven to shorten hospital stays.",
+      "options": [
+        [
+          "a",
+          "True"
+        ],
+        [
+          "b",
+          "False"
+        ],
+        [
+          "c",
+          "Not Given"
+        ]
+      ],
+      "answer": "c",
+      "why": "Not Given: the passage mentions only 'encouraging early results' and says nothing about length of stay. It is not True because no proof is described, and not False because nothing contradicts it."
+    },
+    {
+      "id": "d16",
+      "section": "IELTS Reading",
+      "passage": "Noise on hospital wards\nAlthough rest is essential to recovery, hospital wards are rarely quiet. Equipment alarms, conversations at the nurses' station and trolleys all contribute to night-time noise, and studies regularly record levels well above international recommendations. Poor sleep in hospital has been linked to confusion, higher pain scores and slower recovery. Many alarms are 'non-actionable', meaning they require no response from staff. Repeated exposure to such alarms can lead to alarm fatigue, in which nurses become desensitized and respond more slowly. Some hospitals have introduced 'quiet hours', dimming lights and reducing non-urgent activity overnight, with encouraging early results.",
+      "stem": "Which of the following is NOT mentioned as a source of ward noise?",
+      "options": [
+        [
+          "a",
+          "Equipment alarms"
+        ],
+        [
+          "b",
+          "Conversations at the nurses' station"
+        ],
+        [
+          "c",
+          "Trolleys"
+        ],
+        [
+          "d",
+          "Visitors' mobile phones"
+        ]
+      ],
+      "answer": "d",
+      "why": "d: Phones are never mentioned. a, b and c are all listed in the second sentence as contributors to night-time noise."
+    },
+    {
+      "id": "d17",
+      "section": "Vocabulary",
+      "passage": null,
+      "stem": "The patient's condition began to ______ overnight, so the rapid response team was called.",
+      "options": [
+        [
+          "a",
+          "deteriorate"
+        ],
+        [
+          "b",
+          "degrade"
+        ],
+        [
+          "c",
+          "decrease"
+        ],
+        [
+          "d",
+          "diminish"
+        ]
+      ],
+      "answer": "a",
+      "why": "a: 'Deteriorate' is the standard verb for a worsening condition. b: 'Degrade' is used for materials or quality, not a patient. c: 'Decrease' is used for amounts, not conditions. d: 'Diminish' is used for size or intensity (e.g. 'the pain diminished'), not a patient's condition."
+    },
+    {
+      "id": "d18",
+      "section": "Vocabulary",
+      "passage": null,
+      "stem": "Smoking ______ a significant risk to cardiovascular health.",
+      "options": [
+        [
+          "a",
+          "makes"
+        ],
+        [
+          "b",
+          "poses"
+        ],
+        [
+          "c",
+          "does"
+        ],
+        [
+          "d",
+          "takes"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: 'Pose a risk' is a fixed collocation. a, c and d do not collocate with 'risk' in this sense ('take a risk' means choose to do something risky, which changes the meaning)."
+    },
+    {
+      "id": "d19",
+      "section": "Vocabulary",
+      "passage": null,
+      "stem": "The new protocol aims to mitigate the risk of falls. 'Mitigate' is closest in meaning to:",
+      "options": [
+        [
+          "a",
+          "eliminate"
+        ],
+        [
+          "b",
+          "reduce"
+        ],
+        [
+          "c",
+          "identify"
+        ],
+        [
+          "d",
+          "increase"
+        ]
+      ],
+      "answer": "b",
+      "why": "b: 'Mitigate' means make less severe. a: 'Eliminate' means remove completely, which is too strong. c: Identifying a risk does not lessen it. d: This is the opposite meaning."
+    },
+    {
+      "id": "d20",
+      "section": "Vocabulary",
+      "passage": null,
+      "stem": "Patients who ______ to their medication regimen tend to have better outcomes.",
+      "options": [
+        [
+          "a",
+          "adhere"
+        ],
+        [
+          "b",
+          "comply"
+        ],
+        [
+          "c",
+          "follow"
+        ],
+        [
+          "d",
+          "obey"
+        ]
+      ],
+      "answer": "a",
+      "why": "a: 'Adhere to' is correct and standard in clinical writing. b: 'Comply' takes 'with,' not 'to.' c: 'Follow' takes no preposition. d: 'Obey' is the wrong register for patient care and also takes no preposition."
+    }
+  ]
+}

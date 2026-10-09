@@ -26,8 +26,9 @@ NCLEX-RN PRACTICE
 • Tutor and exam modes, flashcards, and save-and-resume for long exams
 
 ENGLISH & INTERVIEWS
-• The OET, IELTS, PTE and CELBAN scores each destination accepts
-• OET-style nursing letter tasks with model letters, and speaking role-plays
+• An English tab: the OET and IELTS scores your destination (and Canadian province) accepts, with a score checker
+• "Which test?" guide, a 20-question English diagnostic, and test results saved to your document vault with expiry dates
+• OET case-note sorting, a letter builder and model letters; IELTS Task 1 and Task 2 models; timed speaking role-plays
 • Hospital interview questions with STAR answers, plus visa and arrival interview prep
 
 VISA & SPONSORS

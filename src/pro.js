@@ -29,7 +29,7 @@ export const WIN_BACK_DAYS = 30;
 export const PRO_FEATURES = [
   ["Route", "Personal study plan & smart review", "A daily plan paced to your exam date, led by your weakest areas; every missed question comes back after 1, 3 and 7 days"],
   ["Network", "NGN Clinical Judgment Simulator", "A 150-item exam with Next Gen case studies picked from eight (chart tabs, bowtie and trend items), plus single-case practice"],
-  ["Languages", "OET-style writing & speaking practice", "Nursing letter tasks with model letters, and role-play cards for the speaking test"],
+  ["Languages", "OET & IELTS writing and speaking", "Letter builder, register guide and model letters; IELTS Task 1 & 2 models; timed role-plays with self-scoring"],
   ["MessageSquare", "Interview prep", "Sample STAR answers for hospital interviews, plus visa and arrival interview prep for your country"],
   ["Share2", "Document summary", "Share a tidy checklist of your documents, expiry dates and roadmap progress with a recruiter or college"],
   ["BellRing", "Automated expiry alerts", "Phone reminders 90 and 30 days before IELTS/PTE scores and licenses expire"],

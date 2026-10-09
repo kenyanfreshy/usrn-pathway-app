@@ -8,7 +8,7 @@ import { phasesFor, destId, BADGE_ROLES, lifeOf, WORDS } from "./data/global";
 const STORE_KEY = "usrn-pathway-v1";
 export const initialState = () => ({
   steps: { "cred-0": true, "cred-1": true, "cred-2": true, "cred-3": true, "att-0": true, "att-1": true },
-  flexible: false, docs: SAMPLE_DOCS, exams: [], runs: {}, catSeen: [], srs: {}, daily: {}, plan: { goal: 30, remind: false, hour: 19 }, lessons: {}, careers: {}, credit: {}, drive: {}, qstats: {},
+  flexible: false, docs: SAMPLE_DOCS, exams: [], runs: {}, catSeen: [], srs: {}, daily: {}, english: {}, plan: { goal: 30, remind: false, hour: 19 }, lessons: {}, careers: {}, credit: {}, drive: {}, qstats: {},
   profile: { dest: "US", regions: {}, name: "", lastName: "", homeCountry: "", specialty: "", targetState: "", country: "ph", pd: "", testDate: "", attEnd: "" },
   palette: "vivid", days: {}, qotd: {}, flash: 0, badgesSeen: null, alertsOn: false, onboarded: false,
   payments: [
@@ -78,6 +78,7 @@ function reducer0(s, a) {
       const keys = Object.keys(daily).sort(); while (keys.length > 120) delete daily[keys.shift()];
       return { ...s, qstats: q, srs, daily };
     }
+    case "english": return { ...s, english: { ...(s.english || {}), ...a.patch } };
     case "plan": return { ...s, plan: { ...(s.plan || {}), ...a.patch } };
     // The daily study reminder is a local notification on the old phone, so it starts off here (the nurse can turn it back on).
     case "restore": return { ...initialState(), ...a.state, profile: { ...initialState().profile, ...(a.state.profile || {}) }, plan: { ...initialState().plan, ...(a.state.plan || {}), remind: false }, onboarded: true };
