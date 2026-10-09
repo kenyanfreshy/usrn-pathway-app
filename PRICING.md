@@ -28,6 +28,25 @@ it shows dollars.
 
 Every other country: let the store convert your U.S. price automatically, then lower any that look too high.
 
+## Special offer for free users 30+ days after install (optional)
+
+The paywall can show a "Special offer — Save X%" version to people who have used the free app for 30 days or more
+without subscribing. That group often converts at a lower price. The discount has to be a **real store product**
+with its own lower price. The app works out the saving from the two store prices and crosses out the real regular
+price of the same plan. There's no made-up "was" price and no fake countdown, which Apple and Google both reject.
+
+1. Create the discounted products:
+   - Apple: in the **same subscription group**, add `usrn_pro_monthly_offer` (1 month) at the lower price.
+     Group B and C countries can get their own lower prices too.
+   - Google: on subscription `usrn_pro`, add a second base plan `monthly-offer` at the lower price.
+2. In RevenueCat, attach them to the `pro` entitlement. Create an offering with the identifier **`special_offer`**
+   (don't make it current) and give it a **Monthly** package pointing to those products.
+3. That's all. The app picks it up for free users 30+ days after their first open. If the offering is missing or
+   empty, everyone sees the regular paywall.
+
+A trial is offered only once per person, so most win-back shoppers see the discounted price with no trial,
+and the button reads "Subscribe now".
+
 ## App Store Connect (iPhone)
 
 1. **Monetization → Subscriptions →** create a subscription group named "USRN Pathway Pro", then the subscription
@@ -67,6 +86,7 @@ Every other country: let the store convert your U.S. price automatically, then l
 - A reminder notification 2 days before the trial ends, and only if the trial is still going to renew.
 - Pending purchases (Ask to Buy, delayed payment) unlock automatically when approved. A member who opens the app
   offline stays unlocked until their paid period ends.
+- "Redeem code" opens Apple's offer-code sheet or Google Play's redeem page, so you can hand out promo codes.
 - No outside payment links, no prices based on the user's location, and no hidden or ambiguous charges.
 
 ## Before you submit

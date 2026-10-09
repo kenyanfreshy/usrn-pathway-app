@@ -15,6 +15,11 @@ try { const m = require("react-native-purchases"); Purchases = m.default; ERR = 
 // Last known membership, so a paying member who opens the app offline isn't locked out.
 // The store's answer always replaces it as soon as the app reaches RevenueCat.
 const CACHE_KEY = "usrn.pro.v1";
+const FIRST_OPEN_KEY = "usrn.firstOpen.v1";
+// A second RevenueCat offering holding real, store-priced discounted products ("Special offer").
+// Shown only to free users WIN_BACK_DAYS or more after they first opened the app.
+export const SPECIAL_OFFERING = extra.specialOfferingId || "special_offer";
+export const WIN_BACK_DAYS = 30;
 const ANDROID_PACKAGE = "com.alexkorir.usrnpathway";
 
 const extra = (Constants.expoConfig && Constants.expoConfig.extra) || {};
@@ -52,6 +57,8 @@ export function ProProvider({ children }) {
   const [membership, setMembership] = useState(null);
   const [ready, setReady] = useState(false);
   const [packages, setPackages] = useState([]);
+  const [specialPackages, setSpecialPackages] = useState([]);
+  const [daysSinceInstall, setDays] = useState(0);
   const [devUnlock, setDevUnlock] = useState(false);
   const [storeAvailable, setStoreAvailable] = useState(false);
   const [error, setError] = useState("");
@@ -71,6 +78,8 @@ export function ProProvider({ children }) {
       const offerings = await Purchases.getOfferings();
       const cur = offerings && offerings.current;
       setPackages(cur ? cur.availablePackages : []);
+      const sp = offerings && offerings.all && offerings.all[SPECIAL_OFFERING];
+      setSpecialPackages(sp ? sp.availablePackages : []);
       if (!cur || !cur.availablePackages.length) setError("No plans are available from the store right now.");
     } catch (e) { setError("Couldn't reach the store. Check your connection and try again."); }
   }, []);
@@ -78,6 +87,11 @@ export function ProProvider({ children }) {
   useEffect(() => {
     let remove = null;
     (async () => {
+      try {
+        let first = await AsyncStorage.getItem(FIRST_OPEN_KEY);
+        if (!first) { first = new Date().toISOString(); AsyncStorage.setItem(FIRST_OPEN_KEY, first).catch(() => {}); }
+        setDays(Math.floor((Date.now() - new Date(first).getTime()) / 86400000));
+      } catch (e) {}
       // 1. Show the last known status straight away (offline-safe). Expired cached subscriptions don't count.
       try {
         const c = JSON.parse(await AsyncStorage.getItem(CACHE_KEY));
@@ -128,6 +142,14 @@ export function ProProvider({ children }) {
     try { return await restoreInner(); } catch (e) { return { ok: false, message: "Couldn't restore right now. Please try again." }; }
   }, [storeAvailable]);
 
+  /** Apple's offer-code sheet / Google Play's redeem page. */
+  const redeem = useCallback(async () => {
+    try {
+      if (Platform.OS === "ios" && Purchases && storeAvailable && Purchases.presentCodeRedemptionSheet) { await Purchases.presentCodeRedemptionSheet(); return; }
+    } catch (e) {}
+    Linking.openURL(Platform.OS === "ios" ? "https://apps.apple.com/redeem" : "https://play.google.com/redeem").catch(() => {});
+  }, [storeAvailable]);
+
   /** Opens the store's own subscription management (cancel, change plan). */
   const manage = useCallback(async () => {
     try {
@@ -139,7 +161,8 @@ export function ProProvider({ children }) {
   }, [membership, storeAvailable]);
 
   const isPro = !!membership || (__DEV__ && devUnlock);
-  const value = { isPro, membership, ready, packages, buy, restore, manage, reload: loadOfferings, storeAvailable, error, devUnlock, setDevUnlock };
+  const winBack = !isPro && daysSinceInstall >= WIN_BACK_DAYS && specialPackages.length > 0;
+  const value = { isPro, membership, ready, packages, specialPackages, winBack, daysSinceInstall, buy, restore, manage, redeem, reload: loadOfferings, storeAvailable, error, devUnlock, setDevUnlock };
   return <ProCtx.Provider value={value}>{children}</ProCtx.Provider>;
 }
 
