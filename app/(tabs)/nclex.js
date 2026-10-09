@@ -4,7 +4,7 @@ import { View, ScrollView, Pressable } from "react-native";
 import { router } from "expo-router";
 import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, tap, Grid, HScroll } from "../../src/ui";
 import { TutorCard } from "../../src/tutor";
-import { useTheme, FONTS } from "../../src/theme";
+import { useTheme, FONTS, mix } from "../../src/theme";
 import { useApp } from "../../src/state";
 import { usePro, ProBadge } from "../../src/pro";
 import { shuffle } from "../../src/util";
@@ -25,13 +25,31 @@ function MiniStat({ k, v }) {
   );
 }
 
+// One color per topic (dark enough for white count badges to stay readable).
+const TOPIC_COLORS = {
+  "Cardiovascular": "#DC2626", "Respiratory": "#0369A1", "Mental Health": "#7C3AED", "Pediatrics": "#DB2777",
+  "Maternal & Newborn": "#A21CAF", "Ethics & Professional Practice": "#4338CA", "Fundamentals & Safety": "#0F766E",
+  "Neurological": "#1D4ED8", "Gastrointestinal": "#B45309", "Pharmacology": "#15803D", "Multisystem & Shock": "#C2410C",
+  "Hematology & Oncology": "#9F1239", "Leadership & Delegation": "#4D7C0F", "Endocrine": "#A16207",
+  "Fluids & Electrolytes": "#0E7490", "Integumentary": "#57534E", "Musculoskeletal": "#475569",
+  "Renal & Genitourinary": "#047857", "Immunology & Infectious Disease": "#6B21A8",
+};
+const EXTRA = ["#BE123C", "#0891B2", "#65A30D", "#9333EA", "#EA580C"];
+const topicColor = (label) => TOPIC_COLORS[label] || EXTRA[[...label].reduce((n, c) => n + c.charCodeAt(0), 0) % EXTRA.length];
+
 function TopicChip({ label, n, on, onPress }) {
-  const t = useTheme(MOD);
+  const t = useTheme(MOD); const c = topicColor(label);
   return (
-    <Pressable onPress={() => { tap(); onPress(); }} accessibilityRole="checkbox" accessibilityState={{ checked: on }}
-      style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 6, paddingHorizontal: 12, paddingVertical: 9, borderRadius: 12, backgroundColor: on ? t.soft2 : t.c.sunk, borderWidth: 1, borderColor: on ? t.tint2 : "transparent" }}>
-      <Txt v="smallB" color={on ? t.tint2 : t.c.ink} style={{ flex: 1 }} numberOfLines={2}>{label}</Txt>
-      <Txt v="tiny" color={on ? t.tint2 : t.c.muted} style={{ fontFamily: FONTS.mono }}>{n}</Txt>
+    <Pressable onPress={() => { tap(); onPress(); }} accessibilityRole="checkbox" accessibilityState={{ checked: on }} accessibilityLabel={`${label}, ${n} questions`}
+      style={({ pressed }) => ({ flex: 1, flexDirection: "row", alignItems: "center", gap: 8, paddingLeft: 10, paddingRight: 8, paddingVertical: 9, borderRadius: 12, overflow: "hidden",
+        backgroundColor: mix(c, t.c.surface, on ? (t.dark ? 0.6 : 0.78) : (t.dark ? 0.8 : 0.9)), borderWidth: on ? 2 : 1, borderColor: on ? c : mix(c, t.c.surface, 0.7),
+        transform: [{ scale: pressed ? 0.98 : 1 }] })}>
+      <View style={{ width: 4, alignSelf: "stretch", borderRadius: 2, backgroundColor: c }} />
+      {on ? <Icon name="CheckCircle2" size={15} color={c} /> : null}
+      <Txt v="smallB" style={{ flex: 1 }} numberOfLines={2}>{label}</Txt>
+      <View style={{ minWidth: 30, paddingHorizontal: 7, paddingVertical: 2, borderRadius: 99, backgroundColor: c, alignItems: "center" }}>
+        <Txt v="tiny" color="#fff" style={{ fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{n}</Txt>
+      </View>
     </Pressable>
   );
 }

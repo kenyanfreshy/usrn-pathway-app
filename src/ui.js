@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 import * as Clipboard from "expo-clipboard";
 import { ICONS } from "./icons";
-import { useTheme, FONTS, mix } from "./theme";
+import { useTheme, FONTS, mix, tabColor } from "./theme";
 
 export const tap = () => { try { Haptics.selectionAsync(); } catch (e) {} };
 export const buzz = () => { try { Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success); } catch (e) {} };
@@ -234,42 +234,76 @@ export function HScroll({ children, mod, fade, hint = "Swipe for more", contentC
 
 /** Segmented tabs. Scroll sideways when they don't fit, with arrows and a hint (see HScroll). options: [{id,label,icon}] */
 export function Seg({ value, onChange, options, mod, even }) {
+  // Tab bar that adapts to the phone: it measures each tab's natural width, and when they all fit it spreads them
+  // evenly across the full width. On narrow phones (or with large accessibility text) it scrolls sideways instead,
+  // with arrows and a hint (see HScroll). `even` forces equal widths for short sets like "All · Unseen · Missed".
   const t = useTheme(mod);
   const pos = React.useRef({});
-  if (even) {
-    // Equal-width tabs that always fit: for short sets like "All · Unseen · Missed".
+  const [w, setW] = useState(0); const [nat, setNat] = useState({});
+  const GAP = 4, PAD = 4;
+  const measured = options.every((o) => nat[o.id]);
+  const need = options.reduce((n, o) => n + (nat[o.id] || 0), 0) + GAP * (options.length - 1) + PAD * 2 + 2;
+  const fits = even || (w > 0 && measured && need <= w + 0.5);
+  const bar = { backgroundColor: t.c.sunk, borderRadius: 16, borderWidth: 1, borderColor: t.c.line };
+  // Every tab has its own color (see TAB_COLORS): colored label and icon, and a solid fill in that color when selected.
+  const col = (o) => tabColor(options.indexOf(o), t.dark);
+  const inner = (o, on, extra) => {
+    const c = col(o); const fg = on ? c.onFill : c.fg;
     return (
-      <View accessibilityRole="tablist" style={{ flexDirection: "row", gap: 4, padding: 4, backgroundColor: t.c.sunk, borderRadius: 16, borderWidth: 1, borderColor: t.c.line }}>
-        {options.map((o) => {
-          const on = o.id === value;
-          return (
-            <Pressable key={o.id} onPress={() => { tap(); onChange(o.id); }} accessibilityRole="tab" accessibilityState={{ selected: on }}
-              style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6, paddingVertical: 9, paddingHorizontal: 6, borderRadius: 12, backgroundColor: on ? t.c.surface : "transparent", borderWidth: on ? 1 : 0, borderColor: t.c.line }}>
-              {o.icon ? <Icon name={o.icon} size={15} color={on ? t.tint : t.c.muted} /> : null}
-              <Txt v="smallB" color={on ? t.tint : t.c.muted} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8}>{o.label}</Txt>
-            </Pressable>
-          );
-        })}
-      </View>
+      <>
+        {o.icon ? <Icon name={o.icon} size={15} color={fg} /> : null}
+        <Txt v="smallB" color={fg} numberOfLines={1} {...extra}>{o.label}</Txt>
+      </>
     );
-  }
+  };
+  const tabStyle = (on, o) => {
+    const c = o ? col(o) : null;
+    return { flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6, paddingVertical: 9, paddingHorizontal: 12, borderRadius: 12,
+      backgroundColor: on && c ? c.fill : "transparent", borderWidth: 1, borderColor: on && c ? c.fill : "transparent" };
+  };
   return (
-    <HScroll mod={mod} fade={t.c.sunk} hint={`Swipe the tabs for more (${options.length} sections)`}
-      focusKey={value} getFocus={() => pos.current[value]}
-      style={{ backgroundColor: t.c.sunk, borderRadius: 16, borderWidth: 1, borderColor: t.c.line, overflow: "hidden" }}
-      contentContainerStyle={{ gap: 4, padding: 4 }}>
-      {options.map((o) => {
-        const on = o.id === value;
-        return (
-          <Pressable key={o.id} onPress={() => { tap(); onChange(o.id); }} accessibilityRole="tab" accessibilityState={{ selected: on }}
-            onLayout={(e) => { pos.current[o.id] = { x: e.nativeEvent.layout.x, w: e.nativeEvent.layout.width }; }}
-            style={{ flexDirection: "row", alignItems: "center", gap: 6, paddingVertical: 8, paddingHorizontal: 12, borderRadius: 12, backgroundColor: on ? t.c.surface : "transparent", borderWidth: on ? 1 : 0, borderColor: t.c.line }}>
-            {o.icon ? <Icon name={o.icon} size={15} color={on ? t.tint : t.c.muted} /> : null}
-            <Txt v="smallB" color={on ? t.tint : t.c.muted}>{o.label}</Txt>
-          </Pressable>
-        );
-      })}
-    </HScroll>
+    <View onLayout={(e) => setW(e.nativeEvent.layout.width)}>
+      {/* invisible copy used only to measure each tab's natural width */}
+      {!even ? (
+        <View pointerEvents="none" style={{ position: "absolute", left: 0, top: 0, width: 4000, flexDirection: "row", alignItems: "flex-start", opacity: 0 }} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+          {options.map((o) => (
+            <View key={o.id} style={[tabStyle(false), { flexShrink: 0 }]}
+              onLayout={(e) => { const cw = Math.ceil(e.nativeEvent.layout.width); setNat((n) => (Math.abs((n[o.id] || 0) - cw) > 0.5 ? { ...n, [o.id]: cw } : n)); }}>
+              {inner(o, false)}
+            </View>
+          ))}
+        </View>
+      ) : null}
+      {fits ? (
+        <View accessibilityRole="tablist" style={[bar, { flexDirection: "row", gap: GAP, padding: PAD }]}>
+          {options.map((o) => {
+            const on = o.id === value;
+            return (
+              <Pressable key={o.id} onPress={() => { tap(); onChange(o.id); }} accessibilityRole="tab" accessibilityState={{ selected: on }}
+                style={[tabStyle(on, o), even ? { flex: 1, paddingHorizontal: 6 } : { flexGrow: 1, flexShrink: 0, flexBasis: nat[o.id] || "auto" }]}>
+                {inner(o, on, even ? { adjustsFontSizeToFit: true, minimumFontScale: 0.8 } : null)}
+              </Pressable>
+            );
+          })}
+        </View>
+      ) : (
+        <HScroll mod={mod} fade={t.c.sunk} hint={`Swipe the tabs for more (${options.length} sections)`}
+          focusKey={value} getFocus={() => pos.current[value]}
+          style={[bar, { overflow: "hidden" }]}
+          contentContainerStyle={{ gap: GAP, padding: PAD }}>
+          {options.map((o) => {
+            const on = o.id === value;
+            return (
+              <Pressable key={o.id} onPress={() => { tap(); onChange(o.id); }} accessibilityRole="tab" accessibilityState={{ selected: on }}
+                onLayout={(e) => { pos.current[o.id] = { x: e.nativeEvent.layout.x, w: e.nativeEvent.layout.width }; }}
+                style={tabStyle(on, o)}>
+                {inner(o, on)}
+              </Pressable>
+            );
+          })}
+        </HScroll>
+      )}
+    </View>
   );
 }
 

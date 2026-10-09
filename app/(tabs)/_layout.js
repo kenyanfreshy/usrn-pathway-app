@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Icon, Grad } from "../../src/ui";
-import { useTheme, FONTS } from "../../src/theme";
+import { useTheme, FONTS, tabColor } from "../../src/theme";
 
 const TABS = [
   ["index", "Today", "LayoutDashboard", "home"],
@@ -13,10 +13,11 @@ const TABS = [
   ["more", "More", "LayoutGrid", "more"],
 ];
 
-function TabIcon({ name, mod, focused }) {
-  const t = useTheme(mod);
-  if (!focused) return <Icon name={name} size={21} color={t.tint} />;
-  return <Grad mod={mod} style={{ width: 44, height: 30, borderRadius: 12, alignItems: "center", justifyContent: "center" }}><Icon name={name} size={19} color="#fff" /></Grad>;
+// Each bottom tab keeps its own fixed color in every theme and in light or dark mode (see TAB_COLORS).
+function TabIcon({ name, index, focused }) {
+  const t = useTheme(); const c = tabColor(index, t.dark);
+  if (!focused) return <Icon name={name} size={21} color={c.fg} />;
+  return <View style={{ width: 44, height: 30, borderRadius: 12, alignItems: "center", justifyContent: "center", backgroundColor: c.fill }}><Icon name={name} size={19} color={c.onFill} /></View>;
 }
 
 export default function TabLayout() {
@@ -26,11 +27,17 @@ export default function TabLayout() {
       headerShown: false,
       tabBarActiveTintColor: t.c.ink, tabBarInactiveTintColor: t.c.muted,
       tabBarLabelStyle: { fontFamily: FONTS.bodyBold, fontSize: 11 },
+      // Five equal columns on every phone; labels always sit under the icon (also on wide screens and landscape).
+      tabBarItemStyle: { flex: 1 }, tabBarLabelPosition: "below-icon",
       tabBarStyle: { backgroundColor: t.c.surface, borderTopColor: t.c.line, height: 62 + ins.bottom, paddingTop: 6, paddingBottom: Math.max(ins.bottom, 8) },
     }}>
-      {TABS.map(([route, label, icon, mod]) => (
-        <Tabs.Screen key={route} name={route} options={{ title: label, tabBarIcon: ({ focused }) => <TabIcon name={icon} mod={mod} focused={focused} /> }} />
-      ))}
+      {TABS.map(([route, label, icon], i) => {
+        const c = tabColor(i, t.dark);
+        return (
+          <Tabs.Screen key={route} name={route} options={{ title: label, tabBarActiveTintColor: c.fg, tabBarInactiveTintColor: c.fg,
+            tabBarIcon: ({ focused }) => <TabIcon name={icon} index={i} focused={focused} /> }} />
+        );
+      })}
     </Tabs>
   );
 }

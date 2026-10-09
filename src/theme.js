@@ -21,6 +21,25 @@ export const PALETTES = {
   midnight: { label: "Midnight", colors: VIVID, dark: true },
 };
 
+// Fixed, clearly different colors for tabs, so every tab keeps its own color whatever theme the user picks in
+// Profile & settings (Vivid, Ocean, Sunrise, Midnight) and in light or dark mode. [light-mode color, dark-mode color]
+// Light colors pass 4.5:1 on the light tab bar and as white-text fills; dark colors pass on the dark tab bar.
+export const TAB_COLORS = [
+  ["#1D4ED8", "#93C5FD"], // blue
+  ["#065F46", "#6EE7B7"], // emerald
+  ["#9A3412", "#FDBA74"], // orange
+  ["#BE123C", "#FDA4AF"], // rose
+  ["#6D28D9", "#C4B5FD"], // violet
+  ["#155E75", "#67E8F9"], // cyan
+  ["#A21CAF", "#F0ABFC"], // fuchsia
+  ["#3F6212", "#BEF264"], // lime
+];
+/** Color set for the tab at position i: fg = text/icon color, fill = selected background, onFill = text on the fill. */
+export function tabColor(i, dark) {
+  const [l, d] = TAB_COLORS[((i % TAB_COLORS.length) + TAB_COLORS.length) % TAB_COLORS.length];
+  return dark ? { fg: d, fill: d, onFill: "#0b1020" } : { fg: l, fill: l, onFill: "#ffffff" };
+}
+
 export const PHASE_COLORS = ["#0891b2", "#4f46e5", "#ea580c", "#db2777", "#9333ea", "#059669"];
 
 // Font family names are filled in by app/_layout.js once fonts load; system fonts until then.
