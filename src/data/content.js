@@ -31,27 +31,12 @@ export const SAMPLE_DOCS = [
   { id: "s5", title: "Passport", cat: "Identity", file: "passport_bio.jpg", issued: isoOffset(-900), expires: isoOffset(1650), sample: true },
 ];
 
-export const BOARDS = [
-  { st: "NY", name: "New York", ssn: false, ces: "CGFNS CES", fee: 143, weeks: "8–16", juris: false, nlc: "No", note: "Requires NY-approved infection control and child-abuse identification coursework." },
-  { st: "IL", name: "Illinois", ssn: false, ces: "CGFNS CES, ERES", fee: 125, weeks: "6–10", juris: false, nlc: "No", note: "Popular first state; online application through IDFPR." },
-  { st: "TX", name: "Texas", ssn: false, ces: "CGFNS CES", fee: 186, weeks: "4–8", juris: true, nlc: "Yes", note: "Texas Nursing Jurisprudence Exam required before ATT." },
-  { st: "MT", name: "Montana", ssn: false, ces: "CGFNS CES", fee: 100, weeks: "4–8", juris: false, nlc: "Yes", note: "Known for shorter processing; check current queue." },
-  { st: "NM", name: "New Mexico", ssn: false, ces: "CGFNS CES", fee: 150, weeks: "6–10", juris: false, nlc: "Yes", note: "Compact state; residency rules decide multistate eligibility." },
-  { st: "FL", name: "Florida", ssn: true, ces: "CGFNS CES", fee: 110, weeks: "6–12", juris: false, nlc: "Yes", note: "SSN or approved alternative typically requested on application." },
-  { st: "CA", name: "California", ssn: true, ces: "Board review of transcripts", fee: 300, weeks: "12–24", juris: false, nlc: "No", note: "Detailed course-by-course review; theory/clinical gaps are common." },
-  { st: "WA", name: "Washington", ssn: false, ces: "CGFNS CES", fee: 125, weeks: "8–14", juris: false, nlc: "Verify", note: "Compact status has been changing; confirm before relying on it." },
-];
-
-export const ENDORSE = {
-  CA: { compact: false, fee: "≈ $350", time: "8–16 weeks", hours: "No minimum practice hours for endorsement", extra: ["Apply through BreEZe online", "Live Scan fingerprints (hard cards if outside CA)"] },
-  WA: { compact: null, fee: "≈ $125", time: "6–12 weeks", hours: "Recent practice may be reviewed if licensed > 3 years without working", extra: ["Fingerprint-based background check", "Confirm current compact status with the WA Nursing Commission"] },
-  TX: { compact: true, fee: "≈ $186", time: "2–6 weeks", hours: "No minimum hours; practice history reviewed", extra: ["Pass the Texas Nursing Jurisprudence Exam", "Fingerprints through the IdentoGO vendor"] },
-  NY: { compact: false, fee: "≈ $143", time: "6–12 weeks", hours: "No minimum hours", extra: ["NY infection control & child-abuse identification coursework", "Verification form completed by original state"] },
-  FL: { compact: true, fee: "≈ $110", time: "4–8 weeks", hours: "No minimum hours", extra: ["Electronic fingerprints via a Livescan vendor", "Florida-required CE courses (e.g., medical errors, domestic violence)"] },
-  IL: { compact: false, fee: "≈ $50", time: "4–8 weeks", hours: "No minimum hours", extra: ["Fingerprints for out-of-state applicants", "Implicit-bias and sexual-harassment prevention CE at renewal"] },
-  MT: { compact: true, fee: "≈ $100", time: "2–6 weeks", hours: "No minimum hours", extra: ["Fingerprint background check"] },
-  NM: { compact: true, fee: "≈ $150", time: "3–8 weeks", hours: "No minimum hours", extra: ["Fingerprint background check"] },
-};
+// U.S. boards of nursing for internationally educated nurses: verified against each board's own site (see us-boards.json
+// for the date, sources and anything that couldn't be confirmed). fee: USD exam application fee, or null if unclear.
+import US_BOARDS from "./us-boards.json";
+export const BOARDS = US_BOARDS.boards;
+export const ENDORSE = US_BOARDS.endorse;
+export const BOARDS_META = { checked: US_BOARDS.checked, sources: US_BOARDS.sources, uncertain: US_BOARDS.uncertain };
 
 export const DIAG = [
   { id: "d1", cat: "Management of Care", stem: "The nurse receives handoff on four clients. Which client should the nurse assess first?", answer: "b",

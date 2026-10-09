@@ -20,11 +20,12 @@ export async function askPermission() {
 }
 
 const TRIAL_ID = "trial-end";
+const STUDY_ID = "study-daily";
 
 /** Cancel the document reminders but keep the free-trial reminder. */
 async function cancelExpiryOnly() {
   const all = await Notifications.getAllScheduledNotificationsAsync();
-  for (const n of all) if (n.identifier !== TRIAL_ID) await Notifications.cancelScheduledNotificationAsync(n.identifier);
+  for (const n of all) if (n.identifier !== TRIAL_ID && n.identifier !== STUDY_ID) await Notifications.cancelScheduledNotificationAsync(n.identifier);
 }
 
 /** Remind the member 2 days before their free trial turns into a paid subscription (Apple and Google both
@@ -75,3 +76,18 @@ export async function scheduleExpiryAlerts(docs) {
 }
 
 export async function cancelAlerts() { try { await cancelExpiryOnly(); } catch (e) {} }
+
+/** Daily study reminder at the chosen hour (study plan). Replaces any previous one. */
+export async function scheduleStudyReminder(hour = 19) {
+  try {
+    await Notifications.cancelScheduledNotificationAsync(STUDY_ID).catch(() => {});
+    if (!(await askPermission())) return false;
+    await Notifications.scheduleNotificationAsync({
+      identifier: STUDY_ID,
+      content: { title: "Today's study plan is ready", body: "Your smart review and practice questions are waiting. A little every day adds up." },
+      trigger: { type: Notifications.SchedulableTriggerInputTypes.DAILY, hour, minute: 0, channelId: "expiry" },
+    });
+    return true;
+  } catch (e) { return false; }
+}
+export async function cancelStudyReminder() { try { await Notifications.cancelScheduledNotificationAsync(STUDY_ID); } catch (e) {} }

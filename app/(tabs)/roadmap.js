@@ -1,6 +1,7 @@
 // Roadmap tab: 6-phase milestone tracker, personalized timeline, cost tracker and document vault.
 import React, { useEffect, useState } from "react";
-import { View, Pressable, ScrollView, Linking } from "react-native";
+import { View, Pressable, ScrollView, Linking, Share } from "react-native";
+import { router } from "expo-router";
 import Svg, { Circle, Line, Text as SvgText } from "react-native-svg";
 import { Screen, Hero, Card, Row, Txt, Bar, Check, Chip, Note, Btn, Field, DateField, Select, SectionTitle, Icon, Grad, IconTile, tap, Grid, HScroll } from "../../src/ui";
 import { useTheme, mix, FONTS } from "../../src/theme";
@@ -123,6 +124,7 @@ function PhaseRow({ p, i, US, prev }) {
               const sub = other ? other : !sr ? null : mine && sr.code === mine.code ? `Your ${REGION_WORD[dest]}` : mine ? `Only for ${sr.region}. Tick it to skip.` : null;
               return <Check key={id} mod={MOD} checked={!!state.steps[id]} disabled={st.locked} strike label={s} sub={sub} onToggle={() => dispatch({ type: "step", id })} />;
             })}
+            {/English/.test(p.title) ? <Btn mod={MOD} small kind="secondary" icon="Languages" title="English test prep" onPress={() => { tap(); router.push("/english"); }} style={{ alignSelf: "flex-start", marginTop: 6 }} /> : null}
             {st.locked && prev ? <Txt v="tiny" muted>Finish “{prev.title}” to unlock, or turn on flexible order.</Txt> : null}
             {p.links && p.links.length ? (
               <View style={{ gap: 6, marginTop: 6 }}>
@@ -319,6 +321,36 @@ function CostTracker() {
   );
 }
 
+/* ---------- document summary (Pro): a text checklist to send to a recruiter, employer or college ---------- */
+function docSummary(state) {
+  const p = state.profile; const dest = destOf(destId(state)); const PH = phasesOf(state);
+  const name = [p.name, p.lastName].filter(Boolean).join(" ") || "Nurse";
+  const lines = [`Document summary · ${name}`, `Destination: ${dest.name}`, `Prepared ${fmtDate(todayKey())} with USRN Pathway`, ""];
+  const cats = [...new Set(state.docs.map((d) => d.cat))];
+  cats.forEach((c) => {
+    lines.push(c.toUpperCase());
+    state.docs.filter((d) => d.cat === c).forEach((d) => {
+      const n = daysUntil(d.expires);
+      const status = !d.expires ? "no expiry" : n < 0 ? `EXPIRED ${fmtDate(d.expires)}` : `expires ${fmtDate(d.expires)}${n <= 90 ? " (renew soon)" : ""}`;
+      lines.push(`• ${d.title}${d.issued ? `, issued ${fmtDate(d.issued)}` : ""} · ${status}`);
+    });
+    lines.push("");
+  });
+  lines.push("ROADMAP");
+  PH.forEach((ph, i) => { const st = phaseStatus(state, i); lines.push(`${st.complete ? "✓" : "○"} ${ph.title} (${st.done}/${ph.steps.length})`); });
+  lines.push("", "Copies available on request. Originals are kept by the nurse.");
+  return lines.join("\n");
+}
+
+function DocSummaryBtn() {
+  const { state } = useApp(); const { isPro } = usePro();
+  const go = async () => {
+    if (!isPro) { router.push("/paywall"); return; }
+    try { await Share.share({ title: "Document summary", message: docSummary(state) }); } catch (e) {}
+  };
+  return <Btn mod={MOD} small kind="secondary" icon="Share2" title={isPro ? "Share document summary" : "Document summary · Pro"} onPress={go} />;
+}
+
 /* ---------- document vault ---------- */
 function Vault() {
   const { state, dispatch } = useApp();
@@ -407,6 +439,7 @@ function Vault() {
       </Card>
 
       <Card mod={MOD} style={{ gap: 12 }}>
+        <DocSummaryBtn />
         <Row gap={10}>
           <Txt v="bodyB" style={{ flex: 1 }}>{list.length} document{list.length === 1 ? "" : "s"}</Txt>
           <View style={{ width: 170 }}>

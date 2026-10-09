@@ -52,10 +52,12 @@ export function breakdown(items, ans) {
 }
 
 /* ---------------- the three benchmark exams ---------------- */
+/** Test 2 uses 4 of the case studies (picked at random each attempt) so it stays at 150 items. */
+export const T2_CASES = 4;
 export const EXAM_ITEMS = { 1: BANK.filter((q) => q.exam === 1), 2: BANK.filter((q) => q.exam === 2), 3: BANK.filter((q) => q.exam === 3) };
 export const TESTS = {
   t1: { title: "Diagnostic Benchmark", count: EXAM_ITEMS[1].length },
-  t2: { title: "NGN Clinical Judgment Simulator", count: EXAM_ITEMS[2].length + NGN_CASES.reduce((n, c) => n + c.items.length, 0) },
+  t2: { title: "NGN Clinical Judgment Simulator", count: EXAM_ITEMS[2].length + T2_CASES * 6 },
   t3: { title: "Comprehensive Predictor", count: EXAM_ITEMS[3].length },
 };
 
@@ -64,7 +66,7 @@ export function buildTest1() { return shuffle(EXAM_ITEMS[1]).map(shuffleItem); }
 /** Test 2: the NGN case studies interleaved with the stand-alone items, like sections of the real exam. */
 export function buildTest2() {
   const items = shuffle(EXAM_ITEMS[2]).map(shuffleItem);
-  const cases = NGN_CASES.map((c) => c.id);
+  const cases = shuffle(NGN_CASES.map((c) => c.id)).slice(0, T2_CASES);
   const per = Math.ceil(items.length / cases.length); const blocks = [];
   cases.forEach((id, k) => {
     blocks.push({ kind: "case", id });

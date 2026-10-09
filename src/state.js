@@ -8,7 +8,7 @@ import { phasesFor, destId, BADGE_ROLES, lifeOf, WORDS } from "./data/global";
 const STORE_KEY = "usrn-pathway-v1";
 export const initialState = () => ({
   steps: { "cred-0": true, "cred-1": true, "cred-2": true, "cred-3": true, "att-0": true, "att-1": true },
-  flexible: false, docs: SAMPLE_DOCS, exams: [], runs: {}, catSeen: [], lessons: {}, careers: {}, credit: {}, drive: {}, qstats: {},
+  flexible: false, docs: SAMPLE_DOCS, exams: [], runs: {}, catSeen: [], srs: {}, daily: {}, plan: { goal: 30, remind: false, hour: 19 }, lessons: {}, careers: {}, credit: {}, drive: {}, qstats: {},
   profile: { dest: "US", regions: {}, name: "", lastName: "", homeCountry: "", specialty: "", targetState: "", country: "ph", pd: "", testDate: "", attEnd: "" },
   palette: "vivid", days: {}, qotd: {}, flash: 0, badgesSeen: null, alertsOn: false, onboarded: false,
   payments: [
@@ -23,7 +23,7 @@ export const initialState = () => ({
 });
 
 const ACTIVE = new Set(["step", "region", "addDoc", "exam", "lesson", "career", "credit", "addLadder", "qotd", "flash", "addPay", "drive", "qstat"]);
-function reducer(s, a) {
+export function reducer(s, a) {
   const n = reducer0(s, a);
   if (n !== s && ACTIVE.has(a.type)) return { ...n, days: { ...(n.days || {}), [dkey(new Date())]: true } };
   return n;
@@ -66,10 +66,21 @@ function reducer0(s, a) {
     case "alerts": return { ...s, alertsOn: !!a.on };
     case "onboarded": return { ...s, onboarded: true };
     case "qstat": {
-      const q = { ...(s.qstats || {}) };
-      Object.entries(a.res).forEach(([id, ok]) => { const v = q[id] || [0, 0]; q[id] = [v[0] + 1, v[1] + (ok ? 1 : 0), ok ? 1 : 0]; });
-      return { ...s, qstats: q };
+      const q = { ...(s.qstats || {}) }; const srs = { ...(s.srs || {}) };
+      Object.entries(a.res).forEach(([id, ok]) => {
+        const v = q[id] || [0, 0]; q[id] = [v[0] + 1, v[1] + (ok ? 1 : 0), ok ? 1 : 0];
+        // Smart review (spaced repetition): a miss comes back tomorrow; then after 3 and 7 days; 3 right in a row = mastered.
+        if (!ok) srs[id] = { box: 0, due: isoOffset(1) };
+        else if (srs[id]) { const box = srs[id].box + 1; if (box >= 3) delete srs[id]; else srs[id] = { box, due: isoOffset(box === 1 ? 3 : 7) }; }
+      });
+      const k = dkey(new Date()); const daily = { ...(s.daily || {}) }; daily[k] = (daily[k] || 0) + Object.keys(a.res).length;
+      // keep the last 120 days of daily counts
+      const keys = Object.keys(daily).sort(); while (keys.length > 120) delete daily[keys.shift()];
+      return { ...s, qstats: q, srs, daily };
     }
+    case "plan": return { ...s, plan: { ...(s.plan || {}), ...a.patch } };
+    // The daily study reminder is a local notification on the old phone, so it starts off here (the nurse can turn it back on).
+    case "restore": return { ...initialState(), ...a.state, profile: { ...initialState().profile, ...(a.state.profile || {}) }, plan: { ...initialState().plan, ...(a.state.plan || {}), remind: false }, onboarded: true };
     case "reset": return { ...initialState(), palette: s.palette, onboarded: true };
     default: return s;
   }
@@ -96,6 +107,9 @@ export const creditKey = (s, i) => (destId(s) === "US" ? i : `${destId(s)}-${i}`
 export const careersOf = (s) => { const d = destId(s); const l = lifeOf(d); return l ? l.careers.map((c) => ({ ...c, id: `${d}-${c.id}` })) : CAREERS; };
 export const insureListOf = (s) => { const l = lifeOf(destId(s)); return l ? l.insureList : INSURE_LIST; };
 export const insureKey = (s, i) => (destId(s) === "US" ? "ins" + i : `${destId(s)}-ins${i}`);
+
+/** Question ids due for smart review today (oldest first). */
+export const dueReview = (s) => Object.entries(s.srs || {}).filter(([, v]) => v.due <= dkey(new Date())).sort((a, b) => (a[1].due < b[1].due ? -1 : 1)).map(([id]) => id);
 
 export const LEVELS = [[0, "Applicant"], [250, "Candidate"], [600, "NCLEX Ready"], [1000, "Licensed RN"], [1500, "Bedside Pro"], [2200, "Charge RN"], [3000, "Nurse Leader"]];
 export function levelOf(xp) {
@@ -181,7 +195,7 @@ export function AppProvider({ children }) {
         const raw = await AsyncStorage.getItem(STORE_KEY);
         if (raw) {
           const v = JSON.parse(raw); const base = initialState();
-          dispatch({ type: "hydrate", state: { ...base, ...v, profile: { ...base.profile, ...(v.profile || {}) } } });
+          dispatch({ type: "hydrate", state: { ...base, ...v, profile: { ...base.profile, ...(v.profile || {}) }, plan: { ...base.plan, ...(v.plan || {}) } } });
         }
       } catch (e) {}
       setReady(true);

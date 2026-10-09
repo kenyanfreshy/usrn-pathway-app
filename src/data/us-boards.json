@@ -1,0 +1,426 @@
+{
+  "checked": "2026-10-09",
+  "boards": [
+    {
+      "st": "NY",
+      "name": "New York",
+      "ssn": null,
+      "ces": "Optional: TruMerit CVS for New York, or school sends Form 2F",
+      "fee": 143,
+      "weeks": "",
+      "juris": false,
+      "nlc": "No",
+      "english": "None listed by board",
+      "note": "Pathway 5 for IENs. Take NY-approved infection control and child abuse courses first. No exam until NYSED approves you.",
+      "url": "https://www.op.nysed.gov/professions/registered-professional-nursing"
+    },
+    {
+      "st": "IL",
+      "name": "Illinois",
+      "ssn": false,
+      "ces": "TruMerit CES, ERES, JS&A, TEC, or IEE",
+      "fee": null,
+      "weeks": "",
+      "juris": false,
+      "nlc": "No",
+      "english": "Needed if program not in English: TOEFL, IELTS (6.5, Speaking 7), OET, PTE, or MET",
+      "note": "No SSN? File the SSN affidavit. Fingerprint within 60 days of applying. Register for NCLEX through CTS.",
+      "url": "https://nursing.illinois.gov/nursing-licensure/internationally-educated-nurses.html"
+    },
+    {
+      "st": "TX",
+      "name": "Texas",
+      "ssn": false,
+      "ces": "CES Full Education Professional report, sent by the evaluator",
+      "fee": null,
+      "weeks": "3–4",
+      "juris": true,
+      "nlc": "Yes",
+      "english": "Needed if program not in English: TOEFL iBT 83, IELTS 6.5 (6.0 each), PTE 55 (50 each), MET 55 (Speaking 55), or OET 300 in each part (one sitting, no remote tests)",
+      "note": "Pass the Texas Jurisprudence Exam before ATT. You must have worked in the last 4 years or graduated within 4 years.",
+      "url": "https://www.bon.texas.gov/licensure_examination.asp.html"
+    },
+    {
+      "st": "FL",
+      "name": "Florida",
+      "ssn": false,
+      "ces": "Full Education Course-by-Course report: CGFNS/TruMerit, ERES, JS&A, IEE, SpanTran (TEC), or Ashland",
+      "fee": null,
+      "weeks": "",
+      "juris": false,
+      "nlc": "Yes",
+      "english": "Needed if program not in English: IELTS 6.5 (Speaking 7), TOEFL iBT 76, PTE 55, MET 55, or OET 300",
+      "note": "You can apply and test without an SSN. You need one before the license is issued. Livescan fingerprints required.",
+      "url": "https://floridasnursing.gov/"
+    },
+    {
+      "st": "CA",
+      "name": "California",
+      "ssn": true,
+      "ces": "Not required. School mails transcripts to the BRN.",
+      "fee": 750,
+      "weeks": "10–12",
+      "juris": false,
+      "nlc": "No",
+      "english": "TOEFL may be required if you are from a non-English-speaking country or did not take your licensing exam in English. The BRN packet gives no minimum score.",
+      "note": "SSN or ITIN is mandatory. BRN does its own course review; gaps must be made up before the exam. Fingerprints required.",
+      "url": "https://www.rn.ca.gov/applicants/lic-exam"
+    },
+    {
+      "st": "WA",
+      "name": "Washington",
+      "ssn": false,
+      "ces": "TruMerit CES Professional, ERES, IEE, JS&A, or TEC",
+      "fee": 138,
+      "weeks": "",
+      "juris": false,
+      "nlc": "Yes",
+      "english": "Required unless exempt: TOEFL iBT 4.0 (Speaking 4.5), IELTS 6.5 (6.0 each), OET 300 L/R/W + 280 Speaking, MET 55 (Speaking 55), or CELBAN (L9, R8, W7, S8). PTE not listed.",
+      "note": "Fee is $138 single-state or $203 multistate. No SSN? Submit the No SSN form. FBI fingerprint check required.",
+      "url": "https://nursing.wa.gov/"
+    },
+    {
+      "st": "NM",
+      "name": "New Mexico",
+      "ssn": null,
+      "ces": "Course-by-course: TruMerit CES Professional, JS&A, or ERES",
+      "fee": 150,
+      "weeks": "",
+      "juris": false,
+      "nlc": "Yes",
+      "english": "Needed if program not in English: TOEFL, TOEIC, IELTS, OET, or MET",
+      "note": "Upload your visa or passport after applying. Fingerprints via IdentoGO. A $50 multistate fee started June 1, 2026.",
+      "url": "https://www.bon.nm.gov/"
+    },
+    {
+      "st": "MT",
+      "name": "Montana",
+      "ssn": null,
+      "ces": "TruMerit CES, JS&A, or IEE",
+      "fee": 100,
+      "weeks": "",
+      "juris": false,
+      "nlc": "Yes",
+      "english": "Not listed by board",
+      "note": "Apply online. Fingerprint check through the Montana DOJ is required.",
+      "url": "https://boards.bsd.dli.mt.gov/nursing"
+    },
+    {
+      "st": "NJ",
+      "name": "New Jersey",
+      "ssn": true,
+      "ces": "TruMerit CES Professional or Certification Program letter",
+      "fee": null,
+      "weeks": "",
+      "juris": false,
+      "nlc": "Yes",
+      "english": "Sent to TruMerit: TOEFL iBT 83 (Speaking 26), IELTS 6.5 (6.0 each), OET 300 R/W/L + 350 Speaking, or TOEIC. Educated in some countries (e.g., UK, Canada outside Quebec, Australia)? Exempt.",
+      "note": "SSN and a copy of the card are required. You may test before the background check clears, but cannot work yet.",
+      "url": "https://www.njconsumeraffairs.gov/nur/"
+    },
+    {
+      "st": "PA",
+      "name": "Pennsylvania",
+      "ssn": false,
+      "ces": "Board-approved foreign credentials evaluator (TruMerit lists CES Professional)",
+      "fee": 115,
+      "weeks": "",
+      "juris": false,
+      "nlc": "Yes",
+      "english": "Needed if program not in English: a Board-approved test",
+      "note": "No SSN? File the SSN waiver. Take 3 hours of approved child abuse training. Multistate license costs $250 for IENs.",
+      "url": "https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/nursing"
+    },
+    {
+      "st": "AZ",
+      "name": "Arizona",
+      "ssn": null,
+      "ces": "TruMerit CES, Certification Program letter, VisaScreen, or other approved evaluator",
+      "fee": 300,
+      "weeks": "",
+      "juris": false,
+      "nlc": "Yes",
+      "english": "Needed if program not in English: TOEFL iBT 84 (Speaking 26), IELTS 6.5 (6.0 each), PTE 55, or VisaScreen",
+      "note": "Must show lawful presence; SSN needed if you live or work in the U.S. Fingerprints required ($50).",
+      "url": "https://www.azbn.gov/"
+    },
+    {
+      "st": "GA",
+      "name": "Georgia",
+      "ssn": true,
+      "ces": "TruMerit CES Professional",
+      "fee": 40,
+      "weeks": "",
+      "juris": false,
+      "nlc": "Yes",
+      "english": "TOEFL if required",
+      "note": "You need one active foreign license when the CES is issued. Graduated over 4 years ago? Show 500 hours in 4 years.",
+      "url": "https://sos.ga.gov/georgia-board-nursing"
+    }
+  ],
+  "endorse": {
+    "NY": {
+      "compact": false,
+      "fee": "$143",
+      "time": "Check board",
+      "hours": "No practice-hours rule listed",
+      "extra": [
+        "NY infection control and child abuse courses",
+        "Verify license via Nursys or Form 3"
+      ]
+    },
+    "IL": {
+      "compact": false,
+      "fee": "Check board",
+      "time": "Check board",
+      "hours": "No practice-hours rule listed",
+      "extra": [
+        "IENs: CES report or TruMerit/VisaScreen/JS&A certificate",
+        "No English test if you passed NCLEX",
+        "Fingerprints by an IL-licensed vendor"
+      ]
+    },
+    "TX": {
+      "compact": true,
+      "fee": "Check board",
+      "time": "Check board",
+      "hours": "Check board",
+      "extra": [
+        "Pass the Texas Jurisprudence Exam",
+        "DPS/FBI fingerprint check"
+      ]
+    },
+    "FL": {
+      "compact": true,
+      "fee": "Check board",
+      "time": "Check board",
+      "hours": "Check board",
+      "extra": [
+        "Apply via MOBILE endorsement",
+        "Livescan fingerprints"
+      ]
+    },
+    "CA": {
+      "compact": false,
+      "fee": "$750 if educated abroad ($350 if US-educated)",
+      "time": "10–12 weeks",
+      "hours": "No hours rule; license must be active",
+      "extra": [
+        "Apply online in BreEZe",
+        "Live Scan in CA, or hard cards ($49) from outside CA",
+        "SSN or ITIN required"
+      ]
+    },
+    "WA": {
+      "compact": true,
+      "fee": "$138 single-state; $203 multistate",
+      "time": "Check board",
+      "hours": "No practice-hours rule listed",
+      "extra": [
+        "Transcripts sent directly from school, evaluator, or another board",
+        "FBI fingerprint check",
+        "No SSN? Submit the No SSN form"
+      ]
+    },
+    "NM": {
+      "compact": true,
+      "fee": "$150 (+$50 multistate)",
+      "time": "Check board",
+      "hours": "No practice-hours rule listed",
+      "extra": [
+        "Verify license via Nursys",
+        "Fingerprints via IdentoGO"
+      ]
+    },
+    "MT": {
+      "compact": true,
+      "fee": "Check board",
+      "time": "Check board",
+      "hours": "No practice-hours rule listed",
+      "extra": [
+        "Montana DOJ fingerprint check",
+        "IENs may be asked for CES, eDas, or VisaScreen letter"
+      ]
+    },
+    "NJ": {
+      "compact": true,
+      "fee": "Check board",
+      "time": "Check board",
+      "hours": "No practice-hours rule listed",
+      "extra": [
+        "IENs: TruMerit CES Professional report",
+        "Criminal background check"
+      ]
+    },
+    "PA": {
+      "compact": true,
+      "fee": "$120 single-state; $180 multistate",
+      "time": "Check board",
+      "hours": "No RN hours rule listed",
+      "extra": [
+        "3 hours of approved child abuse training",
+        "IENs: Board-approved credential evaluation",
+        "Multistate: FBI fingerprint check"
+      ]
+    },
+    "AZ": {
+      "compact": true,
+      "fee": "$150 (+$50 background check)",
+      "time": "Check board",
+      "hours": "Check board",
+      "extra": [
+        "IENs: CES, CP letter, or VisaScreen",
+        "Fingerprint background check"
+      ]
+    },
+    "GA": {
+      "compact": true,
+      "fee": "$75 (+$5 online processing)",
+      "time": "Check board",
+      "hours": "Graduated within 4 years, or 500 hours in last 4 years, or reentry course",
+      "extra": [
+        "Nursys verification and school transcripts",
+        "GAPS/Idemia fingerprints same day you apply"
+      ]
+    }
+  },
+  "sources": [
+    [
+      "NLC map (nursecompact.com)",
+      "https://www.nursecompact.com/files/NLC_Map.pdf"
+    ],
+    [
+      "PA NLC implementation (July 7, 2025)",
+      "https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/nursing/nlc"
+    ],
+    [
+      "PA RN multistate fees",
+      "https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/nursing/registered-nurse-multistate-licensure-snapshot"
+    ],
+    [
+      "PA RN licensure snapshot (fees)",
+      "https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/nursing/registered-nurses-licensure-snapshot.html"
+    ],
+    [
+      "PA exam application, IENs",
+      "https://pa.gov/content/dam/copapwp-pagov/en/dos/department-and-offices/bpoa/nursing/EXAMINATION-INTERNATIONALLY-EDUCATED-GRADUATES-NOT-LICENSED.pdf"
+    ],
+    [
+      "WA multistate license (open Feb 1, 2024)",
+      "https://nursing.wa.gov/news/2024/apply-wa-multistate-license"
+    ],
+    [
+      "WA educated outside the US",
+      "https://nursing.wa.gov/node/951"
+    ],
+    [
+      "WA license fees",
+      "https://nursing.wa.gov/licensing/nurse-license-fees"
+    ],
+    [
+      "NY RN Pathway 5",
+      "https://www.op.nysed.gov/professions/registered-professional-nursing/license-requirements/pathway-5"
+    ],
+    [
+      "NY RN license requirements",
+      "https://www.op.nysed.gov/professions/registered-professional-nursing/license-requirements"
+    ],
+    [
+      "IL internationally educated nurses",
+      "https://nursing.illinois.gov/nursing-licensure/internationally-educated-nurses.html"
+    ],
+    [
+      "TX licensure by exam",
+      "https://www.bon.texas.gov/licensure_examination.asp.html"
+    ],
+    [
+      "TX forms and fees",
+      "https://www.bon.state.tx.us/forms_fees.asp.html"
+    ],
+    [
+      "FL educated outside the US",
+      "https://www.floridasnursing.gov/forms/licensure-info-edu-outside-us.pdf"
+    ],
+    [
+      "CA BRN fee schedule",
+      "https://rn.ca.gov/consumers/fees.shtml"
+    ],
+    [
+      "CA exam application packet",
+      "https://www.rn.ca.gov/pdfs/applicants/exam-app.pdf"
+    ],
+    [
+      "CA processing times",
+      "https://rn.ca.gov/times.shtml"
+    ],
+    [
+      "NM RN/LPN requirements",
+      "https://www.bon.nm.gov/?p=713"
+    ],
+    [
+      "NM fees",
+      "https://www.bon.nm.gov/fees/"
+    ],
+    [
+      "MT RN exam checklist",
+      "https://boards.bsd.dli.mt.gov/_docs/nur/rn-exam-app-checklist.pdf"
+    ],
+    [
+      "NJ foreign graduate packet",
+      "https://www.njconsumeraffairs.gov/nur/applications/rn-and-lpn-application-packet-graduates-of-foreign-nursing-programs.pdf"
+    ],
+    [
+      "NJ fee rule N.J.A.C. 13:37-5.5",
+      "https://regulations.justia.com/states/new-jersey/title-13/chapter-37/subchapter-5/section-13-37-5-5/"
+    ],
+    [
+      "AZ agency fees",
+      "https://www.azbn.gov/licenses-and-certifications/agency-fees"
+    ],
+    [
+      "AZ rule R4-19-301 (exam, IENs)",
+      "https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R4-19-301"
+    ],
+    [
+      "GA RN how-to guide",
+      "https://sos.ga.gov/how-to-guide/how-guide-registered-nurse"
+    ],
+    [
+      "GA fee schedule",
+      "https://sos.ga.gov/sites/default/files/forms/Nursing%20Board%20Fee%20Schedule%20%282%29.pdf"
+    ],
+    [
+      "TruMerit services by state",
+      "https://www.trumerit.org/select-your-service-by-state/"
+    ],
+    [
+      "NCLEX fees: $200 now; $350 from Feb 1, 2027",
+      "https://www.nclex.com/fees-payment.page"
+    ],
+    [
+      "NCSBN NCLEX fee change notice",
+      "https://ncsbn.org/news/nclex-fee-changes-feb1"
+    ]
+  ],
+  "uncertain": [
+    "NCLEX fee is $200 now. It rises to $350 for registrations on or after Feb 1, 2027.",
+    "IL: exam fee unclear. IEN page shows a $50 license fee; CTS application fee not stated. Endorsement fee not found.",
+    "TX: board fee page conflicts. Summary says exam $75, endorsement $150; rule text says $50 and $125. NJE fee up to $25.",
+    "FL: fee unclear. Newer board page says $50; older page says $110; rule says $50 exam + $50 license. Fee pages would not load.",
+    "FL: endorsement (MOBILE) fee listed as $110 in a board page index, but the page itself would not load.",
+    "NJ: foreign-graduate packet says $100 + $120 license + $5 = $225; current rule says $75 + $120. Packet is older (form rev. 2019).",
+    "NJ: board packet asks for CGFNS full course-by-course report and TOEFL; TruMerit now lists CES Professional or CP letter.",
+    "NY: SSN rule for IENs not shown on the pages checked. NY lists no English test and no fingerprints.",
+    "NM, MT: SSN rule not shown on board pages.",
+    "AZ: SSN required if you live or work in the U.S.; unclear for applicants abroad. $300 exam fee is from the board fee page.",
+    "GA: $40 exam fee is from a fee schedule dated 8/19/2022; $5 online processing fee extra.",
+    "PA: $115 fee is for a single-state license; IEN multistate license is $250.",
+    "WA: $138 is single-state; multistate is $203. Board did not list an IEN-specific fee or processing time.",
+    "MT: board checklist lists no English requirement; confirm with board.",
+    "Processing times: only CA (10–12 weeks, as of Sept 18, 2026) and TX (review within 15 business days of complete file) publish estimates.",
+    "Jurisprudence exam: found only for TX. Other boards' pages did not list one.",
+    "Endorsement practice-hours rules: only GA states one on its page. Others say nothing or were not checked.",
+    "CA: BRN exam packet says TOEFL may be required but gives no minimum score; earlier TOEFL section scores (22/26) were not found on BRN pages and were removed.",
+    "AZ: TOEFL 84 / PTE 55 English minimums come from rule R4-19-301 as summarized; not re-checked against the current rule text on 2026-10-09."
+  ]
+}

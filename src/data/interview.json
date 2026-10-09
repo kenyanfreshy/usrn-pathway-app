@@ -1,0 +1,516 @@
+{
+  "checked": "2026-10-09",
+  "job": {
+    "intro": "Most nursing interviews in the U.S., Canada, Australia and New Zealand are behavioral. They ask about real things you did. The past is the best guide to how you will act. Use the STAR method to keep answers clear and short. Pick true stories from your own practice. Never invent or exaggerate a story. Keep patient details private: no names or identifying facts. Aim for 1 to 2 minutes per answer.",
+    "star": [
+      [
+        "Situation",
+        "Set the scene in 1 or 2 sentences. Where were you? What was happening?"
+      ],
+      [
+        "Task",
+        "What was your role or goal? What did you need to do?"
+      ],
+      [
+        "Action",
+        "What did YOU do, step by step? Say \"I\", not only \"we\". This is the longest part."
+      ],
+      [
+        "Result",
+        "What happened? Use facts if you can. Add what you learned or would do again."
+      ]
+    ],
+    "questions": [
+      {
+        "q": "Tell me about a time a patient's condition deteriorated. What did you do?",
+        "why": "Clinical judgment. Can you spot early warning signs, act fast, escalate and communicate clearly?",
+        "tips": [
+          "Name the signs you noticed and the tool you used, such as an early warning score.",
+          "Show how you escalated: who you called and what you said. SBAR is a good structure.",
+          "End with the outcome and your follow-up, such as documentation and handover."
+        ],
+        "sample": "On a surgical ward, a post-op patient became restless at 2 a.m. Her heart rate was 118 and her blood pressure was dropping. My task was to assess her and get help fast. I checked her vital signs again, saw her early warning score had risen and checked her wound and drain. I called the rapid response team using SBAR. I started oxygen as per protocol and prepared IV access. The team found internal bleeding and she went back to surgery. She recovered well. I learned to trust small changes and escalate early."
+      },
+      {
+        "q": "Describe a time you disagreed with a colleague or doctor about patient care.",
+        "why": "Conflict handling and patient advocacy. Can you speak up respectfully and keep the focus on safety?",
+        "tips": [
+          "Stay calm and professional in the story. Do not blame the other person.",
+          "Show that you used facts and the chain of command if needed.",
+          "Say how the working relationship was after."
+        ],
+        "sample": "A doctor ordered a full dose of a blood thinner for a patient. I had just seen that the patient's kidney function had dropped. I needed to keep the patient safe without causing conflict. I asked the doctor for a quick private talk. I showed him the new lab results and asked if the dose should change. He checked and lowered the dose. I documented the conversation. Later he thanked me. We worked well together after that. I learned that a calm question with facts is often the best approach."
+      },
+      {
+        "q": "Tell me about a medication error or near miss you were involved in.",
+        "why": "Honesty and safety culture. They want to see that you report errors, learn and protect patients. Everyone makes mistakes.",
+        "tips": [
+          "Choose a real example. Saying you have never made a mistake sounds untrue.",
+          "Show that you told the right people at once and reported it.",
+          "Focus on what you learned and what changed in your practice."
+        ],
+        "sample": "I once drew up an IV antibiotic and, at the bedside, noticed the patient's wristband showed a penicillin allergy. The order was for a penicillin-type drug. My task was to stop the error and make sure it did not happen again. I did not give the dose. I told the doctor and the charge nurse right away. I filled in an incident report. The order was changed, and the allergy flag in the chart was fixed. Since then, I check allergies at every dose, not only at admission."
+      },
+      {
+        "q": "You have four patients needing you at once. How do you prioritize?",
+        "why": "Prioritization and time management. Do you use a clear framework and delegate safely?",
+        "tips": [
+          "Mention a framework such as ABCs (airway, breathing, circulation) or Maslow.",
+          "Show safe delegation to assistants or other nurses within their scope.",
+          "Say how you kept everyone informed."
+        ],
+        "sample": "On a busy medical ward, I had a patient with chest pain, a patient needing pain relief, a discharge waiting and a family asking for an update. I had to decide what was most urgent. I used the ABCs. I went first to the chest pain patient, did an ECG and called the doctor. I asked a colleague to give the pain medicine, which was within her role. I asked the assistant to start the discharge paperwork. I told the family I would come in 20 minutes, and I did. Everyone was safe and the day ran smoothly."
+      },
+      {
+        "q": "How have you adjusted, or how will you adjust, to a new health system and culture?",
+        "why": "Adaptability and cultural awareness. Can you learn new systems, policies and ways of communicating?",
+        "tips": [
+          "Be honest about what is different, such as nurse roles, technology or documentation.",
+          "Give concrete steps you took: courses, reading local guidelines, practice with charting systems.",
+          "Show respect for patients' cultures and for local Indigenous peoples where relevant."
+        ],
+        "sample": "When I moved from a public hospital at home to a private hospital in another country, the charting was fully electronic and nurses had more independent roles. My task was to get up to speed quickly. I asked for extra training on the system and kept a notebook of local policies. I asked senior nurses questions and watched how they spoke with families. Within two months I was working without supervision. Preparing for this move, I am doing the same: studying local guidelines and cultural safety training."
+      },
+      {
+        "q": "Tell me about a time you worked as part of a team to achieve something.",
+        "why": "Teamwork and collaboration. Do you support others and communicate well across roles?",
+        "tips": [
+          "Pick a story where the team result mattered for patients.",
+          "Make your own part clear.",
+          "Mention other professions: doctors, pharmacists, physios, assistants."
+        ],
+        "sample": "Our ward had a high rate of patient falls. The manager asked a small group, including me, to find solutions. My task was to review the falls data and talk to staff. I found most falls happened at night near the bathroom. I suggested hourly rounding at night and non-slip socks. I helped train the night staff with the physiotherapist. After three months, falls dropped by about a third. I learned that small changes work best when the whole team helps plan them."
+      },
+      {
+        "q": "Describe a time a patient or family member complained about care.",
+        "why": "Communication and service. Can you listen, stay calm, fix what you can and escalate when needed?",
+        "tips": [
+          "Show active listening and empathy before solutions.",
+          "Do not argue or blame colleagues in your answer.",
+          "Explain how you followed up and closed the loop."
+        ],
+        "sample": "A patient's daughter was angry that her father had waited a long time for pain relief. My task was to calm the situation and fix the problem. I took her to a quiet area and let her speak without interrupting. I said sorry that he was in pain. I checked his chart, gave the overdue dose and set a reminder for the next one. I told the charge nurse and we reviewed why the dose was late. I came back later to update her. She thanked me, and the issue did not happen again."
+      },
+      {
+        "q": "Why do you want to work at this hospital?",
+        "why": "Motivation and fit. Did you research them? Do your values match theirs?",
+        "tips": [
+          "Research the hospital: its values, specialties, awards and patient groups.",
+          "Link one or two facts to your own experience and goals.",
+          "Be genuine. Do not only talk about the visa or pay."
+        ],
+        "sample": "I read that your hospital is a major trauma center and invests in nurse education. I have five years of emergency experience, and I want to keep growing in trauma care. Your values of respect and teamwork match how I like to work. I also liked your new graduate and international nurse support program. I know adjusting to a new system takes time. A hospital that supports learning is where I can give my best to patients and the team."
+      },
+      {
+        "q": "Why are you leaving your home country?",
+        "why": "They want to know you are committed and have realistic expectations. They are not judging your country.",
+        "tips": [
+          "Stay positive. Do not criticize your current employer or country.",
+          "Focus on growth, learning and long-term plans.",
+          "Your answer must match what you told immigration. Be consistent and truthful."
+        ],
+        "sample": "I am proud of the training I received at home, and I learned a lot there. I am looking for new professional growth. I want experience with different technology and specialist teams. I want to keep learning through continuing education. My family and I have planned this move carefully over two years. I have completed my registration steps and I am committed to building a long-term career here. I have also researched the local health system and the support for new nurses. I am ready to adjust and to learn."
+      },
+      {
+        "q": "Tell me about a time you had to learn something new quickly.",
+        "why": "Learning ability. New systems, devices and policies will be part of your first months.",
+        "tips": [
+          "Show the steps you took to learn, not only that you learned.",
+          "Mention asking for help. That is a strength, not a weakness.",
+          "Link it to how you will handle onboarding with them."
+        ],
+        "sample": "Our unit started using new infusion pumps with only one week's notice. I was asked to be a super-user for the night shift. I completed the online module and practiced on the training pump. I made a one-page quick guide for my colleagues. During the first week I helped staff on each shift. There were no pump errors on nights in the first month. I learned that teaching others helps me learn faster. I will use the same approach during my orientation with you: learn the basics fast, then share what I learn."
+      },
+      {
+        "q": "How do you handle stress or a very difficult shift?",
+        "why": "Resilience and self-care. Burnout is a big issue. They want safe, steady nurses.",
+        "tips": [
+          "Give a real example of a hard shift.",
+          "Show healthy coping: debriefing, breaks, support from peers.",
+          "Do not say you never feel stress."
+        ],
+        "sample": "During a flu outbreak, our ward was short two nurses and we had several very sick patients. My task was to keep my patients safe despite the pressure. I focused on priorities, asked for help early and kept clear notes. I took my short break even though it was busy, because I think more clearly after rest. After the shift, our team had a short debrief. At home, I walk and talk with family to recover. I know my limits and I speak up when safety is at risk."
+      },
+      {
+        "q": "Do you have any questions for us?",
+        "why": "Interest and preparation. Good questions show you are serious and thinking about patient care.",
+        "tips": [
+          "Always ask at least two questions.",
+          "Ask about orientation, support and the team, not only pay and leave.",
+          "Write your questions down before the interview."
+        ],
+        "sample": "Yes, thank you. I have two questions. First, what does orientation look like for internationally educated nurses, and how long is it? Second, what is the usual nurse-to-patient ratio on this unit on day and night shifts? I would also like to know how the team supports new staff during their first months. Finally, what are the next steps after this interview, and when can I expect to hear back? Thank you for your time today. I really enjoyed learning more about the unit and the team."
+      }
+    ],
+    "ask": [
+      "What does orientation look like for internationally educated nurses, and how long is it?",
+      "What is the usual nurse-to-patient ratio on this unit, on days and nights?",
+      "Will I have a preceptor or mentor, and for how long?",
+      "What does a typical shift look like on this unit?",
+      "What education and professional development support do you offer?",
+      "What are the next steps after this interview, and when will I hear back?"
+    ]
+  },
+  "countries": {
+    "US": {
+      "jobNotes": [
+        "U.S. hospitals mostly use behavioral (STAR) interviews. Many also ask clinical scenario questions.",
+        "Many international nurses are hired through recruiting or staffing agencies. Read every contract carefully before you sign.",
+        "You need to pass the NCLEX-RN and get a license from a state board of nursing.",
+        "Foreign-educated nurses need a health care worker certificate, such as the TruMerit (formerly CGFNS) VisaScreen, for the immigrant visa.",
+        "Some hospitals have Magnet status. You can mention it if it is part of why you chose them.",
+        "Interviews are often by video. Test your camera, sound and internet first."
+      ],
+      "visa": {
+        "title": "Immigrant visa interview (consular)",
+        "steps": [
+          "Your employer files a petition (often EB-3) with USCIS. It must be approved.",
+          "The National Visa Center (NVC) collects fees, the DS-260 form and civil documents.",
+          "When your case is ready, you get an interview appointment letter.",
+          "Do your medical exam with an embassy-approved panel physician before the interview. Follow your embassy's instructions.",
+          "Attend the interview at the U.S. embassy or consulate. A consular officer asks questions and takes digital fingerprints.",
+          "If approved, the embassy tells you how and when your passport with the visa is returned. Check the visa for spelling or date errors right away.",
+          "Pay the USCIS Immigrant Fee online before you travel. Your green card is mailed after you arrive.",
+          "Do not resign or sell property until you have your visa."
+        ],
+        "bring": [
+          "Interview appointment letter",
+          "Passport valid at least six months beyond your planned entry date",
+          "Two identical color photos that meet the photo rules",
+          "DS-260 confirmation page",
+          "Originals or certified copies of the civil documents you uploaded (birth, marriage, police certificates, etc.)",
+          "English translations, if not already sent to NVC",
+          "Health care worker certificate (for example VisaScreen), nursing license and diplomas",
+          "Medical exam results, if the doctor gives them to you (often sent directly)",
+          "Any fees NVC did not collect",
+          "Your embassy's own checklist. Check its website for extra items."
+        ],
+        "questions": [
+          {
+            "q": "What job will you do in the U.S., and for which employer?",
+            "tip": "Know your employer's name, city and your role. Answer truthfully. Your answers must match your forms and documents."
+          },
+          {
+            "q": "Where did you study nursing, and when did you finish?",
+            "tip": "Give the same dates as on your diploma and forms."
+          },
+          {
+            "q": "Have you passed the NCLEX? Which state license do you have?",
+            "tip": "Bring your license or proof. Say exactly where you are in the process."
+          },
+          {
+            "q": "Where have you worked as a nurse? For how long?",
+            "tip": "Your dates must match your DS-260 and work letters. If something is wrong on a form, say so."
+          },
+          {
+            "q": "Where will you live in the U.S.?",
+            "tip": "Give a city or address if you know it. It is fine to say you have not found housing yet."
+          },
+          {
+            "q": "Who is traveling with you?",
+            "tip": "Name family members on your case. Bring their documents too."
+          },
+          {
+            "q": "Have you ever been refused a visa or had immigration problems?",
+            "tip": "Always tell the truth. Hiding past issues can lead to a permanent bar."
+          },
+          {
+            "q": "Have you ever been arrested or charged with a crime?",
+            "tip": "Answer honestly, even about old or minor matters. Bring court records if you have any."
+          }
+        ],
+        "notes": [
+          "The officer decides based on the law and your documents. Be calm, clear and truthful.",
+          "Never give false information or false documents. This can lead to a permanent ban from the U.S.",
+          "Bring originals. Missing documents can delay or stop your case.",
+          "If the officer needs more documents or information, your visa is refused under section 221(g) of the Immigration and Nationality Act. The officer tells you what is missing and how to send it. If your case needs administrative processing, it stays refused until that is finished, which can take months.",
+          "An immigrant visa is usually valid for up to six months. You must arrive in the U.S. before the expiration date printed on it.",
+          "This is general information, not legal advice. For your case, speak to a licensed immigration attorney."
+        ]
+      }
+    },
+    "CA": {
+      "jobNotes": [
+        "Canadian employers often use behavioral interviews. Many ask you to use the STAR method directly.",
+        "Most health authorities use panel interviews with two to four people.",
+        "You need registration with the nursing regulator in your province, for example CNO in Ontario or BCCNM in British Columbia.",
+        "Many applicants start through NNAS, the National Nursing Assessment Service.",
+        "Expect questions on patient-centered care, scope of practice and working in a team.",
+        "Interviewers may ask about cultural safety and care for Indigenous patients. Learn the basics before the interview."
+      ],
+      "visa": {
+        "title": "Arriving as a permanent resident or worker",
+        "steps": [
+          "Express Entry and most work permit applications usually do not need an interview. IRCC may ask for one if they need more information.",
+          "If IRCC asks for an interview, go on the given date and bring all requested documents.",
+          "Once approved, you get a Confirmation of Permanent Residence (COPR), or a port of entry letter for a work permit.",
+          "At the airport or border, you meet a Canada Border Services Agency (CBSA) officer.",
+          "The officer checks your documents and asks questions. They confirm your status or issue your work permit.",
+          "Some applicants inside Canada confirm PR online through a portal. Follow the instructions IRCC gives you.",
+          "After arrival, apply for a Social Insurance Number (SIN). Your PR card is mailed to your Canadian address."
+        ],
+        "bring": [
+          "Valid passport (and visa, if one was issued)",
+          "Confirmation of Permanent Residence (COPR), or port of entry letter of introduction for a work permit",
+          "Job offer letter, if you have one",
+          "Proof of funds, if required for your program",
+          "Two copies of a list of goods you bring now, and goods coming later",
+          "Original educational certificates, nursing licenses and registration letters",
+          "Original civil documents: birth and marriage certificates",
+          "Declare cash or monetary instruments of CAN$10,000 or more (or the same in foreign currency)"
+        ],
+        "questions": [
+          {
+            "q": "Why are you coming to Canada?",
+            "tip": "Say it simply: to live and work as a nurse. Answer truthfully. Your answers must match your forms and documents."
+          },
+          {
+            "q": "Where will you live first?",
+            "tip": "Give your address, or where you will stay at first."
+          },
+          {
+            "q": "Do you have a job offer? With which employer?",
+            "tip": "Show the offer letter if you have one."
+          },
+          {
+            "q": "How much money are you bringing?",
+            "tip": "Give the true amount. Declare CAN$10,000 or more."
+          },
+          {
+            "q": "Has anything changed since your visa was approved?",
+            "tip": "Tell them about a marriage, new child, or new criminal charge. Changes must be reported."
+          },
+          {
+            "q": "Is everyone on your application traveling with you?",
+            "tip": "Explain who is coming now and who is coming later."
+          },
+          {
+            "q": "What are you bringing with you, and what is coming later?",
+            "tip": "Show your goods lists. Declare food, plants and medicines."
+          },
+          {
+            "q": "Are you registered with a nursing regulator yet?",
+            "tip": "Say where you are in the process. Do not claim registration you do not have."
+          }
+        ],
+        "notes": [
+          "You must tell the truth to IRCC and CBSA. Misrepresentation can lead to a five-year ban.",
+          "Your COPR has an expiry date. You must land before it expires.",
+          "Report any change in marital status or family before you land.",
+          "Keep your original documents in your carry-on bag, not checked luggage.",
+          "This is general information, not legal advice. For your case, use a licensed consultant (RCIC) or a lawyer."
+        ]
+      }
+    },
+    "AU": {
+      "jobNotes": [
+        "Public health jobs often list key selection criteria (KSC). You may need to write short responses to each one.",
+        "Interviews are usually with a panel. Questions often follow the selection criteria.",
+        "Use STAR to answer. Give clear examples that match each criterion.",
+        "Each state has its own values. For example, NSW Health uses CORE: Collaboration, Openness, Respect, Empowerment.",
+        "You need registration with AHPRA and the Nursing and Midwifery Board of Australia (NMBA).",
+        "Learn about cultural safety and Aboriginal and Torres Strait Islander health before your interview.",
+        "Employers usually ask for two or three referees, often recent managers."
+      ],
+      "visa": {
+        "title": "Visa process and arriving in Australia",
+        "steps": [
+          "Most skilled visa decisions are made on paper. The Department of Home Affairs may ask you to attend an interview.",
+          "If asked, attend on time and bring the documents listed in the request.",
+          "Do health exams and give police certificates when asked.",
+          "Your visa is electronic and linked to your passport. You can check it in VEVO.",
+          "At arrival, complete the Incoming Passenger Card (paper or digital, as your airline instructs) and go through border checks.",
+          "Declare food, plant and animal products and some medicines. Biosecurity rules are strict.",
+          "After arrival, get a Tax File Number, open a bank account and confirm your AHPRA registration."
+        ],
+        "bring": [
+          "Valid passport (the one linked to your visa)",
+          "A copy of your visa grant notice",
+          "Original nursing qualifications and transcripts",
+          "AHPRA registration evidence",
+          "Employment contract or job offer, if you have one",
+          "Original civil documents: birth and marriage certificates",
+          "Certified English translations of any non-English documents",
+          "Prescriptions and doctor's letters for any medicines you bring"
+        ],
+        "questions": [
+          {
+            "q": "What is the purpose of your visit or move?",
+            "tip": "Explain simply. Answer truthfully. Your answers must match your forms and documents."
+          },
+          {
+            "q": "Who is your employer or sponsor?",
+            "tip": "Know your sponsor's name and your job title."
+          },
+          {
+            "q": "What nursing work have you done?",
+            "tip": "Your dates must match your application and work references."
+          },
+          {
+            "q": "Where will you live in Australia?",
+            "tip": "Give your address or first place you will stay."
+          },
+          {
+            "q": "Are your family members coming with you?",
+            "tip": "Answer truthfully. List only family declared on your visa."
+          },
+          {
+            "q": "Have your circumstances changed since your application?",
+            "tip": "Report changes such as marriage, a birth or a new charge."
+          },
+          {
+            "q": "Are you carrying food, plants, animal products or medicines?",
+            "tip": "Declare when unsure. Fines apply for not declaring."
+          },
+          {
+            "q": "Are you carrying AUD 10,000 or more in cash (or the same in foreign currency)?",
+            "tip": "You must declare it. Give the true amount."
+          }
+        ],
+        "notes": [
+          "Giving false or misleading information can lead to visa refusal or cancellation, and a ban.",
+          "Translations: translators in Australia need NAATI certification.",
+          "Health exam results are usually valid for 12 months.",
+          "Keep originals in your carry-on bag.",
+          "This is general information, not legal advice. Use a registered migration agent or lawyer for your case."
+        ]
+      }
+    },
+    "NZ": {
+      "jobNotes": [
+        "Health New Zealand (Te Whatu Ora) uses values-based interviews alongside behavioral questions.",
+        "Its values come from Te Mauri o Rongo, the NZ Health Charter: Wairuatanga (heart and purpose), Rangatiratanga (leadership), Whanaungatanga (working as one team) and Te Korowai Āhuru (a safe, caring workplace).",
+        "Expect questions on Te Tiriti o Waitangi and cultural safety in caring for Māori and Pacific patients.",
+        "You need registration with the Nursing Council of New Zealand.",
+        "Interviews are often panel-based and may begin with a greeting or karakia (prayer). Be respectful and take part if you are comfortable.",
+        "Use STAR, and show how your actions support whānau (family) involvement in care."
+      ],
+      "visa": {
+        "title": "Visa process and arriving in New Zealand",
+        "steps": [
+          "Most work visas, such as the Accredited Employer Work Visa, are decided on paper.",
+          "Immigration New Zealand (INZ) may interview you to check your information or documents.",
+          "If asked, attend the interview and bring the documents they request.",
+          "Your visa is electronic (eVisa) and linked to your passport.",
+          "Complete the free New Zealand Traveller Declaration online before you board. A paper form on arrival is only for people who cannot do it online.",
+          "Go through passport control, customs and biosecurity at the airport.",
+          "After arrival, get an IRD number for tax and open a bank account."
+        ],
+        "bring": [
+          "Valid passport (the one linked to your visa)",
+          "A copy of your visa approval letter",
+          "Your job offer or employment agreement",
+          "Nursing Council of New Zealand registration evidence",
+          "Original nursing qualifications and transcripts",
+          "Original civil documents: birth and marriage certificates",
+          "Prescriptions and doctor's letters for any medicines",
+          "Proof of onward travel or funds, if your visa conditions require it"
+        ],
+        "questions": [
+          {
+            "q": "Why are you coming to New Zealand?",
+            "tip": "Explain simply. Answer truthfully. Your answers must match your forms and documents."
+          },
+          {
+            "q": "Who is your employer, and what is your role?",
+            "tip": "Know your employer's name and job title. Your visa is often linked to them."
+          },
+          {
+            "q": "Where will you be working and living?",
+            "tip": "Give the town or address you know."
+          },
+          {
+            "q": "What nursing experience do you have?",
+            "tip": "Your dates must match your application."
+          },
+          {
+            "q": "Are you registered with the Nursing Council?",
+            "tip": "Say where you are in the process. Do not overstate it."
+          },
+          {
+            "q": "Has anything changed since your visa was granted?",
+            "tip": "Tell INZ about changes such as a new job offer or new charges."
+          },
+          {
+            "q": "Do you have food, plants, animal products or outdoor gear?",
+            "tip": "Declare it if in doubt. Fines are given for not declaring."
+          },
+          {
+            "q": "Are you carrying NZD 10,000 or more in cash (or the same in foreign currency)?",
+            "tip": "You must declare it. Give the true amount."
+          }
+        ],
+        "notes": [
+          "INZ must be satisfied that your information and documents are genuine and accurate.",
+          "False or misleading information can lead to refusal, visa cancellation or deportation.",
+          "Biosecurity rules are strict. Clean shoes and outdoor gear before you travel.",
+          "Keep originals in your carry-on bag.",
+          "This is general information, not legal advice. Use a licensed immigration adviser or lawyer for your case."
+        ]
+      }
+    }
+  },
+  "sources": [
+    [
+      "U.S. State Dept: Applicant interview",
+      "https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-10-prepare-for-the-interview/step-11-applicant-interview.html"
+    ],
+    [
+      "U.S. State Dept: After the interview",
+      "https://travel.state.gov/content/travel/en/us-visas/immigrate/the-immigrant-visa-process/step-10-prepare-for-the-interview/step-12-after-the-interview.html"
+    ],
+    [
+      "USCIS Immigrant Fee",
+      "https://www.uscis.gov/file-online/uscis-immigrant-fee"
+    ],
+    [
+      "IRCC: Prepare for arrival",
+      "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/prepare-arrival.html"
+    ],
+    [
+      "Home Affairs: Check twice, submit once (skilled visa)",
+      "https://immi.homeaffairs.gov.au/check-twice-submit-once/skilled-visa"
+    ],
+    [
+      "Home Affairs: Health examinations",
+      "https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/health/when-to-have-health-examinations"
+    ],
+    [
+      "Immigration NZ operational manual (verification incl. interviews)",
+      "https://www.immigration.govt.nz/opsmanual/71695.htm"
+    ],
+    [
+      "NZ Traveller Declaration factsheet",
+      "https://www.travellerdeclaration.govt.nz/assets/pdfs/Traveller-factsheet-English.pdf"
+    ],
+    [
+      "NZ Customs: Travel by air",
+      "https://www.customs.govt.nz/travel-to-and-from-new-zealand/travel-by-air"
+    ],
+    [
+      "Health NZ: Te Mauri o Rongo values",
+      "https://www.tewhatuora.govt.nz/corporate-information/about-us/our-values-and-principles"
+    ],
+    [
+      "NSW Health CORE values (SESLHD)",
+      "https://www.seslhd.health.nsw.gov.au/core-values"
+    ],
+    [
+      "CBSA: Immigrating or returning to live in Canada (archived)",
+      "https://cbsa-asfc.gc.ca/publications/pub/bsf5113-eng.html"
+    ]
+  ],
+  "uncertain": [
+    "U.S.: 221(g), administrative processing, visa validity and Immigrant Fee wording now match travel.state.gov 'After the interview' (checked 2026-10-09).",
+    "Canada: goods list in two copies and CAN$10,000 reporting confirmed in an archived CBSA publication (BSF5113); the current CBSA page could not be loaded.",
+    "Australia: AUD 10,000 cash threshold is the standing AUSTRAC/ABF rule, but the ABF page could not be loaded on 2026-10-09. The digital passenger declaration rollout varies by airline.",
+    "NZ: NZTD timing confirmed on customs.govt.nz (online before reaching passport control, ideally before boarding; paper only if you cannot go online). NZ$10,000 cash threshold confirmed there too.",
+    "U.S.: Health care worker certificate (e.g., CGFNS VisaScreen) is required for nurses under INA 212(a)(5)(C); whether embassies require the original at interview varies by post.",
+    "U.S.: Fee amounts were left out on purpose; they change often.",
+    "Canada: IRCC is moving more PR confirmations online (portal, e-COPR). Who still lands at a port of entry with a paper COPR may change.",
+    "Canada: Proof of funds is not needed for Express Entry if you have a valid job offer and are authorized to work; the app says 'if required'.",
+    "Australia: The incoming passenger card process is being digitized; check the current form before travel.",
+    "Australia: The visa interview step (condition 8581 'must attend interview if requested') was confirmed only on a third-party site, not Home Affairs.",
+    "Employer norms (STAR, panels, KSC, karakia) are general; individual employers vary."
+  ]
+}

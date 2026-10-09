@@ -10,12 +10,16 @@
 //   matrix     one column per row                0/1 per row
 //   cloze      drop-down blanks                  0/1 per blank
 //   order      put the steps in order            0/1 per step in the right place
+//   bowtie     1 condition, 2 actions, 2 params  0/1 per box (5 points)
+// Any item may carry a trend table { cols, rows } shown above the stem.
 //
 // Written for USRN Pathway. Educational practice only; not affiliated with or endorsed by NCSBN.
 
 export const NGN_STEPS = ["Recognize Cues", "Analyze Cues", "Prioritize Hypotheses", "Generate Solutions", "Take Action", "Evaluate Outcomes"];
 
-export const NGN_CASES = [
+import { NEW_CASES } from "./ngn-more";
+
+const BASE_CASES = [
   /* ------------------------------------------------------------------ 1 */
   {
     id: "adhf",
@@ -245,7 +249,18 @@ export const NGN_CASES = [
 ];
 
 /** Points earned and possible for one item. */
+// Eight cases: the original four plus four more (DKA, postpartum hemorrhage, pediatric asthma, stroke) in ngn-more.js.
+export const NGN_CASES = [...BASE_CASES, ...NEW_CASES];
+
 export function scoreNgnItem(item, a) {
+  if (item.kind === "bowtie") {
+    // 0/1 per box: 1 condition + 2 actions + 2 parameters = 5 points
+    if (!a) return [0, 5];
+    const c = a.condition === item.condition.answer ? 1 : 0;
+    const x = (a.actions || []).filter((id) => item.actions.answer.includes(id)).length;
+    const m = (a.params || []).filter((id) => item.params.answer.includes(id)).length;
+    return [c + x + m, 5];
+  }
   const max = item.kind === "single" ? 1
     : item.kind === "cloze" ? item.blanks.length
     : item.kind === "matrix" ? item.rows.length

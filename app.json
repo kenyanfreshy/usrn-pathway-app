@@ -53,7 +53,7 @@
       "revenueCatAppleKey": "appl_REPLACE_ME",
       "revenueCatGoogleKey": "goog_REPLACE_ME",
       "entitlementId": "pro",
-      "privacyPolicyUrl": "https://REPLACE_ME/privacy",
+      "privacyPolicyUrl": "https://github.com/kenyanfreshy/usrn-pathway-app/blob/main/PRIVACY.md",
       "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
       "supportEmail": "support@REPLACE_ME",
       "router": {},

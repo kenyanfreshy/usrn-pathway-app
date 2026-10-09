@@ -1,16 +1,24 @@
-# USRN Pathway — Privacy Policy (draft)
+# USRN Pathway — Privacy Policy
 
-_Last updated: [DATE]. Replace the bracketed parts, have it reviewed, and host it at a public URL before submitting the app._
+_Last updated: October 9, 2026._
 
-USRN Pathway ("the app") is published by [Alex Korir / your business name] ("we").
+USRN Pathway ("the app") is published by Alex Korir ("we").
 
 ## What stays on your phone
 Everything you enter — your name, profile details, roadmap progress, documents list and dates, quiz results, notes and calculator
 inputs — is stored only on your device. We do not run a server or user accounts, and we cannot see this information. Deleting the app deletes it.
 
 ## Reminders
-If you turn on expiry reminders, the app schedules notifications on your phone. They are created and shown by your device; no
-information leaves it.
+If you turn on expiry reminders or daily study reminders, the app schedules notifications on your phone. They are created and
+shown by your device; no information leaves it.
+
+## Backups
+"Save a backup" creates a text copy of your progress and opens your phone's share sheet. You choose where it goes (for example
+Notes, Files, iCloud Drive, Google Drive or email). We never receive it. Anyone you share it with can read it, so keep it private.
+"Document summary" works the same way: it is shared only where you send it.
+
+## Ratings
+The app may ask you to rate it using Apple's or Google's built-in rating prompt. Your rating goes to the store, not to us.
 
 ## Visa bulletin and migration updates
 To keep the U.S. visa bulletin dates and the Canada, Australia and New Zealand migration information current, the app

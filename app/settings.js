@@ -1,10 +1,14 @@
 // Profile & settings: about you, key dates, theme and reset. Everything stays on the device.
 import React, { useState } from "react";
-import { View, Pressable } from "react-native";
+import { View, Pressable, TextInput, Platform } from "react-native";
+import * as Clipboard from "expo-clipboard";
+import { shareBackup, readBackup } from "../src/backup";
+import { fmtDate } from "../src/util";
+import { cancelStudyReminder } from "../src/notify";
 import { router } from "expo-router";
 import { Screen, Card, Row, Txt, Icon, Grad, Field, DateField, Select, Btn, Note, buzz, tap, Grid } from "../src/ui";
 import { BackRow } from "../src/ui-extra";
-import { useTheme, PALETTES } from "../src/theme";
+import { useTheme, PALETTES, FONTS } from "../src/theme";
 import { useApp } from "../src/state";
 import { BOARDS } from "../src/data/content";
 import { useBulletin } from "../src/bulletin";
@@ -20,6 +24,46 @@ function Avatar({ size = 56 }) {
     <Grad mod="home" style={{ width: size, height: size, borderRadius: size / 2, alignItems: "center", justifyContent: "center", borderWidth: 3, borderColor: "rgba(255,255,255,0.45)" }}>
       {ini ? <Txt v="h2" color="#fff" style={{ fontSize: size * 0.38, lineHeight: size * 0.48 }}>{ini.toUpperCase()}</Txt> : <Icon name="User" size={Math.round(size * 0.5)} color="#fff" />}
     </Grad>
+  );
+}
+
+/** Save a backup through the share sheet, or paste one back in. */
+function BackupCard() {
+  const { state, dispatch } = useApp(); const t = useTheme("home");
+  const [open, setOpen] = useState(false); const [text, setText] = useState(""); const [msg, setMsg] = useState(null); const [sure, setSure] = useState(false);
+  const save = async () => { const ok = await shareBackup(state); if (ok) dispatch({ type: "plan", patch: { lastBackup: new Date().toISOString().slice(0, 10) } }); };
+  const paste = async () => { try { const v = await Clipboard.getStringAsync(); if (v) setText(v); } catch (e) {} };
+  const restore = () => {
+    const r = readBackup(text);
+    if (r.error) { setMsg({ tone: "crit", text: r.error }); setSure(false); return; }
+    if (!sure) { setSure(true); setMsg({ tone: "warn", text: "Restoring replaces everything on this phone with the backup. Tap Restore again to confirm." }); return; }
+    dispatch({ type: "restore", state: r.state }); cancelStudyReminder(); buzz(); setSure(false); setText(""); setOpen(false);
+    setMsg({ tone: "ok", text: "Backup restored. Your progress, dates and documents are back." });
+  };
+  const last = state.plan && state.plan.lastBackup;
+  return (
+    <Card mod="home" style={{ gap: 10 }}>
+      <Row gap={8}><Icon name="ShieldCheck" size={18} color={t.tint} /><Txt v="bodyB" style={{ flex: 1 }}>Backup & restore</Txt></Row>
+      <Txt v="small" muted>There's no account, so your progress lives only on this phone. Save a backup to Notes, Files, iCloud Drive or Google Drive, or email it to yourself, before you change phones.</Txt>
+      {last ? <Txt v="tiny" muted>Last backup shared {fmtDate(last)}.</Txt> : null}
+      <Row wrap gap={8}>
+        <Btn mod="home" small icon="Share2" title="Save a backup" onPress={save} />
+        <Btn mod="home" small kind="secondary" icon="Undo2" title={open ? "Close restore" : "Restore a backup"} onPress={() => { setOpen(!open); setMsg(null); setSure(false); }} />
+      </Row>
+      {open ? (
+        <View style={{ gap: 8 }}>
+          <Txt v="smallB" muted>Paste your backup text</Txt>
+          <TextInput value={text} onChangeText={(v) => { setText(v); setSure(false); setMsg(null); }} multiline placeholder="USRN-PATHWAY-BACKUP v1 …" placeholderTextColor={t.c.muted}
+            autoCorrect={false} autoCapitalize="none" accessibilityLabel="Backup text"
+            style={{ minHeight: 96, maxHeight: 180, borderWidth: 1.5, borderColor: t.c.line, borderRadius: 12, padding: 10, color: t.c.ink, backgroundColor: t.c.surface, fontFamily: FONTS.mono, fontSize: 12, textAlignVertical: "top" }} />
+          <Row wrap gap={8}>
+            <Btn mod="home" small kind="secondary" icon="Copy" title="Paste" onPress={paste} />
+            <Btn mod="home" small kind={sure ? "danger" : "primary"} icon="Undo2" title={sure ? "Restore (replace all)" : "Restore"} onPress={restore} disabled={!text.trim()} />
+          </Row>
+        </View>
+      ) : null}
+      {msg ? <Note mod="home" tone={msg.tone} icon={msg.tone === "ok" ? "CheckCircle2" : "AlertTriangle"}>{msg.text}</Note> : null}
+    </Card>
   );
 }
 
@@ -90,6 +134,8 @@ export default function Settings() {
         </Grid>
       </Card>
 
+      <BackupCard />
+
       <Btn title="Save" icon="Check" full onPress={() => { if (router.canGoBack()) router.back(); else router.replace("/"); }} />
 
       <Card style={{ borderColor: t.c.crit }}>
@@ -98,7 +144,7 @@ export default function Settings() {
           <View style={{ gap: 10 }}>
             <Txt v="small">Clear all progress, badges and XP and restore the sample data? Your profile and dates are cleared too; your theme is kept.</Txt>
             <Row wrap gap={8}>
-              <Btn kind="danger" small icon="Trash2" title="Yes, reset" onPress={() => { dispatch({ type: "reset" }); setConfirm(false); setDidReset(true); buzz(); }} />
+              <Btn kind="danger" small icon="Trash2" title="Yes, reset" onPress={() => { dispatch({ type: "reset" }); cancelStudyReminder(); setConfirm(false); setDidReset(true); buzz(); }} />
               <Btn kind="secondary" small title="Cancel" onPress={() => setConfirm(false)} />
             </Row>
           </View>

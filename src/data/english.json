@@ -1,0 +1,438 @@
+{
+  "checked": "2026-10-09",
+  "tests": [
+    {
+      "id": "oet",
+      "name": "OET (Nursing)",
+      "summary": "A healthcare English test. You take the Nursing version. Listening and Reading are the same for all professions. Writing and Speaking use nursing tasks. You get a score from 0 to 500 and a grade for each part.",
+      "sections": [
+        [
+          "Listening",
+          "about 40 min — 3 parts, 42 questions. Part A: consultation notes. Part B: short workplace extracts. Part C: talks and interviews."
+        ],
+        [
+          "Reading",
+          "60 min — Part A: 15 min, fast reading of 4 short texts. Parts B and C: 45 min together, workplace and longer texts."
+        ],
+        [
+          "Writing",
+          "45 min — 5 min reading time for the case notes, then 40 min to write one letter (usually a referral, transfer or discharge letter)."
+        ],
+        [
+          "Speaking",
+          "about 20 min — short warm-up, then 2 role-plays. For each: 3 min to prepare with the role card, 5 min to talk. You are the nurse."
+        ]
+      ],
+      "scoring": "Each part scores 0–500. Grades: A = 450–500, B = 350–440, C+ = 300–340, C = 200–290, D = 100–190, E = 0–90. A score of 350 equals grade B. Many regulators now ask for numbers, not grades (for example 360 in Speaking).",
+      "url": "https://oet.com",
+      "tips": [
+        "Take the Nursing version. Your Writing and Speaking tasks will match nursing work.",
+        "Use the 5 minutes of Writing reading time to decide who the reader is and why you are writing.",
+        "Do not copy all the case notes. Pick only what the reader needs to act.",
+        "Aim for about 180–200 words in the letter body. Quality matters more than length.",
+        "In Speaking, you lead the talk. Greet the patient, ask open questions, and cover every task on the card.",
+        "Show empathy early. Name the patient's feeling before you give information.",
+        "Avoid medical jargon with patients. Explain in plain words and check they understand.",
+        "Check what your regulator accepts: score per part, test mode (OET@Home is often not accepted) and whether you may combine sittings."
+      ]
+    },
+    {
+      "id": "ielts",
+      "name": "IELTS Academic",
+      "summary": "A general academic English test. It is not about healthcare. Choose the Academic version. Most nursing regulators do not accept General Training (Ontario is one exception).",
+      "sections": [
+        [
+          "Listening",
+          "30 min — 4 parts, 40 questions. Two conversations and two talks."
+        ],
+        [
+          "Reading",
+          "60 min — 3 long academic texts, 40 questions."
+        ],
+        [
+          "Writing",
+          "60 min — Task 1: describe a chart, table or diagram (at least 150 words). Task 2: a formal essay (at least 250 words)."
+        ],
+        [
+          "Speaking",
+          "11–14 min — face-to-face interview in 3 parts. May be on the same day or within about 7 days of the other parts."
+        ]
+      ],
+      "scoring": "Band 0 to 9 for each part, in half-band steps (for example 6.5, 7.0). The overall band is the average of the four parts, rounded to the nearest half band.",
+      "url": "https://ielts.org",
+      "tips": [
+        "Book IELTS Academic, not General Training, unless your regulator says General is accepted.",
+        "Writing Task 2 counts for more of your Writing score than Task 1. Plan to spend about 40 minutes on it.",
+        "Write at least 150 words for Task 1 and 250 words for Task 2. Short answers lose marks.",
+        "In Task 1, give an overview of the main trends. Do not describe every number.",
+        "Listening plays each recording once. Read the questions before each section starts.",
+        "Watch word limits in Listening and Reading, such as 'NO MORE THAN TWO WORDS'.",
+        "In Speaking, give full answers with reasons and examples. Do not memorize scripts.",
+        "Nursing regulators usually need 7.0 in Speaking. Practice speaking every day, not only before the test."
+      ]
+    },
+    {
+      "id": "pte",
+      "name": "PTE Academic",
+      "summary": "A computer-based academic English test. A computer scores your answers. Many tasks test two skills at once, such as listening and writing.",
+      "sections": [
+        [
+          "Speaking and Writing",
+          "about 76–84 min — read aloud, repeat sentence, describe image, retell lecture, answer short question, summarize group discussion, respond to a situation, summarize written text, essay."
+        ],
+        [
+          "Reading",
+          "about 23–30 min — fill in the blanks, multiple choice, reorder paragraphs."
+        ],
+        [
+          "Listening",
+          "about 31–39 min — summarize spoken text, multiple choice, fill in blanks, highlight correct summary, select missing word, highlight incorrect words, write from dictation."
+        ],
+        [
+          "Total",
+          "about 2 hours in one sitting at a test center."
+        ]
+      ],
+      "scoring": "Scores from 10 to 90 overall and for each skill. Results usually come within 2 business days (sometimes up to 5). Note: the U.S. (from May 12, 2026) and Australia (from April 23, 2026) now ask for 76 in Speaking.",
+      "url": "https://www.pearsonpte.com",
+      "tips": [
+        "Check your regulator first. Ontario and Australia accept PTE. New Zealand and Alberta do not.",
+        "Speak at a steady, natural pace. Long pauses can stop the recording.",
+        "Fluency and pronunciation scores matter a lot for Speaking. Do not stop to correct small mistakes.",
+        "Many tasks are scored for more than one skill. Write from Dictation helps both Listening and Writing.",
+        "Keep to word limits, such as one sentence in Summarize Written Text.",
+        "Practice on a computer with a headset, so test day feels normal."
+      ]
+    },
+    {
+      "id": "celban",
+      "name": "CELBAN",
+      "summary": "Canadian English Language Benchmark Assessment for Nurses. It uses nursing situations and is scored on Canadian Language Benchmarks (CLB). Accepted by many Canadian nursing regulators.",
+      "sections": [
+        [
+          "Listening",
+          "nursing conversations and workplace audio."
+        ],
+        [
+          "Reading",
+          "nursing texts such as charts, care plans and articles."
+        ],
+        [
+          "Writing",
+          "nursing tasks such as charting and incident notes."
+        ],
+        [
+          "Speaking",
+          "one-to-one interview with nursing role-plays and questions. Online versions use a virtual interview."
+        ]
+      ],
+      "scoring": "Each skill gets a CLB level. A common nurse target is Listening 9, Speaking 8, Reading 8, Writing 7.",
+      "url": "https://www.celban.org",
+      "tips": [
+        "Only take CELBAN if you plan to work in Canada. It is not accepted elsewhere.",
+        "Practice Canadian charting style and nursing abbreviations.",
+        "In Speaking, describe what you would do step by step, as on a real shift.",
+        "Listening needs CLB 9, the highest target. Practice with real Canadian healthcare audio."
+      ]
+    }
+  ],
+  "requirements": {
+    "US": {
+      "rows": [
+        [
+          "OET",
+          "Speaking 360, Writing 350, Reading 340, Listening 320"
+        ],
+        [
+          "IELTS Academic",
+          "Overall 6.5, Speaking 7.0"
+        ],
+        [
+          "PTE Academic",
+          "Overall 55, Speaking 76, Reading/Writing/Listening 62"
+        ],
+        [
+          "TOEFL iBT (1–6 scale)",
+          "Overall 4.5, Speaking 4.5, Reading/Writing/Listening 3.5"
+        ],
+        [
+          "Michigan English Test (MET)",
+          "Overall 58, Speaking 59"
+        ],
+        [
+          "Cambridge English (B2/C1/C2)",
+          "Overall 169, Speaking 194"
+        ]
+      ],
+      "notes": "Federal minimums for a VisaScreen certificate (TruMerit) for registered nurses, from HRSA's list as of May 12, 2026. Scores before that date were judged against the older list (for example OET C+/B, TOEFL 81). HRSA's page does not say whether at-home tests are accepted; check with TruMerit before you book. A VisaScreen certificate is valid for 5 years. Your state board of nursing may have its own English rules."
+    },
+    "CA": {
+      "rows": [
+        [
+          "CELBAN (Ontario, CNO)",
+          "Listening 9, Speaking 8, Reading 8, Writing 7"
+        ],
+        [
+          "IELTS Academic or General (Ontario)",
+          "Overall 7.0, Listening 7.0, Speaking 7.0, Reading 6.5, Writing 6.5"
+        ],
+        [
+          "OET (Ontario)",
+          "Listening 350, Speaking 350, Reading 330, Writing 320"
+        ],
+        [
+          "PTE Academic (Ontario)",
+          "Speaking 75, Listening 73, Writing 68, Reading 66"
+        ],
+        [
+          "CELBAN (Alberta, CRNA)",
+          "Listening 9, Speaking 8, Reading 8, Writing 7"
+        ],
+        [
+          "IELTS Academic (Alberta)",
+          "Overall 7.0, Listening 7.0, Speaking 7.0, Reading 6.5, Writing 6.5"
+        ],
+        [
+          "British Columbia (BCCNM)",
+          "CELBAN: L9, S8, R8, W7. IELTS Academic: 7.0 overall, L7.0, S7.0, R6.5, W6.5. OET: L B, S B, R C+, W C+. PTE: S75, L73, W68, R66. In-person tests only (CELBAN online allowed). IENs who applied after Jan 31, 2023 send evidence to Inspire Global Assessments."
+        ]
+      ],
+      "notes": "Each province sets its own rules. Ontario: all scores in one complete attempt; results within 2 years of registering. Alberta accepts only CELBAN and IELTS Academic; results expire 2 years after the test. BC: evidence no more than 2 years old; new applicants go through Inspire Global Assessments, so confirm its current list. Other English evidence (such as nursing education in English) may count."
+    },
+    "AU": {
+      "rows": [
+        [
+          "OET",
+          "Listening 350, Reading 360, Writing 350, Speaking 360"
+        ],
+        [
+          "IELTS Academic",
+          "Overall 7.0, Listening 7.0, Reading 7.0, Writing 6.5, Speaking 7.0"
+        ],
+        [
+          "PTE Academic",
+          "Overall 63, Listening 58, Reading 59, Writing 60, Speaking 76"
+        ],
+        [
+          "TOEFL iBT",
+          "Overall 91, Listening 22, Reading 22, Writing 23, Speaking 24"
+        ]
+      ],
+      "notes": "NMBA/Ahpra scores for tests taken from April 23, 2026. Tests on or before April 22, 2026 use the old scores (OET B/B/C+/B; PTE 66 overall). Results must be from one sitting, or up to two sittings of the same test within 12 months, with minimum floors in each sitting. Results must be less than 2 years old when you apply. At-home tests are not accepted."
+    },
+    "NZ": {
+      "rows": [
+        [
+          "OET",
+          "Listening 350, Reading 350, Speaking 350, Writing 300"
+        ],
+        [
+          "IELTS Academic",
+          "Listening 7.0, Reading 7.0, Speaking 7.0, Writing 6.5"
+        ]
+      ],
+      "notes": "Nursing Council of New Zealand accepts only OET and IELTS Academic. PTE is not accepted. You may reach the scores over more than one sitting, but within 12 months of your first sitting. All sittings must be within 3 years before you apply. Online at-home tests are not accepted; computer tests at an approved center are."
+    }
+  },
+  "writing": [
+    {
+      "id": "w1",
+      "title": "Referral to community nurse after hip surgery",
+      "notes": "Patient: Mrs. Margaret Lewis, 78 years old\nDOB: 14/03/1948\nAdmitted: 28/09/2026  Discharge: 09/10/2026\nWard: Orthopedic Ward 4B, City General Hospital\n\nSocial background:\n- Widow, lives alone in 2-story house, bedroom upstairs\n- Daughter (Anne) lives 20 min away, visits 3x/week\n- Retired teacher, enjoys gardening\n- Independent before fall\n\nMedical history:\n- Type 2 diabetes (15 yrs), metformin 500 mg BD\n- Hypertension, amlodipine 5 mg daily\n- Mild osteoarthritis both knees\n- Cataract surgery 2022\n\nAdmission:\n- Fall at home 28/09, fractured R neck of femur\n- R total hip replacement 29/09\n- Post-op: confusion night 1, resolved\n- Wound: 15 cm incision R hip, staples in place, clean & dry, small serous ooze day 3, now resolved\n\nProgress:\n- Mobilizing with walking frame, 20 m, supervision on stairs\n- Pain: paracetamol 1 g QID, oxycodone 5 mg PRN (used 1x/day)\n- BGL 6–11 mmol/L\n- Enoxaparin 40 mg SC daily for 35 days total, started 29/09 (24 days remaining after today's dose)\n- Appetite fair; bowels opened 08/10\n\nNursing plan:\n- Staple removal day 14 (13/10)\n- Wound check, dressing change every 3 days\n- Monitor BGL, pain, signs of DVT\n- Pt anxious about falling again\n- Daughter taught enoxaparin injection, still unsure\n- Physio appointment outpatient 16/10",
+      "task": "Using the information in the case notes, write a letter of referral to Ms. Carla Mendes, Community Nurse, Riverside Community Health Service, 45 Park Road, Riverside, who will provide home care for Mrs. Lewis after discharge today.\n\nIn your answer:\n- Expand the relevant notes into complete sentences\n- Do not use note form\n- Use letter format\n\nThe body of the letter should be approximately 180–200 words.",
+      "model": "Ms. Carla Mendes\nCommunity Nurse\nRiverside Community Health Service\n45 Park Road\nRiverside\n\n9 October 2026\n\nDear Ms. Mendes,\n\nRe: Mrs. Margaret Lewis, DOB 14/03/1948\n\nI am writing to refer Mrs. Lewis, a 78-year-old woman who is being discharged home today following a right total hip replacement. She requires wound care, anticoagulant support and monitoring.\n\nMrs. Lewis was admitted on 28 September after a fall at home in which she fractured her right femur. She underwent surgery the next day.\n\nHer 15 cm incision is clean and dry, with staples in place. These are due for removal on 13 October. The dressing should be changed every three days. She also requires daily enoxaparin injections for a further 24 days. Although her daughter has been taught to give these, she still lacks confidence, so further support would be appreciated.\n\nMrs. Lewis has type 2 diabetes, and her blood glucose has ranged from 6 to 11 mmol/L. Her pain is managed with regular paracetamol and occasional oxycodone. Please also monitor her for signs of deep vein thrombosis.\n\nShe lives alone with her bedroom upstairs and is anxious about falling again. She walks with a frame and needs supervision on stairs. She has a physiotherapy appointment on 16 October.\n\nIf you have any questions, please do not hesitate to contact me.\n\nYours sincerely,\n\nRegistered Nurse\nOrthopedic Ward 4B\nCity General Hospital",
+      "checklist": [
+        "First paragraph states who the patient is and why you are writing (wound care, injections, monitoring).",
+        "Dates that need action are included: staple removal 13/10 and physio 16/10.",
+        "Irrelevant details are left out (cataract surgery, teacher, gardening).",
+        "The safety risks are clear: lives alone, stairs, fear of falling, daughter unsure with injections.",
+        "Formal letter conventions: address block, date, 'Re:' line with DOB, 'Dear Ms. Mendes', 'Yours sincerely', no note form."
+      ]
+    },
+    {
+      "id": "w2",
+      "title": "Transfer to aged care facility after pneumonia",
+      "notes": "Patient: Mr. Joseph Tan, 84 years old\nDOB: 02/11/1941\nAdmitted: 01/10/2026  Transfer: 09/10/2026\nWard: Medical Ward 6, Northside Hospital\n\nSocial background:\n- Lives at Greenfield Aged Care (low-care room) for 2 yrs\n- Wife died 2020; son overseas, phones weekly\n- Enjoys card games, watching soccer\n- Former engineer\n\nMedical history:\n- Mild dementia (diagnosed 2023)\n- Heart failure, furosemide 40 mg mane\n- Atrial fibrillation, apixaban 2.5 mg BD\n- Osteoporosis\n- Chronic kidney disease, creatinine 140 µmol/L\n\nAdmission:\n- Fever 38.9°C, productive cough, SOB, more confused\n- CXR: R lower lobe pneumonia\n- IV antibiotics 4 days, now oral amoxicillin 500 mg TDS, last dose 13/10\n- O2 weaned day 5; SpO2 95–97% on room air\n\nProgress:\n- Confusion improved, still forgetful at night\n- Mobility reduced: walks 10 m with 4-wheeled walker, needs 1 assist\n- Weight 64 kg (was 67 kg on admission)\n- Fluid intake poor, needs prompting; target 1.5 L/day\n- Swallow review by speech pathologist: soft diet, thin fluids OK\n- Sacrum: Stage 1 pressure injury (non-blanchable redness, skin intact)\n\nNursing plan:\n- Reposition 2-hourly in bed / encourage mobility\n- Daily weight (heart failure)\n- Monitor temp, SpO2, cough\n- Food & fluid chart\n- GP review at facility within 1 week\n- Now needs higher level of care",
+      "task": "Using the information in the case notes, write a letter to Mr. David Okafor, Nurse Unit Manager, Greenfield Aged Care, 12 Hill Street, Northside, who will take over Mr. Tan's care when he returns today.\n\nIn your answer:\n- Expand the relevant notes into complete sentences\n- Do not use note form\n- Use letter format\n\nThe body of the letter should be approximately 180–200 words.",
+      "model": "Mr. David Okafor\nNurse Unit Manager\nGreenfield Aged Care\n12 Hill Street\nNorthside\n\n9 October 2026\n\nDear Mr. Okafor,\n\nRe: Mr. Joseph Tan, DOB 02/11/1941\n\nI am writing to update you on Mr. Tan, an 84-year-old resident who is returning to your facility today after treatment for pneumonia. Please note that he now requires a higher level of care.\n\nMr. Tan was admitted on 1 October with fever, a productive cough, shortness of breath and increased confusion. A chest X-ray confirmed right lower lobe pneumonia. After four days of IV antibiotics, he is now taking oral amoxicillin 500 mg three times daily until 13 October. His oxygen saturation is 95–97% on room air.\n\nHis confusion has improved, but he remains forgetful at night. His mobility has declined, and he now needs the assistance of one person to walk 10 meters with a four-wheeled walker. He has also developed a stage 1 pressure injury on his sacrum, so 2-hourly repositioning is required.\n\nHe has lost 3 kg and needs prompting to reach his fluid target of 1.5 liters per day. He should have a soft diet; thin fluids are safe. As he has heart failure, please weigh him daily and monitor his temperature and cough.\n\nA GP review within one week is recommended.\n\nYours sincerely,\n\nRegistered Nurse\nMedical Ward 6\nNorthside Hospital",
+      "checklist": [
+        "The purpose (return to facility, higher level of care) is in the first paragraph.",
+        "The antibiotic course and end date (13/10) are clear.",
+        "Changes since he left the facility are highlighted: mobility, pressure injury, weight loss, diet.",
+        "Background the reader already knows is left out (his hobbies, his job, his wife).",
+        "Ends with a clear follow-up request (GP review within 1 week) and a formal closing."
+      ]
+    }
+  ],
+  "speaking": [
+    {
+      "id": "s1",
+      "title": "Insulin pen at home",
+      "setting": "Hospital ward, day of discharge",
+      "situation": "The patient is 55 and was diagnosed with type 2 diabetes. They are going home today on a once-daily insulin pen. They seem worried.",
+      "tasks": [
+        "Find out how the patient feels about starting insulin.",
+        "Explain how to use the pen in simple steps (check dose, inject, hold for 10 seconds).",
+        "Explain the signs of low blood sugar and what to do.",
+        "Reassure the patient and tell them about follow-up with the diabetes educator."
+      ],
+      "patient": "May say they are scared of needles and worried about losing their job as a driver."
+    },
+    {
+      "id": "s2",
+      "title": "Refusing to get out of bed",
+      "setting": "Surgical ward, day 1 after abdominal surgery",
+      "situation": "The patient had bowel surgery yesterday. The care plan says they should walk today. They refuse because of pain.",
+      "tasks": [
+        "Ask about the patient's pain and concerns.",
+        "Explain why early walking is important (lower risk of blood clots and chest infection).",
+        "Suggest ways to make it easier (pain relief first, support the wound with a pillow, short walk with help).",
+        "Agree on a plan with the patient."
+      ],
+      "patient": "May be angry and say the stitches will burst if they move."
+    },
+    {
+      "id": "s3",
+      "title": "Worried parent: child with fever",
+      "setting": "Pediatric emergency department",
+      "situation": "You are speaking to the parent of a 2-year-old with a fever of 38.5°C. The child has been seen and will go home. The parent wants antibiotics.",
+      "tasks": [
+        "Find out what worries the parent most.",
+        "Explain that the doctor found a viral infection, and antibiotics do not treat viruses.",
+        "Explain how to manage fever at home (fluids, light clothing, correct dose of medicine).",
+        "Explain the warning signs that mean they should return right away."
+      ],
+      "patient": "May insist on antibiotics and say the last time their child got sicker without them."
+    },
+    {
+      "id": "s4",
+      "title": "Smoking and leg ulcer",
+      "setting": "Community clinic, wound care visit",
+      "situation": "The patient has a leg ulcer that is healing slowly. They smoke 20 cigarettes a day.",
+      "tasks": [
+        "Ask about the patient's smoking and how they feel about it.",
+        "Explain how smoking slows wound healing.",
+        "Discuss options to quit (nicotine replacement, quit line, support from the GP).",
+        "Encourage the patient and arrange the next visit."
+      ],
+      "patient": "May feel judged and say smoking is the only thing that helps with stress."
+    },
+    {
+      "id": "s5",
+      "title": "Daughter upset about fall",
+      "setting": "Medical ward, visiting hours",
+      "situation": "An elderly patient fell overnight on the ward. They have a bruise but no fracture. Their daughter is upset and wants to know what happened.",
+      "tasks": [
+        "Acknowledge the daughter's feelings and apologize that the fall happened.",
+        "Explain what happened and the checks that were done.",
+        "Explain the steps now in place to prevent another fall (bed alarm, low bed, regular checks).",
+        "Explain how she can make a formal complaint if she wishes."
+      ],
+      "patient": "May raise her voice and say the staff are not watching her mother."
+    },
+    {
+      "id": "s6",
+      "title": "New blood thinner",
+      "setting": "Cardiology outpatient clinic",
+      "situation": "The patient has atrial fibrillation and is starting a new blood thinner (anticoagulant) today.",
+      "tasks": [
+        "Find out what the patient already knows about the medicine.",
+        "Explain why they need it (to lower the risk of stroke).",
+        "Explain the bleeding risks and what to report (black stools, blood in urine, bad bruising).",
+        "Advise them to tell other health workers and the dentist, and to avoid new medicines without checking."
+      ],
+      "patient": "May say they feel fine and do not want to take tablets for life."
+    }
+  ],
+  "phrases": [
+    [
+      "Showing empathy",
+      [
+        "I can see this is really worrying for you.",
+        "That sounds very difficult. Thank you for telling me.",
+        "It's completely normal to feel nervous about this.",
+        "I understand why you're upset, and I want to help."
+      ]
+    ],
+    [
+      "Explaining",
+      [
+        "Let me explain what this means in simple terms.",
+        "The main reason we do this is to lower the risk of ...",
+        "There are a few things you can do at home. First, ...",
+        "The good news is that ..."
+      ]
+    ],
+    [
+      "Checking understanding",
+      [
+        "Just to make sure I explained it clearly, could you tell me how you'll take it at home?",
+        "Does that make sense so far?",
+        "What questions do you have about what we discussed?",
+        "Is there anything you'd like me to go over again?"
+      ]
+    ]
+  ],
+  "sources": [
+    [
+      "OET test regulations (format and timings)",
+      "https://oet.com/test_regulations"
+    ],
+    [
+      "OET guide to test day on computer",
+      "https://oet.com/post/the-ultimate-guide-to-test-day-on-computer-part-2"
+    ],
+    [
+      "IELTS test format (British Council)",
+      "https://takeielts.britishcouncil.org/take-ielts/test-format"
+    ],
+    [
+      "HRSA foreign health care worker requirements",
+      "https://www.hrsa.gov/office-global-health/foreign-healthcare-worker-requirements"
+    ],
+    [
+      "TruMerit VisaScreen",
+      "https://www.trumerit.org/services/certification/visascreen-visa-credentials-assessment/"
+    ],
+    [
+      "College of Nurses of Ontario: language proficiency",
+      "https://www.cno.org/en/become-a-nurse/registration-requirements/language-proficiency/"
+    ],
+    [
+      "BCCNM: English proficiency (RN)",
+      "https://www.bccnm.ca/RN/applications_registration/Pages/English_proficiency.aspx"
+    ],
+    [
+      "CRNA: English language proficiency",
+      "https://nurses.ab.ca/nursing-in-alberta/registration-requirements/english-language-proficiency"
+    ],
+    [
+      "NMBA English language skills",
+      "https://www.nursingmidwiferyboard.gov.au/Registration-Standards/English-language-skills.aspx"
+    ],
+    [
+      "Ahpra English language skills",
+      "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills.aspx"
+    ],
+    [
+      "Nursing Council of New Zealand: English language (IQN)",
+      "https://nursingcouncil.org.nz/IQN/H5"
+    ],
+    [
+      "CELBAN",
+      "https://www.celban.org"
+    ],
+    [
+      "PTE Academic",
+      "https://www.pearsonpte.com"
+    ]
+  ],
+  "uncertain": [
+    "Australia (from April 23, 2026) scores and two-sitting floors were confirmed against a university copy of the Ahpra table (Notre Dame); the Ahpra 'Accepted tests' page itself returned an error on 2026-10-09.",
+    "U.S.: HRSA's page lists the new minimums 'as of May 12, 2026' but does not say whether the date that counts is the test date or the application date, or whether at-home tests are accepted.",
+    "IELTS Speaking 'within about 7 days' of the other parts was not confirmed on ielts.org today.",
+    "BC: scores now taken from BCCNM's current page (checked 2026-10-09). Inspire Global Assessments' own test list was not checked.",
+    "U.S.: no official validity period for test scores was found on HRSA or TruMerit pages (only the 5-year VisaScreen certificate validity, from a secondary source). State boards may add their own rules.",
+    "CELBAN section timings and current delivery details were not verified on celban.org, so times are left out."
+  ]
+}

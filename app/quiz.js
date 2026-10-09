@@ -8,12 +8,13 @@ import { Screen, Card, Row, Txt, Btn, Chip, Note, Bar, Option, Check, Select, Ac
 import { BackRow, Medal } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
 import { useApp } from "../src/state";
-import { ProGate } from "../src/pro";
+import { ProGate, usePro } from "../src/pro";
+import { maybeAskForRating } from "../src/rate";
 import { todayKey, shuffle } from "../src/util";
 import { getRun } from "../src/runStore";
 import { DIAG, CAT_POOL, DIFF } from "../src/data/content";
 import { NGN_CASES, scoreNgnItem } from "../src/data/ngn";
-import { typeOf, scoreItem, isCorrect, isAnswered, answerText, breakdown, TESTS, buildTest1, buildTest2, nextItem, stopRule, difficultyOf, CAT_MIN, CAT_MAX } from "../src/exam";
+import { typeOf, scoreItem, isCorrect, isAnswered, answerText, breakdown, TESTS, T2_CASES, buildTest1, buildTest2, nextItem, stopRule, difficultyOf, CAT_MIN, CAT_MAX } from "../src/exam";
 import BANK_ALL from "../src/data/questions.json";
 
 const MOD = "nclex";
@@ -149,7 +150,7 @@ function CatBreakdown({ byCat }) {
  * initial / onProgress let long exams be saved and resumed. In segment mode the runner hands its answers
  * to onSegmentDone instead of showing its own results.
  */
-function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart, initial, onProgress, segment, onSegmentDone, label }) {
+function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart, initial, onProgress, segment, onSegmentDone, label, after }) {
   const t = useTheme(MOD);
   const [i, setI] = useState((initial && initial.i) || 0); const [ans, setAns] = useState((initial && initial.ans) || {});
   const [done, setDone] = useState(false); const [open, setOpen] = useState(null);
@@ -194,6 +195,7 @@ function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart, init
           <Txt v="tiny" muted>SATA items use NCSBN +/− scoring (+1 per correct choice, −1 per wrong choice, minimum 0).</Txt>
         </Card>
         <CatBreakdown byCat={byCat} />
+        {after || null}
         <ResultTable items={items} answers={ans} onOpen={setOpen} />
         <Row gap={10} wrap>
           {onRestart ? <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Retake" onPress={onRestart} /> : null}
@@ -287,6 +289,76 @@ function Ehr({ cs }) {
   );
 }
 
+/** Trend exhibit shown above an NGN item (values over time). Scrolls sideways on narrow phones. */
+function TrendTable({ table }) {
+  const t = useTheme(MOD); const W = 92;
+  return (
+    <View style={{ gap: 4 }}>
+      <Txt v="eyebrow">Trend</Txt>
+      <HScroll mod={MOD} fade={t.c.surface} hint="Swipe to see every column">
+        <View style={{ borderWidth: 1, borderColor: t.c.line, borderRadius: 12, overflow: "hidden" }}>
+          <View style={{ flexDirection: "row", backgroundColor: t.soft }}>
+            {table.cols.map((c) => <Txt key={c} v="tiny" style={{ width: W, padding: 8, fontFamily: FONTS.bodyBold }}>{c}</Txt>)}
+          </View>
+          {table.rows.map((r, k) => (
+            <View key={k} style={{ flexDirection: "row", backgroundColor: k % 2 ? t.c.sunk : t.c.surface }}>
+              {r.map((v, j) => <Txt key={j} v="small" style={{ width: W, padding: 8, fontFamily: j ? FONTS.mono : FONTS.bodyBold }}>{v}</Txt>)}
+            </View>
+          ))}
+        </View>
+      </HScroll>
+    </View>
+  );
+}
+
+/** Bowtie item: 1 condition in the middle, 2 actions on the left, 2 parameters to monitor on the right. */
+function Bowtie({ item, a, setA }) {
+  const t = useTheme(MOD);
+  const pick = (key, id, limit) => {
+    if (limit === 1) { setA({ ...a, [key]: id }); return; }
+    const cur = a[key] || [];
+    if (cur.includes(id)) setA({ ...a, [key]: cur.filter((x) => x !== id) });
+    else if (cur.length < limit) setA({ ...a, [key]: [...cur, id] });
+    else setA({ ...a, [key]: [...cur.slice(1), id] });
+  };
+  const name = (grp, id) => (grp.opts.find(([x]) => x === id) || [, ""])[1];
+  const Slot = ({ text, ph, tone }) => (
+    <View style={{ flex: 1, minHeight: 44, padding: 8, borderRadius: 10, borderWidth: 1.5, borderStyle: text ? "solid" : "dashed", borderColor: text ? tone : t.c.line, backgroundColor: text ? t.c.surface : "transparent", justifyContent: "center" }}>
+      <Txt v="tiny" color={text ? t.c.ink : t.c.muted} numberOfLines={3}>{text || ph}</Txt>
+    </View>
+  );
+  const acts = a.actions || [], pars = a.params || [];
+  const group = (key, grp, limit, title, tone) => (
+    <View style={{ gap: 6 }}>
+      <Row style={{ justifyContent: "space-between" }}><Txt v="smallB">{title}</Txt><Txt v="mono" muted style={{ fontSize: 12 }}>{limit === 1 ? (a[key] ? 1 : 0) : (a[key] || []).length}/{limit}</Txt></Row>
+      {grp.opts.map(([id, x]) => {
+        const on = limit === 1 ? a[key] === id : (a[key] || []).includes(id);
+        return (
+          <Pressable key={id} onPress={() => { tap(); pick(key, id, limit); }} accessibilityRole={limit === 1 ? "radio" : "checkbox"} accessibilityState={{ checked: on }}
+            style={{ flexDirection: "row", alignItems: "center", gap: 10, padding: 11, borderRadius: 12, borderWidth: on ? 2 : 1, borderColor: on ? tone : t.c.line, backgroundColor: on ? t.soft : t.c.surface }}>
+            <Icon name={on ? "CheckCircle2" : "Circle"} size={17} color={on ? tone : t.c.muted} />
+            <Txt v="small" style={{ flex: 1 }}>{x}</Txt>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+  return (
+    <View style={{ gap: 14 }}>
+      <View style={{ padding: 10, borderRadius: 14, backgroundColor: t.c.sunk, gap: 6 }} accessible accessibilityLabel="Bowtie summary">
+        <Row gap={6} center={false}>
+          <View style={{ flex: 1, gap: 6 }}><Slot text={name(item.actions, acts[0])} ph="Action 1" tone={t.tint} /><Slot text={name(item.actions, acts[1])} ph="Action 2" tone={t.tint} /></View>
+          <View style={{ flex: 1.1, justifyContent: "center" }}><Slot text={name(item.condition, a.condition)} ph="Condition" tone={t.tint2} /></View>
+          <View style={{ flex: 1, gap: 6 }}><Slot text={name(item.params, pars[0])} ph="Monitor 1" tone={t.c.ok} /><Slot text={name(item.params, pars[1])} ph="Monitor 2" tone={t.c.ok} /></View>
+        </Row>
+      </View>
+      {group("condition", item.condition, 1, "Condition most likely (choose 1)", t.tint2)}
+      {group("actions", item.actions, 2, "Actions to take (choose 2)", t.tint)}
+      {group("params", item.params, 2, "Parameters to monitor (choose 2)", t.c.ok)}
+    </View>
+  );
+}
+
 /** "Correct answer" summary for the review screen. */
 function NgnKey({ it, a }) {
   const t = useTheme(MOD);
@@ -303,6 +375,16 @@ function NgnKey({ it, a }) {
       })}
     </View>
   );
+  if (it.kind === "bowtie") {
+    const name = (grp, id) => (grp.opts.find(([x]) => x === id) || [, id])[1];
+    return (
+      <View style={{ gap: 4 }}>
+        <Txt v="small"><Txt v="smallB">Condition: </Txt>{name(it.condition, it.condition.answer)}{a && a.condition !== it.condition.answer ? <Txt v="small" color={t.c.crit}> (you chose {a.condition ? name(it.condition, a.condition) : "nothing"})</Txt> : null}</Txt>
+        <Txt v="small"><Txt v="smallB">Actions: </Txt>{it.actions.answer.map((id) => name(it.actions, id)).join("; ")}</Txt>
+        <Txt v="small"><Txt v="smallB">Monitor: </Txt>{it.params.answer.map((id) => name(it.params, id)).join("; ")}</Txt>
+      </View>
+    );
+  }
   if (it.kind === "matrix") return (
     <View style={{ gap: 4 }}>
       {it.rows.map(([id, x, c]) => (
@@ -326,6 +408,7 @@ function NgnCase({ cs, onDone, onExit, exam, initial, onProgress, onSubmit }) {
     if (it.kind === "order") return x.length === it.steps.length;
     if (it.kind === "cloze") return it.blanks.every((b) => x[b.id]);
     if (it.kind === "matrix") return it.rows.every(([id]) => x[id]);
+    if (it.kind === "bowtie") return !!x.condition && (x.actions || []).length === 2 && (x.params || []).length === 2;
     return true;
   };
   const totals = items.map((it) => scoreNgnItem(it, ans[it.id]));
@@ -364,7 +447,10 @@ function NgnCase({ cs, onDone, onExit, exam, initial, onProgress, onSubmit }) {
       ) : (
         <Card mod={MOD} key={item.id} style={{ gap: 12 }}>
           <Txt v="eyebrow">Clinical judgment step {i + 1} · {item.step}</Txt>
+          {item.table ? <TrendTable table={item.table} /> : null}
           <Txt v="bodyB" style={{ fontSize: 16, lineHeight: 23 }}>{item.stem}</Txt>
+
+          {item.kind === "bowtie" ? <Bowtie item={item} a={a || {}} setA={setA} /> : null}
 
           {item.kind === "multi" ? item.options.map(([id, x]) => {
             const sel = (a || []).includes(id);
@@ -477,7 +563,7 @@ function NGN({ onDone }) {
     </View>
   );
 }
-const KIND_LABEL = { multi: "SATA", single: "MCQ", matrix: "matrix", cloze: "drop-down", highlight: "highlight", order: "ordered response" };
+const KIND_LABEL = { multi: "SATA", single: "MCQ", matrix: "matrix", cloze: "drop-down", highlight: "highlight", order: "ordered response", bowtie: "bowtie" };
 
 /* ---------- the three benchmark exams ---------- */
 
@@ -503,6 +589,19 @@ function StartGate({ title, intro, saved, progress, onResume, onNew, children })
   );
 }
 
+/** After the Diagnostic Benchmark: turn the result into a plan (Pro), or open it if already Pro. */
+function NextUp() {
+  const t = useTheme(MOD); const { isPro } = usePro();
+  return (
+    <Card mod={MOD} accent style={{ gap: 10 }}>
+      <Row gap={10}><Icon name="Route" size={20} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>{isPro ? "Your study plan is updated" : "Turn this result into a plan"}</Txt></Row>
+      <Txt v="small" muted>{isPro ? "Your weakest areas now lead your daily practice, and every miss comes back in smart review."
+        : "Pro builds a daily plan around your weakest areas, brings back every question you missed at the right time, and paces you to your exam date."}</Txt>
+      <Btn mod={MOD} icon={isPro ? "ArrowRight" : "Crown"} title={isPro ? "Open my study plan" : "See Pro"} onPress={() => router.push(isPro ? "/plan" : "/paywall")} />
+    </Card>
+  );
+}
+
 function Test1({ timed, onDone }) {
   const { state, dispatch } = useApp(); const saved = state.runs && state.runs.t1;
   const [run, setRun] = useState(null);
@@ -518,7 +617,7 @@ function Test1({ timed, onDone }) {
   }
   return (
     <QuizRunner key={run.items[0].id + run.items.length} items={run.items} mode={TESTS.t1.title} timed={!!run.timed} initial={run}
-      onProgress={(p) => save({ ...run, ...p })}
+      onProgress={(p) => save({ ...run, ...p })} onStat={(res) => dispatch({ type: "qstat", res })} after={<NextUp />}
       onDone={(rec) => { save(null); onDone(rec); }} onRestart={() => setRun(null)} />
   );
 }
@@ -531,7 +630,7 @@ function Test2({ onDone }) {
   if (!run) {
     return (
       <StartGate title={TESTS.t2.title} saved={saved}
-        intro={`${TESTS.t2.count} items: ${NGN_CASES.length} unfolding Next Generation NCLEX case studies (6 clinical-judgment steps each, with chart tabs) placed between sections of stand-alone questions, including select-all-that-apply and ordered-response items.`}
+        intro={`${TESTS.t2.count} items: ${T2_CASES} unfolding Next Generation NCLEX case studies (picked from ${NGN_CASES.length}, so each attempt is different; 6 clinical-judgment steps each, with chart tabs) placed between sections of stand-alone questions, including select-all-that-apply and ordered-response items.`}
         progress={saved ? `Section ${saved.b + 1} of ${saved.blocks.length} · ${qCount(saved)} of ${TESTS.t2.count} items done` : null}
         onResume={() => setRun(saved)}
         onNew={() => { const r = { blocks: buildTest2(), b: 0, results: [], cur: null }; save(r); setRun(r); }} />
@@ -825,28 +924,34 @@ export default function Quiz() {
   const { dispatch } = useApp();
   const [runKey, setRunKey] = useState(0);
   const run = useMemo(() => (mode === "bank" ? getRun() : null), [mode]);
-  const record = (rec) => dispatch({ type: "exam", rec });
+  const record = (rec) => {
+    // Smart review and study-plan sessions update question stats only; they don't fill the exam history.
+    if (mode === "bank" && run && run.label) return;
+    dispatch({ type: "exam", rec });
+    // A good moment to ask for a rating: a strong result on a benchmark exam.
+    if (rec && rec.pct >= 70 && [TESTS.t1.title, TESTS.t2.title, TESTS.t3.title].includes(rec.mode)) setTimeout(() => { maybeAskForRating(); }, 2500);
+  };
 
   let body = null;
   if (mode === "bank") {
     body = run && run.items && run.items.length
-      ? <QuizRunner key={runKey} items={run.items} mode="Question Bank" tutor={run.tutor} onDone={record} onStat={(res) => dispatch({ type: "qstat", res })} />
+      ? <QuizRunner key={runKey} items={run.items} mode={run.label || "Question Bank"} tutor={run.tutor} onDone={record} onStat={(res) => dispatch({ type: "qstat", res })} />
       : <Note mod={MOD} tone="warn" icon="AlertTriangle" title="No question set">Go back to the NCLEX tab and build a set from the question bank.</Note>;
   } else if (mode === "t1") {
     body = <Test1 timed={timed} onDone={record} />;
   } else if (mode === "t2") {
-    body = <ProGate mod={MOD} feature={TESTS.t2.title} desc="150 items with four unfolding NGN case studies, chart tabs, select-all-that-apply and ordered-response questions, and full rationales."><Test2 onDone={record} /></ProGate>;
+    body = <ProGate mod={MOD} feature={TESTS.t2.title} desc="150 items with four unfolding NGN case studies (from a set of eight), chart tabs, bowtie, select-all-that-apply and ordered-response questions, and full rationales."><Test2 onDone={record} /></ProGate>;
   } else if (mode === "t3") {
     body = <Test3 onDone={record} />;
   } else if (mode === "ngn") {
-    body = <ProGate mod={MOD} feature="NGN case studies" desc="Four unfolding Next Generation NCLEX cases with chart tabs, all six clinical-judgment steps and full rationales."><NGN onDone={record} /></ProGate>;
+    body = <ProGate mod={MOD} feature="NGN case studies" desc="Eight unfolding Next Generation NCLEX cases with chart tabs, bowtie and trend items, all six clinical-judgment steps and full rationales."><NGN onDone={record} /></ProGate>;
   } else {
     body = <Flashcards />;
   }
 
   return (
     <Screen mod={MOD}>
-      <BackRow mod={MOD} title={TITLES[mode] + (mode === "t1" && timed ? " · Timed" : mode === "bank" && run ? (run.tutor ? " · Tutor" : " · Exam") : "")} />
+      <BackRow mod={MOD} title={mode === "bank" && run && run.label ? run.label : TITLES[mode] + (mode === "t1" && timed ? " · Timed" : mode === "bank" && run ? (run.tutor ? " · Tutor" : " · Exam") : "")} />
       {body}
     </Screen>
   );

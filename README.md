@@ -14,6 +14,12 @@ The store version of USRN Pathway, built with Expo (React Native). Bundle ID / p
   The destination is part of the profile (U.S. by default; a first-run welcome card lets the nurse pick). Boards, Bedside,
   Career and Driving switch to the chosen country using `src/data/countries/*-life.json` (regulators, careers, pay, tax,
   health cover, credit, driving, liability protection and lesson notes, each with sources).
+- **Backup & restore** (Settings): progress is exported as text through the share sheet and restored by pasting it back (`src/backup.js`). No server.
+- **Study plan & smart review** (`app/plan.js`, `src/study.js`): daily goal, exam-date pacing, weakest Client Needs areas first,
+  and spaced repetition of missed questions (1, 3, 7 days) stored in `state.srs`. Daily reminder is a local notification.
+- **English prep** (`app/english.js`, `src/data/english.json`) and **interview prep** (`app/interview.js`, `src/data/interview.json`).
+- **U.S. boards** are verified data in `src/data/us-boards.json` (date, sources and open questions inside).
+- **Rating prompt** (`src/rate.js`) uses `expo-store-review` after a strong benchmark result (install it with `npx expo install expo-store-review`).
 - **No AI features** in this version.
 
 ---

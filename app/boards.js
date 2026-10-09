@@ -5,7 +5,8 @@ import { Screen, Hero, Card, Row, Txt, Icon, Select, Check, Chip, Note, Bullets,
 import { BackRow } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
 import { ProGate } from "../src/pro";
-import { BOARDS, ENDORSE } from "../src/data/content";
+import { BOARDS, ENDORSE, BOARDS_META } from "../src/data/content";
+import { Accordion } from "../src/ui";
 import { useApp } from "../src/state";
 import { destId, destOf, lifeOf, WORDS } from "../src/data/global";
 import { DestPill, YourRegionCard, useRegion } from "../src/dest";
@@ -38,7 +39,7 @@ function SearchField({ value, onChangeText, placeholder = "State or CES agency" 
 
 function BoardCard({ b }) {
   const t = useTheme(MOD);
-  const nlc = b.nlc === "Yes" ? <Chip mod={MOD} tone="acc2" icon="Network" text="Compact" /> : b.nlc === "No" ? <Chip tone="mute" text="NLC: No" /> : <Chip tone="warn" icon="AlertTriangle" text="NLC: Verify" />;
+  const nlc = b.nlc === "Yes" ? <Chip mod={MOD} tone="acc2" icon="Network" text="Compact" /> : b.nlc === "No" ? <Chip tone="mute" text="NLC: No" /> : <Chip tone="warn" icon="AlertTriangle" text={"NLC: " + b.nlc} />;
   return (
     <Card mod={MOD} style={{ gap: 10 }}>
       <Row gap={12} center={false}>
@@ -51,13 +52,15 @@ function BoardCard({ b }) {
         </View>
       </Row>
       <Txt v="small" muted>{b.note}</Txt>
+      {b.english ? <Txt v="tiny" muted><Txt v="tiny" style={{ fontFamily: FONTS.bodyBold }}>English: </Txt>{b.english}</Txt> : null}
       <Row wrap gap={6}>
-        {b.ssn ? <Chip tone="warn" icon="IdCard" text="SSN at start" /> : <Chip tone="ok" icon="CheckCircle2" text="No SSN needed" />}
-        <Chip mod={MOD} tone="acc" icon="DollarSign" text={"$" + b.fee + " fee"} />
-        <Chip mod={MOD} tone="acc" icon="Clock" text={b.weeks + " wks"} />
+        {b.ssn === true ? <Chip tone="warn" icon="IdCard" text="SSN to apply" /> : b.ssn === false ? <Chip tone="ok" icon="CheckCircle2" text="Can apply without SSN" /> : <Chip tone="mute" icon="IdCard" text="SSN: check board" />}
+        <Chip mod={MOD} tone="acc" icon="DollarSign" text={b.fee != null ? "$" + b.fee + " fee" : "Fee: check board"} />
+        {b.weeks ? <Chip mod={MOD} tone="acc" icon="Clock" text={b.weeks + " wks"} /> : null}
         {b.juris ? <Chip mod={MOD} tone="acc2" icon="Gavel" text="Jurisprudence exam" /> : <Chip tone="mute" text="No jurisprudence" />}
         {nlc}
       </Row>
+      {b.url ? <Btn mod={MOD} small kind="secondary" icon="Globe" title="Board website" onPress={() => { tap(); Linking.openURL(b.url).catch(() => {}); }} style={{ alignSelf: "flex-start" }} /> : null}
     </Card>
   );
 }
@@ -74,7 +77,7 @@ function GlanceTile({ label, value }) {
 
 function EndorsementWizard() {
   const t = useTheme(MOD);
-  const [from, setFrom] = useState("NY"); const [to, setTo] = useState("CA");
+  const [from, setFrom] = useState("NY"); const [to, setTo] = useState("TX");
   const src = BOARDS.find((b) => b.st === from), dst = BOARDS.find((b) => b.st === to), rule = ENDORSE[to];
   const bothCompact = src.nlc === "Yes" && dst.nlc === "Yes";
   const opts = BOARDS.map((b) => ({ value: b.st, label: b.name }));
@@ -182,20 +185,21 @@ function UsBoards() {
   const [sort, setSort] = useState("fee");
   const rows = useMemo(() => {
     let r = BOARDS.filter((b) => (b.name + b.st + b.ces).toLowerCase().includes(q.trim().toLowerCase()));
-    if (noSSN) r = r.filter((b) => !b.ssn);
+    if (noSSN) r = r.filter((b) => b.ssn === false);
     if (noJur) r = r.filter((b) => !b.juris);
     if (compact) r = r.filter((b) => b.nlc === "Yes");
-    const wk = (b) => parseInt(b.weeks, 10);
-    return [...r].sort((a, b) => sort === "fee" ? a.fee - b.fee : sort === "weeks" ? wk(a) - wk(b) : a.name.localeCompare(b.name));
+    const wk = (b) => { const n = parseInt(String(b.weeks).replace(/[^0-9]/g, " ").trim(), 10); return isNaN(n) ? 999 : n; };
+    const fee = (b) => (b.fee == null ? 99999 : b.fee);
+    return [...r].sort((a, b) => sort === "fee" ? fee(a) - fee(b) : sort === "weeks" ? wk(a) - wk(b) : a.name.localeCompare(b.name));
   }, [q, noSSN, noJur, compact, sort]);
   return (
     <Screen mod={MOD}>
       <BackRow mod={MOD} title="State boards" />
       <Hero mod={MOD} icon="Landmark" eyebrow="Module 2 · Boards of Nursing" title="Pick the right state board"
         sub="Compare boards that accept internationally educated applicants, then plan your move to another state."
-        stats={[["Boards listed", BOARDS.length], ["No SSN to apply", BOARDS.filter((b) => !b.ssn).length], ["Compact states", BOARDS.filter((b) => b.nlc === "Yes").length]]} />
+        stats={[["Boards listed", BOARDS.length], ["No SSN to apply", BOARDS.filter((b) => b.ssn === false).length], ["Compact states", BOARDS.filter((b) => b.nlc === "Yes").length]]} />
       <DestPill mod={MOD} />
-      <Note tone="warn" icon="AlertTriangle">Figures here are sample prototype data, not verified board requirements. Fees and rules change often — confirm every item on the board's own website before you apply.</Note>
+      <Note mod={MOD} icon="CheckCircle2">Checked against each board's own website on {fmtDate(BOARDS_META.checked)}. Fees and rules change often, so confirm on the board's site before you pay or apply.</Note>
       <Card mod={MOD} style={{ gap: 12 }}>
         <SearchField value={q} onChangeText={setQ} />
         <Select mod={MOD} label="Sort by" value={sort} onChange={setSort}
@@ -217,7 +221,19 @@ function UsBoards() {
           <Txt v="small" muted style={{ textAlign: "center" }}>No boards match these filters. Clear a filter to see more.</Txt>
         </Card>
       ) : null}
-      <Txt v="tiny" muted>Fees shown are board application fees only. Pearson VUE NCLEX registration ($200) is separate.</Txt>
+      <Txt v="tiny" muted>Fees shown are board application fees only. Pearson VUE NCLEX registration is separate: $200, rising to $350 for registrations from Feb 1, 2027.</Txt>
+      <Accordion mod={MOD} title="What we couldn't confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
+        <Bullets items={BOARDS_META.uncertain} />
+      </Accordion>
+      <Accordion mod={MOD} title={`Sources (${BOARDS_META.sources.length})`} meta={<Icon name="BookOpen" size={16} color={t.c.muted} />}>
+        <View style={{ gap: 8 }}>
+          {BOARDS_META.sources.map(([label, url]) => (
+            <Pressable key={url + label} onPress={() => { tap(); Linking.openURL(url).catch(() => {}); }} accessibilityRole="link">
+              <Row gap={6} center={false}><View style={{ paddingTop: 2 }}><Icon name="ExternalLink" size={13} color={t.tint} /></View><Txt v="small" color={t.tint} style={{ flex: 1 }}>{label}</Txt></Row>
+            </Pressable>
+          ))}
+        </View>
+      </Accordion>
       <ProGate feature="Endorsement pathway wizard" desc="Step-by-step Nursys transfer between states" mod="boards">
         <EndorsementWizard />
       </ProGate>

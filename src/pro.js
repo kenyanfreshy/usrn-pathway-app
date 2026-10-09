@@ -27,13 +27,17 @@ export const SPECIAL_OFFERING = extra.specialOfferingId || "special_offer";
 export const WIN_BACK_DAYS = 30;
 
 export const PRO_FEATURES = [
-  ["Network", "NGN Clinical Judgment Simulator", "A 150-item exam with four unfolding Next Gen case studies (chart tabs, six clinical-judgment steps), plus single-case practice"],
+  ["Route", "Personal study plan & smart review", "A daily plan paced to your exam date, led by your weakest areas; every missed question comes back after 1, 3 and 7 days"],
+  ["Network", "NGN Clinical Judgment Simulator", "A 150-item exam with Next Gen case studies picked from eight (chart tabs, bowtie and trend items), plus single-case practice"],
+  ["Languages", "OET-style writing & speaking practice", "Nursing letter tasks with model letters, and role-play cards for the speaking test"],
+  ["MessageSquare", "Interview prep", "Sample STAR answers for hospital interviews, plus visa and arrival interview prep for your country"],
+  ["Share2", "Document summary", "Share a tidy checklist of your documents, expiry dates and roadmap progress with a recruiter or college"],
   ["BellRing", "Automated expiry alerts", "Phone reminders 90 and 30 days before IELTS/PTE scores and licenses expire"],
-  ["ArrowRightLeft", "Endorsement wizard (U.S.)", "Nursys transfer steps between states, e.g. NY → CA or TX"],
   ["LayoutGrid", "Charge nurse command center", "Acuity balancer, SBAR generator, clinical ladder dossier"],
+  ["ArrowRightLeft", "Endorsement wizard (U.S.)", "Nursys transfer steps between states, e.g. NY → TX"],
   ["Receipt", "Overtime tax shield (U.S.)", "Overtime deduction, W-4 withholding and 403(b)/457(b)/HSA calculators"],
 ];
-export const FREE_FEATURES = ["Roadmaps for the U.S., Canada, Australia and New Zealand", "Licensing guides for each country", "Visa bulletin and migration monitors", "Diagnostic Baseline (Test 1)", "Question bank, lessons and guides"];
+export const FREE_FEATURES = ["Roadmaps for the U.S., Canada, Australia and New Zealand", "Licensing guides for each country", "Visa bulletin and migration monitors", "Diagnostic Benchmark and Comprehensive Predictor", "Question bank, lessons, English scores and guides", "Backup & restore"];
 
 const ProCtx = createContext({ isPro: false, ready: false, packages: [], storeAvailable: false, membership: null });
 export const usePro = () => useContext(ProCtx);
