@@ -167,47 +167,58 @@ const heat = (p) => `hsla(${Math.round(p * 1.2)}, 72%, 40%, 0.95)`;
 
 function Heatmap({ exams }) {
   const t = useTheme(MOD);
+  const [w, setW] = useState(0);
   const rows = exams.filter((e) => e.byCat).slice(0, 8).reverse();
   if (!rows.length) return null;
   const cats = [...new Set(rows.flatMap((e) => Object.keys(e.byCat)))].sort();
-  const LW = 168, CW = 88;
+  // Fit the table to the phone: the category column takes about a third of the width (wider on tablets), and the
+  // attempt columns share the rest. Only when they'd be narrower than MIN_CW does the table scroll sideways.
+  const GAP = 6, MIN_CW = 58;
+  const LW = w ? Math.round(Math.min(220, Math.max(96, w * (w > 600 ? 0.26 : 0.32)))) : 150;
+  const room = w - LW - GAP * rows.length;
+  const fits = w > 0 && room / rows.length >= MIN_CW;
+  const CW = fits ? Math.floor(room / rows.length) : 76;
+  const small = CW < 78;
+  const table = (
+    <View style={{ gap: GAP }}>
+      <Row gap={GAP} center={false}>
+        <View style={{ width: LW, justifyContent: "flex-end" }}><Txt v="eyebrow">Category</Txt></View>
+        {rows.map((e, i) => (
+          <View key={i} style={{ width: CW, alignItems: "center", gap: 2, paddingVertical: 6, paddingHorizontal: 3, borderRadius: 10, backgroundColor: t.c.sunk }}>
+            <Txt v="tiny" style={{ fontFamily: FONTS.bodyBold, textAlign: "center" }} numberOfLines={2} adjustsFontSizeToFit minimumFontScale={0.8}>{kindOf(e.mode).label}</Txt>
+            <Txt v="tiny" muted style={{ fontFamily: FONTS.mono }} numberOfLines={1} adjustsFontSizeToFit>{shortDate(e.date)}</Txt>
+          </View>
+        ))}
+      </Row>
+      {cats.map((c) => (
+        <Row key={c} gap={GAP}>
+          <View style={{ width: LW }}><Txt v={small ? "tiny" : "small"}>{c}</Txt></View>
+          {rows.map((e, i) => {
+            const v = e.byCat[c];
+            if (!v || !v[1]) return <View key={i} style={{ width: CW, minHeight: 36, alignItems: "center", justifyContent: "center" }}><Txt v="small" muted>—</Txt></View>;
+            const p = Math.round((v[0] / v[1]) * 100);
+            return (
+              <View key={i} accessible accessibilityLabel={`${c}, ${kindOf(e.mode).label} ${shortDate(e.date)}: ${p} percent`}
+                style={{ width: CW, minHeight: 36, paddingVertical: 5, borderRadius: 10, alignItems: "center", justifyContent: "center", backgroundColor: heat(p) }}>
+                <Txt v={small ? "tiny" : "smallB"} color="#fff" style={{ fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{p}%</Txt>
+                <Txt v="tiny" color="rgba(255,255,255,0.88)" style={{ fontFamily: FONTS.mono, fontSize: 10 }}>{v[0]}/{v[1]}</Txt>
+              </View>
+            );
+          })}
+        </Row>
+      ))}
+    </View>
+  );
   return (
     <Card mod={MOD} style={{ gap: 10 }}>
       <View style={{ gap: 2 }}>
         <Txt v="h3">Category heatmap</Txt>
         <Txt v="tiny" muted>Your last {rows.length} scored attempts, oldest → newest. Each cell is your score in that Client Needs area.</Txt>
       </View>
-      <HScroll mod={MOD} fade={t.c.surface} hint="Swipe to see all attempts">
-        <View style={{ gap: 6 }}>
-          <Row gap={6} center={false}>
-            <View style={{ width: LW, justifyContent: "flex-end" }}><Txt v="eyebrow">Category</Txt></View>
-            {rows.map((e, i) => (
-              <View key={i} style={{ width: CW, alignItems: "center", gap: 2, paddingVertical: 6, paddingHorizontal: 4, borderRadius: 10, backgroundColor: t.c.sunk }}>
-                <Txt v="tiny" style={{ fontFamily: FONTS.bodyBold, textAlign: "center" }} numberOfLines={2}>{kindOf(e.mode).label}</Txt>
-                <Txt v="tiny" muted style={{ fontFamily: FONTS.mono }}>{shortDate(e.date)}</Txt>
-              </View>
-            ))}
-          </Row>
-          {cats.map((c) => (
-            <Row key={c} gap={6}>
-              <View style={{ width: LW }}><Txt v="small">{c}</Txt></View>
-              {rows.map((e, i) => {
-                const v = e.byCat[c];
-                if (!v || !v[1]) return <View key={i} style={{ width: CW, minHeight: 34, alignItems: "center", justifyContent: "center" }}><Txt v="small" muted>—</Txt></View>;
-                const p = Math.round((v[0] / v[1]) * 100);
-                return (
-                  <View key={i} accessible accessibilityLabel={`${c}, ${kindOf(e.mode).label} ${shortDate(e.date)}: ${p} percent`}
-                    style={{ width: CW, minHeight: 34, paddingVertical: 6, borderRadius: 10, alignItems: "center", justifyContent: "center", backgroundColor: heat(p) }}>
-                    <Txt v="smallB" color="#fff" style={{ fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{p}%</Txt>
-                    <Txt v="tiny" color="rgba(255,255,255,0.88)" style={{ fontFamily: FONTS.mono }}>{v[0]}/{v[1]}</Txt>
-                  </View>
-                );
-              })}
-            </Row>
-          ))}
-        </View>
-      </HScroll>
-      <Row gap={8} wrap>
+      <View onLayout={(e) => { const nw = Math.floor(e.nativeEvent.layout.width); if (Math.abs(nw - w) > 1) setW(nw); }}>
+        {fits ? table : <HScroll mod={MOD} fade={t.c.surface} hint="Swipe to see all attempts">{table}</HScroll>}
+      </View>
+      <Row gap={10} wrap>
         {[[40, "Below 50%"], [65, "50–74%"], [90, "75% and up"]].map(([p, l]) => (
           <Row key={l} gap={6}><View style={{ width: 14, height: 14, borderRadius: 4, backgroundColor: heat(p) }} /><Txt v="tiny" muted>{l}</Txt></Row>
         ))}
