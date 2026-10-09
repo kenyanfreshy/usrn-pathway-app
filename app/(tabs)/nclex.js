@@ -3,6 +3,7 @@ import React, { useMemo, useState } from "react";
 import { View, ScrollView, Pressable } from "react-native";
 import { router } from "expo-router";
 import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, tap, Grid } from "../../src/ui";
+import { TutorCard } from "../../src/tutor";
 import { useTheme, FONTS } from "../../src/theme";
 import { useApp } from "../../src/state";
 import { usePro, ProBadge } from "../../src/pro";
@@ -192,6 +193,7 @@ export default function Nclex() {
       <Hero mod={MOD} icon="Brain" eyebrow="Module 3 · NCLEX-RN" title="Benchmark exam engine"
         sub="A full question bank with rationales, three benchmarks and a flashcard deck."
         stats={[["Question bank", bank.length], ["Attempts", state.exams.length], ["Last result", state.exams[0] ? state.exams[0].score : "—"]]} />
+      <TutorCard mod={MOD} />
       <BankBuilder bank={bank} state={state} />
       <Benchmarks state={state} />
       <Heatmap exams={state.exams} />

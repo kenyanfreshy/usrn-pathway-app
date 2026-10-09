@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { View, Pressable, Linking } from "react-native";
 import { Screen, Hero, Seg, Card, Row, Txt, Icon, IconTile, Bar, Chip, Note, Option, Btn, Accordion, Bullets, Field, CopyButton, tap, buzz, Grid } from "../src/ui";
 import { BackRow } from "../src/ui-extra";
+import { TutorCard } from "../src/tutor";
 import { useTheme, FONTS } from "../src/theme";
 import { useApp } from "../src/state";
 import { CHART_CASES, LICENSE_DOS, LICENSE_DONTS, INSURERS } from "../src/data/content";
@@ -26,6 +27,7 @@ export default function Bedside() {
       <Hero mod={MOD} icon="Stethoscope" eyebrow="Module 5 · Clinical transition" title="Ready for the U.S. bedside"
         sub="Six lessons on the parts of U.S. hospital practice that most surprise internationally educated nurses. Pass each knowledge check to earn your U.S. Clinical Readiness Certificate."
         stats={[["Lessons", LESSONS.length], ["Completed", doneCount + " / " + LESSONS.length], ["Total time", LESSONS.reduce((n, l) => n + l.mins, 0) + " min"]]} />
+      <TutorCard mod={MOD} />
       <Seg mod={MOD} value={view} onChange={setView} options={[{ id: "lessons", label: "Lessons", icon: "BookOpen" }, { id: "sbar", label: "SBAR", icon: "PhoneCall" }, { id: "chart", label: "Charting", icon: "FileEdit" }, { id: "license", label: "License", icon: "ShieldCheck" }]} />
       {view === "lessons" ? <Lessons lessons={lessons} doneCount={doneCount} dispatch={dispatch} name={[state.profile.name, state.profile.lastName].filter(Boolean).join(" ")} /> : null}
       {view === "sbar" ? <SbarBuilder name={state.profile.name} /> : null}
