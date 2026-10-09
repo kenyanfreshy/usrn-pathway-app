@@ -8,6 +8,7 @@ The app never picks a price based on where it thinks someone is, and never links
 
 | Product | Apple ID | Google Play ID | Trial |
 |---|---|---|---|
+| Pro annual (auto-renewing) — shown first, "Best value" | `usrn_pro_annual` | subscription `usrn_pro`, base plan `annual` | **2 weeks free**, new subscribers only |
 | Pro monthly (auto-renewing) | `usrn_pro_monthly` | subscription `usrn_pro`, base plan `monthly` | **2 weeks free**, new subscribers only |
 | All-access pass (one-time) | `usrn_pro_lifetime` (Non-Consumable) | in-app product `usrn_pro_lifetime` | none |
 
@@ -20,11 +21,15 @@ offering and the paywall will show only the subscription.
 Pick the nearest price each store offers in the local currency. Where a store sells in U.S. dollars in a country,
 it shows dollars.
 
-| Group | Countries (main nurse-recruitment markets) | Monthly | One-time pass |
-|---|---|---|---|
-| A | United States, Canada, United Kingdom, Ireland, Australia, New Zealand, UAE, Saudi Arabia, Qatar, Singapore, EU | US$14.99 | US$59.99 |
-| B | South Africa, Mexico, Jamaica, Trinidad & Tobago, Brazil, Colombia, Malaysia, Thailand, Caribbean | US$7.99 | US$29.99 |
-| C | Philippines, India, Nigeria, Kenya, Ghana, Uganda, Zimbabwe, Cameroon, Pakistan, Nepal, Bangladesh, Sri Lanka, Egypt, Vietnam, Indonesia | US$3.99 | US$14.99 |
+| Group | Countries (main nurse-recruitment markets) | Annual | Monthly | One-time pass |
+|---|---|---|---|---|
+| A | United States, Canada, United Kingdom, Ireland, Australia, New Zealand, UAE, Saudi Arabia, Qatar, Singapore, EU | US$99.99 | US$14.99 | US$149.99 |
+| B | South Africa, Mexico, Jamaica, Trinidad & Tobago, Brazil, Colombia, Malaysia, Thailand, Caribbean | US$49.99 | US$7.99 | US$79.99 |
+| C | Philippines, India, Nigeria, Kenya, Ghana, Uganda, Zimbabwe, Cameroon, Pakistan, Nepal, Bangladesh, Sri Lanka, Egypt, Vietnam, Indonesia | US$24.99 | US$3.99 | US$39.99 |
+
+The paywall works out "Save ~X%" on the annual card from the real store prices (annual vs 12 × monthly).
+At these prices that's about 44% in group A, 48% in group B and 48% in group C.
+The one-time pass is priced above the annual plan, so it doesn't undercut the subscription.
 
 Every other country: let the store convert your U.S. price automatically, then lower any that look too high.
 
@@ -49,11 +54,11 @@ and the button reads "Subscribe now".
 
 ## App Store Connect (iPhone)
 
-1. **Monetization → Subscriptions →** create a subscription group named "USRN Pathway Pro", then the subscription
-   `usrn_pro_monthly`, duration **1 month**. Give it a display name ("Pro monthly"), a description and a review screenshot of the paywall.
+1. **Monetization → Subscriptions →** create a subscription group named "USRN Pathway Pro", then two subscriptions:
+   `usrn_pro_annual` (duration **1 year**) and `usrn_pro_monthly` (duration **1 month**). Put annual at the higher level in the group. Give each a display name ("Pro annual", "Pro monthly"), a description and a review screenshot of the paywall.
 2. **Subscription Prices → Add pricing:** choose the United States and US$14.99. Apple fills in every other country.
    Then use **Edit country or region prices** to set groups B and C from the table.
-3. **Introductory Offers → Create:** all countries and regions, start date today, no end date, type **Free**, duration **2 weeks**.
+3. **Introductory Offers → Create** on **each** subscription: all countries and regions, start date today, no end date, type **Free**, duration **2 weeks**.
    Apple gives each Apple ID one free trial per subscription group. The app checks this before it mentions a trial.
 4. **In-App Purchases → Non-Consumable** `usrn_pro_lifetime`: set prices the same way.
 5. Add both products to the app version you submit (**App Store → your version → In-App Purchases and Subscriptions**).
@@ -61,16 +66,18 @@ and the button reads "Subscribe now".
 
 ## Google Play Console (Android)
 
-1. **Monetize → Products → Subscriptions →** create `usrn_pro`, then a base plan `monthly`: auto-renewing, billing period 1 month.
+1. **Monetize → Products → Subscriptions →** create `usrn_pro`, then two base plans: `annual` (auto-renewing, 1 year)
+   and `monthly` (auto-renewing, 1 month).
 2. **Prices:** set US$14.99, let Play convert it, then edit the group B and C countries.
-3. **Add offer** on the `monthly` base plan: offer ID `free-trial`, eligibility **New customer acquisition → never had
+3. **Add offer** on **each** base plan: offer ID `free-trial`, eligibility **New customer acquisition → never had
    this subscription**, phase **Free trial, 14 days**. Activate it.
 4. **In-app products →** `usrn_pro_lifetime`, prices set the same way.
 
 ## RevenueCat
 
-- Products: attach all four (two Apple, two Google). Entitlement `pro` → attach all of them.
-- Offering `default` (current): package **Monthly** (`$rc_monthly`) → `usrn_pro_monthly` / `usrn_pro:monthly`;
+- Products: attach all six (three Apple, three Google). Entitlement `pro` → attach all of them.
+- Offering `default` (current): package **Annual** (`$rc_annual`) → `usrn_pro_annual` / `usrn_pro:annual`;
+  package **Monthly** (`$rc_monthly`) → `usrn_pro_monthly` / `usrn_pro:monthly`;
   package **Lifetime** (`$rc_lifetime`) → `usrn_pro_lifetime`.
 - Put the public SDK keys in `app.json → expo.extra.revenueCatAppleKey / revenueCatGoogleKey`.
 
