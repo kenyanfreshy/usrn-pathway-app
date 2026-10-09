@@ -1,7 +1,7 @@
 // Module 4 · Immigration: EB-3 visa bulletin, priority-date calculator, sponsor directory and offer comparison.
 import React, { useEffect, useState } from "react";
 import { View, Pressable, Linking } from "react-native";
-import { Screen, Hero, Card, Row, Txt, Icon, Seg, Select, DateField, Chip, Note, Accordion, SectionTitle, Bullets, CopyButton, Btn, Grad, tap } from "../../src/ui";
+import { Screen, Hero, Card, Row, Txt, Icon, Seg, Select, DateField, Chip, Note, Accordion, SectionTitle, Bullets, CopyButton, Btn, Grad, tap, Grid } from "../../src/ui";
 import { useTheme, FONTS } from "../../src/theme";
 import { useApp } from "../../src/state";
 import { BULLETIN, SPONSORS, AEIRP_LIST, PHASE_COLORS } from "../../src/data/content";
@@ -62,15 +62,15 @@ function Bulletin({ chart, setChart }) {
         <Txt v="tiny" muted>Snapshot, not a live feed. New bulletins publish mid-month at <Link v="tiny" url={BULLETIN_URL}>travel.state.gov ↗</Link>.</Txt>
       </View>
       <Seg mod={MOD} value={chart} onChange={setChart} options={[{ id: "fa", label: "Final Action", icon: "Stamp" }, { id: "dff", label: "Dates for Filing", icon: "FileText" }]} />
-      <Row wrap gap={10} center={false}>
+      <Grid min={150} gap={10}>
         {BULLETIN.rows.map((r) => (
-          <View key={r.key} style={{ flexGrow: 1, flexBasis: 150, padding: 12, borderRadius: 14, backgroundColor: t.c.sunk, borderLeftWidth: 4, borderLeftColor: t.c[r.tone] || t.tint, gap: 6 }}>
+          <View key={r.key} style={{ flexGrow: 1, padding: 12, borderRadius: 14, backgroundColor: t.c.sunk, borderLeftWidth: 4, borderLeftColor: t.c[r.tone] || t.tint, gap: 6 }}>
             <Txt v="eyebrow">{r.name}</Txt>
             <Txt v="h3" style={{ fontVariant: ["tabular-nums"] }}>{fmtDate(chart === "fa" ? r.fa : r.dff)}</Txt>
             <AlertPill tone={r.tone} text={r.alert} />
           </View>
         ))}
-      </Row>
+      </Grid>
     </Card>
   );
 }
@@ -232,7 +232,7 @@ function SponsorDirectory() {
 function OfferTile({ label, value, mono }) {
   const t = useTheme(MOD);
   return (
-    <View style={{ flexGrow: 1, flexBasis: 130, padding: 10, borderRadius: 12, backgroundColor: t.c.sunk, gap: 2 }}>
+    <View style={{ flexGrow: 1, padding: 10, borderRadius: 12, backgroundColor: t.c.sunk, gap: 2 }}>
       <Txt v="eyebrow">{label}</Txt>
       <Txt v={mono ? "bodyB" : "smallB"}>{value}</Txt>
     </View>
@@ -257,12 +257,12 @@ function Offers() {
             </Row>
             <Txt v="tiny" muted>{a.flags}</Txt>
           </View>
-          <Row wrap gap={8} center={false}>
+          <Grid min={130} gap={8}>
             <OfferTile label="Hourly" value={"$" + a.rate[0] + "–" + a.rate[1]} mono />
             <OfferTile label="Relocation" value={money(a.bonus)} mono />
             <OfferTile label="Contract" value={a.contract} />
             <OfferTile label="Green card terms" value={a.gc} />
-          </Row>
+          </Grid>
         </Card>
       ))}
       <Accordion mod={MOD} title="Questions to ask any sponsor before you sign">

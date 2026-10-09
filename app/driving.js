@@ -1,7 +1,7 @@
 // Before you travel · Driving: why to learn at home, prep checklist and licensing notes.
 import React from "react";
 import { View } from "react-native";
-import { Screen, Hero, Card, Row, Txt, Icon, IconTile, Bar, Check, Note, Chip, Bullets } from "../src/ui";
+import { Screen, Hero, Card, Row, Txt, Icon, IconTile, Bar, Check, Note, Chip, Bullets, Grid } from "../src/ui";
 import { BackRow } from "../src/ui-extra";
 import { useTheme } from "../src/theme";
 import { useApp } from "../src/state";
@@ -20,15 +20,15 @@ export default function Driving() {
         sub="In most of the U.S. and Canada, getting to work means driving yourself. Learning before you travel saves money, stress and favors once you land."
         stats={[["Checklist", done + " / " + DRIVE_PREP.length], ["Best time", "While you wait for your visa"]]} />
 
-      <Row wrap gap={12} center={false}>
+      <Grid min={260} gap={12}>
         {DRIVE_WHY.map(([ic, title, body]) => (
-          <Card key={title} mod={MOD} style={{ flexGrow: 1, flexBasis: 260 }}>
+          <Card key={title} mod={MOD} style={{ flexGrow: 1 }}>
             <IconTile mod={MOD} icon={ic} size={40} />
             <Txt v="h3">{title}</Txt>
             <Txt v="small" muted>{body}</Txt>
           </Card>
         ))}
-      </Row>
+      </Grid>
 
       <Card mod={MOD} accent style={{ gap: 12 }}>
         <View style={{ gap: 2 }}>

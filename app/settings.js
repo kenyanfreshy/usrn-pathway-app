@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { View, Pressable } from "react-native";
 import { router } from "expo-router";
-import { Screen, Card, Row, Txt, Icon, Grad, Field, DateField, Select, Btn, Note, buzz, tap } from "../src/ui";
+import { Screen, Card, Row, Txt, Icon, Grad, Field, DateField, Select, Btn, Note, buzz, tap, Grid } from "../src/ui";
 import { BackRow } from "../src/ui-extra";
 import { useTheme, PALETTES } from "../src/theme";
 import { useApp } from "../src/state";
@@ -25,7 +25,7 @@ export default function Settings() {
   const [confirm, setConfirm] = useState(false); const [didReset, setDidReset] = useState(false);
   const set = (k) => (v) => dispatch({ type: "profile", patch: { [k]: v } });
   const fullName = [p.name, p.lastName].filter(Boolean).join(" ");
-  const col = { flexGrow: 1, flexBasis: 200 };
+  const col = { flexGrow: 1 };
 
   return (
     <Screen mod="home">
@@ -43,10 +43,10 @@ export default function Settings() {
 
       <Card mod="home">
         <Txt v="eyebrow">About you</Txt>
-        <Row wrap gap={12} center={false}>
+        <Grid min={200} gap={12}>
           <Field style={col} label="First name" value={p.name} onChangeText={set("name")} placeholder="e.g. Grace" autoCapitalize="words" />
           <Field style={col} label="Last name" value={p.lastName} onChangeText={set("lastName")} placeholder="Optional" autoCapitalize="words" />
-        </Row>
+        </Grid>
         <Field label="Home country" value={p.homeCountry} onChangeText={set("homeCountry")} placeholder="e.g. Kenya" autoCapitalize="words" />
         <Select label="Specialty" value={p.specialty} onChange={set("specialty")} options={[{ value: "", label: "Choose…" }, ...SPECIALTIES]} />
         <Select label="Target state" value={p.targetState} onChange={set("targetState")} placeholder="Not decided"
@@ -64,12 +64,12 @@ export default function Settings() {
 
       <Card mod="home">
         <Txt v="eyebrow">Theme</Txt>
-        <Row wrap gap={10} center={false}>
+        <Grid min={140} gap={10}>
           {Object.entries(PALETTES).map(([k, v]) => {
             const on = (state.palette || "vivid") === k;
             return (
               <Pressable key={k} onPress={() => { tap(); dispatch({ type: "palette", key: k }); }} accessibilityRole="radio" accessibilityState={{ checked: on }} accessibilityLabel={`${v.label} theme`}
-                style={{ flexGrow: 1, flexBasis: 140, gap: 8, padding: 12, borderRadius: 16, borderWidth: on ? 2 : 1, borderColor: on ? t.tint : t.c.line, backgroundColor: v.dark ? "#0d1324" : t.c.surface }}>
+                style={{ flexGrow: 1, gap: 8, padding: 12, borderRadius: 16, borderWidth: on ? 2 : 1, borderColor: on ? t.tint : t.c.line, backgroundColor: v.dark ? "#0d1324" : t.c.surface }}>
                 <Row gap={4}>
                   {["roadmap", "nclex", "imm", "career"].map((md) => <Grad key={md} colors={v.colors[md]} style={{ flex: 1, height: 22, borderRadius: 7 }} />)}
                 </Row>
@@ -80,7 +80,7 @@ export default function Settings() {
               </Pressable>
             );
           })}
-        </Row>
+        </Grid>
       </Card>
 
       <Btn title="Save" icon="Check" full onPress={() => { if (router.canGoBack()) router.back(); else router.replace("/"); }} />

@@ -1,7 +1,7 @@
 // Module 5 · Bedside: lessons, "chart this, not that" trainer and license protection hub.
 import React, { useState } from "react";
 import { View, Pressable, Linking } from "react-native";
-import { Screen, Hero, Seg, Card, Row, Txt, Icon, IconTile, Bar, Chip, Note, Option, Btn, Accordion, Bullets, tap, buzz } from "../src/ui";
+import { Screen, Hero, Seg, Card, Row, Txt, Icon, IconTile, Bar, Chip, Note, Option, Btn, Accordion, Bullets, tap, buzz, Grid } from "../src/ui";
 import { BackRow } from "../src/ui-extra";
 import { useTheme } from "../src/theme";
 import { useApp } from "../src/state";
@@ -169,9 +169,9 @@ function LicenseHub() {
           </View>
         </Row>
         <Chip mod={MOD} icon="CalendarCheck" text="Figures checked Oct 2026" />
-        <Row wrap gap={10} center={false}>
+        <Grid min={240} gap={10}>
           {INSURERS.map((x) => (
-            <View key={x.name} style={{ flexGrow: 1, flexBasis: 240, padding: 14, borderRadius: 16, backgroundColor: t.c.sunk, borderWidth: 1, borderColor: t.c.line, gap: 8 }}>
+            <View key={x.name} style={{ flexGrow: 1, padding: 14, borderRadius: 16, backgroundColor: t.c.sunk, borderWidth: 1, borderColor: t.c.line, gap: 8 }}>
               <View style={{ gap: 2 }}>
                 <Txt v="h2" color={t.tint}>{x.name}</Txt>
                 <Txt v="tiny" muted>{x.who}</Txt>
@@ -190,7 +190,7 @@ function LicenseHub() {
               </Pressable>
             </View>
           ))}
-        </Row>
+        </Grid>
         <Accordion mod={MOD} title="What to compare before you buy">
           <Bullets items={[
             <Txt v="body"><Txt v="bodyB">Occurrence vs. claims-made.</Txt> Occurrence covers incidents during the policy year forever. Claims-made needs "tail" coverage when you cancel.</Txt>,

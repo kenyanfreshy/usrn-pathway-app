@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from "react";
 import { View, ScrollView, Pressable } from "react-native";
 import { router } from "expo-router";
-import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, tap } from "../../src/ui";
+import { Screen, Hero, Card, Row, Txt, Btn, Seg, Select, Check, Bar, Icon, IconTile, tap, Grid } from "../../src/ui";
 import { useTheme, FONTS } from "../../src/theme";
 import { useApp } from "../../src/state";
 import { usePro, ProBadge } from "../../src/pro";
@@ -75,15 +75,15 @@ function BankBuilder({ bank, state }) {
           ))}
         </Row>
       </View>
-      <Row gap={12} wrap center={false}>
-        <View style={{ flexGrow: 1, flexBasis: 130 }}>
+      <Grid min={150} gap={12}>
+        <View style={{ flexGrow: 1 }}>
           <Select mod={MOD} label="Questions" value={count} onChange={setCount} options={[10, 25, 50, 75, 100].map((n) => ({ value: n, label: String(n) }))} />
         </View>
-        <View style={{ flexGrow: 1, flexBasis: 170, gap: 5 }}>
+        <View style={{ flexGrow: 1, gap: 5 }}>
           <Txt v="smallB" muted>Mode</Txt>
           <Seg mod={MOD} value={tutor ? "tutor" : "exam"} onChange={(v) => setTutor(v === "tutor")} options={[{ id: "tutor", label: "Tutor", icon: "GraduationCap" }, { id: "exam", label: "Exam", icon: "Timer" }]} />
         </View>
-      </Row>
+      </Grid>
       <Row gap={10}>
         <Txt v="small" muted style={{ flex: 1 }}>{pool.length} available</Txt>
         <Btn mod={MOD} icon="Play" title={`Start ${Math.min(count, pool.length)}`} disabled={!pool.length} onPress={go} />
@@ -105,11 +105,11 @@ function Benchmarks({ state }) {
   const last = (title) => state.exams.find((e) => e.mode === title);
   const start = (id) => router.push({ pathname: "/quiz", params: id === "diag" ? { mode: id, timed: timed ? "1" : "0" } : { mode: id } });
   return (
-    <Row wrap gap={12} center={false}>
+    <Grid min={150} gap={12}>
       {MODES.map((md) => {
         const l = last(md.title);
         return (
-          <Card key={md.id} mod={MOD} style={{ flexGrow: 1, flexBasis: 150, gap: 8 }}>
+          <Card key={md.id} mod={MOD} style={{ flexGrow: 1, gap: 8 }}>
             <Row>
               <Txt v="eyebrow" style={{ flex: 1 }}>{md.n}</Txt>
               <IconTile mod={MOD} icon={md.icon} size={36} />
@@ -123,7 +123,7 @@ function Benchmarks({ state }) {
           </Card>
         );
       })}
-    </Row>
+    </Grid>
   );
 }
 

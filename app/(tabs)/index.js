@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { View, Pressable, ScrollView } from "react-native";
 import { router } from "expo-router";
 import Svg, { Path, Circle, G, Text as SvgText, Defs, LinearGradient as SvgGradient, Stop } from "react-native-svg";
-import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, tap } from "../../src/ui";
+import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, tap, Grid } from "../../src/ui";
 import { useTheme, FONTS, PHASE_COLORS } from "../../src/theme";
 import { useApp, phaseStatus, BADGES } from "../../src/state";
 import { usePro } from "../../src/pro";
@@ -151,7 +151,7 @@ function Rings({ rings, center }) {
 
 /* ---------- countdown tiles ---------- */
 function Tile({ children, onPress, label }) {
-  const style = { flexGrow: 1, flexBasis: 140 };
+  const style = { flexGrow: 1 };
   if (!onPress) return <Card padding={14} style={[style, { gap: 4 }]}>{children}</Card>;
   return (
     <Pressable onPress={() => { tap(); onPress(); }} accessibilityRole="button" accessibilityLabel={label}
@@ -294,7 +294,7 @@ export default function Today() {
     { label: "Career & credit", pct: m.careerPct, c: pal.colors.career, to: "/career" },
   ];
   const seen = state.badgesSeen || [];
-  const glass = { backgroundColor: "rgba(255,255,255,0.16)", borderWidth: 1, borderColor: "rgba(255,255,255,0.28)", borderRadius: 18, paddingHorizontal: 14, paddingVertical: 12, flexGrow: 1, flexBasis: 140 };
+  const glass = { backgroundColor: "rgba(255,255,255,0.16)", borderWidth: 1, borderColor: "rgba(255,255,255,0.28)", borderRadius: 18, paddingHorizontal: 14, paddingVertical: 12, flexGrow: 1 };
   const toSettings = () => router.push("/settings");
 
   return (
@@ -329,7 +329,7 @@ export default function Today() {
             {next ? <>Your next move: <Txt v="bodyB" color="#fff">{next.ph.steps[next.j]}</Txt></> : "Every roadmap step is complete. Welcome to the U.S. bedside."}
           </Txt>
         </View>
-        <Row wrap gap={8}>
+        <Grid min={140} gap={8}>
           <View style={glass}>
             <Txt v="eyebrow" color="rgba(255,255,255,0.85)">Level {lvl.idx + 1}</Txt>
             <Txt v="h2" color="#fff">{lvl.name}</Txt>
@@ -339,7 +339,7 @@ export default function Today() {
             <Txt v="tiny" color="rgba(255,255,255,0.9)" style={{ fontFamily: FONTS.mono, marginTop: 4 }}>{m.xp} XP{lvl.next ? ` · ${lvl.next - m.xp} to ${lvl.nextName}` : ""}</Txt>
           </View>
           {[["Flame", "Streak", m.streak + (m.streak === 1 ? " day" : " days")], ["Gauge", "Readiness", m.readiness + " / 100"], ["Award", "Badges", seen.length + " / " + BADGES.length]].map(([ic, k, v]) => (
-            <View key={k} style={[glass, { flexDirection: "row", alignItems: "center", gap: 10, flexBasis: 100 }]}>
+            <View key={k} style={[glass, { flexDirection: "row", alignItems: "center", gap: 10 }]}>
               <Icon name={ic} size={22} color="#fff" />
               <View style={{ flex: 1 }}>
                 <Txt v="eyebrow" color="rgba(255,255,255,0.85)">{k}</Txt>
@@ -347,7 +347,7 @@ export default function Today() {
               </View>
             </View>
           ))}
-        </Row>
+        </Grid>
       </Grad>
 
       <Journey />
@@ -392,7 +392,7 @@ export default function Today() {
       ) : null}
 
       {/* countdowns */}
-      <Row wrap gap={10} center={false}>
+      <Grid min={140} gap={10}>
         <Countdown icon="CalendarClock" label="NCLEX day" date={p.testDate} live empty="Set your test date" onSet={toSettings} />
         <Countdown icon="Hourglass" label="ATT closes" date={p.attEnd} empty="Add ATT window" onSet={toSettings} />
         {docSoon
@@ -405,7 +405,7 @@ export default function Today() {
             : <Row gap={6} style={{ alignItems: "flex-end" }}><Txt v="big" color={t.tint}>{(gap / row.rate).toFixed(1)}</Txt><Txt v="small" muted style={{ paddingBottom: 6 }}>yrs est.</Txt></Row>}
           <Txt v="tiny" muted style={{ fontFamily: FONTS.mono }}>Cutoff {fmtDate(row.fa)}</Txt>
         </Tile>
-      </Row>
+      </Grid>
 
       <QOTD />
 
@@ -415,18 +415,18 @@ export default function Today() {
           <Txt v="h3">Achievements</Txt>
           <Btn small kind="secondary" title="View all" icon="Award" onPress={() => router.push("/badges")} />
         </Row>
-        <Row wrap gap={8} center={false}>
+        <Grid min={64} gap={8}>
           {BADGES.slice(0, 12).map((b, i) => {
             const got = seen.includes(b.id);
             return (
               <Pressable key={b.id} onPress={() => { tap(); router.push("/badges"); }} accessibilityRole="button" accessibilityLabel={`${b.name}${got ? "" : ", locked"}. ${b.desc}`}
-                style={{ flexGrow: 1, flexBasis: 64, alignItems: "center", gap: 6, paddingVertical: 4 }}>
+                style={{ flexGrow: 1, alignItems: "center", gap: 6, paddingVertical: 4 }}>
                 <Medal badge={b} idx={i} size={50} locked={!got} />
                 <Txt v="tiny" style={{ textAlign: "center", fontFamily: FONTS.bodySemi }} numberOfLines={2} color={got ? t.c.ink : t.c.muted}>{b.name}</Txt>
               </Pressable>
             );
           })}
-        </Row>
+        </Grid>
         <View style={{ gap: 6, padding: 12, borderRadius: 14, backgroundColor: t.c.sunk }}>
           <Row gap={6}><Icon name="Zap" size={16} color={t.tint} /><Txt v="smallB">Earn XP</Txt></Row>
           <Txt v="tiny" muted>Roadmap step +20 · benchmark +50 (+50 at 75%+) · lesson +40 · daily question +5/+20 · flashcard +2 · ladder entry +15</Txt>

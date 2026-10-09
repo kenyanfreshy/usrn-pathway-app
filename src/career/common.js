@@ -1,7 +1,7 @@
 // Shared building blocks for the Career & wealth sections.
 import React from "react";
 import { View, Text } from "react-native";
-import { Txt, Row, Field, Grad, Bar, Icon } from "../ui";
+import { Txt, Row, Field, Grad, Bar, Icon, Grid as UIGrid } from "../ui";
 import { useTheme, FONTS } from "../theme";
 import { money } from "../util";
 
@@ -63,13 +63,9 @@ export function Tile({ title, desc, tone, titleTone, outline, style }) {
   );
 }
 
-/** Responsive grid: children wrap with a minimum basis. */
+/** Responsive grid: equal-width columns, each at least `basis` wide. */
 export function Grid({ children, basis = 150, gap = 10 }) {
-  return (
-    <View style={{ flexDirection: "row", flexWrap: "wrap", gap, alignItems: "stretch" }}>
-      {React.Children.toArray(children).filter(Boolean).map((c, i) => <View key={i} style={{ flexGrow: 1, flexBasis: basis, minWidth: 0 }}>{c}</View>)}
-    </View>
-  );
+  return <UIGrid min={basis} gap={gap}>{children}</UIGrid>;
 }
 
 /** Heading inside a card. */
@@ -90,11 +86,7 @@ export function NumField({ label, value, onChange }) {
 
 /** Two-column field grid. */
 export function FieldGrid({ children }) {
-  return (
-    <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
-      {React.Children.toArray(children).filter(Boolean).map((c, i) => <View key={i} style={{ flexGrow: 1, flexBasis: 130 }}>{c}</View>)}
-    </View>
-  );
+  return <UIGrid min={130} gap={10}>{children}</UIGrid>;
 }
 
 /** White result tile. */

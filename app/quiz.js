@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { View, ScrollView, Pressable, Animated, PanResponder } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import Svg, { Line, Polyline, Circle, Text as SvgText } from "react-native-svg";
-import { Screen, Card, Row, Txt, Btn, Chip, Note, Bar, Option, Check, Select, Accordion, Sheet, Icon, Grad, tap, buzz } from "../src/ui";
+import { Screen, Card, Row, Txt, Btn, Chip, Note, Bar, Option, Check, Select, Accordion, Sheet, Icon, Grad, tap, buzz, Grid } from "../src/ui";
 import { BackRow, Medal } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
 import { useApp } from "../src/state";
@@ -203,7 +203,7 @@ function Pill({ label, on, onPress }) {
   const t = useTheme(MOD);
   return (
     <Pressable onPress={() => { tap(); onPress(); }} accessibilityRole="radio" accessibilityState={{ checked: on }}
-      style={{ flexGrow: 1, flexBasis: 90, paddingVertical: 9, paddingHorizontal: 10, borderRadius: 12, alignItems: "center", borderWidth: 1.5, borderColor: on ? t.tint : t.c.line, backgroundColor: on ? t.soft : t.c.surface }}>
+      style={{ flexGrow: 1, paddingVertical: 9, paddingHorizontal: 10, borderRadius: 12, alignItems: "center", borderWidth: 1.5, borderColor: on ? t.tint : t.c.line, backgroundColor: on ? t.soft : t.c.surface }}>
       <Txt v="smallB" color={on ? t.tint : t.c.ink}>{label}</Txt>
     </Pressable>
   );
@@ -279,9 +279,9 @@ function NGN({ onDone }) {
           {item.kind === "matrix" ? item.rows.map(([id, x]) => (
             <View key={id} style={{ gap: 7, padding: 11, borderRadius: 14, backgroundColor: t.c.sunk }}>
               <Txt v="smallB">{x}</Txt>
-              <Row gap={6} wrap>
+              <Grid min={90} gap={6}>
                 {item.cols.map((c) => <Pill key={c} label={c} on={(a || {})[id] === c} onPress={() => setA({ ...(a || {}), [id]: c })} />)}
-              </Row>
+              </Grid>
             </View>
           )) : null}
           <Row gap={10} style={{ justifyContent: "space-between", marginTop: 4 }}>

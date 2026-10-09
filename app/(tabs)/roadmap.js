@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Pressable, ScrollView } from "react-native";
 import Svg, { Circle, Line, Text as SvgText } from "react-native-svg";
-import { Screen, Hero, Card, Row, Txt, Bar, Check, Chip, Note, Btn, Field, DateField, Select, SectionTitle, Icon, Grad, IconTile, tap } from "../../src/ui";
+import { Screen, Hero, Card, Row, Txt, Bar, Check, Chip, Note, Btn, Field, DateField, Select, SectionTitle, Icon, Grad, IconTile, tap, Grid } from "../../src/ui";
 import { useTheme, mix, FONTS } from "../../src/theme";
 import { useApp, phaseStatus } from "../../src/state";
 import { usePro, ProGate } from "../../src/pro";
@@ -35,18 +35,18 @@ export default function Roadmap() {
         </Row>
         <Bar pct={done / total} mod={MOD} height={11} />
         <Check mod={MOD} checked={state.flexible} onToggle={() => dispatch({ type: "flex" })} label="Flexible order (unlock all phases)" />
-        <Row wrap gap={10} center={false}>
-          <View style={{ flexGrow: 1, flexBasis: 150, padding: 12, borderRadius: 14, backgroundColor: t.soft, gap: 2 }}>
+        <Grid min={150} gap={10}>
+          <View style={{ flexGrow: 1, padding: 12, borderRadius: 14, backgroundColor: t.soft, gap: 2 }}>
             <Txt v="eyebrow">Est. total cost</Txt>
             <Txt v="h3" color={t.tint}>{money(costLo)}–{money(costHi)}</Txt>
             <Txt v="tiny" muted>Nurse-paid fees, excluding prep courses and travel</Txt>
           </View>
-          <View style={{ flexGrow: 1, flexBasis: 150, padding: 12, borderRadius: 14, backgroundColor: t.soft2, gap: 2 }}>
+          <View style={{ flexGrow: 1, padding: 12, borderRadius: 14, backgroundColor: t.soft2, gap: 2 }}>
             <Txt v="eyebrow">Completed phases</Txt>
             <Txt v="h3" color={t.tint2}>{money(spentLo)}–{money(spentHi)}</Txt>
             <Txt v="tiny" muted>Approximate spend so far</Txt>
           </View>
-        </Row>
+        </Grid>
       </Card>
 
       <View style={{ gap: 12 }}>
@@ -240,15 +240,15 @@ function CostTracker() {
         </Svg>
         <Txt v="small" muted style={{ textAlign: "center" }}>Estimated journey total {money(lo)}–{money(hi)}</Txt>
       </View>
-      <Row wrap gap={8}>
+      <Grid min={140} gap={8}>
         {by.map((x) => (
-          <Row key={x.p.id} gap={8} style={{ flexGrow: 1, flexBasis: 140, paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, backgroundColor: t.c.sunk }}>
+          <Row key={x.p.id} gap={8} style={{ flexGrow: 1, paddingVertical: 6, paddingHorizontal: 10, borderRadius: 12, backgroundColor: t.c.sunk }}>
             <View style={{ width: 10, height: 10, borderRadius: 3, backgroundColor: PHASE_COLORS[x.i] }} />
             <Txt v="small" numberOfLines={1} style={{ flex: 1 }}>{x.p.title}</Txt>
             <Txt v="mono" style={{ fontSize: 12 }}>{money(x.sum)}</Txt>
           </Row>
         ))}
-      </Row>
+      </Grid>
       <View style={{ gap: 10 }}>
         <Select mod={MOD} label="Phase" value={f.phase} options={PHASES.map((p) => ({ value: p.id, label: p.title }))} onChange={(v) => setF({ ...f, phase: v })} />
         <Row gap={10} center={false}>

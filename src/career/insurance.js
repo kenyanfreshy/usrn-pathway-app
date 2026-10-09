@@ -208,13 +208,13 @@ export function InsuranceHub() {
   return (
     <View style={{ gap: 14 }}>
       <Note mod={MOD} tone="warn" icon="AlertTriangle">General education, not insurance or financial advice. Your employer's benefits guide and a licensed agent have the final word.</Note>
-      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+      <Grid basis={140}>
         {SECTIONS.map(([id, ic, ti, d]) => (
-          <View key={id} style={{ flexGrow: 1, flexBasis: "45%" }}>
+          <View key={id} style={{ flexGrow: 1 }}>
             <SectionCard id={id} icon={ic} title={ti} desc={d} on={sec === id} onPress={setSec} />
           </View>
         ))}
-      </View>
+      </Grid>
       {sec === "health" ? <Health /> : null}
       {sec === "life" ? <Life /> : null}
       {sec === "disability" ? <Disability /> : null}

@@ -2,7 +2,7 @@
 import React from "react";
 import { View, Pressable } from "react-native";
 import { router } from "expo-router";
-import { Screen, Hero, Card, Row, Txt, Icon, IconTile, Grad, tap } from "../../src/ui";
+import { Screen, Hero, Card, Row, Txt, Icon, IconTile, Grad, tap, Grid } from "../../src/ui";
 import { useTheme } from "../../src/theme";
 import { useApp, BADGES } from "../../src/state";
 import { usePro } from "../../src/pro";
@@ -18,7 +18,7 @@ function ToolCard({ tool }) {
   const t = useTheme(tool.mod);
   return (
     <Pressable onPress={() => { tap(); router.push(tool.to); }} accessibilityRole="button" accessibilityLabel={`${tool.title}. ${tool.desc}`}
-      style={({ pressed }) => [{ flexGrow: 1, flexBasis: 150 }, pressed && { transform: [{ scale: 0.985 }], opacity: 0.95 }]}>
+      style={({ pressed }) => [{ flexGrow: 1 }, pressed && { transform: [{ scale: 0.985 }], opacity: 0.95 }]}>
       <Card mod={tool.mod} accent padding={0} style={{ overflow: "hidden", gap: 0, flexGrow: 1 }}>
         <Grad mod={tool.mod} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ height: 5 }} />
         <View style={{ padding: 16, gap: 10, backgroundColor: t.dark ? t.c.surface : t.soft, flexGrow: 1 }}>
@@ -74,9 +74,9 @@ export default function More() {
       <Hero mod="more" icon="LayoutGrid" eyebrow="USRN Pathway" title="More tools" sub="State boards, bedside skills, career and money, and getting on the road."
         stats={[["Level", lvl.name], ["XP", m.xp], ["Badges", `${seen}/${BADGES.length}`]]} />
 
-      <Row wrap gap={12} center={false}>
+      <Grid min={150} gap={12}>
         {TOOLS.map((tool) => <ToolCard key={tool.to} tool={tool} />)}
-      </Row>
+      </Grid>
 
       <Card mod="more" padding={6} style={{ gap: 0 }}>
         <LinkRow icon="Award" title="Achievements" sub={`${seen} of ${BADGES.length} badges unlocked`} to="/badges" colors={["#d97706", "#ea580c"]} />

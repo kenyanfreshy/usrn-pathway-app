@@ -1,7 +1,7 @@
 // Module 2 · Boards of Nursing: compare state boards, then plan an endorsement (Pro).
 import React, { useMemo, useState } from "react";
 import { View, TextInput, Pressable, Platform } from "react-native";
-import { Screen, Hero, Card, Row, Txt, Icon, Select, Check, Chip, Note, Bullets, tap } from "../src/ui";
+import { Screen, Hero, Card, Row, Txt, Icon, Select, Check, Chip, Note, Bullets, tap, Grid } from "../src/ui";
 import { BackRow } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
 import { ProGate } from "../src/pro";
@@ -59,7 +59,7 @@ function BoardCard({ b }) {
 function GlanceTile({ label, value }) {
   const t = useTheme(MOD);
   return (
-    <View style={{ flexGrow: 1, flexBasis: 140, padding: 12, borderRadius: 14, backgroundColor: t.c.sunk, gap: 4 }}>
+    <View style={{ flexGrow: 1, padding: 12, borderRadius: 14, backgroundColor: t.c.sunk, gap: 4 }}>
       <Txt v="eyebrow">{label}</Txt>
       <Txt v="smallB">{value}</Txt>
     </View>
@@ -99,9 +99,9 @@ function EndorsementWizard() {
           </View>
           <View style={{ gap: 8 }}>
             <Txt v="eyebrow">At a glance</Txt>
-            <Row wrap gap={8} center={false}>
+            <Grid min={140} gap={8}>
               {[["Application fee", rule.fee], ["Typical time", rule.time], ["Practice hours", rule.hours], ["Compact", dst.nlc]].map(([k, v]) => <GlanceTile key={k} label={k} value={v} />)}
-            </Row>
+            </Grid>
           </View>
         </View>
       )}

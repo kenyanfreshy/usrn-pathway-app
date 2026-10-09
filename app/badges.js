@@ -1,7 +1,7 @@
 // Achievements: every badge (locked until earned), your level, XP and the level ladder.
 import React from "react";
 import { View } from "react-native";
-import { Screen, Card, Row, Txt, Icon, Grad } from "../src/ui";
+import { Screen, Card, Row, Txt, Icon, Grad, Grid } from "../src/ui";
 import { BackRow, Medal } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
 import { useApp, BADGES, LEVELS } from "../src/state";
@@ -31,19 +31,19 @@ export default function Badges() {
         <Txt v="small" color="rgba(255,255,255,0.92)" style={{ fontFamily: FONTS.mono }}>{m.xp} XP{lvl.next ? ` · ${lvl.next - m.xp} to ${lvl.nextName}` : " · top level reached"}</Txt>
       </Grad>
 
-      <Row wrap gap={10} center={false}>
+      <Grid min={150} gap={10}>
         {BADGES.map((b, i) => {
           const on = seen.includes(b.id);
           return (
             <View key={b.id} accessible accessibilityLabel={`${b.name}${on ? ", unlocked" : ", locked"}. ${b.desc}`}
-              style={{ flexGrow: 1, flexBasis: 150, alignItems: "center", gap: 8, padding: 14, borderRadius: 18, borderWidth: 1, borderColor: t.c.line, backgroundColor: on ? t.c.surface : t.c.sunk }}>
+              style={{ flexGrow: 1, alignItems: "center", gap: 8, padding: 14, borderRadius: 18, borderWidth: 1, borderColor: t.c.line, backgroundColor: on ? t.c.surface : t.c.sunk }}>
               <Medal badge={b} idx={i} size={64} locked={!on} />
               <Txt v="bodyB" style={{ textAlign: "center" }} color={on ? t.c.ink : t.c.muted}>{b.name}</Txt>
               <Txt v="tiny" muted style={{ textAlign: "center" }}>{b.desc}</Txt>
             </View>
           );
         })}
-      </Row>
+      </Grid>
 
       <Card mod="home">
         <Txt v="eyebrow">Level ladder</Txt>

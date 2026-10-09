@@ -1,6 +1,6 @@
 // UI kit: every screen builds from these pieces so the look stays consistent.
 import React, { useState } from "react";
-import { View, Text, Pressable, ScrollView, TextInput, Modal, StyleSheet, Platform } from "react-native";
+import { View, Text, Pressable, ScrollView, TextInput, Modal, StyleSheet, Platform, useWindowDimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
@@ -46,6 +46,31 @@ export function Screen({ mod = "home", children, scroll = true, pad = true, head
 
 export function Row({ children, gap = 8, wrap, style, center = true }) {
   return <View style={[{ flexDirection: "row", alignItems: center ? "center" : "flex-start", gap, flexWrap: wrap ? "wrap" : "nowrap" }, style]}>{children}</View>;
+}
+
+/**
+ * Responsive grid. Lays children out in rows of equal-width columns, each at least `min` wide.
+ * Uses plain (non-wrapping) rows because React Native mis-measures flexWrap rows whose children
+ * grow, which made later content draw on top of the tiles.
+ */
+export function Grid({ children, min = 150, gap = 10, inset = 64, style }) {
+  const { width: win } = useWindowDimensions();
+  const [w, setW] = useState(0);
+  const items = React.Children.toArray(children).filter(Boolean);
+  const width = w || Math.max(0, win - inset);
+  const cols = Math.max(1, Math.min(items.length || 1, Math.floor((width + gap) / (min + gap))));
+  const rows = [];
+  for (let i = 0; i < items.length; i += cols) rows.push(items.slice(i, i + cols));
+  return (
+    <View style={[{ gap }, style]} onLayout={(e) => { const nw = Math.round(e.nativeEvent.layout.width); if (nw && Math.abs(nw - w) > 1) setW(nw); }}>
+      {rows.map((r, ri) => (
+        <View key={ri} style={{ flexDirection: "row", gap, alignItems: "stretch" }}>
+          {r.map((c, ci) => <View key={c.key != null ? c.key : ci} style={{ flex: 1, minWidth: 0 }}>{c}</View>)}
+          {Array.from({ length: cols - r.length }, (_, k) => <View key={"pad" + k} style={{ flex: 1 }} />)}
+        </View>
+      ))}
+    </View>
+  );
 }
 
 export function Card({ children, style, onPress, mod, accent, padding = 16 }) {
