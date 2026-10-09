@@ -44,26 +44,11 @@ On iPhone, the development build needs your device registered (`eas device:creat
 
 ## 2. Set up Pro (RevenueCat + the stores)
 
-1. **App Store Connect → your app → Monetization**
-   - Subscription group "USRN Pathway Pro" → auto-renewable subscription `usrn_pro_monthly` (1 month).
-   - In-App Purchase → **Non-Consumable** `usrn_pro_lifetime` (the one-time all-access pass).
-   - Pricing: pick a base price (for example US$14.99 / US$59) and then **edit prices per country** — set the Philippines, Kenya,
-     India, Nigeria and Ghana to the regional prices you want (Apple only offers fixed price points, so choose the closest).
-   - Add the review screenshot and description Apple asks for on each product.
-2. **Google Play Console → Monetize → Products**
-   - Subscription `usrn_pro` with a monthly base plan; in-app product `usrn_pro_lifetime`.
-   - Set country prices the same way (Play lets you edit each country's price).
-3. **RevenueCat** (free to start): create a project, add the iOS and Android apps, connect App Store Connect (shared secret /
-   in-app purchase key) and Google Play (service account).
-   - Entitlement: `pro`. Attach both products from both stores.
-   - Offering `default` (set as current) with packages **Monthly** (`$rc_monthly`) and **Lifetime** (`$rc_lifetime`).
-   - Copy the public SDK keys into `app.json → expo.extra.revenueCatAppleKey / revenueCatGoogleKey`.
-4. Put your real **privacy policy URL** and **support email** in `app.json → expo.extra`. `PRIVACY.md` is a starting draft you
-   can host on any web page. The Terms link uses Apple's standard EULA; replace it if you write your own.
-5. Test with Apple **Sandbox** testers and Google Play **license testers** before release.
+Follow **`PRICING.md`**: the plans (monthly subscription with a **2-week free trial**, plus an optional one-time pass),
+suggested prices by country, and step-by-step setup in App Store Connect, Play Console and RevenueCat.
 
-The paywall (`app/paywall.js`) shows the store's localized prices, the renewal terms, **Restore purchases**, and Terms/Privacy links —
-all required by Apple and Google for subscriptions. In development builds there is also a "Unlock Pro for testing" switch that does
+The paywall (`app/paywall.js`) shows the store's local prices, the free trial (only to eligible users) with the price after it,
+the renewal terms, **Restore purchases**, **Manage subscription**, and Terms/Privacy links — all required by Apple and Google. In development builds there is also a "Unlock Pro for testing" switch that does
 not exist in store builds.
 
 **What Pro unlocks:** NGN case study, expiry reminders, endorsement wizard, charge nurse command center, overtime & taxes tools.

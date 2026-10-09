@@ -19,10 +19,41 @@ export async function askPermission() {
   } catch (e) { return false; }
 }
 
+const TRIAL_ID = "trial-end";
+
+/** Cancel the document reminders but keep the free-trial reminder. */
+async function cancelExpiryOnly() {
+  const all = await Notifications.getAllScheduledNotificationsAsync();
+  for (const n of all) if (n.identifier !== TRIAL_ID) await Notifications.cancelScheduledNotificationAsync(n.identifier);
+}
+
+/** Remind the member 2 days before their free trial turns into a paid subscription (Apple and Google both
+ *  recommend this; it cuts refund requests). Safe to call repeatedly: it replaces the previous reminder. */
+export async function scheduleTrialReminder(endsISO, priceText) {
+  try {
+    await Notifications.cancelScheduledNotificationAsync(TRIAL_ID).catch(() => {});
+    const end = new Date(endsISO); if (isNaN(end)) return false;
+    const at = new Date(end.getTime() - 2 * 86400000);
+    if (at.getTime() <= Date.now()) return false;
+    if (!(await askPermission())) return false;
+    await Notifications.scheduleNotificationAsync({
+      identifier: TRIAL_ID,
+      content: {
+        title: "Your USRN Pathway Pro trial ends in 2 days",
+        body: `After ${fmtDate(end.toISOString().slice(0, 10))} it renews at ${priceText}. Keep it, or cancel any time in your store subscriptions.`,
+      },
+      trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: at, channelId: "expiry" },
+    });
+    return true;
+  } catch (e) { return false; }
+}
+
+export async function cancelTrialReminder() { try { await Notifications.cancelScheduledNotificationAsync(TRIAL_ID); } catch (e) {} }
+
 /** Replace all scheduled reminders with fresh ones: 90 and 30 days before, and on the day, at 9:00. */
 export async function scheduleExpiryAlerts(docs) {
   try {
-    await Notifications.cancelAllScheduledNotificationsAsync();
+    await cancelExpiryOnly();
     const now = Date.now(); let count = 0;
     for (const d of docs) {
       const exp = parseISO(d.expires); if (!exp) continue;
@@ -43,4 +74,4 @@ export async function scheduleExpiryAlerts(docs) {
   } catch (e) { return -1; }
 }
 
-export async function cancelAlerts() { try { await Notifications.cancelAllScheduledNotificationsAsync(); } catch (e) {} }
+export async function cancelAlerts() { try { await cancelExpiryOnly(); } catch (e) {} }

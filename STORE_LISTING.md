@@ -30,7 +30,7 @@ U.S. BEDSIDE & CAREER
 • Defensible charting practice and license-protection guidance
 • Guides to health, life, disability, car and home insurance, credit building and driving
 
-PRO (optional subscription or one-time pass)
+PRO (optional — 2-week free trial for new subscribers, then a monthly subscription; or a one-time pass)
 • NGN case study simulation • Expiry reminders on your phone • Endorsement wizard between states
 • Charge nurse tools: acuity balancer, SBAR scripts, clinical ladder log • Overtime and tax calculators
 
