@@ -233,9 +233,26 @@ export function HScroll({ children, mod, fade, hint = "Swipe for more", contentC
 }
 
 /** Segmented tabs. Scroll sideways when they don't fit, with arrows and a hint (see HScroll). options: [{id,label,icon}] */
-export function Seg({ value, onChange, options, mod }) {
+export function Seg({ value, onChange, options, mod, even }) {
   const t = useTheme(mod);
   const pos = React.useRef({});
+  if (even) {
+    // Equal-width tabs that always fit: for short sets like "All · Unseen · Missed".
+    return (
+      <View accessibilityRole="tablist" style={{ flexDirection: "row", gap: 4, padding: 4, backgroundColor: t.c.sunk, borderRadius: 16, borderWidth: 1, borderColor: t.c.line }}>
+        {options.map((o) => {
+          const on = o.id === value;
+          return (
+            <Pressable key={o.id} onPress={() => { tap(); onChange(o.id); }} accessibilityRole="tab" accessibilityState={{ selected: on }}
+              style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6, paddingVertical: 9, paddingHorizontal: 6, borderRadius: 12, backgroundColor: on ? t.c.surface : "transparent", borderWidth: on ? 1 : 0, borderColor: t.c.line }}>
+              {o.icon ? <Icon name={o.icon} size={15} color={on ? t.tint : t.c.muted} /> : null}
+              <Txt v="smallB" color={on ? t.tint : t.c.muted} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8}>{o.label}</Txt>
+            </Pressable>
+          );
+        })}
+      </View>
+    );
+  }
   return (
     <HScroll mod={mod} fade={t.c.sunk} hint={`Swipe the tabs for more (${options.length} sections)`}
       focusKey={value} getFocus={() => pos.current[value]}

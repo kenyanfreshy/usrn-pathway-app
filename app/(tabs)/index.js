@@ -16,7 +16,7 @@ import BANK_ALL from "../../src/data/questions.json";
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const BANK = BANK_ALL.filter((q) => q.active !== false);
-const NCLEX_POOL = BANK.filter((q) => q.bank === "NCLEX");
+const NCLEX_POOL = BANK.filter((q) => q.bank === "NCLEX" && (q.type || "single") === "single");   // question of the day is single-answer
 
 function useNow(ms) {
   const [now, setNow] = useState(() => new Date());

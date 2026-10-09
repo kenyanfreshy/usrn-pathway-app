@@ -7,7 +7,8 @@ import { TutorCard } from "../../src/tutor";
 import { useTheme, FONTS } from "../../src/theme";
 import { useApp } from "../../src/state";
 import { usePro, ProBadge } from "../../src/pro";
-import { shuffle, shuffleOptions } from "../../src/util";
+import { shuffle } from "../../src/util";
+import { shuffleItem, TESTS } from "../../src/exam";
 import { setRun } from "../../src/runStore";
 import BANK_ALL from "../../src/data/questions.json";
 
@@ -17,7 +18,7 @@ const MOD = "nclex";
 function MiniStat({ k, v }) {
   const t = useTheme(MOD);
   return (
-    <View style={{ paddingHorizontal: 12, paddingVertical: 7, borderRadius: 14, backgroundColor: t.c.surface, borderWidth: 1, borderColor: t.c.line, alignItems: "center", minWidth: 74 }}>
+    <View style={{ flex: 1, paddingHorizontal: 8, paddingVertical: 8, borderRadius: 14, backgroundColor: t.c.surface, borderWidth: 1, borderColor: t.c.line, alignItems: "center" }}>
       <Txt v="mono" style={{ fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{String(v)}</Txt>
       <Txt v="eyebrow" style={{ fontSize: 9.5 }}>{k}</Txt>
     </View>
@@ -28,8 +29,8 @@ function TopicChip({ label, n, on, onPress }) {
   const t = useTheme(MOD);
   return (
     <Pressable onPress={() => { tap(); onPress(); }} accessibilityRole="checkbox" accessibilityState={{ checked: on }}
-      style={{ flexDirection: "row", alignItems: "center", gap: 5, paddingHorizontal: 11, paddingVertical: 6, borderRadius: 999, backgroundColor: on ? t.soft2 : t.c.sunk, borderWidth: 1, borderColor: on ? t.tint2 : "transparent" }}>
-      <Txt v="smallB" color={on ? t.tint2 : t.c.ink}>{label}</Txt>
+      style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 6, paddingHorizontal: 12, paddingVertical: 9, borderRadius: 12, backgroundColor: on ? t.soft2 : t.c.sunk, borderWidth: 1, borderColor: on ? t.tint2 : "transparent" }}>
+      <Txt v="smallB" color={on ? t.tint2 : t.c.ink} style={{ flex: 1 }} numberOfLines={2}>{label}</Txt>
       <Txt v="tiny" color={on ? t.tint2 : t.c.muted} style={{ fontFamily: FONTS.mono }}>{n}</Txt>
     </Pressable>
   );
@@ -47,7 +48,7 @@ function BankBuilder({ bank, state }) {
   const missed = bank.filter((q) => st[q.id] && !st[q.id][2]).length;
   const toggle = (x) => setTopics(topics.includes(x) ? topics.filter((y) => y !== x) : [...topics, x]);
   const go = () => {
-    setRun({ items: shuffle(pool).slice(0, count).map(shuffleOptions), tutor });
+    setRun({ items: shuffle(pool).slice(0, count).map(shuffleItem), tutor });
     router.push({ pathname: "/quiz", params: { mode: "bank" } });
   };
   return (
@@ -59,21 +60,21 @@ function BankBuilder({ bank, state }) {
           <Txt v="small" muted>{bank.length} NCLEX-RN questions with full rationales, organized by the NCSBN client-needs categories.</Txt>
         </View>
       </Row>
-      <Row gap={8} wrap>
+      <Row gap={8}>
         {[["Seen", seen], ["Mastered", mastered], ["To review", missed]].map(([k, v]) => <MiniStat key={k} k={k} v={v} />)}
       </Row>
       <Bar mod={MOD} pct={bank.length ? seen / bank.length : 0} />
-      <Seg mod={MOD} value={filter} onChange={setFilter} options={[{ id: "all", label: "All questions" }, { id: "unseen", label: "Unseen" }, { id: "missed", label: "Missed" }]} />
+      <Seg mod={MOD} even value={filter} onChange={setFilter} options={[{ id: "all", label: "All questions" }, { id: "unseen", label: "Unseen" }, { id: "missed", label: "Missed" }]} />
       <View style={{ gap: 8 }}>
         <Row>
           <Txt v="eyebrow" style={{ flex: 1 }}>Topics {topics.length ? `(${topics.length} selected)` : "(all)"}</Txt>
           {topics.length > 0 ? <Pressable onPress={() => { tap(); setTopics([]); }} hitSlop={8}><Txt v="smallB" color={t.tint2}>Clear</Txt></Pressable> : null}
         </Row>
-        <Row gap={6} wrap>
+        <Grid min={150} gap={8}>
           {Object.entries(topicCounts).sort((a, b) => b[1] - a[1]).map(([x, n]) => (
             <TopicChip key={x} label={x} n={n} on={topics.includes(x)} onPress={() => toggle(x)} />
           ))}
-        </Row>
+        </Grid>
       </View>
       <Grid min={150} gap={12}>
         <View style={{ flexGrow: 1 }}>
@@ -81,7 +82,7 @@ function BankBuilder({ bank, state }) {
         </View>
         <View style={{ flexGrow: 1, gap: 5 }}>
           <Txt v="smallB" muted>Mode</Txt>
-          <Seg mod={MOD} value={tutor ? "tutor" : "exam"} onChange={(v) => setTutor(v === "tutor")} options={[{ id: "tutor", label: "Tutor", icon: "GraduationCap" }, { id: "exam", label: "Exam", icon: "Timer" }]} />
+          <Seg mod={MOD} even value={tutor ? "tutor" : "exam"} onChange={(v) => setTutor(v === "tutor")} options={[{ id: "tutor", label: "Tutor", icon: "GraduationCap" }, { id: "exam", label: "Exam", icon: "Timer" }]} />
         </View>
       </Grid>
       <Row gap={10}>
@@ -94,20 +95,22 @@ function BankBuilder({ bank, state }) {
 }
 
 const MODES = [
-  { id: "diag", n: "Test 1", title: "Diagnostic Baseline", desc: "8 items across the Client Needs categories with a category breakdown.", icon: "Activity" },
-  { id: "ngn", n: "Test 2", title: "NGN Case Study", desc: "Four unfolding Next Gen cases: heart failure, septic shock, compartment syndrome and post-op sepsis.", icon: "Network" },
-  { id: "cat", n: "Test 3", title: "CAT Predictor", desc: "Adaptive item selection with a stopping rule and ability trace.", icon: "Gauge" },
+  { id: "t1", n: "Test 1", title: TESTS.t1.title, desc: `${TESTS.t1.count} questions across all 8 Client Needs categories, with a category breakdown.`, icon: "Activity", save: "t1" },
+  { id: "t2", n: "Test 2", title: TESTS.t2.title, desc: `${TESTS.t2.count} items: 4 unfolding NGN case studies plus SATA and ordered-response questions.`, icon: "Network", save: "t2", pro: true },
+  { id: "t3", n: "Test 3", title: TESTS.t3.title, desc: `Adaptive like the NCLEX: 85–150 questions from a ${TESTS.t3.count}-question pool, stops at 95% confidence.`, icon: "Gauge", save: "t3" },
+  { id: "ngn", n: "Practice", title: "NGN Case Practice", desc: "Pick one case study and work through its six clinical-judgment steps.", icon: "Stethoscope", pro: true },
   { id: "flash", n: "Review", title: "Flashcards", desc: "Swipe through high-yield takeaways. Right = got it, left = again.", icon: "Layers" },
 ];
+const OLD_NAME = { t1: "Diagnostic Baseline", t2: "NGN Case Study", t3: "CAT Predictor" };
 
 function Benchmarks({ state }) {
   const { isPro } = usePro(); const [timed, setTimed] = useState(false);
-  const last = (title) => state.exams.find((e) => e.mode === title);
-  const start = (id) => router.push({ pathname: "/quiz", params: id === "diag" ? { mode: id, timed: timed ? "1" : "0" } : { mode: id } });
+  const last = (md) => state.exams.find((e) => e.mode === md.title || e.mode === OLD_NAME[md.id]);
+  const start = (id) => router.push({ pathname: "/quiz", params: id === "t1" ? { mode: id, timed: timed ? "1" : "0" } : { mode: id } });
   return (
     <Grid min={150} gap={12}>
       {MODES.map((md) => {
-        const l = last(md.title);
+        const l = md.id === "ngn" || md.id === "flash" ? null : last(md); const saved = md.save && state.runs && state.runs[md.save];
         return (
           <Card key={md.id} mod={MOD} style={{ flexGrow: 1, gap: 8 }}>
             <Row>
@@ -115,11 +118,11 @@ function Benchmarks({ state }) {
               <IconTile mod={MOD} icon={md.icon} size={36} />
             </Row>
             <Txt v="h3">{md.title}</Txt>
-            {md.id === "ngn" && !isPro ? <ProBadge /> : null}
+            {md.pro && !isPro ? <ProBadge /> : null}
             <Txt v="small" muted style={{ flexGrow: 1 }}>{md.desc}</Txt>
-            {md.id === "diag" ? <Check mod={MOD} checked={timed} onToggle={() => setTimed(!timed)} label="Timed (90 s per question)" /> : null}
-            <Txt v="tiny" muted style={{ fontFamily: FONTS.mono }}>{md.id === "flash" ? `${state.flash || 0} reviewed` : l ? `Last: ${l.score}` : "Not taken yet"}</Txt>
-            <Btn mod={MOD} small full icon="Play" title={md.id === "flash" ? "Open deck" : l ? "Retake" : "Start"} onPress={() => start(md.id)} />
+            {md.id === "t1" ? <Check mod={MOD} checked={timed} onToggle={() => setTimed(!timed)} label="Timed (90 s per question)" /> : null}
+            <Txt v="tiny" muted style={{ fontFamily: FONTS.mono }}>{md.id === "flash" ? `${state.flash || 0} reviewed` : saved ? "In progress — resume anytime" : l ? `Last: ${l.score}` : md.id === "ngn" ? "4 cases" : "Not taken yet"}</Txt>
+            <Btn mod={MOD} small full icon="Play" title={md.id === "flash" ? "Open deck" : saved ? "Resume" : l ? "Retake" : "Start"} onPress={() => start(md.id)} />
           </Card>
         );
       })}
@@ -192,7 +195,7 @@ export default function Nclex() {
   return (
     <Screen mod={MOD}>
       <Hero mod={MOD} icon="Brain" eyebrow="Module 3 · NCLEX-RN" title="Benchmark exam engine"
-        sub="A full question bank with rationales, three benchmarks and a flashcard deck."
+        sub="Three benchmark exams with 600 different questions, Next Gen case studies, a full question bank with rationales, and flashcards."
         stats={[["Question bank", bank.length], ["Attempts", state.exams.length], ["Last result", state.exams[0] ? state.exams[0].score : "—"]]} />
       <TutorCard mod={MOD} />
       <BankBuilder bank={bank} state={state} />

@@ -7,7 +7,7 @@ import { dkey, today, daysUntil, isoOffset } from "./util";
 const STORE_KEY = "usrn-pathway-v1";
 export const initialState = () => ({
   steps: { "cred-0": true, "cred-1": true, "cred-2": true, "cred-3": true, "att-0": true, "att-1": true },
-  flexible: false, docs: SAMPLE_DOCS, exams: [], lessons: {}, careers: {}, credit: {}, drive: {}, qstats: {},
+  flexible: false, docs: SAMPLE_DOCS, exams: [], runs: {}, catSeen: [], lessons: {}, careers: {}, credit: {}, drive: {}, qstats: {},
   profile: { name: "", lastName: "", homeCountry: "", specialty: "", targetState: "", country: "ph", pd: "", testDate: "", attEnd: "" },
   palette: "vivid", days: {}, qotd: {}, flash: 0, badgesSeen: null, alertsOn: false, onboarded: false,
   payments: [
@@ -35,6 +35,8 @@ function reducer0(s, a) {
     case "addDoc": return { ...s, docs: [a.doc, ...s.docs] };
     case "delDoc": return { ...s, docs: s.docs.filter((d) => d.id !== a.id) };
     case "exam": return { ...s, exams: [a.rec, ...s.exams].slice(0, 30) };
+    case "run": return { ...s, runs: { ...(s.runs || {}), [a.key]: a.data } };          // saved progress of a long exam (null clears it)
+    case "catSeen": return { ...s, catSeen: [...new Set([...(s.catSeen || []), ...a.ids])].slice(-2000) };
     case "lesson": {
       // Keep the best knowledge-check score. Older saves stored just `true`, which still counts as complete.
       const prev = s.lessons[a.id]; const r = a.result;
@@ -92,7 +94,8 @@ export function metrics(s) {
   const total = PHASES.reduce((n, p) => n + p.steps.length, 0);
   const done = PHASES.reduce((n, p) => n + p.steps.filter((_, j) => s.steps[`${p.id}-${j}`]).length, 0);
   const latest = (mode) => s.exams.find((e) => e.mode === mode);
-  const bench = ["Diagnostic Baseline", "NGN Case Study", "CAT Predictor"].map(latest);
+  const latestOf = (...modes) => s.exams.find((e) => modes.includes(e.mode));
+  const bench = [latestOf("Diagnostic Benchmark", "Diagnostic Baseline"), latestOf("NGN Clinical Judgment Simulator", "NGN Case Study"), latestOf("Comprehensive Predictor", "CAT Predictor")];
   const nclexPct = bench.reduce((n, e) => n + (e ? e.pct / 100 : 0), 0) / 3;
   const lessonsDone = LESSONS.filter((l) => s.lessons[l.id]).length;
   const lessonPct = lessonsDone / LESSONS.length;
@@ -115,8 +118,8 @@ export const BADGES = [
   { id: "cred", icon: "GraduationCap", name: "Credentials Cleared", desc: "Finish the credentials evaluation phase", test: (s) => phaseDone(s, "cred") },
   { id: "att", icon: "Ticket", name: "Cleared to Test", desc: "Receive your Authorization to Test", test: (s) => phaseDone(s, "att") },
   { id: "bench", icon: "ClipboardCheck", name: "First Benchmark", desc: "Complete any NCLEX benchmark", test: (s) => s.exams.length > 0 },
-  { id: "ace", icon: "Trophy", name: "Benchmark Ace", desc: "Score 75% or higher on a benchmark", test: (s) => s.exams.some((e) => e.mode !== "CAT Predictor" && e.pct >= 75) },
-  { id: "cat", icon: "Gauge", name: "Above the Line", desc: "Finish the CAT predictor above the passing line", test: (s) => s.exams.some((e) => e.mode === "CAT Predictor" && String(e.score).startsWith("Above")) },
+  { id: "ace", icon: "Trophy", name: "Benchmark Ace", desc: "Score 75% or higher on a benchmark", test: (s) => s.exams.some((e) => e.mode !== "CAT Predictor" && e.mode !== "Comprehensive Predictor" && e.pct >= 75) },
+  { id: "cat", icon: "Gauge", name: "Above the Line", desc: "Finish the CAT predictor above the passing line", test: (s) => s.exams.some((e) => (e.mode === "CAT Predictor" || e.mode === "Comprehensive Predictor") && String(e.score).startsWith("Above")) },
   { id: "rn", icon: "BadgeCheck", name: "Licensed RN", desc: "Complete the NCLEX-RN phase", test: (s) => phaseDone(s, "nclex") },
   { id: "eng", icon: "Languages", name: "Fluent & Verified", desc: "Complete English proficiency", test: (s) => phaseDone(s, "eng") },
   { id: "visa", icon: "ShieldCheck", name: "VisaScreen Done", desc: "Receive your VisaScreen certificate", test: (s) => phaseDone(s, "visa") },

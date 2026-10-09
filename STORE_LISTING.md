@@ -5,7 +5,7 @@
 **Google short description (80 max):** Foreign RN to U.S. bedside: NCLEX prep, visa tracker and career tools.
 
 **Promotional text (iOS, 170 max):**
-Track every step from credentials to green card, practice with 400+ NCLEX-RN questions and Next Generation NCLEX case studies, and get ready for your first U.S. shifts.
+Track every step from credentials to green card, practice with 600+ NCLEX-RN questions, three benchmark exams and Next Generation NCLEX case studies, and get ready for your first U.S. shifts.
 
 **Description:**
 USRN Pathway guides internationally educated nurses from credential evaluation to the U.S. bedside — and beyond.
@@ -17,10 +17,11 @@ ROADMAP & DOCUMENTS
 • A cost tracker for every fee you pay
 
 NCLEX-RN PRACTICE
-• 400+ NCLEX-RN questions with rationales for every answer choice
+• 600+ NCLEX-RN questions with rationales for every answer choice, including select-all-that-apply and ordered-response
+• Three benchmark exams: an 85-question Diagnostic, a 150-item NGN Clinical Judgment Simulator and an adaptive Comprehensive Predictor (85–150 questions)
 • All NCLEX-RN client-needs areas, including maternal-newborn, pediatrics, mental health and high-acuity care
 • Next Generation NCLEX (NGN) case studies with chart tabs, SATA, matrix, highlight, drop-down and ordered-response items
-• Tutor and exam modes, flashcards, a Diagnostic Baseline and an adaptive CAT practice test
+• Tutor and exam modes, flashcards, and save-and-resume for long exams
 
 VISA & SPONSORS
 • EB-3 visa bulletin dates and a priority-date wait estimate
@@ -32,7 +33,7 @@ U.S. BEDSIDE & CAREER
 • Guides to health, life, disability, car and home insurance, credit building and driving
 
 PRO (optional — 2-week free trial for new subscribers, then a monthly subscription; or a one-time pass)
-• NGN case studies • Expiry reminders on your phone • Endorsement wizard between states
+• NGN Clinical Judgment Simulator • Expiry reminders on your phone • Endorsement wizard between states
 • Charge nurse tools: acuity balancer, SBAR scripts, clinical ladder log • Overtime and tax calculators
 
 Your data stays on your phone. No account needed.

@@ -27,7 +27,7 @@ export const SPECIAL_OFFERING = extra.specialOfferingId || "special_offer";
 export const WIN_BACK_DAYS = 30;
 
 export const PRO_FEATURES = [
-  ["Network", "NGN case studies", "Four unfolding Next Generation NCLEX cases with chart tabs, all six clinical-judgment steps and full rationales"],
+  ["Network", "NGN Clinical Judgment Simulator", "A 150-item exam with four unfolding Next Gen case studies (chart tabs, six clinical-judgment steps), plus single-case practice"],
   ["BellRing", "Automated expiry alerts", "Phone reminders 90 and 30 days before IELTS/PTE scores and licenses expire"],
   ["ArrowRightLeft", "Endorsement wizard", "Nursys transfer steps between states, e.g. NY → CA or TX"],
   ["LayoutGrid", "Charge nurse command center", "Acuity balancer, SBAR generator, clinical ladder dossier"],

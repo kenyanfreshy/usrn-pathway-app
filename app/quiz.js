@@ -1,4 +1,5 @@
-// Quiz runner screen: question bank, Diagnostic Baseline, NGN case studies, CAT predictor and flashcards.
+// Quiz runner screen: question bank, the three benchmark exams (Diagnostic Benchmark, NGN Clinical Judgment Simulator,
+// Comprehensive Predictor), NGN case-study practice and flashcards.
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { View, ScrollView, Pressable, Animated, PanResponder } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
@@ -12,6 +13,7 @@ import { todayKey, shuffle } from "../src/util";
 import { getRun } from "../src/runStore";
 import { DIAG, CAT_POOL, DIFF } from "../src/data/content";
 import { NGN_CASES, scoreNgnItem } from "../src/data/ngn";
+import { typeOf, scoreItem, isCorrect, isAnswered, answerText, breakdown, TESTS, buildTest1, buildTest2, nextItem, stopRule, difficultyOf, CAT_MIN, CAT_MAX } from "../src/exam";
 import BANK_ALL from "../src/data/questions.json";
 
 const MOD = "nclex";
@@ -19,39 +21,83 @@ const BANK = BANK_ALL.filter((q) => q.active !== false);
 const bold = { fontFamily: FONTS.bodyBold, fontWeight: FONTS.bodyBold ? undefined : "700" };
 
 /* ---------- shared pieces ---------- */
-function SingleQuestion({ item, value, onChange, locked, reveal }) {
+const TYPE_HINT = { sata: "Select all that apply", order: "Tap the options in the correct order" };
+
+/** One question of any type: single answer, select-all-that-apply or ordered response. */
+function QuestionView({ item, value, onChange, locked, reveal }) {
+  const t = useTheme(MOD); const type = typeOf(item);
+  const right = Array.isArray(item.answer) ? item.answer : [item.answer];
   return (
     <View style={{ gap: 9 }}>
       <Txt v="bodyB" style={{ fontSize: 16, lineHeight: 23 }}>{item.stem}</Txt>
-      {item.options.map((o) => {
+      {TYPE_HINT[type] ? <Chip mod={MOD} tone="acc2" icon={type === "order" ? "ListChecks" : "CheckCircle2"} text={TYPE_HINT[type]} /> : null}
+
+      {type === "single" ? item.options.map((o) => {
         const state = reveal ? (o.id === item.answer ? "right" : value === o.id ? "wrong" : null) : value === o.id ? "sel" : null;
         const why = reveal && (o.id === item.answer || o.id === value) && o.why ? (o.id === item.answer ? "Why it's right: " : "Why it's wrong: ") + o.why : null;
         return <Option key={o.id} mod={MOD} letter={o.id} label={o.text} why={why} state={state} disabled={locked || reveal} onPress={() => onChange(o.id)} />;
-      })}
+      }) : null}
+
+      {type === "sata" ? item.options.map((o) => {
+        const sel = (value || []).includes(o.id); const ok = right.includes(o.id);
+        const state = reveal ? (ok ? "right" : sel ? "wrong" : null) : sel ? "sel" : null;
+        const why = reveal && (ok || sel) && o.why ? (ok ? (sel ? "Correct choice: " : "Missed — should be selected: ") : "Should not be selected: ") + o.why : null;
+        return <Option key={o.id} mod={MOD} multi letter={o.id} label={(sel ? "☑ " : "☐ ") + o.text} why={why} state={state} disabled={locked || reveal}
+          onPress={() => onChange(sel ? value.filter((x) => x !== o.id) : [...(value || []), o.id])} />;
+      }) : null}
+
+      {type === "order" ? (
+        <View style={{ gap: 8 }}>
+          {item.options.map((o) => {
+            const pos = (value || []).indexOf(o.id); const truePos = item.answer.indexOf(o.id);
+            const good = reveal && pos === truePos;
+            const border = reveal ? (good ? t.c.ok : t.c.crit) : pos >= 0 ? t.tint : t.c.line;
+            return (
+              <Pressable key={o.id} disabled={locked || reveal} accessibilityRole="button" accessibilityLabel={`${o.text}${pos >= 0 ? `, step ${pos + 1}` : ""}`}
+                onPress={() => { tap(); const cur = value || []; onChange(pos >= 0 ? cur.filter((y) => y !== o.id) : [...cur, o.id]); }}
+                style={{ flexDirection: "row", alignItems: "center", gap: 12, padding: 12, borderRadius: 14, borderWidth: 1.5, borderColor: border, backgroundColor: reveal ? (good ? t.c.okSoft : t.c.critSoft) : pos >= 0 ? t.soft : t.c.surface }}>
+                <View style={{ width: 30, height: 30, borderRadius: 15, alignItems: "center", justifyContent: "center", backgroundColor: pos >= 0 ? t.tint : t.c.sunk }}>
+                  <Txt v="smallB" color={pos >= 0 ? "#fff" : t.c.muted}>{pos >= 0 ? pos + 1 : "–"}</Txt>
+                </View>
+                <View style={{ flex: 1, gap: 3 }}>
+                  <Txt v="body">{o.text}</Txt>
+                  {reveal ? <Txt v="small" muted>{`Correct position: ${truePos + 1}. ${o.why || ""}`}</Txt> : null}
+                </View>
+              </Pressable>
+            );
+          })}
+          {!reveal && !locked && (value || []).length ? <Pressable onPress={() => { tap(); onChange([]); }} hitSlop={8}><Txt v="smallB" color={t.tint2}>Clear order</Txt></Pressable> : null}
+        </View>
+      ) : null}
     </View>
   );
 }
+const SingleQuestion = QuestionView;
 
 function RationaleSheet({ item, chosen, onClose }) {
   const t = useTheme(MOD);
+  const type = item ? typeOf(item) : "single";
   const right = item ? (Array.isArray(item.answer) ? item.answer : [item.answer]) : [];
-  const picks = Array.isArray(chosen) ? chosen : [chosen];
+  const picks = Array.isArray(chosen) ? chosen : chosen ? [chosen] : [];
+  const pts = item ? scoreItem(item, chosen) : [0, 0];
   return (
     <Sheet mod={MOD} visible={!!item} onClose={onClose} title="Rationale review">
       {item ? (
         <View style={{ gap: 12 }}>
-          <Chip mod={MOD} tone="acc" text={item.cat} />
+          <Row gap={6} wrap><Chip mod={MOD} tone="acc" text={item.cat} />{type !== "single" ? <Chip mod={MOD} tone="acc2" text={type === "sata" ? `SATA · ${pts[0]}/${pts[1]} pts (+/− scoring)` : `Ordered response · ${pts[0]}/1`} /> : null}</Row>
           <Txt v="bodyB">{item.stem}</Txt>
+          {type === "order" ? <Note mod={MOD} tone="acc" icon="ListChecks" title="Correct order">{item.answer.map((id, k) => `${k + 1}. ${(item.options.find((o) => o.id === id) || {}).text}`).join("\n")}</Note> : null}
           {item.options.map((o) => {
-            const ok = right.includes(o.id), picked = picks.includes(o.id);
-            const col = ok ? [t.c.okSoft, t.c.ok] : picked ? [t.c.critSoft, t.c.crit] : [t.c.surface, t.c.line];
+            const ok = type === "order" ? true : right.includes(o.id), picked = picks.includes(o.id);
+            const col = type === "order" ? [t.c.surface, t.c.line] : ok ? [t.c.okSoft, t.c.ok] : picked ? [t.c.critSoft, t.c.crit] : [t.c.surface, t.c.line];
             return (
               <View key={o.id} style={{ flexDirection: "row", gap: 10, padding: 13, borderRadius: 14, borderWidth: 1.5, borderColor: col[1], backgroundColor: col[0] }}>
                 <Txt v="mono" style={{ width: 16, textTransform: "uppercase", fontFamily: FONTS.monoBold }}>{o.id}</Txt>
                 <View style={{ flex: 1, gap: 5 }}>
                   <Txt v="bodyB">{o.text}</Txt>
-                  {ok ? <Chip tone="ok" text="Correct" /> : picked ? <Chip tone="crit" text="Your answer" /> : null}
-                  <Txt v="small" muted>{(ok ? "Why it's right: " : "Why it's wrong: ") + (o.why || "")}</Txt>
+                  {type === "order" ? <Chip tone="mute" text={`Step ${item.answer.indexOf(o.id) + 1}${picked ? ` · you put it at ${picks.indexOf(o.id) + 1}` : ""}`} />
+                    : ok ? <Chip tone="ok" text={picked ? "Correct · you chose it" : "Correct"} /> : picked ? <Chip tone="crit" text="Your answer" /> : null}
+                  <Txt v="small" muted>{(type === "order" ? "" : ok ? "Why it's right: " : "Why it's wrong: ") + (o.why || "")}</Txt>
                 </View>
               </View>
             );
@@ -68,14 +114,14 @@ function ResultTable({ items, answers, onOpen }) {
   return (
     <View style={{ gap: 8 }}>
       {items.map((it, i) => {
-        const ok = answers[it.id] === it.answer;
+        const [g, m] = scoreItem(it, answers[it.id]); const ok = g === m;
         return (
           <Pressable key={it.id} onPress={() => { tap(); onOpen(it); }} style={{ flexDirection: "row", alignItems: "center", gap: 10, padding: 12, borderRadius: 14, backgroundColor: t.c.sunk }}>
-            <Txt v="mono" muted style={{ width: 22 }}>{i + 1}</Txt>
-            <Icon name={ok ? "CheckCircle2" : "XCircle"} size={19} color={ok ? t.c.ok : t.c.crit} />
+            <Txt v="mono" muted style={{ width: 26 }}>{i + 1}</Txt>
+            <Icon name={ok ? "CheckCircle2" : g > 0 ? "CircleDot" : "XCircle"} size={19} color={ok ? t.c.ok : g > 0 ? t.c.warn : t.c.crit} />
             <View style={{ flex: 1 }}>
               <Txt v="small" numberOfLines={1}>{it.stem}</Txt>
-              <Txt v="tiny" muted>{it.cat}</Txt>
+              <Txt v="tiny" muted>{it.cat}{m > 1 ? ` · ${g}/${m} pts` : ""}</Txt>
             </View>
             <Row gap={2}><Txt v="smallB" color={t.tint}>Rationale</Txt><Icon name="ChevronRight" size={15} color={t.tint} /></Row>
           </Pressable>
@@ -85,27 +131,44 @@ function ResultTable({ items, answers, onOpen }) {
   );
 }
 
-const breakdown = (items, ans) => {
-  const byCat = {};
-  items.forEach((q) => { byCat[q.cat] = byCat[q.cat] || [0, 0]; byCat[q.cat][1]++; if (ans[q.id] === q.answer) byCat[q.cat][0]++; });
-  return byCat;
-};
+function CatBreakdown({ byCat }) {
+  return (
+    <Card mod={MOD} style={{ gap: 10 }}>
+      <Txt v="eyebrow">Client Needs breakdown (points)</Txt>
+      {Object.entries(byCat).map(([c, [r, n]]) => (
+        <View key={c} style={{ gap: 5 }}>
+          <Row><Txt v="small" style={{ flex: 1 }}>{c}</Txt><Txt v="mono">{r}/{n}</Txt></Row>
+          <Bar mod={MOD} pct={n ? r / n : 0} />
+        </View>
+      ))}
+    </Card>
+  );
+}
 
-/* ---------- QuizRunner (bank + diagnostic) ---------- */
-function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart }) {
+/* ---------- QuizRunner (question bank, Test 1, and the stand-alone sections of Test 2) ----------
+ * initial / onProgress let long exams be saved and resumed. In segment mode the runner hands its answers
+ * to onSegmentDone instead of showing its own results.
+ */
+function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart, initial, onProgress, segment, onSegmentDone, label }) {
   const t = useTheme(MOD);
-  const [i, setI] = useState(0); const [ans, setAns] = useState({}); const [done, setDone] = useState(false); const [open, setOpen] = useState(null);
+  const [i, setI] = useState((initial && initial.i) || 0); const [ans, setAns] = useState((initial && initial.ans) || {});
+  const [done, setDone] = useState(false); const [open, setOpen] = useState(null);
   const [checked, setChecked] = useState({});
-  const [left, setLeft] = useState(timed ? items.length * 90 : 0);
+  const [left, setLeft] = useState(initial && initial.left != null ? initial.left : timed ? items.length * 90 : 0);
   const fin = useRef(null);
   const item = items[i];
+  useEffect(() => { if (onProgress && !done) onProgress({ i, ans, left: timed ? left : null }); }, [i, ans]);
+  useEffect(() => { if (onProgress && timed && !done && left % 15 === 0) onProgress({ i, ans, left }); }, [left]);
+  const totals = () => { let g = 0, m = 0; items.forEach((q) => { const s = scoreItem(q, ans[q.id]); g += s[0]; m += s[1]; }); return [g, m]; };
   const finish = () => {
-    if (done) return; setDone(true); buzz();
-    const score = items.filter((q) => ans[q.id] === q.answer).length;
-    onDone({ mode, score: `${score}/${items.length}`, pct: Math.round((score / items.length) * 100), date: todayKey(), byCat: breakdown(items, ans) });
-    if (onStat && !tutor) onStat(Object.fromEntries(items.map((q) => [q.id, ans[q.id] === q.answer])));
+    if (done) return;
+    if (segment) { onSegmentDone && onSegmentDone(ans); return; }
+    setDone(true); buzz();
+    const [g, m] = totals(); const right = items.filter((q) => isCorrect(q, ans[q.id])).length;
+    onDone({ mode, score: `${right}/${items.length}`, pct: Math.round((g / m) * 100), date: todayKey(), byCat: breakdown(items, ans) });
+    if (onStat && !tutor) onStat(Object.fromEntries(items.map((q) => [q.id, isCorrect(q, ans[q.id])])));
   };
-  const check = () => { setChecked({ ...checked, [item.id]: true }); onStat && onStat({ [item.id]: ans[item.id] === item.answer }); };
+  const check = () => { setChecked({ ...checked, [item.id]: true }); onStat && onStat({ [item.id]: isCorrect(item, ans[item.id]) }); };
   fin.current = finish;
   useEffect(() => {
     if (!timed || done) return;
@@ -115,8 +178,8 @@ function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart }) {
   }, [left, timed, done]);
 
   if (done) {
-    const byCat = breakdown(items, ans);
-    const score = items.filter((q) => ans[q.id] === q.answer).length; const pct = Math.round((score / items.length) * 100);
+    const byCat = breakdown(items, ans); const [g, m] = totals();
+    const right = items.filter((q) => isCorrect(q, ans[q.id])).length; const pct = Math.round((g / m) * 100);
     return (
       <View style={{ gap: 16 }}>
         <Card mod={MOD} style={{ gap: 6 }}>
@@ -124,20 +187,13 @@ function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart }) {
           <Row gap={14}>
             <Txt v="big" color={t.tint} style={{ fontSize: 56, lineHeight: 60 }}>{pct}%</Txt>
             <View style={{ flex: 1, gap: 2 }}>
-              <Txt v="bodyB">{score} of {items.length} correct</Txt>
+              <Txt v="bodyB">{right} of {items.length} fully correct · {g}/{m} points</Txt>
               <Txt v="small" muted>{pct >= 75 ? "Excellent — that's benchmark-ace territory." : pct >= 60 ? "Solid. Review the rationales below to push higher." : "Good baseline. The rationales are where the learning happens."}</Txt>
             </View>
           </Row>
+          <Txt v="tiny" muted>SATA items use NCSBN +/− scoring (+1 per correct choice, −1 per wrong choice, minimum 0).</Txt>
         </Card>
-        <Card mod={MOD} style={{ gap: 10 }}>
-          <Txt v="eyebrow">Client Needs breakdown</Txt>
-          {Object.entries(byCat).map(([c, [r, n]]) => (
-            <View key={c} style={{ gap: 5 }}>
-              <Row><Txt v="small" style={{ flex: 1 }}>{c}</Txt><Txt v="mono">{r}/{n}</Txt></Row>
-              <Bar mod={MOD} pct={r / n} />
-            </View>
-          ))}
-        </Card>
+        <CatBreakdown byCat={byCat} />
         <ResultTable items={items} answers={ans} onOpen={setOpen} />
         <Row gap={10} wrap>
           {onRestart ? <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Retake" onPress={onRestart} /> : null}
@@ -150,29 +206,27 @@ function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart }) {
 
   const mm = String(Math.floor(left / 60)).padStart(2, "0"), ss = String(left % 60).padStart(2, "0");
   const revealed = tutor && checked[item.id];
-  const correct = ans[item.id] === item.answer;
+  const correct = isCorrect(item, ans[item.id]); const pts = scoreItem(item, ans[item.id]);
+  const allAnswered = items.every((q) => isAnswered(q, ans[q.id]));
   return (
     <View style={{ gap: 14 }}>
+      {label ? <Txt v="eyebrow">{label}</Txt> : null}
       <Row gap={8} wrap>
         <Chip mod={MOD} tone="acc" text={item.cat} />
         <View style={{ flex: 1 }} />
-        {timed ? <Chip mod={MOD} tone={left < 60 ? "crit" : "acc2"} icon="Timer" text={`${mm}:${ss}`} /> : null}
+        {timed ? <Chip mod={MOD} tone={left < 60 ? "crit" : "acc2"} icon="Timer" text={`${String(Math.floor(left / 3600)) !== "0" ? Math.floor(left / 3600) + ":" : ""}${String(Math.floor((left % 3600) / 60)).padStart(2, "0")}:${ss}`} /> : null}
         <Txt v="mono" muted>Question {i + 1} of {items.length}</Txt>
       </Row>
       <Bar mod={MOD} pct={i / items.length} />
-      {item.topic ? (
-        <Row gap={6} wrap>
-          <Chip text={item.topic} />
-        </Row>
-      ) : null}
+      {item.topic ? <Row gap={6} wrap><Chip text={item.topic} /></Row> : null}
       <Card mod={MOD}>
-        <SingleQuestion item={item} value={ans[item.id]} onChange={(v) => setAns({ ...ans, [item.id]: v })} reveal={revealed} />
+        <QuestionView item={item} value={ans[item.id]} onChange={(v) => setAns({ ...ans, [item.id]: v })} reveal={revealed} />
       </Card>
       {revealed ? (
         <View style={{ gap: 8 }}>
           <Row gap={8}>
             <Icon name={correct ? "CheckCircle2" : "XCircle"} size={19} color={correct ? t.c.ok : t.c.crit} />
-            <Txt v="bodyB" color={correct ? t.c.ok : t.c.crit} style={{ flex: 1 }}>{correct ? "Correct" : "Not quite — the correct answer is " + String(item.answer).toUpperCase()}</Txt>
+            <Txt v="bodyB" color={correct ? t.c.ok : t.c.crit} style={{ flex: 1 }}>{correct ? "Correct" : `Not quite — the correct answer is ${answerText(item)}`}{typeOf(item) === "sata" ? ` (${pts[0]}/${pts[1]} pts)` : ""}</Txt>
           </Row>
           {item.takeaway ? <Note mod={MOD} tone="acc2" icon="Lightbulb" title="Takeaway">{item.takeaway}</Note> : null}
           {item.flag && item.source === "nb2025" ? <Txt v="tiny" muted>Note: {item.flag}</Txt> : null}
@@ -180,10 +234,11 @@ function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart }) {
       ) : null}
       <Row gap={10} style={{ justifyContent: "space-between" }}>
         <Btn mod={MOD} kind="secondary" icon="ArrowLeft" title="Back" disabled={i === 0} onPress={() => setI(i - 1)} />
-        {tutor && !checked[item.id] ? <Btn mod={MOD} icon="Check" title="Check answer" disabled={!ans[item.id]} onPress={check} />
-          : i < items.length - 1 ? <Btn mod={MOD} icon="ArrowRight" title="Next" disabled={!ans[item.id]} onPress={() => setI(i + 1)} />
-          : <Btn mod={MOD} icon="Send" title="Submit exam" disabled={Object.keys(ans).length < items.length} onPress={finish} />}
+        {tutor && !checked[item.id] ? <Btn mod={MOD} icon="Check" title="Check answer" disabled={!isAnswered(item, ans[item.id])} onPress={check} />
+          : i < items.length - 1 ? <Btn mod={MOD} icon="ArrowRight" title="Next" disabled={!isAnswered(item, ans[item.id])} onPress={() => setI(i + 1)} />
+          : <Btn mod={MOD} icon="Send" title={segment ? "Finish section" : "Submit exam"} disabled={!allAnswered} onPress={finish} />}
       </Row>
+      {onProgress ? <Txt v="tiny" muted>Your progress saves automatically. You can leave and resume this exam later.</Txt> : null}
     </View>
   );
 }
@@ -258,10 +313,11 @@ function NgnKey({ it, a }) {
   return null;
 }
 
-function NgnCase({ cs, onDone, onExit }) {
+function NgnCase({ cs, onDone, onExit, exam, initial, onProgress, onSubmit }) {
   const t = useTheme(MOD);
   const items = cs.items;
-  const [i, setI] = useState(0); const [ans, setAns] = useState({}); const [done, setDone] = useState(false);
+  const [i, setI] = useState((initial && initial.i) || 0); const [ans, setAns] = useState((initial && initial.ans) || {}); const [done, setDone] = useState(false);
+  useEffect(() => { if (onProgress) onProgress({ i, ans }); }, [i, ans]);
   const item = items[i]; const a = ans[item.id];
   const setA = (v) => setAns({ ...ans, [item.id]: v });
   const answered = (it) => {
@@ -275,7 +331,10 @@ function NgnCase({ cs, onDone, onExit }) {
   const totals = items.map((it) => scoreNgnItem(it, ans[it.id]));
   const got = totals.reduce((n, x) => n + x[0], 0), max = totals.reduce((n, x) => n + x[1], 0);
   const all = items.every(answered);
-  const finish = () => { setDone(true); buzz(); onDone({ mode: "NGN Case Study", score: `${got}/${max} pts · ${cs.title}`, pct: Math.round(got / max * 100), date: todayKey() }); };
+  const finish = () => {
+    if (exam) { onSubmit && onSubmit({ got, max, ans }); return; }
+    setDone(true); buzz(); onDone({ mode: "NGN Case Study", score: `${got}/${max} pts · ${cs.title}`, pct: Math.round(got / max * 100), date: todayKey() });
+  };
 
   return (
     <View style={{ gap: 14 }}>
@@ -371,7 +430,7 @@ function NgnCase({ cs, onDone, onExit }) {
           <Row gap={10} style={{ justifyContent: "space-between", marginTop: 4 }}>
             <Btn mod={MOD} kind="secondary" icon="ArrowLeft" title="Back" disabled={i === 0} onPress={() => setI(i - 1)} />
             {i < items.length - 1 ? <Btn mod={MOD} icon="ArrowRight" title="Next" onPress={() => setI(i + 1)} />
-              : <Btn mod={MOD} icon="Send" title="Submit case study" disabled={!all} onPress={finish} />}
+              : <Btn mod={MOD} icon="Send" title={exam ? "Finish case study" : "Submit case study"} disabled={!all} onPress={finish} />}
           </Row>
           {i === items.length - 1 && !all ? <Txt v="tiny" muted>Answer all six steps to submit. Unanswered steps are gray in the bar above.</Txt> : null}
         </Card>
@@ -420,12 +479,156 @@ function NGN({ onDone }) {
 }
 const KIND_LABEL = { multi: "SATA", single: "MCQ", matrix: "matrix", cloze: "drop-down", highlight: "highlight", order: "ordered response" };
 
-/* ---------- CAT predictor ---------- */
+/* ---------- the three benchmark exams ---------- */
+
+/** Resume-or-start screen shown before a long exam. */
+function StartGate({ title, intro, saved, progress, onResume, onNew, children }) {
+  const t = useTheme(MOD);
+  return (
+    <View style={{ gap: 14 }}>
+      <Card mod={MOD} style={{ gap: 10 }}>
+        <Txt v="h2">{title}</Txt>
+        <Txt v="body">{intro}</Txt>
+        {children}
+      </Card>
+      {saved ? (
+        <Card mod={MOD} accent style={{ gap: 10 }}>
+          <Row gap={8}><Icon name="History" size={18} color={t.tint} /><Txt v="bodyB">You have an exam in progress</Txt></Row>
+          <Txt v="small" muted>{progress}</Txt>
+          <Btn mod={MOD} full icon="Play" title="Resume where I left off" onPress={onResume} />
+          <Btn mod={MOD} full kind="secondary" icon="RotateCcw" title="Discard it and start over" onPress={onNew} />
+        </Card>
+      ) : <Btn mod={MOD} full icon="Play" title="Start exam" onPress={onNew} />}
+    </View>
+  );
+}
+
+function Test1({ timed, onDone }) {
+  const { state, dispatch } = useApp(); const saved = state.runs && state.runs.t1;
+  const [run, setRun] = useState(null);
+  const save = (data) => dispatch({ type: "run", key: "t1", data });
+  if (!run) {
+    return (
+      <StartGate title={TESTS.t1.title} saved={saved}
+        intro={`${TESTS.t1.count} questions balanced across all eight NCLEX-RN Client Needs categories, scored like the NCLEX, with a full category breakdown and a rationale for every answer.${timed ? " Timed: 90 seconds per question." : ""}`}
+        progress={saved ? `Question ${saved.i + 1} of ${saved.items.length}` : null}
+        onResume={() => setRun(saved)}
+        onNew={() => { const r = { items: buildTest1(), timed, i: 0, ans: {}, left: timed ? TESTS.t1.count * 90 : null }; save(r); setRun(r); }} />
+    );
+  }
+  return (
+    <QuizRunner key={run.items[0].id + run.items.length} items={run.items} mode={TESTS.t1.title} timed={!!run.timed} initial={run}
+      onProgress={(p) => save({ ...run, ...p })}
+      onDone={(rec) => { save(null); onDone(rec); }} onRestart={() => setRun(null)} />
+  );
+}
+
+function Test2({ onDone }) {
+  const t = useTheme(MOD); const { state, dispatch } = useApp(); const saved = state.runs && state.runs.t2;
+  const [run, setRun] = useState(null); const [open, setOpen] = useState(null);
+  const save = (data) => dispatch({ type: "run", key: "t2", data });
+  const qCount = (r) => r.blocks.slice(0, r.b).reduce((n, b) => n + (b.kind === "case" ? 6 : b.items.length), 0);
+  if (!run) {
+    return (
+      <StartGate title={TESTS.t2.title} saved={saved}
+        intro={`${TESTS.t2.count} items: ${NGN_CASES.length} unfolding Next Generation NCLEX case studies (6 clinical-judgment steps each, with chart tabs) placed between sections of stand-alone questions, including select-all-that-apply and ordered-response items.`}
+        progress={saved ? `Section ${saved.b + 1} of ${saved.blocks.length} · ${qCount(saved)} of ${TESTS.t2.count} items done` : null}
+        onResume={() => setRun(saved)}
+        onNew={() => { const r = { blocks: buildTest2(), b: 0, results: [], cur: null }; save(r); setRun(r); }} />
+    );
+  }
+
+  const next = (res) => {
+    const r = { ...run, results: [...run.results, res], b: run.b + 1, cur: null };
+    if (r.b >= r.blocks.length) {
+      const { g, m, byCat } = tally(r);
+      onDone({ mode: TESTS.t2.title, score: `${g}/${m} pts`, pct: Math.round((g / m) * 100), date: todayKey(), byCat });
+      buzz(); save(null);
+    } else save(r);
+    setRun(r);
+  };
+
+  if (run.b >= run.blocks.length) {
+    const { g, m, byCat } = tally(run);
+    const standalone = run.blocks.flatMap((b, k) => (b.kind === "items" ? b.items : []));
+    const sAns = Object.assign({}, ...run.blocks.map((b, k) => (b.kind === "items" ? run.results[k].ans : {})));
+    return (
+      <View style={{ gap: 16 }}>
+        <Card mod={MOD} style={{ gap: 6 }}>
+          <Txt v="eyebrow">{TESTS.t2.title}</Txt>
+          <Row gap={14}>
+            <Txt v="big" color={t.tint} style={{ fontSize: 56, lineHeight: 60 }}>{Math.round((g / m) * 100)}%</Txt>
+            <View style={{ flex: 1 }}><Txt v="bodyB">{g} of {m} points</Txt><Txt v="small" muted>0/1 scoring for single-answer, ordered-response and matrix rows; +/− for select-all-that-apply and highlight items.</Txt></View>
+          </Row>
+        </Card>
+        <CatBreakdown byCat={byCat} />
+        <Txt v="h3">Case studies</Txt>
+        {run.blocks.map((b, k) => {
+          if (b.kind !== "case") return null;
+          const cs = NGN_CASES.find((c) => c.id === b.id); const res = run.results[k];
+          return (
+            <Accordion key={k} mod={MOD} title={cs.title} meta={<Chip text={`${res.got}/${res.max}`} />}>
+              {cs.items.map((it, j) => (
+                <View key={it.id} style={{ gap: 6 }}>
+                  <Txt v="smallB">{j + 1}. {it.step} · {scoreNgnItem(it, res.ans[it.id])[0]}/{scoreNgnItem(it, res.ans[it.id])[1]}</Txt>
+                  <Txt v="small" muted>{it.stem}</Txt>
+                  <NgnKey it={it} a={res.ans[it.id]} />
+                  <Note mod={MOD} tone="acc2" icon="Lightbulb">{it.rationale}</Note>
+                </View>
+              ))}
+            </Accordion>
+          );
+        })}
+        <Txt v="h3">Stand-alone questions</Txt>
+        <ResultTable items={standalone} answers={sAns} onOpen={setOpen} />
+        <Row gap={10} wrap>
+          <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Take it again" onPress={() => setRun(null)} />
+          <Btn mod={MOD} icon="Check" title="Done" onPress={() => router.back()} />
+        </Row>
+        <RationaleSheet item={open} chosen={open && sAns[open.id]} onClose={() => setOpen(null)} />
+      </View>
+    );
+  }
+
+  const blk = run.blocks[run.b]; const cs = blk.kind === "case" ? NGN_CASES.find((c) => c.id === blk.id) : null;
+  return (
+    <View style={{ gap: 14 }}>
+      <Card mod={MOD} style={{ gap: 6, backgroundColor: t.soft }}>
+        <Row>
+          <Txt v="eyebrow" style={{ flex: 1 }}>Section {run.b + 1} of {run.blocks.length}</Txt>
+          <Txt v="mono" muted>{qCount(run)}/{TESTS.t2.count}</Txt>
+        </Row>
+        <Txt v="bodyB">{cs ? `Case study: ${cs.title}` : `${blk.items.length} stand-alone questions`}</Txt>
+        <Bar mod={MOD} pct={qCount(run) / TESTS.t2.count} />
+      </Card>
+      {cs ? <NgnCase key={"c" + run.b} cs={cs} exam initial={run.cur} onProgress={(p) => save({ ...run, cur: p })} onSubmit={next} />
+        : <QuizRunner key={"s" + run.b} items={blk.items} mode={TESTS.t2.title} segment initial={run.cur} onProgress={(p) => save({ ...run, cur: p })} onSegmentDone={(ans) => next({ ans })} />}
+    </View>
+  );
+}
+
+/** Totals for Test 2: stand-alone items by their category, each case study under its Client Needs area. */
+function tally(r) {
+  let g = 0, m = 0; const byCat = {};
+  r.blocks.forEach((b, k) => {
+    const res = r.results[k]; if (!res) return;
+    if (b.kind === "items") {
+      Object.entries(breakdown(b.items, res.ans)).forEach(([c, [x, y]]) => { byCat[c] = byCat[c] || [0, 0]; byCat[c][0] += x; byCat[c][1] += y; g += x; m += y; });
+    } else {
+      const cs = NGN_CASES.find((c) => c.id === b.id); byCat[cs.area] = byCat[cs.area] || [0, 0];
+      byCat[cs.area][0] += res.got; byCat[cs.area][1] += res.max; g += res.got; m += res.max;
+    }
+  });
+  return { g, m, byCat };
+}
+
 function AbilityTrace({ hist }) {
   const t = useTheme(MOD); const [w, setW] = useState(0);
   const W = 520, H = 160, pad = 28;
   const pts = [0, ...hist.map((h) => h.theta)];
-  const x = (i) => pad + (i / Math.max(1, pts.length - 1)) * (W - pad * 2); const y = (v) => H / 2 - (v / 2) * (H / 2 - 16);
+  const lim = Math.max(2, ...pts.map((v) => Math.abs(v)));
+  const x = (i) => pad + (i / Math.max(1, pts.length - 1)) * (W - pad * 2); const y = (v) => H / 2 - (v / lim) * (H / 2 - 16);
+  const r = hist.length > 40 ? 2.5 : 5;
   return (
     <Card mod={MOD} padding={10}>
       <View onLayout={(e) => setW(e.nativeEvent.layout.width)} accessibilityLabel="Ability estimate after each item">
@@ -433,8 +636,8 @@ function AbilityTrace({ hist }) {
           <Svg width={w} height={(w * H) / W} viewBox={`0 0 ${W} ${H}`}>
             <Line x1={pad} x2={W - pad} y1={y(0)} y2={y(0)} stroke={t.tint} strokeDasharray="5 4" strokeWidth={1.5} />
             <SvgText x={W - pad} y={y(0) - 6} textAnchor="end" fontSize="12" fill={t.tint} fontFamily={FONTS.mono}>passing line</SvgText>
-            <Polyline fill="none" stroke={t.tint2} strokeWidth={3} strokeLinejoin="round" strokeLinecap="round" points={pts.map((v, i) => `${x(i)},${y(v)}`).join(" ")} />
-            {pts.map((v, i) => (i > 0 ? <Circle key={i} cx={x(i)} cy={y(v)} r={5} fill={hist[i - 1].ok ? t.c.ok : t.c.crit} /> : null))}
+            <Polyline fill="none" stroke={t.tint2} strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round" points={pts.map((v, i) => `${x(i)},${y(v)}`).join(" ")} />
+            {pts.map((v, i) => (i > 0 ? <Circle key={i} cx={x(i)} cy={y(v)} r={r} fill={hist[i - 1].ok ? t.c.ok : t.c.crit} /> : null))}
             <SvgText x={pad} y={H - 6} fontSize="12" fill={t.c.muted} fontFamily={FONTS.mono}>start</SvgText>
             <SvgText x={W - pad} y={H - 6} textAnchor="end" fontSize="12" fill={t.c.muted} fontFamily={FONTS.mono}>item {hist.length}</SvgText>
           </Svg>
@@ -444,52 +647,74 @@ function AbilityTrace({ hist }) {
   );
 }
 
-function CAT({ onDone, onRestart }) {
-  const [theta, setTheta] = useState(0); const [hist, setHist] = useState([]); const [cur, setCur] = useState(() => CAT_POOL.find((q) => q.d === 2));
-  const [sel, setSel] = useState(null); const [done, setDone] = useState(false); const [open, setOpen] = useState(null);
-  const MIN = 6, MAX = 10;
-  const pick = (th, used) => CAT_POOL.filter((q) => !used.includes(q.id)).sort((a, b) => Math.abs(DIFF[a.d] - th) - Math.abs(DIFF[b.d] - th) || Math.random() - 0.5)[0];
-  const submit = () => {
-    const ok = sel === cur.answer; const n = hist.length + 1; const step = 1 / (1 + 0.35 * n);
-    const th = Math.max(-2, Math.min(2, theta + (ok ? step : -step)));
-    const h = [...hist, { item: cur, chosen: sel, ok, theta: th }];
-    setHist(h); setTheta(th); setSel(null);
-    const confident = n >= MIN && Math.abs(th) > 0.55;
-    const next = pick(th, h.map((z) => z.item.id));
-    if (n >= MAX || confident || !next) {
-      setDone(true); buzz();
-      const verdict = th > 0.2 ? "Above passing line" : th < -0.2 ? "Below passing line" : "Near passing line";
-      const byCat = {}; h.forEach((z) => { const c = z.item.cat; byCat[c] = byCat[c] || [0, 0]; byCat[c][1]++; if (z.ok) byCat[c][0]++; });
-      onDone({ mode: "CAT Predictor", score: verdict, pct: Math.round((th + 2) / 4 * 100), date: todayKey(), byCat });
-    } else setCur(next);
-  };
-  if (done) {
-    const verdict = theta > 0.2 ? ["Above the simulated passing line", "ok"] : theta < -0.2 ? ["Below the simulated passing line", "crit"] : ["Near the simulated passing line", "warn"];
+/** Test 3: adaptive predictor using NCLEX-RN length and stopping rules (85–150 items, 95% confidence). */
+function Test3({ onDone }) {
+  const t = useTheme(MOD); const { state, dispatch } = useApp(); const saved = state.runs && state.runs.t3;
+  const [run, setRun] = useState(null); const [sel, setSel] = useState(null); const [open, setOpen] = useState(null);
+  const save = (data) => dispatch({ type: "run", key: "t3", data });
+  if (!run) {
+    return (
+      <StartGate title={TESTS.t3.title} saved={saved}
+        intro={`Computer-adaptive, like the real NCLEX-RN: questions get harder after correct answers and easier after misses, drawn from a ${TESTS.t3.count}-question pool with the official Client Needs mix. It stops between 85 and 150 questions, as soon as the result is 95% certain. Each retake uses questions you haven't seen first.`}
+        progress={saved ? `Question ${saved.hist.length + 1} · ${saved.hist.length} answered` : null}
+        onResume={() => setRun(saved)}
+        onNew={() => { const r = { hist: [], cur: nextItem([], state.catSeen || []), result: null }; save(r); setRun(r); }} />
+    );
+  }
+
+  if (run.result) {
+    const { verdict, theta, se, reason } = run.result; const hist = run.hist;
+    const items = hist.map((h) => h.item); const answers = Object.fromEntries(hist.map((h) => [h.item.id, h.chosen]));
+    const v = verdict === "pass" ? ["Above the passing line", "ok"] : ["Below the passing line", "crit"];
     return (
       <View style={{ gap: 14 }}>
-        <Chip tone={verdict[1]} icon="Gauge" text={verdict[0]} />
-        <Txt v="small" muted>Stopped after {hist.length} items · ability estimate <Txt v="mono">{theta.toFixed(2)}</Txt></Txt>
+        <Card mod={MOD} style={{ gap: 8 }}>
+          <Chip mod={MOD} tone={v[1]} icon="Gauge" text={v[0]} />
+          <Txt v="body">Stopped after <Txt v="bodyB">{hist.length}</Txt> questions · {reason}</Txt>
+          <Txt v="small" muted>Ability estimate <Txt v="mono">{theta.toFixed(2)}</Txt> (± <Txt v="mono">{(1.96 * se).toFixed(2)}</Txt> at 95%) · {hist.filter((h) => h.ok).length} fully correct</Txt>
+        </Card>
         <AbilityTrace hist={hist} />
-        <Note mod={MOD}>This simulates how computer-adaptive testing works — harder items after correct answers, easier after misses, stopping once the estimate is clearly above or below the line. A 12-item pool cannot predict your real NCLEX result.</Note>
-        <ResultTable items={hist.map((h) => h.item)} answers={Object.fromEntries(hist.map((h) => [h.item.id, h.chosen]))} onOpen={setOpen} />
+        <CatBreakdown byCat={breakdown(items, answers)} />
+        <Note mod={MOD}>This practice test uses the NCLEX's length and stopping rules, but it is scored from this app's own question difficulty ratings. It can show your trend, not predict your official result.</Note>
+        <ResultTable items={items} answers={answers} onOpen={setOpen} />
         <Row gap={10} wrap>
-          <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Retake" onPress={onRestart} />
+          <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Take it again" onPress={() => setRun(null)} />
           <Btn mod={MOD} icon="Check" title="Done" onPress={() => router.back()} />
         </Row>
-        <RationaleSheet item={open} chosen={open && (hist.find((h) => h.item.id === open.id) || {}).chosen} onClose={() => setOpen(null)} />
+        <RationaleSheet item={open} chosen={open && answers[open.id]} onClose={() => setOpen(null)} />
       </View>
     );
   }
+
+  const cur = run.cur;
+  const submit = () => {
+    const ok = isCorrect(cur, sel); const b = difficultyOf(cur);
+    const raw = [...run.hist, { item: cur, chosen: sel, ok, b }];
+    const s = stopRule(raw); raw[raw.length - 1].theta = s.theta;
+    setSel(null);
+    if (s.stop || !nextItem(raw, [])) {
+      const reason = raw.length >= CAT_MAX ? "maximum length reached; judged on the final ability estimate" : raw.length >= CAT_MIN ? "95% confidence rule met" : "question pool used up";
+      const r = { ...run, hist: raw, cur: null, result: { verdict: s.verdict || (s.theta > 0 ? "pass" : "fail"), theta: s.theta, se: s.se, reason } };
+      setRun(r); save(null); buzz();
+      dispatch({ type: "catSeen", ids: raw.map((h) => h.item.id) });
+      onDone({ mode: TESTS.t3.title, score: r.result.verdict === "pass" ? "Above passing line" : "Below passing line", pct: Math.round(100 / (1 + Math.exp(-s.theta))), date: todayKey(), byCat: breakdown(raw.map((h) => h.item), Object.fromEntries(raw.map((h) => [h.item.id, h.chosen]))) });
+    } else {
+      const r = { ...run, hist: raw, cur: nextItem(raw, state.catSeen || []) };
+      setRun(r); save(r);
+    }
+  };
+  const n = run.hist.length;
   return (
     <View style={{ gap: 14 }}>
       <Row gap={8} wrap>
         <Chip mod={MOD} tone="acc" text={cur.cat} />
         <View style={{ flex: 1 }} />
-        <Txt v="mono" muted>Item {hist.length + 1} · difficulty {"●".repeat(cur.d)}{"○".repeat(3 - cur.d)}</Txt>
+        <Txt v="mono" muted>Question {n + 1} · min {CAT_MIN} / max {CAT_MAX}</Txt>
       </Row>
-      <Card mod={MOD}><SingleQuestion item={cur} value={sel} onChange={setSel} /></Card>
-      <Row style={{ justifyContent: "flex-end" }}><Btn mod={MOD} icon="Send" title="Submit answer" disabled={!sel} onPress={submit} /></Row>
-      <Txt v="tiny" muted>No going back — like the real CAT, each answer is final.</Txt>
+      <Bar mod={MOD} pct={Math.min(1, n / CAT_MAX)} />
+      <Card mod={MOD}><QuestionView item={cur} value={sel} onChange={setSel} /></Card>
+      <Row style={{ justifyContent: "flex-end" }}><Btn mod={MOD} icon="Send" title="Submit answer" disabled={!isAnswered(cur, sel)} onPress={submit} /></Row>
+      <Txt v="tiny" muted>No going back — like the real CAT, each answer is final. Progress saves after every answer.</Txt>
     </View>
   );
 }
@@ -497,7 +722,7 @@ function CAT({ onDone, onRestart }) {
 /* ---------- Flashcards ---------- */
 const makeDeck = () => {
   const src = BANK.length ? shuffle(BANK.filter((q) => q.bank === "NCLEX")).slice(0, 40) : [...DIAG, ...CAT_POOL];
-  return shuffle(src.map((q) => ({ id: q.id, cat: q.cat, front: q.stem, answer: (q.options.find((o) => o.id === q.answer) || {}).text, back: q.takeaway })));
+  return shuffle(src.map((q) => ({ id: q.id, cat: q.cat, front: q.stem, answer: [].concat(q.answer).map((id) => (q.options.find((o) => o.id === id) || {}).text).join(typeOf(q) === "order" ? " → " : "; "), back: q.takeaway })));
 };
 
 function Flashcards() {
@@ -589,36 +814,39 @@ function Flashcards() {
 }
 
 /* ---------- screen ---------- */
-const TITLES = { bank: "Question bank", diag: "Diagnostic Baseline", ngn: "NGN Case Study", cat: "CAT Predictor", flash: "Flashcards" };
+const TITLES = { bank: "Question bank", t1: TESTS.t1.title, t2: TESTS.t2.title, t3: TESTS.t3.title, ngn: "NGN Case Practice", flash: "Flashcards" };
+const ALIAS = { diag: "t1", cat: "t3" };   // older links
 
 export default function Quiz() {
   const p = useLocalSearchParams();
-  const mode = TITLES[p.mode] ? p.mode : "diag";
+  const asked = ALIAS[p.mode] || p.mode;
+  const mode = TITLES[asked] ? asked : "t1";
   const timed = p.timed === "1";
   const { dispatch } = useApp();
   const [runKey, setRunKey] = useState(0);
   const run = useMemo(() => (mode === "bank" ? getRun() : null), [mode]);
   const record = (rec) => dispatch({ type: "exam", rec });
-  const restart = () => setRunKey((k) => k + 1);
 
   let body = null;
   if (mode === "bank") {
     body = run && run.items && run.items.length
       ? <QuizRunner key={runKey} items={run.items} mode="Question Bank" tutor={run.tutor} onDone={record} onStat={(res) => dispatch({ type: "qstat", res })} />
       : <Note mod={MOD} tone="warn" icon="AlertTriangle" title="No question set">Go back to the NCLEX tab and build a set from the question bank.</Note>;
-  } else if (mode === "diag") {
-    body = <QuizRunner key={runKey} items={DIAG} mode="Diagnostic Baseline" timed={timed} onDone={record} onRestart={restart} />;
+  } else if (mode === "t1") {
+    body = <Test1 timed={timed} onDone={record} />;
+  } else if (mode === "t2") {
+    body = <ProGate mod={MOD} feature={TESTS.t2.title} desc="150 items with four unfolding NGN case studies, chart tabs, select-all-that-apply and ordered-response questions, and full rationales."><Test2 onDone={record} /></ProGate>;
+  } else if (mode === "t3") {
+    body = <Test3 onDone={record} />;
   } else if (mode === "ngn") {
     body = <ProGate mod={MOD} feature="NGN case studies" desc="Four unfolding Next Generation NCLEX cases with chart tabs, all six clinical-judgment steps and full rationales."><NGN onDone={record} /></ProGate>;
-  } else if (mode === "cat") {
-    body = <CAT key={runKey} onDone={record} onRestart={restart} />;
   } else {
     body = <Flashcards />;
   }
 
   return (
     <Screen mod={MOD}>
-      <BackRow mod={MOD} title={TITLES[mode] + (mode === "diag" && timed ? " · Timed" : mode === "bank" && run ? (run.tutor ? " · Tutor" : " · Exam") : "")} />
+      <BackRow mod={MOD} title={TITLES[mode] + (mode === "t1" && timed ? " · Timed" : mode === "bank" && run ? (run.tutor ? " · Tutor" : " · Exam") : "")} />
       {body}
     </Screen>
   );

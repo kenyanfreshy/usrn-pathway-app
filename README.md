@@ -91,7 +91,8 @@ src/
   pro.js             RevenueCat purchases + ProGate
   notify.js          local expiry reminders
   data/content.js    all text and reference data
-  data/questions.json  NCLEX-RN question bank (419 active)
+  data/questions.json  NCLEX-RN question bank (605 active; "exam": 1–3 marks the 576 benchmark items)
+  exam.js            scoring (NCSBN +/−), the three benchmark exams and the adaptive predictor
   data/ngn.js        Next Generation NCLEX case studies
   career/            Career & wealth sections
 ```

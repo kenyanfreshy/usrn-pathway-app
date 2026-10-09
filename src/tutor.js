@@ -13,7 +13,7 @@ export const TUTOR = {
     ["APRN", "Advanced Practice Registered Nurse: licensed for advanced clinical practice beyond the RN role."],
     ["CCRN-CMC", "Critical Care Registered Nurse certification (AACN), with the Cardiac Medicine subspecialty."],
   ],
-  bio: "Creator of the NCLEX practice, NGN case studies and bedside lessons in USRN Pathway, written for internationally educated nurses preparing for the U.S. bedside.",
+  bio: "App developer and creator of the NCLEX practice, NGN case studies and bedside lessons in USRN Pathway, written for internationally educated nurses preparing for the U.S. bedside.",
 };
 
 export function TutorCard({ mod }) {
