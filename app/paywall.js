@@ -300,7 +300,7 @@ export default function Paywall() {
             <View style={{ padding: 8, gap: 10 }}>
               <Row gap={8}><Icon name="Store" size={18} color={C.gold} /><Txt v="bodyB" color={C.ink}>{storeAvailable ? "Plans didn't load" : "Store not connected"}</Txt></Row>
               <Txt v="small" color={C.muted}>{storeAvailable ? (error || "We couldn't load plans from the store.") + " Check your connection and try again."
-                : "Purchases work in the App Store and Google Play builds of the app. Add your RevenueCat keys in app.json to test them."}</Txt>
+                : (Platform.OS === "ios" ? "Purchases work in the App Store version of the app." : "Purchases work in the Google Play version of the app.") + (__DEV__ ? " Add your RevenueCat keys in app.json to test them." : "")}</Txt>
               {storeAvailable ? <LinkText onPress={reload}>Try again</LinkText> : null}
             </View>
           ) : (

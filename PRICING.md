@@ -12,7 +12,7 @@ The app never picks a price based on where it thinks someone is, and never links
 | Pro monthly (auto-renewing) | `nursebound_pro_monthly` | subscription `nursebound_pro`, base plan `monthly` | **2 weeks free**, new subscribers only |
 | All-access pass (one-time) | `nursebound_pro_lifetime` (Non-Consumable) | in-app product `nursebound_pro_lifetime` | none |
 
-Both unlock the RevenueCat entitlement `pro`. The trial is set up only on the monthly plan. It belongs to the
+All three unlock the RevenueCat entitlement `nursebound_pro`. The 2-week trial is set up on both subscriptions. It belongs to the
 store product, not the app's code. If you'd rather not offer the one-time pass, remove it from the RevenueCat
 offering and the paywall will show only the subscription.
 

@@ -20,7 +20,12 @@ const ANDROID_PACKAGE = "com.alexkorir.nursebound";
 
 const extra = (Constants.expoConfig && Constants.expoConfig.extra) || {};
 export const ENTITLEMENT = extra.entitlementId || "pro";
-export const LINKS = { privacy: extra.privacyPolicyUrl, terms: extra.termsUrl, support: extra.supportEmail };
+// Fallbacks so the paywall links never break if app.json is missing a value.
+const PRIVACY_URL = "https://github.com/kenyanfreshy/nursebound-public/blob/main/PRIVACY.md";
+const TERMS_URL = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
+export const LINKS = { privacy: extra.privacyPolicyUrl || PRIVACY_URL, terms: extra.termsUrl || TERMS_URL, support: extra.supportEmail || "ak82korir@gmail.com" };
+// Each store only names itself (Apple rejects apps that mention other platforms).
+const STORE_NAME = Platform.OS === "ios" ? "App Store" : "Google Play";
 // A second RevenueCat offering holding real, store-priced discounted products ("Special offer").
 // Shown only to free users WIN_BACK_DAYS or more after they first opened the app.
 export const SPECIAL_OFFERING = extra.specialOfferingId || "special_offer";
@@ -44,7 +49,10 @@ export const usePro = () => useContext(ProCtx);
 
 /** Pull the facts we show about a membership out of RevenueCat's CustomerInfo. */
 function readMembership(info) {
-  const ent = info && info.entitlements && info.entitlements.active && info.entitlements.active[ENTITLEMENT];
+  // NurseBound has one entitlement. Match it by identifier ("pro" or "NurseBound Pro"); if it was named
+  // differently in RevenueCat, any active entitlement still unlocks Pro.
+  const active = (info && info.entitlements && info.entitlements.active) || {};
+  const ent = active[ENTITLEMENT] || active["NurseBound Pro"] || active.pro || Object.values(active)[0];
   if (!ent) return null;
   return {
     productId: ent.productIdentifier || "",
@@ -102,7 +110,10 @@ export function ProProvider({ children }) {
         if (c && (c.lifetime || (c.expires && new Date(c.expires) > new Date()))) setMembership(c);
       } catch (e) {}
       // 2. Ask the store.
-      const key = Platform.OS === "ios" ? extra.revenueCatAppleKey : extra.revenueCatGoogleKey;
+      // Development builds use RevenueCat's Test Store (simulated purchases, no charge). Store builds must
+      // use the real App Store / Google Play keys, so the test key is never used outside __DEV__.
+      const storeKey = Platform.OS === "ios" ? extra.revenueCatAppleKey : extra.revenueCatGoogleKey;
+      const key = __DEV__ && extra.revenueCatTestKey ? extra.revenueCatTestKey : storeKey;
       if (!Purchases || !key || /REPLACE_ME/.test(key)) { setReady(true); return; }
       try {
         if (Purchases.setLogLevel && Purchases.LOG_LEVEL) Purchases.setLogLevel(__DEV__ ? Purchases.LOG_LEVEL.DEBUG : Purchases.LOG_LEVEL.WARN);
@@ -120,7 +131,7 @@ export function ProProvider({ children }) {
   }, []);
 
   const buy = useCallback(async (pkg) => {
-    if (!Purchases || !storeAvailable) return { ok: false, message: "Purchases need the App Store or Google Play version of the app." };
+    if (!Purchases || !storeAvailable) return { ok: false, message: `Purchases need the ${STORE_NAME} version of the app.` };
     try {
       const { customerInfo } = await Purchases.purchasePackage(pkg);
       apply(customerInfo);
@@ -142,7 +153,7 @@ export function ProProvider({ children }) {
     return { ok: active, message: active ? "Your Pro membership is restored." : "We didn't find a Pro purchase on this " + (Platform.OS === "ios" ? "Apple ID." : "Google account.") };
   };
   const restore = useCallback(async () => {
-    if (!Purchases || !storeAvailable) return { ok: false, message: "Restoring needs the App Store or Google Play version of the app." };
+    if (!Purchases || !storeAvailable) return { ok: false, message: `Restoring needs the ${STORE_NAME} version of the app.` };
     try { return await restoreInner(); } catch (e) { return { ok: false, message: "Couldn't restore right now. Please try again." }; }
   }, [storeAvailable]);
 

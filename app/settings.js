@@ -44,7 +44,7 @@ function BackupCard() {
   return (
     <Card mod="home" style={{ gap: 10 }}>
       <Row gap={8}><Icon name="ShieldCheck" size={18} color={t.tint} /><Txt v="bodyB" style={{ flex: 1 }}>Backup & restore</Txt></Row>
-      <Txt v="small" muted>There's no account, so your progress lives only on this phone. Save a backup to Notes, Files, iCloud Drive or Google Drive, or email it to yourself, before you change phones.</Txt>
+      <Txt v="small" muted>There's no account, so your progress lives only on this phone. Save a backup to {Platform.OS === "ios" ? "Notes, Files or iCloud Drive" : "Google Drive or Files"}, or email it to yourself, before you change phones.</Txt>
       {last ? <Txt v="tiny" muted>Last backup shared {fmtDate(last)}.</Txt> : null}
       <Row wrap gap={8}>
         <Btn mod="home" small icon="Share2" title="Save a backup" onPress={save} />

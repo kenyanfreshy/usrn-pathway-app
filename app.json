@@ -50,9 +50,10 @@
       "typedRoutes": false
     },
     "extra": {
-      "revenueCatAppleKey": "appl_REPLACE_ME",
+      "revenueCatAppleKey": "appl_YmsgjutHrmZHxMomTtuJAXazcDJ",
       "revenueCatGoogleKey": "goog_REPLACE_ME",
-      "entitlementId": "pro",
+      "revenueCatTestKey": "test_xuGIJyIklIqCakdhkyWdptLEvwb",
+      "entitlementId": "nursebound_pro",
       "privacyPolicyUrl": "https://github.com/kenyanfreshy/nursebound-public/blob/main/PRIVACY.md",
       "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
       "supportEmail": "ak82korir@gmail.com",
