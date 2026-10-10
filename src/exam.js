@@ -88,6 +88,13 @@ export const CN_TARGET = {
   "Management of Care": 0.20, "Safety & Infection Control": 0.12, "Health Promotion & Maintenance": 0.09, "Psychosocial Integrity": 0.09,
   "Basic Care & Comfort": 0.09, "Pharmacological & Parenteral Therapies": 0.15, "Reduction of Risk Potential": 0.12, "Physiological Adaptation": 0.14,
 };
+/** Short Client Needs names for narrow spaces (heatmap row labels, small badges), so long words never break mid-word. */
+export const CAT_SHORT = {
+  "Management of Care": "Management of Care", "Safety & Infection Control": "Safety & Infection",
+  "Health Promotion & Maintenance": "Health Promotion", "Psychosocial Integrity": "Psychosocial",
+  "Basic Care & Comfort": "Basic Care", "Pharmacological & Parenteral Therapies": "Pharm Therapies",
+  "Reduction of Risk Potential": "Risk Reduction", "Physiological Adaptation": "Physiological Adapt.",
+};
 const hash = (s) => { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return ((h % 1000) + 1000) % 1000 / 1000; };
 export const difficultyOf = (q) => ({ 1: -1.2, 2: 0, 3: 1.2 }[q.difficulty] ?? 0) + (hash(q.id) - 0.5) * 0.6;
 const P = (th, b) => 1 / (1 + Math.exp(-(th - b)));
@@ -128,4 +135,40 @@ export function nextItem(hist, seen = []) {
   const fresh = cand.filter((q) => !seenSet.has(q.id)); if (fresh.length) cand = fresh;
   const top = cand.sort((a, b) => Math.abs(difficultyOf(a) - theta) - Math.abs(difficultyOf(b) - theta)).slice(0, 4);
   return shuffleItem(top[Math.floor(Math.random() * top.length)]);
+}
+
+/* ---------------- blueprint-balanced practice ----------------
+ * The bank has more pharmacology items than the NCLEX blueprint (pharmacology is most of the newest content), so
+ * mixed practice sets are drawn category by category using CN_TARGET instead of uniformly from the whole bank.
+ * The three benchmark exams already follow the blueprint and don't use this. */
+function allocate(pool, n) {
+  const cats = Object.keys(CN_TARGET).filter((c) => pool.some((q) => q.cat === c));
+  if (!cats.length) return {};
+  const total = cats.reduce((s, c) => s + CN_TARGET[c], 0);
+  const raw = cats.map((c) => [c, (CN_TARGET[c] / total) * n]);
+  const out = Object.fromEntries(raw.map(([c, x]) => [c, Math.floor(x)]));
+  let left = n - Object.values(out).reduce((s, x) => s + x, 0);
+  raw.sort((a, b) => (b[1] % 1) - (a[1] % 1)).forEach(([c]) => { if (left > 0) { out[c] += 1; left -= 1; } });
+  return out;
+}
+
+/** n questions from pool in NCLEX Client Needs proportions; categories that run short are topped up from the rest. */
+export function blueprintSample(pool, n) {
+  if (pool.length <= n) return shuffle(pool);
+  const want = allocate(pool, n); const by = {};
+  shuffle(pool).forEach((q) => { (by[q.cat] = by[q.cat] || []).push(q); });
+  const picked = []; const spare = [];
+  Object.keys(by).forEach((c) => { const k = want[c] || 0; picked.push(...by[c].slice(0, k)); spare.push(...by[c].slice(k)); });
+  return shuffle([...picked, ...shuffle(spare).slice(0, n - picked.length)]);
+}
+
+/** One question chosen by a numeric seed, with categories weighted by the blueprint (used for Question of the Day). */
+export function blueprintPick(pool, seed) {
+  const cats = Object.keys(CN_TARGET).filter((c) => pool.some((q) => q.cat === c));
+  if (!cats.length) return pool[seed % Math.max(1, pool.length)];
+  const total = cats.reduce((s, c) => s + CN_TARGET[c], 0);
+  let r = ((seed * 7919) % 10000) / 10000 * total; let cat = cats[cats.length - 1];
+  for (const c of cats) { if (r < CN_TARGET[c]) { cat = c; break; } r -= CN_TARGET[c]; }
+  const inCat = pool.filter((q) => q.cat === cat);
+  return inCat[seed % inCat.length];
 }

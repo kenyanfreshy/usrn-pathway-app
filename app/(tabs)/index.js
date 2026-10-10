@@ -16,6 +16,7 @@ import { daysUntil, fmtDate, parseISO, todayKey } from "../../src/util";
 import { JPTS, DIAG, CAT_POOL } from "../../src/data/content";
 import { useBulletin } from "../../src/bulletin";
 import BANK_ALL from "../../src/data/questions.json";
+import { blueprintPick } from "../../src/exam";
 
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -199,7 +200,7 @@ function QOTD() {
   const pool = NCLEX_POOL.length ? NCLEX_POOL : [...DIAG, ...CAT_POOL];
   const h = [...key].reduce((n, ch) => (n * 31 + ch.charCodeAt(0)) % 9973, 7);
   const rec = (state.qotd || {})[key];
-  const q = (rec && [...pool, ...BANK, ...DIAG, ...CAT_POOL].find((x) => x.id === rec.id)) || pool[h % pool.length];
+  const q = (rec && [...pool, ...BANK, ...DIAG, ...CAT_POOL].find((x) => x.id === rec.id)) || blueprintPick(pool, h);
   const pick = (id) => { if (!rec) dispatch({ type: "qotd", key, rec: { id: q.id, choice: id, correct: id === q.answer } }); };
   const right = q.options.find((o) => o.id === q.answer);
   return (

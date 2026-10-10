@@ -12,7 +12,7 @@ import { NCLEX_FIT, destId, destOf, DESTINATIONS } from "../../src/data/global";
 import { usePro, ProBadge } from "../../src/pro";
 import { dueCount, startReview, daysToExam } from "../../src/study";
 import { shuffle, fmtDate } from "../../src/util";
-import { shuffleItem, TESTS } from "../../src/exam";
+import { shuffleItem, TESTS, blueprintSample, CAT_SHORT } from "../../src/exam";
 import { NGN_CASES } from "../../src/data/ngn";
 import { setRun } from "../../src/runStore";
 import BANK_ALL from "../../src/data/questions.json";
@@ -51,7 +51,7 @@ function TopicChip({ label, n, on, onPress }) {
         transform: [{ scale: pressed ? 0.98 : 1 }] })}>
       <View style={{ width: 4, alignSelf: "stretch", borderRadius: 2, backgroundColor: c }} />
       {on ? <Icon name="CheckCircle2" size={15} color={c} /> : null}
-      <Txt v="smallB" style={{ flex: 1 }} numberOfLines={2}>{label}</Txt>
+      <Txt v="smallB" style={{ flex: 1 }} numberOfLines={2} adjustsFontSizeToFit minimumFontScale={0.75} textBreakStrategy="simple">{label}</Txt>
       <View style={{ minWidth: 30, paddingHorizontal: 7, paddingVertical: 2, borderRadius: 99, backgroundColor: c, alignItems: "center" }}>
         <Txt v="tiny" color="#fff" style={{ fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{n}</Txt>
       </View>
@@ -71,7 +71,7 @@ function BankBuilder({ bank, state }) {
   const missed = bank.filter((q) => st[q.id] && !st[q.id][2]).length;
   const toggle = (x) => setTopics(topics.includes(x) ? topics.filter((y) => y !== x) : [...topics, x]);
   const go = () => {
-    setRun({ items: shuffle(pool).slice(0, count).map(shuffleItem), tutor });
+    setRun({ items: blueprintSample(pool, count).map(shuffleItem), tutor });
     router.push({ pathname: "/quiz", params: { mode: "bank" } });
   };
   return (
@@ -194,7 +194,7 @@ function Heatmap({ exams }) {
       </Row>
       {cats.map((c) => (
         <Row key={c} gap={GAP}>
-          <View style={{ width: LW }}><Txt v={small ? "tiny" : "small"}>{c}</Txt></View>
+          <View style={{ width: LW }} accessible accessibilityLabel={c}><Txt v={small ? "tiny" : "small"} numberOfLines={2}>{LW < 170 ? (CAT_SHORT[c] || c) : c}</Txt></View>
           {rows.map((e, i) => {
             const v = e.byCat[c];
             if (!v || !v[1]) return <View key={i} style={{ width: CW, minHeight: 36, alignItems: "center", justifyContent: "center" }}><Txt v="small" muted>—</Txt></View>;
