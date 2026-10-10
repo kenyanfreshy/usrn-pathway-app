@@ -6,23 +6,23 @@ export const LESSONS = [
   /* 1 ------------------------------------------------------------ */
   {
     id: "sbar", icon: "PhoneCall", mins: 9,
-    title: "SBAR and closed-loop escalation",
-    why: "In U.S. hospitals the bedside nurse is expected to spot deterioration and ask for a specific action, not just pass on numbers. The Joint Commission repeatedly finds communication failures among the leading causes of serious harm. In many countries, nurses are taught to wait for the doctor's direction. Here, staying quiet when a patient is getting worse is treated as a failure to rescue, and you can be held accountable for it.",
+    title: "SBAR and Closed-Loop Escalation",
+    why: "In U.S. hospitals, the bedside nurse is expected to spot deterioration and ask for a specific action, not just pass on numbers. The Joint Commission repeatedly finds communication failures among the leading causes of serious harm. In many countries, nurses are taught to wait for the doctor's direction. Here, staying quiet when a patient is getting worse is treated as a failure to rescue, and you can be held accountable for it.",
     sections: [
-      ["The SBAR structure",
-        "Situation (about 10 seconds): your name, unit, the patient, and the problem in one sentence.\nBackground: only what matters for this problem: diagnosis, relevant history, code status, recent changes.\nAssessment: objective data and the trend (\"BP fell from 128/76 to 92/58 over 2 hours\"), then what you think is happening.\nRecommendation: exactly what you need, such as \"come to the bedside within 15 minutes\", a specific order, or a transfer. Never end with \"What do you want me to do?\""],
-      ["Closed-loop communication",
+      ["The SBAR Structure",
+        "Situation (about 10 seconds): your name, unit, the patient, and the problem in one sentence.\nBackground: only what matters for this problem (diagnosis, relevant history, code status, recent changes).\nAssessment: objective data and the trend (\"BP fell from 128/76 to 92/58 over 2 hours\"), then what you think is happening.\nRecommendation: exactly what you need, such as \"come to the bedside within 15 minutes,\" a specific order, or a transfer. Never end with \"What do you want me to do?\""],
+      ["Closed-Loop Communication",
         "Take verbal and phone orders only when policy allows (usually urgent situations). Write the order down, then read it back: drug, dose, route, frequency. Wait for \"That's correct.\"\nSpell sound-alike drugs letter by letter: hydralazine (blood pressure) vs. hydroxyzine (anxiety, itching).\nSay numbers digit by digit (\"fifteen, one-five\") and spell out units. Never use a trailing zero (write 5 mg, not 5.0 mg)."],
-      ["Speaking up: CUS and the Two-Challenge Rule",
+      ["Speaking Up: CUS and the Two-Challenge Rule",
         "From TeamSTEPPS: if a concern is dismissed, state it clearly at least twice. If it is still ignored, take stronger action and use the chain of command. CUS phrases signal urgency: \"I am Concerned… I am Uncomfortable… This is a Safety issue.\" Speaking up is part of the job, not a lack of respect."],
-      ["Chain of command",
-        "Bedside RN → charge nurse → house supervisor → attending physician of record → medical director or chief nursing officer, per your facility's policy.\nYou never need permission to call the Rapid Response Team. Any nurse can call it at any time when a patient meets criteria or you are worried. Call a code immediately for arrest."],
+      ["Chain of Command",
+        "Bedside RN → charge nurse → house supervisor → attending physician of record → medical director or chief nursing officer, per your facility's policy.\nYou never need permission to call the Rapid Response Team. Any nurse can call it at any time when a patient meets criteria or you are worried. Call a code immediately for an arrest."],
     ],
     scripts: [
       ["Phone SBAR: respiratory decline", "\"Dr. Patel, this is Grace, RN on 4 West, calling about Mr. Ruiz in room 12. His oxygen has dropped to 88% on 4 liters, up from 2 liters at noon. He's post-op day 1 from a hip replacement, full code. Respiratory rate 30, new crackles in both bases, heart rate 112. I'm concerned about fluid overload or a PE. I'd like you to evaluate him within 15 minutes, and I'm requesting a chest X-ray and an ABG.\""],
       ["Read-back", "\"I have: furosemide, F-U-R-O-S-E-M-I-D-E, 40 milligrams IV push now, one time. Is that correct?\""],
     ],
-    dos: ["Have the chart, latest vitals, labs, meds and code status in front of you before you call", "Give trends, not just single numbers", "End with a clear request and a time frame", "Document the call: time, who, what you reported, the response"],
+    dos: ["Have the chart, latest vitals, labs, meds and code status in front of you before you call", "Give trends, not just single numbers", "End with a clear request and a time frame", "Document the call: time, who, what you reported and the response"],
     donts: ["Don't call without having assessed the patient yourself", "Don't accept \"keep monitoring\" when the patient meets rapid response criteria", "Don't use vague words like \"a bit off\" or \"not looking good\"", "Don't skip read-back because the provider is in a hurry"],
     check: [
       { q: "Post-op day 1: RR 28, SpO₂ 88% on 2 L, new crackles in both bases. Which is the best SBAR recommendation?",
@@ -52,18 +52,18 @@ export const LESSONS = [
   /* 2 ------------------------------------------------------------ */
   {
     id: "ehr", icon: "FileText", mins: 9,
-    title: "Defensive documentation in the EHR (Epic / Cerner)",
+    title: "Defensive Documentation in the EHR (Epic / Cerner)",
     why: "The U.S. medical record is a legal document. In lawsuits and Board of Nursing investigations, the rule is \"not documented, not done.\" Electronic records also keep an audit trail that time-stamps every entry and edit, so investigators can see exactly when you charted. Paper-based habits like charting everything at the end of the shift, or recording diagnoses instead of observations, weaken your defense.",
     sections: [
-      ["Describe what you see, not a diagnosis",
+      ["Describe What You See, Not a Diagnosis",
         "Nurses chart observations. Instead of \"patient had a grand mal seizure,\" write \"sudden stiffening of all four limbs, followed by rhythmic jerking for 90 seconds; unresponsive during the event; oriented ×2 at 5 minutes after.\" Quote the patient's own words. Replace labels like \"drug-seeking\" or \"noncompliant\" with what the patient said and did."],
-      ["Chart as you go; label late entries",
+      ["Chart as You Go; Label Late Entries",
         "Chart assessments, medications and events close to when they happen. During a rapid response or code, a recorder keeps the timeline. If you must chart late, use the EHR's late-entry function, record the actual time care was given, and never backdate. Never change another person's entry or delete your own; correct it through the system so the original stays visible."],
-      ["What never goes in the chart",
+      ["What Never Goes in the Chart",
         "Staffing shortages (\"meds late due to short staffing\"), conflict between staff, blame, or that an incident or safety report was filed. Those go through incident reporting, an Assignment Despite Objection form, or your manager. Chart only the facts of what happened to the patient and what you did."],
-      ["The danger of copy-forward",
+      ["The Danger of Copy-Forward",
         "Copying the last shift's assessment can carry forward findings that are no longer true, such as \"lungs clear\" in a patient who now has crackles. The audit trail shows the assessment took 4 seconds. Chart only what you assessed yourself, this shift."],
-      ["Use approved abbreviations",
+      ["Use Approved Abbreviations",
         "The Joint Commission's \"Do Not Use\" list includes U (write \"unit\"), IU, QD and QOD, trailing zeros (5.0 mg) and missing leading zeros (.5 mg; write 0.5 mg), and MS / MSO4 / MgSO4."],
     ],
     scripts: [
@@ -99,22 +99,22 @@ export const LESSONS = [
   /* 3 ------------------------------------------------------------ */
   {
     id: "hipaa", icon: "ShieldCheck", mins: 8,
-    title: "HIPAA, social media and protecting your license",
-    why: "HIPAA is federal law, with fines and possible criminal penalties for willful violations. Hospitals audit who opens every chart, and privacy breaches are a common reason nurses are fired and reported to the Board of Nursing. For internationally educated nurses the stakes are higher: losing your job or license can also put an employer-sponsored visa or green card process at risk.",
+    title: "HIPAA, Social Media and Protecting Your License",
+    why: "HIPAA is federal law, with fines and possible criminal penalties for willful violations. Hospitals audit who opens every chart, and privacy breaches are a common reason nurses are fired and reported to the Board of Nursing. For internationally educated nurses, the stakes are higher: losing your job or license can also put an employer-sponsored visa or green card process at risk.",
     sections: [
-      ["HIPAA in daily practice",
+      ["HIPAA in Daily Practice",
         "Need to know: open only the records your job requires (hospitals audit this). For purposes other than treatment, share only the minimum necessary. Opening a chart out of curiosity, including a coworker's, a celebrity's or your own family's, is a violation even if you never tell anyone.\nIncidental disclosures (a visitor overhears part of a conversation despite reasonable care) are not violations. Carelessness is: hallway or elevator talk, unlocked screens, printouts left out.\nPhone calls: share information only as the patient has allowed and per facility process. Many hospitals use a patient privacy code or password for callers. If in doubt, take a number and check."],
-      ["Social media traps",
+      ["Social Media Traps",
         "Never photograph or record anything on the unit, including an \"empty\" room, a whiteboard, a monitor or the ambulance bay. Details in the background identify patients.\n\"Stories without names\" still identify people when the date, unit, age or an unusual condition can be pieced together.\nPrivate groups and disappearing messages are not private. Screenshots last forever. The NCSBN and the ANA both say: never post patient information in any form."],
-      ["Texting and messaging",
+      ["Texting and Messaging",
         "Use only the hospital's approved secure messaging (for example Epic Secure Chat or Vocera). Never send patient details over personal SMS, WhatsApp or group chats, even to colleagues."],
-      ["Your own malpractice coverage",
+      ["Your Own Malpractice Coverage",
         "The hospital's lawyers defend the hospital. Employer insurance usually does not pay for your defense before the Board of Nursing. An individual RN policy (for example NSO or Proliability) can add license-defense coverage for a modest yearly premium. Compare policies in the License tab."],
     ],
     scripts: [
       ["Family phone call", "\"I want to help. To protect her privacy, can you give me the patient's privacy code? … Thank you. I can share that she's resting comfortably. For more detail, her husband is listed as the person to update.\""],
     ],
-    dos: ["Lock your screen every time you step away", "Use secure messaging only", "Check the patient's privacy preferences before sharing information", "Report a breach you notice. Reporting it is protected; hiding it is not"],
+    dos: ["Lock your screen every time you step away", "Use secure messaging only", "Check the patient's privacy preferences before sharing information", "Report any breach you notice. Reporting it is protected; hiding it is not"],
     donts: ["Don't look up any chart you are not caring for", "Don't post about work, even without names", "Don't take photos on the unit", "Don't discuss patients in hallways, elevators or the cafeteria"],
     check: [
       { q: "A friend from your home country, now working on your unit, sends a patient update to your nurses' WhatsApp group. What should you do?",
@@ -144,16 +144,16 @@ export const LESSONS = [
   /* 4 ------------------------------------------------------------ */
   {
     id: "deleg", icon: "Users", mins: 8,
-    title: "Safe delegation: the 5 rights",
-    why: "In many countries nurses provide every part of a patient's care themselves. In U.S. hospitals the RN leads a team that includes LPN/LVNs and unlicensed assistive personnel (UAPs: nursing assistants, CNAs, patient care technicians). Delegating well is an expectation, not laziness. The RN stays accountable for the decision to delegate and for following up, and each state's Nurse Practice Act defines what may be delegated.",
+    title: "Safe Delegation: The 5 Rights",
+    why: "In many countries, nurses provide every part of a patient's care themselves. In U.S. hospitals, the RN leads a team that includes LPN/LVNs and unlicensed assistive personnel (UAPs: nursing assistants, CNAs, patient care technicians). Delegating well is an expectation, not laziness. The RN stays accountable for the decision to delegate and for following up, and each state's Nurse Practice Act defines what may be delegated.",
     sections: [
-      ["The 5 rights of delegation (NCSBN / ANA)",
+      ["The 5 Rights of Delegation (NCSBN / ANA)",
         "Right task: routine, predictable, within the person's role.\nRight circumstance: the patient is stable and the outcome is predictable.\nRight person: trained and competent for this task.\nRight direction and communication: what, when, and what to report.\nRight supervision and evaluation: you follow up and evaluate the result."],
-      ["What a UAP can and can't do",
-        "Usually can: hygiene and ADLs, feeding stable patients, ambulating and turning, routine vital signs on stable patients, intake and output, specimen collection such as urine and stool, glucose checks if trained per policy.\nNever delegate the \"EAT\" tasks: Evaluation, Assessment, Teaching, plus care planning, nursing judgment, care of unstable patients, and medication administration. In most acute-care hospitals UAPs do not give medications; your state and facility policy decide."],
-      ["Giving clear direction",
+      ["What a UAP Can and Can't Do",
+        "Usually can: hygiene and ADLs, feeding stable patients, ambulating and turning, routine vital signs on stable patients, intake and output, specimen collection such as urine and stool, glucose checks if trained per policy.\nNever delegate the \"EAT\" tasks: Evaluation, Assessment, Teaching, plus care planning, nursing judgment, care of unstable patients, and medication administration. In most acute-care hospitals, UAPs do not give medications; your state and facility policy decide."],
+      ["Giving Clear Direction",
         "Vague: \"Can you check on room 5?\" Clear: \"Please take vital signs in room 5 at 14:00 and tell me right away if the systolic BP is under 100, the heart rate is over 110, or the SpO₂ is below 92%.\""],
-      ["Closing the loop",
+      ["Closing the Loop",
         "Review the vital signs that assistants chart. If a CNA records a BP of 80/40 and doesn't tell you, you are still accountable once it is in the chart. Assess the patient first, then coach the CNA on what to report and when. Thank people for good catches; it builds a team that speaks up."],
     ],
     scripts: [
@@ -164,7 +164,7 @@ export const LESSONS = [
     check: [
       { q: "Which task can the RN delegate to a certified nursing assistant?",
         opts: [
-          ["Teaching a new diabetic how to give insulin", "Teaching stays with the licensed nurse."],
+          ["Teaching a client newly diagnosed with diabetes how to give insulin", "Teaching stays with the licensed nurse."],
           ["Assessing a client who reports new chest pain", "Assessment of a new problem is never delegated."],
           ["Walking a stable client on post-op day 2 to the bathroom", "Correct. Routine, predictable care for a stable client."],
           ["Giving scheduled oral medications", "In most acute-care hospitals, medication administration stays with licensed nurses."] ],
@@ -189,16 +189,16 @@ export const LESSONS = [
   /* 5 ------------------------------------------------------------ */
   {
     id: "code", icon: "Scale", mins: 9,
-    title: "Patient rights, informed consent and code status",
+    title: "Patient Rights, Informed Consent and Code Status",
     why: "U.S. care is built on patient autonomy: adults with decision-making capacity choose their own treatment, even when family or staff disagree. In many cultures, families or doctors make these decisions. Here the nurse's role is to protect the patient's own choice, make sure consent is real, and act on the code status in the orders.",
     sections: [
-      ["Informed consent: who does what",
+      ["Informed Consent: Who Does What",
         "The provider who will do the procedure explains it, its risks, benefits and alternatives, and obtains consent. The RN often witnesses the signature, which confirms the patient's identity and that they signed voluntarily. As the patient's advocate, the RN also checks that they appear to have capacity and understand. If the patient has questions or can't explain what they're agreeing to, stop and call the provider. Use a qualified medical interpreter (in person, video or phone), never family, when language is a barrier. In a true emergency, care may proceed under implied consent per policy."],
-      ["Code status and advance directives",
+      ["Code Status and Advance Directives",
         "Every patient is full code unless there is an order otherwise.\nDNR / DNAR: no CPR if the heart stops. DNI: no intubation. Comfort care: the focus moves to symptoms and comfort.\nAdvance directives (a living will, or a health care power of attorney who decides when the patient can't) state wishes. A POLST or MOLST (the name varies by state) is a portable medical order, and the admitting provider reviews it and writes the matching inpatient code-status order per policy."],
-      ["When family disagrees",
+      ["When Family Disagrees",
         "A valid DNR order reflecting the patient's wishes stands, even if a family member demands CPR at the bedside. Stay calm and present, give comfort, call the provider and charge nurse, and involve the chaplain, palliative care or ethics team. Moral distress afterward is real. Use debriefing and support resources."],
-      ["Leaving against medical advice (AMA)",
+      ["Leaving Against Medical Advice (AMA)",
         "An adult with capacity may leave. Make sure the provider assesses capacity and explains the risks. Remove IV lines safely per policy and offer prescriptions and follow-up. Ask the patient to sign the AMA form. If they refuse, document the refusal, the risks explained and who was present. Never restrain or block a competent adult from leaving."],
     ],
     scripts: [
@@ -234,16 +234,16 @@ export const LESSONS = [
   /* 6 ------------------------------------------------------------ */
   {
     id: "workplace", icon: "Building2", mins: 8,
-    title: "Workplace dynamics, safe staffing and advocacy",
+    title: "Workplace Dynamics, Safe Staffing and Advocacy",
     why: "U.S. nurses are expected to help shape practice, speak up about unsafe conditions and protect themselves from violence. Many IENs come from systems where questioning an assignment is risky. Here there are formal, protected ways to raise concerns. Knowing them protects your patients, your license and your job.",
     sections: [
-      ["Shared governance and evidence-based practice",
+      ["Shared Governance and Evidence-Based Practice",
         "Most hospitals, and every Magnet hospital, have unit practice councils where bedside nurses change policy. Examples: CLABSI bundles (hand hygiene, chlorhexidine bathing, daily review of whether a line is still needed) and CAUTI bundles (nurse-driven protocols to remove urinary catheters early). Joining one builds your career ladder file."],
-      ["Workplace violence and de-escalation",
+      ["Workplace Violence and De-escalation",
         "Assaults on nurses are common, and the Joint Commission requires hospitals to have violence-prevention programs. Keep a clear exit and stay out of arm's reach. Use a calm, low voice and short sentences. Acknowledge feelings without arguing, and offer simple choices. Call security or your behavioral emergency team early. Report every incident; it's not \"part of the job.\""],
-      ["Unsafe assignments: raise concerns before you accept",
+      ["Unsafe Assignments: Raise Concerns Before You Accept",
         "Talk to the charge nurse first and offer alternatives: fewer patients, help from a resource nurse, a lower-acuity mix. Escalate to the house supervisor if needed. If you are required to take the assignment, accept it under protest, give the safest care you can, and complete your facility's Assignment Despite Objection (ADO) form or your state's equivalent. Texas, for example, has Safe Harbor peer review. These processes document the risk without abandoning patients."],
-      ["What counts as patient abandonment",
+      ["What Counts as Patient Abandonment",
         "In most states, abandonment means accepting an assignment, starting the nurse-patient relationship, and then leaving without handing off to another qualified nurse. Turning down an assignment before you accept it is usually not abandonment, though it may have employment consequences. Leaving at the end of your shift without giving report usually is. Check your state Board of Nursing's definition."],
     ],
     scripts: [
@@ -298,7 +298,7 @@ export const SBAR_SCENARIOS = [
       ["\"Okay, I'll give everything now.\"", false, "No read-back, so a misheard order would go undetected."] ],
   },
   {
-    id: "sepsis", title: "Impending sepsis", icon: "Activity",
+    id: "sepsis", title: "Impending Sepsis", icon: "Activity",
     chart: "70-year-old woman, post-op day 3 after a bowel resection. 02:00: new confusion, T 38.8 °C, HR 118, BP 84/50 (MAP 61), baseline 128/72; RR 24, SpO₂ 93% RA. Urine 60 mL in 4 hours. Lactate not yet drawn. Weight 70 kg. No known allergies. Full code.",
     parts: {
       S: [["I'm calling about Mrs. Kim in room 8. She screens positive for sepsis: new confusion, fever and a falling blood pressure.", true], ["Mrs. Kim has a fever.", false], ["Sorry to wake you, it's probably nothing.", false]],
@@ -313,11 +313,11 @@ export const SBAR_SCENARIOS = [
       ["\"Cefazolin two grams after the fluids, right?\"", false, "Wrong drug (a sound-alike). Spelling the name out would catch this."] ],
   },
   {
-    id: "hemorrhage", title: "Uncontrolled hemorrhage", icon: "Droplets",
+    id: "hemorrhage", title: "Uncontrolled Hemorrhage", icon: "Droplets",
     chart: "62-year-old man, 4 hours after open abdominal surgery. Dressing saturated twice in 30 minutes; surgical drain 400 mL bright red blood in the last hour. HR 128, BP 86/50, RR 26, cool and clammy, restless. Hgb 7.9 g/dL (was 11.2 pre-op). Full code. No anticoagulants. Pressure applied to the dressing.",
     parts: {
       S: [["I'm calling about Mr. Novak in room 3, 4 hours post-op. He's actively bleeding: 400 mL bright red from the drain in an hour, and he's hypotensive.", true], ["Room 3's dressing needs changing.", false], ["Mr. Novak has some drainage.", false]],
-      B: [["He's 62, had an open abdominal surgery this afternoon, full code. Pre-op Hgb was 11.2. He's on no anticoagulants.", true], ["He had surgery today.", false], ["He's a nice man, and his wife is here.", false]],
+      B: [["He's 62, had open abdominal surgery this afternoon, full code. Pre-op Hgb was 11.2. He's on no anticoagulants.", true], ["He had surgery today.", false], ["He's a nice man, and his wife is here.", false]],
       A: [["HR 128, BP 86/50, cool and clammy, Hgb now 7.9. I believe he's hemorrhaging and in early hypovolemic shock.", true], ["He looks pale.", false], ["The drain is just doing its job.", false]],
       R: [["I need you at the bedside now. Please order 2 units of blood, type and crossmatch, and notify the surgeon about returning to the OR; I'll call the rapid response team.", true], ["Should I just reinforce the dressing?", false], ["Can you look at him in the morning?", false]],
     },

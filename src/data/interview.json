@@ -29,7 +29,7 @@
           "Show how you escalated: who you called and what you said. SBAR is a good structure.",
           "End with the outcome and your follow-up, such as documentation and handover."
         ],
-        "sample": "On a surgical ward, a post-op patient became restless at 2 a.m. Her heart rate was 118 and her blood pressure was dropping. My task was to assess her and get help fast. I checked her vital signs again, saw her early warning score had risen and checked her wound and drain. I called the rapid response team using SBAR. I started oxygen as per protocol and prepared IV access. The team found internal bleeding and she went back to surgery. She recovered well. I learned to trust small changes and escalate early."
+        "sample": "On a surgical ward, a post-op patient became restless at 2 a.m. Her heart rate was 118 and her blood pressure was dropping. My task was to assess her and get help fast. I checked her vital signs again, saw her early warning score had risen and checked her wound and drain. I called the rapid response team using SBAR. I started oxygen per protocol and prepared IV access. The team found internal bleeding and she went back to surgery. She recovered well. I learned to trust small changes and escalate early."
       },
       {
         "q": "Describe a time you disagreed with a colleague or doctor about patient care.",
@@ -37,7 +37,7 @@
         "tips": [
           "Stay calm and professional in the story. Do not blame the other person.",
           "Show that you used facts and the chain of command if needed.",
-          "Say how the working relationship was after."
+          "Say how the working relationship was afterward."
         ],
         "sample": "A doctor ordered a full dose of a blood thinner for a patient. I had just seen that the patient's kidney function had dropped. I needed to keep the patient safe without causing conflict. I asked the doctor for a quick private talk. I showed him the new lab results and asked if the dose should change. He checked and lowered the dose. I documented the conversation. Later he thanked me. We worked well together after that. I learned that a calm question with facts is often the best approach."
       },
@@ -49,7 +49,7 @@
           "Show that you told the right people at once and reported it.",
           "Focus on what you learned and what changed in your practice."
         ],
-        "sample": "I once drew up an IV antibiotic and, at the bedside, noticed the patient's wristband showed a penicillin allergy. The order was for a penicillin-type drug. My task was to stop the error and make sure it did not happen again. I did not give the dose. I told the doctor and the charge nurse right away. I filled in an incident report. The order was changed, and the allergy flag in the chart was fixed. Since then, I check allergies at every dose, not only at admission."
+        "sample": "I once drew up an IV antibiotic and, at the bedside, noticed the patient's wristband showed a penicillin allergy. The order was for a penicillin-type drug. My task was to stop the error and make sure it did not happen again. I did not give the dose. I told the doctor and the charge nurse right away. I filled out an incident report. The order was changed, and the allergy flag in the chart was fixed. Since then, I check allergies at every dose, not only at admission."
       },
       {
         "q": "You have four patients needing you at once. How do you prioritize?",
@@ -69,7 +69,7 @@
           "Give concrete steps you took: courses, reading local guidelines, practice with charting systems.",
           "Show respect for patients' cultures and for local Indigenous peoples where relevant."
         ],
-        "sample": "When I moved from a public hospital at home to a private hospital in another country, the charting was fully electronic and nurses had more independent roles. My task was to get up to speed quickly. I asked for extra training on the system and kept a notebook of local policies. I asked senior nurses questions and watched how they spoke with families. Within two months I was working without supervision. Preparing for this move, I am doing the same: studying local guidelines and cultural safety training."
+        "sample": "When I moved from a public hospital at home to a private hospital in another country, the charting was fully electronic and nurses had more independent roles. My task was to get up to speed quickly. I asked for extra training on the system and kept a notebook of local policies. I asked senior nurses questions and watched how they spoke with families. Within two months I was working without supervision. To prepare for this move, I am doing the same: studying local guidelines and taking cultural safety training."
       },
       {
         "q": "Tell me about a time you worked as part of a team to achieve something.",
@@ -162,7 +162,7 @@
         "Interviews are often by video. Test your camera, sound and internet first."
       ],
       "visa": {
-        "title": "Immigrant visa interview (consular)",
+        "title": "Immigrant Visa Interview (Consular)",
         "steps": [
           "Your employer files a petition (often EB-3) with USCIS. It must be approved.",
           "The National Visa Center (NVC) collects fees, the DS-260 form and civil documents.",
@@ -175,7 +175,7 @@
         ],
         "bring": [
           "Interview appointment letter",
-          "Passport valid at least six months beyond your planned entry date",
+          "Passport valid for at least six months beyond your planned entry date",
           "Two identical color photos that meet the photo rules",
           "DS-260 confirmation page",
           "Originals or certified copies of the civil documents you uploaded (birth, marriage, police certificates, etc.)",
@@ -239,7 +239,7 @@
         "Interviewers may ask about cultural safety and care for Indigenous patients. Learn the basics before the interview."
       ],
       "visa": {
-        "title": "Arriving as a permanent resident or worker",
+        "title": "Arriving as a Permanent Resident or Worker",
         "steps": [
           "Express Entry and most work permit applications usually do not need an interview. IRCC may ask for one if they need more information.",
           "If IRCC asks for an interview, go on the given date and bring all requested documents.",
@@ -254,7 +254,7 @@
           "Confirmation of Permanent Residence (COPR), or port of entry letter of introduction for a work permit",
           "Job offer letter, if you have one",
           "Proof of funds, if required for your program",
-          "Two copies of a list of goods you bring now, and goods coming later",
+          "Two copies of a list of the goods you are bringing now and the goods coming later",
           "Original educational certificates, nursing licenses and registration letters",
           "Original civil documents: birth and marriage certificates",
           "Declare cash or monetary instruments of CAN$10,000 or more (or the same in foreign currency)"
@@ -278,7 +278,7 @@
           },
           {
             "q": "Has anything changed since your visa was approved?",
-            "tip": "Tell them about a marriage, new child, or new criminal charge. Changes must be reported."
+            "tip": "Tell them about a marriage, a new child or a new criminal charge. Changes must be reported."
           },
           {
             "q": "Is everyone on your application traveling with you?",
@@ -308,26 +308,26 @@
         "Interviews are usually with a panel. Questions often follow the selection criteria.",
         "Use STAR to answer. Give clear examples that match each criterion.",
         "Each state has its own values. For example, NSW Health uses CORE: Collaboration, Openness, Respect, Empowerment.",
-        "You need registration with AHPRA and the Nursing and Midwifery Board of Australia (NMBA).",
+        "You need registration with Ahpra and the Nursing and Midwifery Board of Australia (NMBA).",
         "Learn about cultural safety and Aboriginal and Torres Strait Islander health before your interview.",
         "Employers usually ask for two or three referees, often recent managers."
       ],
       "visa": {
-        "title": "Visa process and arriving in Australia",
+        "title": "Visa Process and Arriving in Australia",
         "steps": [
           "Most skilled visa decisions are made on paper. The Department of Home Affairs may ask you to attend an interview.",
           "If asked, attend on time and bring the documents listed in the request.",
-          "Do health exams and give police certificates when asked.",
+          "Complete health exams and provide police certificates when asked.",
           "Your visa is electronic and linked to your passport. You can check it in VEVO.",
           "At arrival, complete the Incoming Passenger Card (paper or digital, as your airline instructs) and go through border checks.",
           "Declare food, plant and animal products and some medicines. Biosecurity rules are strict.",
-          "After arrival, get a Tax File Number, open a bank account and confirm your AHPRA registration."
+          "After arrival, get a Tax File Number, open a bank account and confirm your Ahpra registration."
         ],
         "bring": [
           "Valid passport (the one linked to your visa)",
           "A copy of your visa grant notice",
           "Original nursing qualifications and transcripts",
-          "AHPRA registration evidence",
+          "Ahpra registration evidence",
           "Employment contract or job offer, if you have one",
           "Original civil documents: birth and marriage certificates",
           "Certified English translations of any non-English documents",
@@ -348,7 +348,7 @@
           },
           {
             "q": "Where will you live in Australia?",
-            "tip": "Give your address or first place you will stay."
+            "tip": "Give your address or the first place you will stay."
           },
           {
             "q": "Are your family members coming with you?",
@@ -360,7 +360,7 @@
           },
           {
             "q": "Are you carrying food, plants, animal products or medicines?",
-            "tip": "Declare when unsure. Fines apply for not declaring."
+            "tip": "Declare anything you are unsure about. Fines apply for not declaring."
           },
           {
             "q": "Are you carrying AUD 10,000 or more in cash (or the same in foreign currency)?",
@@ -386,7 +386,7 @@
         "Use STAR, and show how your actions support whānau (family) involvement in care."
       ],
       "visa": {
-        "title": "Visa process and arriving in New Zealand",
+        "title": "Visa Process and Arriving in New Zealand",
         "steps": [
           "Most work visas, such as the Accredited Employer Work Visa, are decided on paper.",
           "Immigration New Zealand (INZ) may interview you to check your information or documents.",
@@ -413,7 +413,7 @@
           },
           {
             "q": "Who is your employer, and what is your role?",
-            "tip": "Know your employer's name and job title. Your visa is often linked to them."
+            "tip": "Know your employer's name and your job title. Your visa is often linked to them."
           },
           {
             "q": "Where will you be working and living?",

@@ -63,7 +63,7 @@ export function CountryWealth() {
     <View style={{ gap: 14 }}>
       <Note mod={MOD} tone="warn" icon="AlertTriangle">General education, not personalized financial advice. Talk to a licensed advisor or tax professional for your situation.</Note>
       <Card mod={MOD}>
-        <IconHead icon="CreditCard">Build credit in {destOf(dest).name}</IconHead>
+        <IconHead icon="CreditCard">Build Credit in {destOf(dest).name}</IconHead>
         <Txt v="small" muted>Your credit history from home usually doesn't follow you, so start early.</Txt>
         <Row gap={10}>
           <View style={{ flex: 1 }}><Bar mod={MOD} pct={done / CREDIT.length} /></View>
@@ -94,7 +94,7 @@ export function CountryMoney() {
       <Note mod={MOD} tone="warn" icon="AlertTriangle">General education, not tax advice. Your tax office and a registered tax agent have the final word.</Note>
       <View style={{ gap: 4 }}>
         <Txt v="eyebrow">Tax and retirement</Txt>
-        <Txt v="h2">Money basics for {destOf(dest).name}</Txt>
+        <Txt v="h2">Money Basics for {destOf(dest).name}</Txt>
       </View>
       <InfoCards items={l.money} icons={MONEY_ICONS} />
       <Checked dest={dest} />
@@ -111,11 +111,11 @@ export function CountryInsurance() {
       <Note mod={MOD} tone="warn" icon="AlertTriangle">General education, not insurance advice. Your employer's benefits guide and a licensed broker have the final word.</Note>
       <View style={{ gap: 4 }}>
         <Txt v="eyebrow">Health cover and insurance</Txt>
-        <Txt v="h2">Staying covered in {destOf(dest).name}</Txt>
+        <Txt v="h2">Staying Covered in {destOf(dest).name}</Txt>
       </View>
       <InfoCards items={l.health} icons={HEALTH_ICONS} />
       <Card mod={MOD}>
-        <Txt v="h3">New-arrival checklist</Txt>
+        <Txt v="h3">New-Arrival Checklist</Txt>
         <Row gap={10}>
           <View style={{ flex: 1 }}><Bar mod={MOD} pct={n / list.length} /></View>
           <Txt v="mono" style={{ fontFamily: FONTS.monoBold }}>{n}/{list.length}</Txt>
@@ -134,7 +134,7 @@ export function SourcesBlock({ dest, mod = MOD }) {
   return (
     <>
       {l.uncertain && l.uncertain.length ? (
-        <Accordion mod={mod} title="What we couldn't confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
+        <Accordion mod={mod} title="What We Couldn't Confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
           <Bullets items={l.uncertain} />
         </Accordion>
       ) : null}

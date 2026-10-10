@@ -70,7 +70,7 @@ function Job({ dest }) {
       <Txt v="eyebrow">Common questions</Txt>
       {IV.job.questions.map((q, k) => <Question key={q.q} q={q} k={k} locked={!isPro && k >= FREE_QUESTIONS} />)}
       <Card mod={MOD} accent style={{ gap: 8 }}>
-        <Txt v="h3">Questions to ask them</Txt>
+        <Txt v="h3">Questions to Ask Them</Txt>
         <Bullets items={IV.job.ask} />
       </Card>
     </View>
@@ -87,7 +87,7 @@ function Visa({ dest }) {
         <Bullets numbered items={v.steps} />
       </Card>
       <Card mod={MOD} style={{ gap: 10 }}>
-        <Row gap={8}><Icon name="ClipboardCheck" size={18} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>Bring with you</Txt></Row>
+        <Row gap={8}><Icon name="ClipboardCheck" size={18} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>Bring with You</Txt></Row>
         <Bullets items={v.bring} />
       </Card>
       <Txt v="eyebrow">Questions you may be asked</Txt>
@@ -97,7 +97,7 @@ function Visa({ dest }) {
           <Txt v="small" muted>{q.tip}</Txt>
         </Card>
       ))}
-      {v.notes && v.notes.length ? <Card mod={MOD} style={{ gap: 8 }}><Txt v="h3">Good to know</Txt><Bullets items={v.notes} /></Card> : null}
+      {v.notes && v.notes.length ? <Card mod={MOD} style={{ gap: 8 }}><Txt v="h3">Good to Know</Txt><Bullets items={v.notes} /></Card> : null}
     </View>
   );
 }
@@ -108,14 +108,14 @@ export default function Interview() {
   const v = IV.countries[dest].visa;
   return (
     <Screen mod={MOD}>
-      <BackRow mod={MOD} title="Interview prep" />
-      <Hero mod={MOD} icon="MessageSquare" eyebrow={`Interview prep · ${info.flag} ${info.short}`} title="Walk in ready"
+      <BackRow mod={MOD} title="Interview Prep" />
+      <Hero mod={MOD} icon="MessageSquare" eyebrow={`Interview prep · ${info.flag} ${info.short}`} title="Walk In Ready"
         sub="Hospital job interviews with STAR answers, and what to expect at your visa or arrival interview."
         stats={[["Job questions", IV.job.questions.length], ["Visa questions", v.questions.length], ["Checked", fmtDate(IV.checked)]]} />
       <DestPill mod={MOD} />
-      <Seg mod={MOD} even value={tab} onChange={setTab} options={[{ id: "job", label: "Job interview", icon: "Briefcase" }, { id: "visa", label: dest === "US" ? "Visa interview" : "Visa & arrival", icon: "Plane" }]} />
+      <Seg mod={MOD} even value={tab} onChange={setTab} options={[{ id: "job", label: "Job Interview", icon: "Briefcase" }, { id: "visa", label: dest === "US" ? "Visa Interview" : "Visa & Arrival", icon: "Plane" }]} />
       {tab === "job" ? <Job dest={dest} /> : null}
-      {tab === "visa" ? <ProGate mod={MOD} feature="Visa and arrival interview prep" desc="Steps, what to bring and the questions officers commonly ask, for your destination."><Visa dest={dest} /></ProGate> : null}
+      {tab === "visa" ? <ProGate mod={MOD} feature="Visa and Arrival Interview Prep" desc="Steps, what to bring and the questions officers commonly ask, for your destination."><Visa dest={dest} /></ProGate> : null}
       <SourceList mod={MOD} sources={IV.sources} uncertain={IV.uncertain} />
       <Txt v="tiny" muted>General information, not legal or immigration advice. For your case, talk to a licensed immigration attorney or registered adviser.</Txt>
     </Screen>

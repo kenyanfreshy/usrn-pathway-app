@@ -1,4 +1,4 @@
-// Profile & settings: about you, key dates, theme and reset. Everything stays on the device.
+// Profile & Settings: about you, key dates, theme and reset. Everything stays on the device.
 import React, { useState } from "react";
 import { View, Pressable, TextInput, Platform } from "react-native";
 import * as Clipboard from "expo-clipboard";
@@ -43,12 +43,12 @@ function BackupCard() {
   const last = state.plan && state.plan.lastBackup;
   return (
     <Card mod="home" style={{ gap: 10 }}>
-      <Row gap={8}><Icon name="ShieldCheck" size={18} color={t.tint} /><Txt v="bodyB" style={{ flex: 1 }}>Backup & restore</Txt></Row>
+      <Row gap={8}><Icon name="ShieldCheck" size={18} color={t.tint} /><Txt v="bodyB" style={{ flex: 1 }}>Backup & Restore</Txt></Row>
       <Txt v="small" muted>There's no account, so your progress lives only on this phone. Save a backup to {Platform.OS === "ios" ? "Notes, Files or iCloud Drive" : "Google Drive or Files"}, or email it to yourself, before you change phones.</Txt>
       {last ? <Txt v="tiny" muted>Last backup shared {fmtDate(last)}.</Txt> : null}
       <Row wrap gap={8}>
-        <Btn mod="home" small icon="Share2" title="Save a backup" onPress={save} />
-        <Btn mod="home" small kind="secondary" icon="Undo2" title={open ? "Close restore" : "Restore a backup"} onPress={() => { setOpen(!open); setMsg(null); setSure(false); }} />
+        <Btn mod="home" small icon="Share2" title="Save a Backup" onPress={save} />
+        <Btn mod="home" small kind="secondary" icon="Undo2" title={open ? "Close Restore" : "Restore a Backup"} onPress={() => { setOpen(!open); setMsg(null); setSure(false); }} />
       </Row>
       {open ? (
         <View style={{ gap: 8 }}>
@@ -58,7 +58,7 @@ function BackupCard() {
             style={{ minHeight: 96, maxHeight: 180, borderWidth: 1.5, borderColor: t.c.line, borderRadius: 12, padding: 10, color: t.c.ink, backgroundColor: t.c.surface, fontFamily: FONTS.mono, fontSize: 12, textAlignVertical: "top" }} />
           <Row wrap gap={8}>
             <Btn mod="home" small kind="secondary" icon="Copy" title="Paste" onPress={paste} />
-            <Btn mod="home" small kind={sure ? "danger" : "primary"} icon="Undo2" title={sure ? "Restore (replace all)" : "Restore"} onPress={restore} disabled={!text.trim()} />
+            <Btn mod="home" small kind={sure ? "danger" : "primary"} icon="Undo2" title={sure ? "Restore (Replace All)" : "Restore"} onPress={restore} disabled={!text.trim()} />
           </Row>
         </View>
       ) : null}
@@ -76,7 +76,7 @@ export default function Settings() {
 
   return (
     <Screen mod="home">
-      <BackRow title="Profile & settings" mod="home" />
+      <BackRow title="Profile & Settings" mod="home" />
 
       <Grad mod="home" style={{ borderRadius: 22, padding: 18, flexDirection: "row", alignItems: "center", gap: 14, overflow: "hidden" }}>
         <View pointerEvents="none" style={{ position: "absolute", width: 160, height: 160, borderRadius: 80, right: -50, top: -70, backgroundColor: "rgba(255,255,255,0.14)" }} />
@@ -110,7 +110,7 @@ export default function Settings() {
         </> : null}
         <DateField label={destId(state) === "NZ" ? "Theory exam date" : "NCLEX test date"} value={p.testDate} onChange={set("testDate")} />
         {destId(state) === "US" ? <DateField label="ATT window ends" value={p.attEnd} onChange={set("attEnd")} /> : null}
-        <Txt v="tiny" muted>Dates power the countdowns and visa wait estimate on Today.</Txt>
+        <Txt v="tiny" muted>Your dates power the countdowns and the visa wait estimate on the Today tab.</Txt>
       </Card>
 
       <Card mod="home">
@@ -138,20 +138,33 @@ export default function Settings() {
 
       <Btn title="Save" icon="Check" full onPress={() => { if (router.canGoBack()) router.back(); else router.replace("/"); }} />
 
+      <Card mod="home" onPress={() => router.push("/references")}>
+        <Row gap={12}>
+          <View style={{ width: 40, height: 40, borderRadius: 12, backgroundColor: t.soft, alignItems: "center", justifyContent: "center" }}>
+            <Icon name="BookOpenCheck" size={21} color={t.tint} />
+          </View>
+          <View style={{ flex: 1, gap: 2 }}>
+            <Txt v="bodyB">References & Study Resources</Txt>
+            <Txt v="small" muted>APA citations, recommended review books and official exam and regulator sites</Txt>
+          </View>
+          <Icon name="ChevronRight" size={18} color={t.c.muted} />
+        </Row>
+      </Card>
+
       <Card style={{ borderColor: t.c.crit }}>
-        <Row gap={8}><Icon name="RotateCcw" size={16} color={t.c.crit} /><Txt v="bodyB" color={t.c.crit}>Reset progress</Txt></Row>
+        <Row gap={8}><Icon name="RotateCcw" size={16} color={t.c.crit} /><Txt v="bodyB" color={t.c.crit}>Reset Progress</Txt></Row>
         {confirm ? (
           <View style={{ gap: 10 }}>
-            <Txt v="small">Clear all progress, badges and XP and restore the sample data? Your profile and dates are cleared too; your theme is kept.</Txt>
+            <Txt v="small">Clear all progress, badges and XP, and restore the sample data? Your profile and dates are cleared too; your theme is kept.</Txt>
             <Row wrap gap={8}>
-              <Btn kind="danger" small icon="Trash2" title="Yes, reset" onPress={() => { dispatch({ type: "reset" }); cancelStudyReminder(); setConfirm(false); setDidReset(true); buzz(); }} />
+              <Btn kind="danger" small icon="Trash2" title="Yes, Reset" onPress={() => { dispatch({ type: "reset" }); cancelStudyReminder(); setConfirm(false); setDidReset(true); buzz(); }} />
               <Btn kind="secondary" small title="Cancel" onPress={() => setConfirm(false)} />
             </Row>
           </View>
         ) : (
           <View style={{ gap: 10 }}>
             <Txt v="small" muted>{didReset ? "Progress cleared. You're starting fresh." : "Start over from the beginning. This can't be undone."}</Txt>
-            <Btn kind="danger" small icon="RotateCcw" title="Reset progress" onPress={() => { setDidReset(false); setConfirm(true); }} />
+            <Btn kind="danger" small icon="RotateCcw" title="Reset Progress" onPress={() => { setDidReset(false); setConfirm(true); }} />
           </View>
         )}
       </Card>

@@ -108,7 +108,7 @@
     "sameTest": null
    },
    "validity": "Results expire 2 years from the test date (CRNA may consider older results if you tell them)",
-   "notes": "CRNA accepts only CELBAN and IELTS Academic; OET is not accepted. Non-test routes (e.g. nursing education in English) may apply.",
+   "notes": "CRNA accepts only CELBAN and IELTS Academic; OET is not accepted. Non-test routes (e.g., nursing education in English) may apply.",
    "url": "https://nurses.ab.ca/nursing-in-alberta/registration-requirements/english-language-proficiency"
   },
   {
@@ -136,7 +136,7 @@
     "sameTest": true
    },
    "validity": "Results generally under 2 years old when you apply (for two sittings, counted from the earlier sitting)",
-   "notes": "Scores for tests taken on or after 23 April 2026; tests on or before 22 April 2026 use the old minimums (OET B/B/C+/B). At-home and remotely proctored tests are not accepted, except OET on computer at a test centre.",
+   "notes": "Scores for tests taken on or after 23 April 2026; tests on or before 22 April 2026 use the old minimums (OET B/B/C+/B). At-home and remotely proctored tests are not accepted, except OET on computer at a test center.",
    "url": "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests.aspx"
   },
   {
@@ -164,7 +164,7 @@
     "sameTest": null
    },
    "validity": "All sittings within the 3 years before you apply",
-   "notes": "Only OET and IELTS Academic are accepted. Online computer-based tests are not accepted; computer tests at an approved centre are (including OET on computer, whose Speaking part is hosted online).",
+   "notes": "Only OET and IELTS Academic are accepted. Online computer-based tests are not accepted; computer tests at an approved center are (including OET on computer, whose Speaking part is hosted online).",
    "url": "https://nursingcouncil.org.nz/IQN/H5"
   }
  ],
@@ -202,7 +202,7 @@
  ],
  "converter": {
   "source": "IDP IELTS (IELTS co-owner): 'OET vs IELTS test score' – https://ielts.idp.com/philippines/english-tests/oet/oet-vs-ielts-test-score",
-  "caution": "Indicative only. Regulators set their own minimums for each test and do not use this table (e.g. Australia asks for OET 360 in Reading where it asks for IELTS 7.0). Never use it to decide eligibility.",
+  "caution": "Indicative only. Regulators set their own minimums for each test and do not use this table (e.g., Australia asks for OET 360 in Reading where it asks for IELTS 7.0). Never use it to decide eligibility.",
   "rows": [
    {
     "ielts": "8.0–9.0",
@@ -259,10 +259,10 @@
    "Built for healthcare: OET is designed for 12 healthcare professions, and its tasks reflect real workplace tasks.",
    "Writing and Speaking are specific to your profession: nurses write a nursing letter (such as a referral or discharge letter) and do nurse–patient role-plays.",
    "Listening and Reading use healthcare workplace material, so clinical experience helps you understand the content.",
-   "Accepted for nurses in the US (VisaScreen), Australia, New Zealand, Ontario and British Columbia."
+   "Accepted for nurses in the U.S. (VisaScreen), Australia, New Zealand, Ontario and British Columbia."
   ],
   "ieltsGood": [
-   "Widely accepted: IDP says IELTS is accepted by more than 13,500 organisations in over 140 countries.",
+   "Widely accepted: IDP says IELTS is accepted by more than 13,500 organizations in over 140 countries.",
    "Accepted by all six destinations here, including Alberta, which does not accept OET.",
    "General academic content: no clinical knowledge is needed, which can help if you have been away from practice.",
    "IELTS One Skill Retake (within 60 days) is accepted by Ontario and Australia, so you can retake one skill instead of the whole test.",
@@ -375,16 +375,16 @@
   ]
  ],
  "uncertain": [
-  "US: HRSA and TruMerit pages do not say whether section scores from different sittings can be combined, so combine is null. The brief's 'no clubbing' could not be confirmed. Ask TruMerit.",
-  "US: no official limit on how old test scores can be was found on HRSA or TruMerit pages (validity is null). State boards of nursing may have their own rules.",
-  "US: TruMerit ties the new minimums to exams 'taken on or after May 12, 2026' but does not explicitly define this as the test date.",
+  "U.S.: HRSA and TruMerit pages do not say whether section scores from different sittings can be combined, so combine is null. The brief's 'no clubbing' could not be confirmed. Ask TruMerit.",
+  "U.S.: no official limit on how old test scores can be was found on HRSA or TruMerit pages (validity is null). State boards of nursing may have their own rules.",
+  "U.S.: TruMerit ties the new minimums to exams 'taken on or after May 12, 2026' but does not explicitly define this as the test date.",
   "BC: BCCNM states OET as grades only. The numbers (B=350, C+=300) are the lowest score in each OET grade band, not numbers BCCNM publishes. BC does not say whether sittings can be combined. Inspire Global Assessments' own test list was not found or checked.",
   "Alberta: CRNA does not say whether sittings can be combined.",
   "NZ: NCNZ sets no floor per sitting and does not say whether sittings must be of the same test (sameTest null). Check with NCNZ before combining OET and IELTS.",
   "OET grade bands: the official OET results page lists each grade's top score (A 500, B 440, C+ 340, C 290, D 190, E 90) in 10-point steps. Lower bounds come from that and from IDP's table. oet.com could not be fetched on 2026-10-09.",
   "Converter: no OET-published OET↔IELTS table was found. The rows are from IDP (an IELTS co-owner and OET partner), which does not name who made the comparison. It is indicative only and conflicts with regulator rules (Australia: OET R/S 360, IELTS 7.0).",
   "Other Canadian provinces were not checked one by one. Each provincial regulator sets its own tests and scores, and many accept CELBAN and IELTS Academic. Check the regulator before booking.",
-  "IELTS test-date frequency and number of test centres were not stated on ielts.org pages fetched, so they are left out."
+  "IELTS test-date frequency and number of test centers were not stated on ielts.org pages fetched, so they are left out."
  ],
  "briefCorrections": [
   "US OET 'C+ (300) in L/R/W and B (350) Speaking' is the old rule (May 24, 2022 to May 12, 2026). For exams on or after May 12, 2026: Listening 320, Reading 340, Writing 350, Speaking 360 (HRSA; TruMerit).",

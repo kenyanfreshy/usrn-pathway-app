@@ -23,8 +23,8 @@
       "weeks": "",
       "juris": false,
       "nlc": "No",
-      "english": "Needed if program not in English: TOEFL, IELTS (6.5, Speaking 7), OET, PTE, or MET",
-      "note": "No SSN? File the SSN affidavit. Fingerprint within 60 days of applying. Register for NCLEX through CTS.",
+      "english": "Needed if your program was not in English: TOEFL, IELTS (6.5, Speaking 7), OET, PTE, or MET",
+      "note": "No SSN? File the SSN affidavit. Fingerprint within 60 days of applying. Register for the NCLEX through CTS.",
       "url": "https://nursing.illinois.gov/nursing-licensure/internationally-educated-nurses.html"
     },
     {
@@ -36,8 +36,8 @@
       "weeks": "3–4",
       "juris": true,
       "nlc": "Yes",
-      "english": "Needed if program not in English: TOEFL iBT 83, IELTS 6.5 (6.0 each), PTE 55 (50 each), MET 55 (Speaking 55), or OET 300 in each part (one sitting, no remote tests)",
-      "note": "Pass the Texas Jurisprudence Exam before ATT. You must have worked in the last 4 years or graduated within 4 years.",
+      "english": "Needed if your program was not in English: TOEFL iBT 83, IELTS 6.5 (6.0 each), PTE 55 (50 each), MET 55 (Speaking 55), or OET 300 in each part (one sitting, no remote tests)",
+      "note": "Pass the Texas Jurisprudence Exam before your ATT is issued. You must have worked in the last 4 years or graduated within 4 years.",
       "url": "https://www.bon.texas.gov/licensure_examination.asp.html"
     },
     {
@@ -49,7 +49,7 @@
       "weeks": "",
       "juris": false,
       "nlc": "Yes",
-      "english": "Needed if program not in English: IELTS 6.5 (Speaking 7), TOEFL iBT 76, PTE 55, MET 55, or OET 300",
+      "english": "Needed if your program was not in English: IELTS 6.5 (Speaking 7), TOEFL iBT 76, PTE 55, MET 55, or OET 300",
       "note": "You can apply and test without an SSN. You need one before the license is issued. Livescan fingerprints required.",
       "url": "https://floridasnursing.gov/"
     },
@@ -88,7 +88,7 @@
       "weeks": "",
       "juris": false,
       "nlc": "Yes",
-      "english": "Needed if program not in English: TOEFL, TOEIC, IELTS, OET, or MET",
+      "english": "Needed if your program was not in English: TOEFL, TOEIC, IELTS, OET, or MET",
       "note": "Upload your visa or passport after applying. Fingerprints via IdentoGO. A $50 multistate fee started June 1, 2026.",
       "url": "https://www.bon.nm.gov/"
     },
@@ -115,7 +115,7 @@
       "juris": false,
       "nlc": "Yes",
       "english": "Sent to TruMerit: TOEFL iBT 83 (Speaking 26), IELTS 6.5 (6.0 each), OET 300 R/W/L + 350 Speaking, or TOEIC. Educated in some countries (e.g., UK, Canada outside Quebec, Australia)? Exempt.",
-      "note": "SSN and a copy of the card are required. You may test before the background check clears, but cannot work yet.",
+      "note": "SSN and a copy of the card are required. You may test before the background check clears, but you cannot work yet.",
       "url": "https://www.njconsumeraffairs.gov/nur/"
     },
     {
@@ -127,7 +127,7 @@
       "weeks": "",
       "juris": false,
       "nlc": "Yes",
-      "english": "Needed if program not in English: a Board-approved test",
+      "english": "Needed if your program was not in English: a Board-approved test",
       "note": "No SSN? File the SSN waiver. Take 3 hours of approved child abuse training. Multistate license costs $250 for IENs.",
       "url": "https://www.pa.gov/agencies/dos/department-and-offices/bpoa/boards-commissions/nursing"
     },
@@ -140,8 +140,8 @@
       "weeks": "",
       "juris": false,
       "nlc": "Yes",
-      "english": "Needed if program not in English: TOEFL iBT 84 (Speaking 26), IELTS 6.5 (6.0 each), PTE 55, or VisaScreen",
-      "note": "Must show lawful presence; SSN needed if you live or work in the U.S. Fingerprints required ($50).",
+      "english": "Needed if your program was not in English: TOEFL iBT 84 (Speaking 26), IELTS 6.5 (6.0 each), PTE 55, or VisaScreen",
+      "note": "You must show lawful presence; SSN needed if you live or work in the U.S. Fingerprints required ($50).",
       "url": "https://www.azbn.gov/"
     },
     {
@@ -176,7 +176,7 @@
       "hours": "No practice-hours rule listed",
       "extra": [
         "IENs: CES report or TruMerit/VisaScreen/JS&A certificate",
-        "No English test if you passed NCLEX",
+        "No English test if you passed the NCLEX",
         "Fingerprints by an IL-licensed vendor"
       ]
     },
@@ -202,7 +202,7 @@
     },
     "CA": {
       "compact": false,
-      "fee": "$750 if educated abroad ($350 if US-educated)",
+      "fee": "$750 if educated abroad ($350 if U.S.-educated)",
       "time": "10–12 weeks",
       "hours": "No hours rule; license must be active",
       "extra": [
@@ -239,7 +239,7 @@
       "hours": "No practice-hours rule listed",
       "extra": [
         "Montana DOJ fingerprint check",
-        "IENs may be asked for CES, eDas, or VisaScreen letter"
+        "IENs may be asked for a CES, eDas or VisaScreen letter"
       ]
     },
     "NJ": {
@@ -277,10 +277,10 @@
       "compact": true,
       "fee": "$75 (+$5 online processing)",
       "time": "Check board",
-      "hours": "Graduated within 4 years, or 500 hours in last 4 years, or reentry course",
+      "hours": "Graduated within 4 years, or 500 hours in the last 4 years, or a reentry course",
       "extra": [
         "Nursys verification and school transcripts",
-        "GAPS/Idemia fingerprints same day you apply"
+        "GAPS/Idemia fingerprints on the same day you apply"
       ]
     }
   },
@@ -310,7 +310,7 @@
       "https://nursing.wa.gov/news/2024/apply-wa-multistate-license"
     ],
     [
-      "WA educated outside the US",
+      "WA educated outside the U.S.",
       "https://nursing.wa.gov/node/951"
     ],
     [
@@ -338,7 +338,7 @@
       "https://www.bon.state.tx.us/forms_fees.asp.html"
     ],
     [
-      "FL educated outside the US",
+      "FL educated outside the U.S.",
       "https://www.floridasnursing.gov/forms/licensure-info-edu-outside-us.pdf"
     ],
     [

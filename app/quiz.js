@@ -5,7 +5,7 @@ import { View, ScrollView, Pressable, Animated, PanResponder } from "react-nativ
 import { router, useLocalSearchParams } from "expo-router";
 import Svg, { Line, Polyline, Circle, Text as SvgText } from "react-native-svg";
 import { Screen, Card, Row, Txt, Btn, Chip, Note, Bar, Option, Check, Select, Accordion, Sheet, Icon, Grad, tap, buzz, Grid, Seg, IconTile, HScroll } from "../src/ui";
-import { BackRow, Medal } from "../src/ui-extra";
+import { BackRow, Medal, SourcesLink } from "../src/ui-extra";
 import { useTheme, FONTS } from "../src/theme";
 import { useApp } from "../src/state";
 import { ProGate, usePro } from "../src/pro";
@@ -82,7 +82,7 @@ function RationaleSheet({ item, chosen, onClose }) {
   const picks = Array.isArray(chosen) ? chosen : chosen ? [chosen] : [];
   const pts = item ? scoreItem(item, chosen) : [0, 0];
   return (
-    <Sheet mod={MOD} visible={!!item} onClose={onClose} title="Rationale review">
+    <Sheet mod={MOD} visible={!!item} onClose={onClose} title="Rationale Review">
       {item ? (
         <View style={{ gap: 12 }}>
           <Row gap={6} wrap><Chip mod={MOD} tone="acc" text={item.cat} />{type !== "single" ? <Chip mod={MOD} tone="acc2" text={type === "sata" ? `SATA · ${pts[0]}/${pts[1]} pts (+/− scoring)` : `Ordered response · ${pts[0]}/1`} /> : null}</Row>
@@ -104,6 +104,7 @@ function RationaleSheet({ item, chosen, onClose }) {
             );
           })}
           {item.takeaway ? <Note mod={MOD} tone="acc2" icon="Lightbulb" title="High-yield takeaway">{item.takeaway}</Note> : null}
+          <SourcesLink mod={MOD} before={onClose} />
         </View>
       ) : null}
     </Sheet>
@@ -232,13 +233,14 @@ function QuizRunner({ items, mode, onDone, timed, tutor, onStat, onRestart, init
           </Row>
           {item.takeaway ? <Note mod={MOD} tone="acc2" icon="Lightbulb" title="Takeaway">{item.takeaway}</Note> : null}
           {item.flag && item.source === "nb2025" ? <Txt v="tiny" muted>Note: {item.flag}</Txt> : null}
+          <SourcesLink mod={MOD} />
         </View>
       ) : null}
       <Row gap={10} style={{ justifyContent: "space-between" }}>
         <Btn mod={MOD} kind="secondary" icon="ArrowLeft" title="Back" disabled={i === 0} onPress={() => setI(i - 1)} />
-        {tutor && !checked[item.id] ? <Btn mod={MOD} icon="Check" title="Check answer" disabled={!isAnswered(item, ans[item.id])} onPress={check} />
+        {tutor && !checked[item.id] ? <Btn mod={MOD} icon="Check" title="Check Answer" disabled={!isAnswered(item, ans[item.id])} onPress={check} />
           : i < items.length - 1 ? <Btn mod={MOD} icon="ArrowRight" title="Next" disabled={!isAnswered(item, ans[item.id])} onPress={() => setI(i + 1)} />
-          : <Btn mod={MOD} icon="Send" title={segment ? "Finish section" : "Submit exam"} disabled={!allAnswered} onPress={finish} />}
+          : <Btn mod={MOD} icon="Send" title={segment ? "Finish Section" : "Submit Exam"} disabled={!allAnswered} onPress={finish} />}
       </Row>
       {onProgress ? <Txt v="tiny" muted>Your progress saves automatically. You can leave and resume this exam later.</Txt> : null}
     </View>
@@ -439,8 +441,9 @@ function NgnCase({ cs, onDone, onExit, exam, initial, onProgress, onSubmit }) {
               <Note mod={MOD} tone="acc2" icon="Lightbulb">{it.rationale}</Note>
             </Accordion>
           ))}
+          <SourcesLink mod={MOD} />
           <Row gap={10}>
-            <View style={{ flex: 1 }}><Btn mod={MOD} kind="secondary" icon="Layers" title="Other cases" onPress={onExit} full /></View>
+            <View style={{ flex: 1 }}><Btn mod={MOD} kind="secondary" icon="Layers" title="Other Cases" onPress={onExit} full /></View>
             <View style={{ flex: 1 }}><Btn mod={MOD} icon="Check" title="Done" onPress={() => router.back()} full /></View>
           </Row>
         </View>
@@ -516,7 +519,7 @@ function NgnCase({ cs, onDone, onExit, exam, initial, onProgress, onSubmit }) {
           <Row gap={10} style={{ justifyContent: "space-between", marginTop: 4 }}>
             <Btn mod={MOD} kind="secondary" icon="ArrowLeft" title="Back" disabled={i === 0} onPress={() => setI(i - 1)} />
             {i < items.length - 1 ? <Btn mod={MOD} icon="ArrowRight" title="Next" onPress={() => setI(i + 1)} />
-              : <Btn mod={MOD} icon="Send" title={exam ? "Finish case study" : "Submit case study"} disabled={!all} onPress={finish} />}
+              : <Btn mod={MOD} icon="Send" title={exam ? "Finish Case Study" : "Submit Case Study"} disabled={!all} onPress={finish} />}
           </Row>
           {i === items.length - 1 && !all ? <Txt v="tiny" muted>Answer all six steps to submit. Unanswered steps are gray in the bar above.</Txt> : null}
         </Card>
@@ -581,10 +584,10 @@ function StartGate({ title, intro, saved, progress, onResume, onNew, children })
         <Card mod={MOD} accent style={{ gap: 10 }}>
           <Row gap={8}><Icon name="History" size={18} color={t.tint} /><Txt v="bodyB">You have an exam in progress</Txt></Row>
           <Txt v="small" muted>{progress}</Txt>
-          <Btn mod={MOD} full icon="Play" title="Resume where I left off" onPress={onResume} />
-          <Btn mod={MOD} full kind="secondary" icon="RotateCcw" title="Discard it and start over" onPress={onNew} />
+          <Btn mod={MOD} full icon="Play" title="Resume Where I Left Off" onPress={onResume} />
+          <Btn mod={MOD} full kind="secondary" icon="RotateCcw" title="Discard and Start Over" onPress={onNew} />
         </Card>
-      ) : <Btn mod={MOD} full icon="Play" title="Start exam" onPress={onNew} />}
+      ) : <Btn mod={MOD} full icon="Play" title="Start Exam" onPress={onNew} />}
     </View>
   );
 }
@@ -594,10 +597,10 @@ function NextUp() {
   const t = useTheme(MOD); const { isPro } = usePro();
   return (
     <Card mod={MOD} accent style={{ gap: 10 }}>
-      <Row gap={10}><Icon name="Route" size={20} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>{isPro ? "Your study plan is updated" : "Turn this result into a plan"}</Txt></Row>
+      <Row gap={10}><Icon name="Route" size={20} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>{isPro ? "Your Study Plan Is Updated" : "Turn This Result into a Plan"}</Txt></Row>
       <Txt v="small" muted>{isPro ? "Your weakest areas now lead your daily practice, and every miss comes back in smart review."
         : "Pro builds a daily plan around your weakest areas, brings back every question you missed at the right time, and paces you to your exam date."}</Txt>
-      <Btn mod={MOD} icon={isPro ? "ArrowRight" : "Crown"} title={isPro ? "Open my study plan" : "See Pro"} onPress={() => router.push(isPro ? "/plan" : "/paywall")} />
+      <Btn mod={MOD} icon={isPro ? "ArrowRight" : "Crown"} title={isPro ? "Open My Study Plan" : "See Pro"} onPress={() => router.push(isPro ? "/plan" : "/paywall")} />
     </Card>
   );
 }
@@ -630,7 +633,7 @@ function Test2({ onDone }) {
   if (!run) {
     return (
       <StartGate title={TESTS.t2.title} saved={saved}
-        intro={`${TESTS.t2.count} items: ${T2_CASES} unfolding Next Generation NCLEX case studies (picked from ${NGN_CASES.length}, so each attempt is different; 6 clinical-judgment steps each, with chart tabs) placed between sections of stand-alone questions, including select-all-that-apply and ordered-response items.`}
+        intro={`${TESTS.t2.count} items: ${T2_CASES} unfolding Next Generation NCLEX (NGN) case studies placed between sections of stand-alone questions. The cases are picked from ${NGN_CASES.length}, so each attempt is different, and each case has 6 clinical-judgment steps and chart tabs. The stand-alone questions include select-all-that-apply and ordered-response items.`}
         progress={saved ? `Section ${saved.b + 1} of ${saved.blocks.length} · ${qCount(saved)} of ${TESTS.t2.count} items done` : null}
         onResume={() => setRun(saved)}
         onNew={() => { const r = { blocks: buildTest2(), b: 0, results: [], cur: null }; save(r); setRun(r); }} />
@@ -661,7 +664,7 @@ function Test2({ onDone }) {
           </Row>
         </Card>
         <CatBreakdown byCat={byCat} />
-        <Txt v="h3">Case studies</Txt>
+        <Txt v="h3">Case Studies</Txt>
         {run.blocks.map((b, k) => {
           if (b.kind !== "case") return null;
           const cs = NGN_CASES.find((c) => c.id === b.id); const res = run.results[k];
@@ -678,10 +681,10 @@ function Test2({ onDone }) {
             </Accordion>
           );
         })}
-        <Txt v="h3">Stand-alone questions</Txt>
+        <Txt v="h3">Stand-Alone Questions</Txt>
         <ResultTable items={standalone} answers={sAns} onOpen={setOpen} />
         <Row gap={10} wrap>
-          <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Take it again" onPress={() => setRun(null)} />
+          <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Take It Again" onPress={() => setRun(null)} />
           <Btn mod={MOD} icon="Check" title="Done" onPress={() => router.back()} />
         </Row>
         <RationaleSheet item={open} chosen={open && sAns[open.id]} onClose={() => setOpen(null)} />
@@ -754,7 +757,7 @@ function Test3({ onDone }) {
   if (!run) {
     return (
       <StartGate title={TESTS.t3.title} saved={saved}
-        intro={`Computer-adaptive, like the real NCLEX-RN: questions get harder after correct answers and easier after misses, drawn from a ${TESTS.t3.count}-question pool with the official Client Needs mix. It stops between 85 and 150 questions, as soon as the result is 95% certain. Each retake uses questions you haven't seen first.`}
+        intro={`Computer-adaptive, like the real NCLEX-RN: questions get harder after correct answers and easier after misses, drawn from a ${TESTS.t3.count}-question pool with the official Client Needs mix. It stops between 85 and 150 questions, as soon as the result is 95% certain. Each retake starts with questions you haven't seen yet.`}
         progress={saved ? `Question ${saved.hist.length + 1} · ${saved.hist.length} answered` : null}
         onResume={() => setRun(saved)}
         onNew={() => { const r = { hist: [], cur: nextItem([], state.catSeen || []), result: null }; save(r); setRun(r); }} />
@@ -777,7 +780,7 @@ function Test3({ onDone }) {
         <Note mod={MOD}>This practice test uses the NCLEX's length and stopping rules, but it is scored from this app's own question difficulty ratings. It can show your trend, not predict your official result.</Note>
         <ResultTable items={items} answers={answers} onOpen={setOpen} />
         <Row gap={10} wrap>
-          <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Take it again" onPress={() => setRun(null)} />
+          <Btn mod={MOD} kind="secondary" icon="RotateCcw" title="Take It Again" onPress={() => setRun(null)} />
           <Btn mod={MOD} icon="Check" title="Done" onPress={() => router.back()} />
         </Row>
         <RationaleSheet item={open} chosen={open && answers[open.id]} onClose={() => setOpen(null)} />
@@ -812,7 +815,7 @@ function Test3({ onDone }) {
       </Row>
       <Bar mod={MOD} pct={Math.min(1, n / CAT_MAX)} />
       <Card mod={MOD}><QuestionView item={cur} value={sel} onChange={setSel} /></Card>
-      <Row style={{ justifyContent: "flex-end" }}><Btn mod={MOD} icon="Send" title="Submit answer" disabled={!isAnswered(cur, sel)} onPress={submit} /></Row>
+      <Row style={{ justifyContent: "flex-end" }}><Btn mod={MOD} icon="Send" title="Submit Answer" disabled={!isAnswered(cur, sel)} onPress={submit} /></Row>
       <Txt v="tiny" muted>No going back — like the real CAT, each answer is final. Progress saves after every answer.</Txt>
     </View>
   );
@@ -858,9 +861,9 @@ function Flashcards() {
   if (!card) return (
     <Card mod={MOD} style={{ alignItems: "center", paddingVertical: 28, gap: 12 }}>
       <Medal badge={{ icon: "Layers" }} idx={1} size={72} />
-      <Txt v="h2">Deck complete</Txt>
+      <Txt v="h2">Deck Complete</Txt>
       <Txt v="body" muted style={{ textAlign: "center" }}>You marked {known} cards as known. Shuffle and go again to lock them in.</Txt>
-      <Btn mod={MOD} icon="Shuffle" title="Shuffle deck" onPress={() => { setDeck(makeDeck()); setKnown(0); }} />
+      <Btn mod={MOD} icon="Shuffle" title="Shuffle Deck" onPress={() => { setDeck(makeDeck()); setKnown(0); }} />
     </Card>
   );
 
@@ -906,14 +909,14 @@ function Flashcards() {
       <Row gap={8} style={{ justifyContent: "center" }}>
         <Btn mod={MOD} kind="secondary" icon="Undo2" title="Again" onPress={() => fly(-1)} />
         <Btn mod={MOD} kind="secondary" icon="RotateCw" title="Flip" onPress={() => setFlip((f) => !f)} />
-        <Btn mod={MOD} icon="Check" title="Got it" onPress={() => fly(1)} />
+        <Btn mod={MOD} icon="Check" title="Got It" onPress={() => fly(1)} />
       </Row>
     </View>
   );
 }
 
 /* ---------- screen ---------- */
-const TITLES = { bank: "Question bank", t1: TESTS.t1.title, t2: TESTS.t2.title, t3: TESTS.t3.title, ngn: "NGN Case Practice", flash: "Flashcards" };
+const TITLES = { bank: "Question Bank", t1: TESTS.t1.title, t2: TESTS.t2.title, t3: TESTS.t3.title, ngn: "NGN Case Practice", flash: "Flashcards" };
 const ALIAS = { diag: "t1", cat: "t3" };   // older links
 
 export default function Quiz() {
@@ -944,7 +947,7 @@ export default function Quiz() {
   } else if (mode === "t3") {
     body = <Test3 onDone={record} />;
   } else if (mode === "ngn") {
-    body = <ProGate mod={MOD} feature="NGN case studies" desc="Eight unfolding Next Generation NCLEX cases with chart tabs, bowtie and trend items, all six clinical-judgment steps and full rationales."><NGN onDone={record} /></ProGate>;
+    body = <ProGate mod={MOD} feature="NGN Case Studies" desc="Eight unfolding Next Generation NCLEX cases with chart tabs, bowtie and trend items, all six clinical-judgment steps and full rationales."><NGN onDone={record} /></ProGate>;
   } else {
     body = <Flashcards />;
   }

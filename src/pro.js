@@ -32,15 +32,15 @@ export const SPECIAL_OFFERING = extra.specialOfferingId || "special_offer";
 export const WIN_BACK_DAYS = 30;
 
 export const PRO_FEATURES = [
-  ["Route", "Personal study plan & smart review", "A daily plan paced to your exam date, led by your weakest areas; every missed question comes back after 1, 3 and 7 days"],
-  ["Network", "NGN Clinical Judgment Simulator", "A 150-item exam with Next Gen case studies picked from eight (chart tabs, bowtie and trend items), plus single-case practice"],
-  ["Languages", "OET & IELTS writing and speaking", "Letter builder, register guide and model letters; IELTS Task 1 & 2 models; timed role-plays with self-scoring"],
-  ["MessageSquare", "Interview prep", "Sample STAR answers for hospital interviews, plus visa and arrival interview prep for your country"],
-  ["Share2", "Document summary", "Share a tidy checklist of your documents, expiry dates and roadmap progress with a recruiter or college"],
-  ["BellRing", "Automated expiry alerts", "Phone reminders 90 and 30 days before IELTS/PTE scores and licenses expire"],
-  ["LayoutGrid", "Charge nurse command center", "Acuity balancer, SBAR generator, clinical ladder dossier"],
-  ["ArrowRightLeft", "Endorsement wizard (U.S.)", "Nursys transfer steps between states, e.g. NY → TX"],
-  ["Receipt", "Overtime tax shield (U.S.)", "Overtime deduction, W-4 withholding and 403(b)/457(b)/HSA calculators"],
+  ["Route", "Personal Study Plan & Smart Review", "A daily plan paced to your exam date and led by your weakest areas, with every missed question coming back after 1, 3 and 7 days"],
+  ["Network", "NGN Clinical Judgment Simulator", "A 150-item exam with Next Generation NCLEX (NGN) case studies picked from eight (chart tabs, bowtie and trend items), plus single-case practice"],
+  ["Languages", "OET & IELTS Writing and Speaking", "Letter builder, register guide and model letters; IELTS Task 1 & 2 models; timed role-plays with self-scoring"],
+  ["MessageSquare", "Interview Prep", "Sample STAR answers for hospital interviews, plus visa and arrival interview prep for your country"],
+  ["Share2", "Document Summary", "Share a tidy checklist of your documents, expiration dates and roadmap progress with a recruiter or college"],
+  ["BellRing", "Automated Expiration Alerts", "Phone reminders 90 and 30 days before IELTS/PTE scores and licenses expire"],
+  ["LayoutGrid", "Charge Nurse Command Center", "Acuity balancer, SBAR generator and clinical ladder dossier"],
+  ["ArrowRightLeft", "Endorsement Wizard (U.S.)", "Nursys transfer steps between states, e.g. NY → TX"],
+  ["Receipt", "Overtime Tax Shield (U.S.)", "Overtime deduction, W-4 withholding and 403(b)/457(b)/HSA calculators"],
 ];
 export const FREE_FEATURES = ["Roadmaps for the U.S., Canada, Australia and New Zealand", "Licensing guides for each country", "Visa bulletin and migration monitors", "Diagnostic Benchmark and Comprehensive Predictor", "Question bank, lessons, English scores and guides", "Backup & restore"];
 
@@ -74,6 +74,7 @@ export function ProProvider({ children }) {
   const [devUnlock, setDevUnlock] = useState(false);
   const [storeAvailable, setStoreAvailable] = useState(false);
   const [error, setError] = useState("");
+  const [errorDetail, setErrorDetail] = useState(""); // RevenueCat code/message, shown small on the paywall to help support
 
   const apply = (info) => {
     const m = readMembership(info);
@@ -86,14 +87,17 @@ export function ProProvider({ children }) {
   const loadOfferings = useCallback(async () => {
     if (!Purchases) return;
     try {
-      setError("");
+      setError(""); setErrorDetail("");
       const offerings = await Purchases.getOfferings();
       const cur = offerings && offerings.current;
       setPackages(cur ? cur.availablePackages : []);
       const sp = offerings && offerings.all && offerings.all[SPECIAL_OFFERING];
       setSpecialPackages(sp ? sp.availablePackages : []);
-      if (!cur || !cur.availablePackages.length) setError("No plans are available from the store right now.");
-    } catch (e) { setError("Couldn't reach the store. Check your connection and try again."); }
+      if (!cur || !cur.availablePackages.length) { setError("No plans are available from the store right now."); setErrorDetail(cur ? "Current offering has no packages" : "No current offering"); }
+    } catch (e) {
+      setError("Couldn't load plans from the store. Check your connection and try again.");
+      setErrorDetail(e ? [e.code != null ? `Code ${e.code}` : "", e.readableErrorCode || "", e.message || ""].filter(Boolean).join(" · ").slice(0, 300) : "");
+    }
   }, []);
 
   useEffect(() => {
@@ -136,13 +140,13 @@ export function ProProvider({ children }) {
       const { customerInfo } = await Purchases.purchasePackage(pkg);
       apply(customerInfo);
       const m = readMembership(customerInfo);
-      return m ? { ok: true, membership: m } : { ok: false, message: "The store finished, but Pro didn't unlock yet. Tap Restore purchases in a moment." };
+      return m ? { ok: true, membership: m } : { ok: false, message: "The purchase went through, but Pro hasn't unlocked yet. Tap Restore Purchases in a moment." };
     } catch (e) {
       if (e && (e.userCancelled || e.code === ERR.PURCHASE_CANCELLED_ERROR)) return { ok: false, cancelled: true };
-      if (e && e.code === ERR.PAYMENT_PENDING_ERROR) return { ok: false, pending: true, message: "Your purchase is waiting for approval (for example Ask to Buy or a pending payment). Pro unlocks automatically once it's approved." };
+      if (e && e.code === ERR.PAYMENT_PENDING_ERROR) return { ok: false, pending: true, message: "Your purchase is waiting for approval (for example, Ask to Buy or a pending payment). Pro unlocks automatically once it's approved." };
       if (e && e.code === ERR.PRODUCT_ALREADY_PURCHASED_ERROR) { const r = await restoreInner(); return r; }
       if (e && e.code === ERR.STORE_PROBLEM_ERROR) return { ok: false, message: "The store is having a problem. You haven't been charged. Please try again later." };
-      if (e && e.code === ERR.PURCHASE_NOT_ALLOWED_ERROR) return { ok: false, message: "Purchases aren't allowed on this device or account (check Screen Time or parental settings)." };
+      if (e && e.code === ERR.PURCHASE_NOT_ALLOWED_ERROR) return { ok: false, message: "Purchases aren't allowed on this device or account. Check Screen Time or your parental settings." };
       return { ok: false, message: "The purchase didn't go through. You haven't been charged. Please try again." };
     }
   }, [storeAvailable]);
@@ -177,7 +181,7 @@ export function ProProvider({ children }) {
 
   const isPro = !!membership || (__DEV__ && devUnlock);
   const winBack = !isPro && daysSinceInstall >= WIN_BACK_DAYS && specialPackages.length > 0;
-  const value = { isPro, membership, ready, packages, specialPackages, winBack, daysSinceInstall, buy, restore, manage, redeem, reload: loadOfferings, storeAvailable, error, devUnlock, setDevUnlock };
+  const value = { isPro, membership, ready, packages, specialPackages, winBack, daysSinceInstall, buy, restore, manage, redeem, reload: loadOfferings, storeAvailable, error, errorDetail, devUnlock, setDevUnlock };
   return <ProCtx.Provider value={value}>{children}</ProCtx.Provider>;
 }
 

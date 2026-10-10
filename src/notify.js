@@ -10,7 +10,7 @@ Notifications.setNotificationHandler({
 export async function askPermission() {
   try {
     if (Platform.OS === "android") {
-      await Notifications.setNotificationChannelAsync("expiry", { name: "Document expiry", importance: Notifications.AndroidImportance.DEFAULT });
+      await Notifications.setNotificationChannelAsync("expiry", { name: "Document expiration", importance: Notifications.AndroidImportance.DEFAULT });
     }
     const cur = await Notifications.getPermissionsAsync();
     if (cur.granted) return true;
@@ -41,7 +41,7 @@ export async function scheduleTrialReminder(endsISO, priceText) {
       identifier: TRIAL_ID,
       content: {
         title: "Your NurseBound Pro trial ends in 2 days",
-        body: `After ${fmtDate(end.toISOString().slice(0, 10))} it renews at ${priceText}. Keep it, or cancel any time in your store subscriptions.`,
+        body: `After ${fmtDate(end.toISOString().slice(0, 10))} it renews at ${priceText}. Keep it, or cancel anytime in your store subscriptions.`,
       },
       trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: at, channelId: "expiry" },
     });
@@ -64,7 +64,7 @@ export async function scheduleExpiryAlerts(docs) {
         await Notifications.scheduleNotificationAsync({
           content: {
             title: before ? `${d.title} expires in ${before} days` : `${d.title} expires today`,
-            body: before ? `Expiry date: ${fmtDate(d.expires)}. Plan your renewal now.` : "Renew it before you submit it anywhere.",
+            body: before ? `Expiration date: ${fmtDate(d.expires)}. Plan your renewal now.` : "Renew it before you submit it anywhere.",
           },
           trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: at, channelId: "expiry" },
         });

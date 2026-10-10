@@ -8,7 +8,7 @@ export const NEW_CASES = [
   /* ------------------------------------------------------------------ 5 */
   {
     id: "dka",
-    title: "Diabetic ketoacidosis",
+    title: "Diabetic Ketoacidosis",
     sub: "Missed insulin doses · Emergency department",
     area: "Pharmacological & Parenteral Therapies",
     icon: "Pill",
@@ -80,7 +80,7 @@ export const NEW_CASES = [
   /* ------------------------------------------------------------------ 6 */
   {
     id: "pph",
-    title: "Postpartum hemorrhage",
+    title: "Postpartum Hemorrhage",
     sub: "Uterine atony after vaginal birth · Labor and delivery",
     area: "Reduction of Risk Potential",
     icon: "Droplets",
@@ -135,7 +135,7 @@ export const NEW_CASES = [
         options: [["a", "Massage the fundus firmly with one hand while the other hand supports the lower uterine segment"], ["b", "Call for help and activate the obstetric hemorrhage response"], ["c", "Increase the oxytocin infusion rate per protocol"], ["d", "Start a second large-bore IV (16–18 gauge) and send a type and crossmatch"],
           ["e", "Weigh all pads and underpads to update the QBL"], ["f", "Help the client walk to the bathroom to empty her bladder"], ["g", "Give oral fluids and reassess in 30 minutes"], ["h", "Put the newborn to breast instead of increasing the oxytocin"]],
         answer: ["a", "b", "c", "d", "e"],
-        rationale: "Fundal massage with lower segment support firms the uterus without risking inversion. A hemorrhage needs more hands, uterotonics, IV access for fluids and blood, and accurate measurement (1 g of weight equals about 1 mL of blood). A dizzy, hypotensive client must not walk; if her bladder is full, catheterize her. Oral fluids may delay surgery and do not replace blood. Breastfeeding releases some oxytocin but is not a substitute for treatment during an active hemorrhage." },
+        rationale: "Fundal massage with lower-segment support firms the uterus without risking inversion. A hemorrhage needs more hands, uterotonics, IV access for fluids and blood, and accurate measurement (1 g of weight equals about 1 mL of blood). A dizzy, hypotensive client must not walk; if her bladder is full, catheterize her. Oral fluids may delay surgery and do not replace blood. Breastfeeding releases some oxytocin but is not a substitute for treatment during an active hemorrhage." },
       { id: "p6", step: "Evaluate Outcomes", kind: "matrix", stem: "Forty-five minutes after treatment: for each finding, mark whether the client has improved, not changed, or declined.", cols: ["Improved", "No change", "Declined"],
         rows: [
           ["e1", "Fundus firm, at the umbilicus, midline", "Improved"],
@@ -151,7 +151,7 @@ export const NEW_CASES = [
   /* ------------------------------------------------------------------ 7 */
   {
     id: "peds-asthma",
-    title: "Severe asthma exacerbation",
+    title: "Severe Asthma Exacerbation",
     sub: "6-year-old child · Pediatric emergency department",
     area: "Physiological Adaptation",
     icon: "Stethoscope",
@@ -186,7 +186,7 @@ export const NEW_CASES = [
         condition: { opts: [["c1", "Severe asthma exacerbation"], ["c2", "Foreign-body aspiration"], ["c3", "Croup (laryngotracheobronchitis)"], ["c4", "Anaphylaxis"]], answer: "c1" },
         actions: { opts: [["x1", "Give nebulized albuterol and ipratropium with oxygen"], ["x2", "Give the systemic corticosteroid now"], ["x3", "Lay the child flat to listen to the posterior lung fields"], ["x4", "Give a sedative to ease his anxiety"], ["x5", "Delay treatment until a peak flow reading is obtained"]], answer: ["x1", "x2"] },
         params: { opts: [["m1", "Oxygen saturation"], ["m2", "Work of breathing and air movement"], ["m3", "Bowel sounds"], ["m4", "Daily weight"], ["m5", "Urine specific gravity"]], answer: ["m1", "m2"] },
-        rationale: "A known asthmatic with a viral trigger, a missed controller and diffuse wheezing on both sides is having an asthma exacerbation. Foreign-body aspiration usually causes sudden, one-sided findings. Croup causes a barky cough and stridor in younger children. Anaphylaxis comes with hives or swelling after an exposure. A short-acting bronchodilator with ipratropium opens the airways, and an early systemic steroid treats the inflammation. Lying flat worsens breathing, sedatives can stop it, and a child this breathless cannot do a reliable peak flow. SpO₂ and work of breathing (retractions, speech, air entry) show whether treatment is working." },
+        rationale: "A child with known asthma, a viral trigger, a missed controller and diffuse wheezing on both sides is having an asthma exacerbation. Foreign-body aspiration usually causes sudden, one-sided findings. Croup causes a barky cough and stridor in younger children. Anaphylaxis comes with hives or swelling after an exposure. A short-acting bronchodilator with ipratropium opens the airways, and an early systemic steroid treats the inflammation. Lying flat worsens breathing, sedatives can stop it, and a child this breathless cannot do a reliable peak flow. SpO₂ and work of breathing (retractions, speech, air entry) show whether treatment is working." },
       { id: "a4", step: "Generate Solutions", kind: "matrix", stem: "At 09:10, after three albuterol–ipratropium treatments and oral dexamethasone, he still has severe retractions and an SpO₂ of 91% on 2 L. For each possible order, mark whether it is indicated or not indicated.", cols: ["Indicated", "Not indicated"],
         rows: [
           ["r1", "Magnesium sulfate 50 mg/kg IV over 20 minutes", "Indicated"],
@@ -221,7 +221,7 @@ export const NEW_CASES = [
   /* ------------------------------------------------------------------ 8 */
   {
     id: "stroke",
-    title: "Acute ischemic stroke",
+    title: "Acute Ischemic Stroke",
     sub: "Thrombolysis window · Emergency department",
     area: "Management of Care",
     icon: "Brain",

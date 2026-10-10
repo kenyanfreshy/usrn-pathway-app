@@ -4,11 +4,11 @@
   "pathway": {
     "title": "Registered Nurse in Canada",
     "regulator": "Each province has its own nursing college: College of Nurses of Ontario (CNO), BC College of Nurses and Midwives (BCCNM), College of Registered Nurses of Alberta (CRNA), Nova Scotia College of Nursing, CRNS (Saskatchewan), CRNM (Manitoba); in Quebec, the Ordre des infirmieres et infirmiers du Quebec (OIIQ)",
-    "summary": "You choose one province and apply to its nursing college. Ontario, BC and Alberta no longer require an NNAS report: you verify your education with an approved credential service (or, in BC, through Inspire Global Assessments), meet the English requirement, close any gaps (Ontario now requires a Transition to Practice course for IENs), pass the NCLEX-RN and the provincial jurisprudence requirement. Permanent residence usually comes through Express Entry (healthcare category draws, NOC 31301) or a provincial nominee healthcare stream, often after a job offer.",
+    "summary": "You choose one province and apply to its nursing college. Ontario, BC and Alberta no longer require an NNAS report: you verify your education with an approved credential service (or, in BC, through Inspire Global Assessments), meet the English requirement, close any gaps (Ontario now requires a Transition to Practice course for IENs), pass the NCLEX-RN and meet the provincial jurisprudence requirement. Permanent residence usually comes through Express Entry (healthcare category draws, NOC 31301) or a provincial nominee healthcare stream, often after a job offer.",
     "phases": [
       {
         "id": "ca-1",
-        "title": "Choose a province and verify your education",
+        "title": "Choose a Province and Verify Your Education",
         "sub": "NNAS is now optional in ON, BC and AB",
         "time": "varies (often 1–3 months for credential reports)",
         "cost": "varies by credential service (paid to the provider)",
@@ -16,7 +16,7 @@
           "Pick one province first. Each college has its own rules, and a license in one province can later be used to apply in another.",
           "Ontario (CNO): have your education validated by a CNO-approved provider (WES, ICAS or BCIT ICES). CNO still accepts NNAS expedited reports.",
           "British Columbia (BCCNM): NNAS is no longer required. Apply to Inspire Global Assessments and BCCNM at the same time.",
-          "Alberta (CRNA): NNAS is not needed. Use an education assessment (IQAS, WES, U of T CES, ICAS or BCIT ICES), or registration verification if you are licensed in Australia, India, Ireland, Jamaica, New Zealand, Nigeria, Philippines, UK or US.",
+          "Alberta (CRNA): NNAS is not needed. Use an education assessment (IQAS, WES, U of T CES, ICAS or BCIT ICES), or registration verification if you are licensed in Australia, India, Ireland, Jamaica, New Zealand, Nigeria, the Philippines, the UK or the U.S.",
           "Other provinces: check the college. Nova Scotia has had a faster route since 2023 for nurses licensed in 7 countries; some colleges still use NNAS.",
           "Ask your school and regulator to send documents directly; colleges reject copies you send yourself."
         ],
@@ -29,14 +29,14 @@
       },
       {
         "id": "ca-2",
-        "title": "Apply to the nursing college and prove English",
+        "title": "Apply to the Nursing College and Prove English",
         "sub": "Application, fees and language test",
         "time": "varies; CNO estimates about 12 months for the whole process",
         "cost": "CNO application CAD 433 + HST (2026); BCCNM international assessment CAD 690, currently paid by the BC government for IEN applicants; CRNA fee not verified",
         "steps": [
           "Create your own online account with the college and submit the application yourself. Colleges warn against agents who apply for you.",
           "Book an accepted English test. CELBAN minimum: Reading 8, Listening 9, Writing 7, Speaking 8.",
-          "IELTS Academic minimum (ON, BC, AB): overall 7.0, Listening 7.0, Speaking 7.0, Reading 6.5, Writing 6.5. Results are valid 2 years.",
+          "IELTS Academic minimum (ON, BC, AB): overall 7.0, Listening 7.0, Speaking 7.0, Reading 6.5, Writing 6.5. Results are valid for 2 years.",
           "Alberta accepts only CELBAN or IELTS Academic. Ontario and BC also accept OET and PTE Academic; Ontario also accepts IELTS General Training. CELPIP is not accepted by these colleges.",
           "You may be exempt if you studied nursing in English or practiced recently in an English setting (rules differ by province).",
           "Arrange employer and license verifications, plus a criminal record check."
@@ -50,7 +50,7 @@
       },
       {
         "id": "ca-3",
-        "title": "Competence assessment and bridging",
+        "title": "Competence Assessment and Bridging",
         "sub": "Close any gaps the college finds",
         "time": "varies (weeks for a course to a year or more for a full program)",
         "cost": "varies; BC offers an IEN bursary (return-of-service)",
@@ -76,8 +76,8 @@
         "cost": "CAD 360 + tax per attempt; rises to CAD 570 for registrations from Feb 1, 2027",
         "steps": [
           "Wait until your college says you are eligible. Do not register before that.",
-          "Register and pay with Pearson VUE to get your Authorization to Test (ATT). In BC it is valid 90 days.",
-          "If you already passed NCLEX-RN (for example for a U.S. license), send the NCSBN result to the college; Alberta accepts passes from 1982 on.",
+          "Register and pay with Pearson VUE to get your Authorization to Test (ATT). In BC, it is valid for 90 days.",
+          "If you already passed the NCLEX-RN (for example, for a U.S. license), send the NCSBN result to the college; Alberta accepts passes from 1982 on.",
           "If you fail, wait at least 45 days before a retake. Alberta asks transferring applicants to pass within 2 years of eligibility.",
           "You can take the exam outside the province you apply to."
         ],
@@ -89,7 +89,7 @@
       },
       {
         "id": "ca-5",
-        "title": "Jurisprudence and registration",
+        "title": "Jurisprudence and Registration",
         "sub": "Get your license to practice",
         "time": "weeks after all requirements are met",
         "cost": "CNO: jurisprudence CAD 40 + initial registration CAD 69 + HST, then CAD 368 + HST yearly (2026); BCCNM practicing license CAD 781.10/year; CRNA: CNPS liability protection CAD 88 (fee for permit not verified)",
@@ -98,7 +98,7 @@
           "Alberta: complete the two jurisprudence e-learning modules in College Connect and buy CNPS liability protection.",
           "BC: review BC practice standards, including the Indigenous Cultural Safety, Cultural Humility and Anti-racism standard, then pay the license fee.",
           "Working before full registration: Ontario Temporary Class (needs a job offer from an approved employer, works under supervision); BC provisional registration while waiting for NCLEX.",
-          "Quebec: pass the OIIQ professional exam (3 tries within 2 years). Without the required French you can get a temporary permit for up to 1 year, renewable up to 3 times, while you pass the OQLF French exam."
+          "Quebec: pass the OIIQ professional exam (3 tries within 2 years). Without the required French, you can get a temporary permit for up to 1 year, renewable up to 3 times, while you pass the OQLF French exam."
         ],
         "links": [
           ["CNO jurisprudence exam", "https://www.cno.org/become-a-nurse/examinations/jurisprudence-examination"],
@@ -109,14 +109,14 @@
       },
       {
         "id": "ca-6",
-        "title": "Work permit and permanent residence",
+        "title": "Work Permit and Permanent Residence",
         "sub": "Express Entry or a provincial nominee stream",
         "time": "varies (months to over a year)",
         "cost": "varies (IRCC and provincial fees; BC PNP Skills Immigration fee CAD 1,750)",
         "steps": [
           "Create an Express Entry profile. You need a general language test approved by IRCC and an education credential assessment for IRCC.",
           "For the healthcare category you need at least 12 months of full-time work in one listed job (RN = NOC 31301) in the last 3 years, in Canada or abroad.",
-          "Watch healthcare category draws; recent 2026 cut-offs were 467–475 CRS.",
+          "Watch healthcare category draws; recent 2026 cutoffs were 467–475 CRS.",
           "Look at provincial healthcare streams: Alberta Dedicated Health Care Pathway, BC Health Authority stream, Saskatchewan Health Talent Pathway. Most need a job offer.",
           "Ontario closed its old OINP streams in 2026; the new Ontario Workforce Priority stream (now the only open OINP stream) needs a qualifying Ontario job offer.",
           "Get a work permit (usually employer-supported) if you want to work before permanent residence."
@@ -157,7 +157,7 @@
     ]
   },
   "directory": [
-    {"name": "Alberta Health Services", "type": "Public health employer", "region": "Alberta", "model": "Main hospital and continuing care operator in Alberta; hires RNs and accepts international applicants.", "site": "https://www.albertahealthservices.ca/", "careers": "https://www.albertahealthservices.ca/careers/careers.aspx", "notes": "Since 2025 AHS operates hospitals under oversight of Acute Care Alberta; other services moved to Primary Care Alberta, Recovery Alberta and Assisted Living Alberta."},
+    {"name": "Alberta Health Services", "type": "Public health employer", "region": "Alberta", "model": "Main hospital and continuing care operator in Alberta; hires RNs and accepts international applicants.", "site": "https://www.albertahealthservices.ca/", "careers": "https://www.albertahealthservices.ca/careers/careers.aspx", "notes": "Since 2025, AHS has operated hospitals under the oversight of Acute Care Alberta; other services moved to Primary Care Alberta, Recovery Alberta and Assisted Living Alberta."},
     {"name": "Vancouver Coastal Health", "type": "Public health employer", "region": "British Columbia", "model": "Regional health authority hiring RNs in Vancouver, Richmond, North Shore and coastal areas.", "site": "https://www.vch.ca/", "careers": "https://www.vch.ca/en/careers", "notes": "Talent Acquisition team supports applicants; BC Health Authority PNP stream needs a health authority job offer."},
     {"name": "Fraser Health", "type": "Public health employer", "region": "British Columbia", "model": "Largest BC health authority (Fraser Valley and Lower Mainland); hires RNs.", "site": "https://www.fraserhealth.ca/", "careers": "https://careers.fraserhealth.ca/", "notes": "Apply through the careers site."},
     {"name": "Interior Health", "type": "Public health employer", "region": "British Columbia", "model": "Health authority for BC's interior; has an information page for international applicants.", "site": "https://www.interiorhealth.ca/", "careers": "https://www.interiorhealth.ca/careers/information-for-international-applicants", "notes": "Directs nurses to BCCNM and Health Match BC; lists rural recruitment incentives."},
@@ -166,15 +166,15 @@
     {"name": "Nova Scotia Health", "type": "Public health employer", "region": "Nova Scotia", "model": "Province-wide health authority hiring nurses.", "site": "https://www.nshealth.ca/", "careers": "https://jobs.nshealth.ca/", "notes": "Apply through the jobs portal."},
     {"name": "University Health Network", "type": "Public health employer", "region": "Ontario", "model": "Large Toronto academic hospital network hiring RNs.", "site": "https://www.uhn.ca/", "careers": "https://www.uhn.ca/corporate/Careers/pages/default.aspx", "notes": "Ontario hospitals are publicly funded but hire directly."},
     {"name": "London Health Sciences Centre", "type": "Public health employer", "region": "Ontario", "model": "Takes part in SPEP supervised practice (at least 140 hours) and works with the CARE Centre for IENs; has a new-nurse program.", "site": "https://www.lhsc.on.ca/", "careers": "https://www.lhsc.on.ca/nursing/internationally-educated-nurses", "notes": "Also hires IENs in non-nursing roles while they finish CNO registration."},
-    {"name": "Ontario Health – Supervised Practice Experience Partnership (SPEP)", "type": "Government program", "region": "Ontario", "model": "Matches IENs with CNO-approved employers for supervised practice that can meet CNO's evidence-of-practice requirement.", "site": "https://www.ontariohealth.ca/", "careers": "https://www.ontariohealth.ca/news/ontario-health-boosts-nursing-workforce-with-innovative-program", "notes": "More than 5,500 IENs completed it since 2022; about 800 employers take part."}
+    {"name": "Ontario Health – Supervised Practice Experience Partnership (SPEP)", "type": "Government program", "region": "Ontario", "model": "Matches IENs with CNO-approved employers for supervised practice that can meet CNO's evidence-of-practice requirement.", "site": "https://www.ontariohealth.ca/", "careers": "https://www.ontariohealth.ca/news/ontario-health-boosts-nursing-workforce-with-innovative-program", "notes": "More than 5,500 IENs have completed it since 2022; about 800 employers take part."}
   ],
   "bedside": {
     "title": "Practicing in Canada",
     "points": [
       ["Provincial colleges set the rules", "Your license is from one provincial college, and you follow its practice standards (for example CNO or BCCNM standards). The CNA Code of Ethics guides all nurses."],
-      ["RN vs RPN/LPN", "Ontario has RPNs and other provinces have LPNs. They are regulated nurses with a smaller scope; RNs take the more complex, unstable patients and coordinate care."],
+      ["RN vs. RPN/LPN", "Ontario has RPNs and other provinces have LPNs. They are regulated nurses with a smaller scope; RNs take the more complex, unstable patients and coordinate care."],
       ["Publicly funded system", "Most hospital and doctor care is paid by the province, so patients rarely pay at the bedside. Most RNs work for health authorities or public hospitals and are often in a union."],
-      ["Privacy laws", "Health information is protected by provincial laws, such as PHIPA in Ontario, and by PIPEDA federally. Only access charts of patients in your care."],
+      ["Privacy laws", "Health information is protected by provincial laws, such as PHIPA in Ontario, and by PIPEDA federally. Access only the charts of patients in your care."],
       ["Handover and teamwork", "Structured handover (often SBAR) at shift change and transfer is expected. Nurses speak up about safety concerns and work closely with physicians, NPs and allied health."],
       ["Cultural safety", "Indigenous cultural safety and anti-racism are part of practice standards (BC has a specific standard). Expect training on this."],
       ["Scope limits and controlled acts", "What you can do depends on your province and class. For example, Ontario Temporary Class RNs work under supervision and cannot perform controlled acts without an order."]
@@ -213,7 +213,7 @@
     ["Qualifications Quebec: nurse profession sheet", "https://qualificationsquebec.com/profession/infirmiers-autorises-infirmieres-autorisees-et-infirmiers-psychiatriques-autorises-infirmieres-psychiatriques-autorisees/"]
   ],
   "uncertain": [
-    "A December 2025 healthcare draw reported in the news was removed: the official IRCC rounds data that could be read only covers February 2026 onward. Draws listed are confirmed in IRCC data (latest round checked: 2026-10-01).",
+    "A December 2025 healthcare draw reported in the news was removed: the official IRCC rounds data that could be read covers only February 2026 onward. Draws listed are confirmed in IRCC data (latest round checked: 2026-10-01).",
     "ontario.ca confirms Workforce Priority is the only open OINP stream, but does not give the exact date old streams closed or EOI registration opened. Reports of more streams later in 2026 are unconfirmed.",
     "BC PNP Health Authority stream intake status and any 2026 priority-occupation details were not stated on the official page.",
     "CRNA application/permit fees and BCCNM/Inspire competency assessment fees were not verified. CNO says practice within the last 3 years is part of evidence of practice; the exact rule was not re-read.",

@@ -46,6 +46,7 @@ function Shell() {
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="paywall" options={{ presentation: "modal" }} />
         <Stack.Screen name="settings" options={{ presentation: "modal" }} />
+        <Stack.Screen name="references" options={{ presentation: "modal" }} />
         <Stack.Screen name="badges" options={{ presentation: "modal" }} />
       </Stack>
       <Overlays />

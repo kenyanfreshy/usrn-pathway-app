@@ -28,7 +28,7 @@ export const dueCount = (state) => dueReview(state).filter((id) => BY_ID[id]).le
 export function startReview(state, max = 25) {
   const ids = dueReview(state).filter((id) => BY_ID[id]).slice(0, max);
   if (!ids.length) return false;
-  setRun({ items: shuffle(ids.map((id) => BY_ID[id])).map(shuffleItem), tutor: true, label: "Smart review" });
+  setRun({ items: shuffle(ids.map((id) => BY_ID[id])).map(shuffleItem), tutor: true, label: "Smart Review" });
   router.push({ pathname: "/quiz", params: { mode: "bank" } });
   return true;
 }
@@ -40,7 +40,7 @@ export function startPractice(state, cats, count) {
   const unseen = shuffle(pool.filter((q) => !st[q.id])), missed = shuffle(pool.filter((q) => st[q.id] && !st[q.id][2])), rest = shuffle(pool.filter((q) => st[q.id] && st[q.id][2]));
   const items = [...unseen, ...missed, ...rest].slice(0, Math.max(1, count)).map(shuffleItem);
   if (!items.length) return false;
-  setRun({ items, tutor: true, label: "Study plan" });
+  setRun({ items, tutor: true, label: "Study Plan" });
   router.push({ pathname: "/quiz", params: { mode: "bank" } });
   return true;
 }
@@ -57,10 +57,10 @@ export function lastDays(state, n = 7) {
 
 /** Plan stage from days until the exam. */
 export function stageOf(days) {
-  if (days === null || days === undefined) return { id: "nodate", title: "Set your exam date", sub: "Add your test date so the plan can pace itself." };
-  if (days < 0) return { id: "after", title: "Exam date has passed", sub: "Update your test date, or keep practicing to stay sharp." };
-  if (days <= 21) return { id: "final", title: "Final review", sub: "Full-length practice, smart review every day, and rest the day before." };
-  if (days <= 60) return { id: "build", title: "Build and test", sub: "Work your weak areas daily and take a benchmark every week." };
+  if (days === null || days === undefined) return { id: "nodate", title: "Set Your Exam Date", sub: "Add your test date so the plan can pace itself." };
+  if (days < 0) return { id: "after", title: "Your Exam Date Has Passed", sub: "Update your test date, or keep practicing to stay sharp." };
+  if (days <= 21) return { id: "final", title: "Final Review", sub: "Full-length practice and smart review every day, then rest the day before." };
+  if (days <= 60) return { id: "build", title: "Build and Test", sub: "Work your weak areas daily and take a benchmark every week." };
   return { id: "found", title: "Foundation", sub: "Cover every Client Needs area and build a daily habit." };
 }
 

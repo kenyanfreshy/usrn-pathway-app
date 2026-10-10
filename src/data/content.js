@@ -7,7 +7,7 @@ export const PHASES = [
   { id: "att", n: 2, title: "State Board Eligibility", sub: "Authorization to Test (ATT)", cost: [300, 550], time: "4–12 weeks",
     steps: ["Pick an exam state (compare them on the Boards tab)", "Submit the board application and fee", "Complete fingerprints / background check if the board requires it", "Register with Pearson VUE ($200) and receive your ATT"] },
   { id: "nclex", n: 3, title: "NCLEX-RN", sub: "Pearson VUE · Next Generation format", cost: [0, 150], time: "ATT window ≈ 90 days (varies by board)",
-    steps: ["Schedule a test date inside your ATT window", "Complete all three benchmark exams on the Exam tab", "Sit the NCLEX-RN", "Receive results and your license number"] },
+    steps: ["Schedule a test date inside your ATT window", "Complete all three benchmark exams on the Exam tab", "Sit for the NCLEX-RN", "Receive results and your license number"] },
   { id: "eng", n: 4, title: "English Proficiency", sub: "IELTS Academic · PTE Academic · OET", cost: [200, 480], time: "Results in 2–14 days",
     steps: ["Confirm the minimum scores TruMerit accepts for VisaScreen", "Book the test and prepare", "Achieve the required scores", "Log the result date in the Vault (scores are valid 2 years for VisaScreen)"] },
   { id: "visa", n: 5, title: "VisaScreen", sub: "Healthcare worker certificate", cost: [540, 540], time: "6–12 weeks",
@@ -59,7 +59,7 @@ export const DIAG = [
       { id: "b", text: "Teaching a client how to use an incentive spirometer", why: "Initial teaching requires RN judgment." },
       { id: "c", text: "Evaluating a client's response to IV morphine", why: "Evaluating a medication response is assessment." },
       { id: "d", text: "Measuring vital signs of a stable client on post-op day 3", why: "Routine data collection on a stable, predictable client is within UAP scope." } ],
-    takeaway: "Remember: Assess, Teach, Evaluate and unstable clients stay with the RN." },
+    takeaway: "Remember: assessment, teaching, evaluation and unstable clients stay with the RN." },
   { id: "d4", cat: "Pharmacological Therapies", stem: "Before giving digoxin 0.125 mg, the nurse finds an apical pulse of 52/min. What should the nurse do?", answer: "a",
     options: [
       { id: "a", text: "Hold the dose and notify the provider", why: "Most protocols hold digoxin for apical HR < 60 in adults; bradycardia may signal toxicity." },
@@ -102,7 +102,7 @@ export const CAT_POOL = [
     { id: "a", text: "78-year-old started on a diuretic, up to the bathroom at night", why: "Age, nocturia and new diuretic combine to raise fall risk." },
     { id: "b", text: "30-year-old ambulating after appendectomy", why: "Young and mobile; low risk." },
     { id: "c", text: "45-year-old admitted with migraine, pain controlled", why: "Lower risk than the older client with nocturia." },
-    { id: "d", text: "60-year-old with stable angina on bed rest", why: "Lower risk while following activity orders." } ], takeaway: "Combine factors: age, toileting urgency, new meds, and night-time." },
+    { id: "d", text: "60-year-old with stable angina on bed rest", why: "Lower risk while following activity orders." } ], takeaway: "Combine factors: age, toileting urgency, new meds and nighttime." },
   { id: "c2", d: 1, cat: "Pharmacology", stem: "A client takes warfarin. Which lab value does the nurse monitor?", answer: "c", options: [
     { id: "a", text: "aPTT", why: "aPTT monitors unfractionated heparin." },
     { id: "b", text: "Platelet count", why: "Useful for heparin-induced thrombocytopenia, not warfarin dosing." },
@@ -152,7 +152,7 @@ export const CAT_POOL = [
     { id: "a", text: "Chest X-ray before any treatment", why: "Tension pneumothorax is a clinical diagnosis; imaging delays care." },
     { id: "b", text: "Albuterol nebulizer", why: "Not a bronchospasm problem." },
     { id: "c", text: "Placing the client flat", why: "Does not relieve the tension." },
-    { id: "d", text: "Needle decompression on the right side", why: "Relieves pressure on the mediastinum, then chest tube." } ], takeaway: "Trachea shifts away from the tension pneumothorax." },
+    { id: "d", text: "Needle decompression on the right side", why: "Relieves pressure on the mediastinum. A chest tube follows." } ], takeaway: "Trachea shifts away from the tension pneumothorax." },
   { id: "c12", d: 2, cat: "Health Promotion", stem: "A client taking metformin is scheduled for a CT with iodinated contrast. What does the nurse expect?", answer: "c", options: [
     { id: "a", text: "Double the dose the day before", why: "Never adjust doses this way." },
     { id: "b", text: "No change is needed", why: "Contrast plus metformin can raise lactic acidosis risk." },
@@ -190,10 +190,10 @@ export const SAMPLE_PTS = [
 ];
 
 export const CAREERS = [
-  { id: "ccrn", title: "CCRN (adult critical care)", items: ["Hold an unencumbered U.S. RN license", "Practice hours: 1,750 hrs direct care of acutely/critically ill patients in the past 2 years (875 in the most recent year), or 2,000 hrs in 5 years with 144 in the most recent year", "Review the AACN exam blueprint (cardiovascular and pulmonary are the largest sections)", "Take 2 full practice exams", "Ask your hospital about exam-fee reimbursement and certification pay"] },
-  { id: "crna", title: "CRNA school prerequisites", items: ["BSN (or related bachelor's) with strong science GPA", "At least 1 year full-time critical care RN experience (most competitive applicants have 2+ in ICU)", "CCRN certification", "Graduate chemistry or statistics if the program requires it", "Shadow a CRNA and gather letters of recommendation", "Plan for a doctoral program (DNP/DNAP is now the entry degree)"] },
-  { id: "edu", title: "Nurse educator", items: ["Precept new graduates and log preceptor hours", "Join the unit education council", "Complete an MSN in nursing education", "Earn the NLN CNE (academic) or NPD-BC (hospital professional development)"] },
-  { id: "ur", title: "Utilization review / insurance roles", items: ["3+ years acute care, often with case management exposure", "Learn InterQual or MCG criteria", "Understand inpatient vs. observation status rules", "Consider CCM or ACM certification", "Remote roles usually require a compact (multistate) license"] },
+  { id: "ccrn", title: "CCRN (Adult Critical Care)", items: ["Hold an unencumbered U.S. RN license", "Practice hours: 1,750 hrs direct care of acutely/critically ill patients in the past 2 years (875 in the most recent year), or 2,000 hrs in 5 years with 144 in the most recent year", "Review the AACN exam blueprint (cardiovascular and pulmonary are the largest sections)", "Take 2 full practice exams", "Ask your hospital about exam-fee reimbursement and certification pay"] },
+  { id: "crna", title: "CRNA School Prerequisites", items: ["BSN (or related bachelor's) with a strong science GPA", "At least 1 year of full-time critical care RN experience (most competitive applicants have 2+ in ICU)", "CCRN certification", "Graduate chemistry or statistics if the program requires it", "Shadow a CRNA and gather letters of recommendation", "Plan for a doctoral program (DNP/DNAP is now the entry degree)"] },
+  { id: "edu", title: "Nurse Educator", items: ["Precept new graduates and log preceptor hours", "Join the unit education council", "Complete an MSN in nursing education", "Earn the NLN CNE (academic) or NPD-BC (hospital professional development)"] },
+  { id: "ur", title: "Utilization Review / Insurance Roles", items: ["3+ years of acute care, often with case management exposure", "Learn InterQual or MCG criteria", "Understand inpatient vs. observation status rules", "Consider CCM or ACM certification", "Remote roles usually require a compact (multistate) license"] },
 ];
 export const CREDIT = [
   "Get your SSN and open a U.S. checking account with direct deposit",
@@ -225,7 +225,7 @@ export const LICENSE_DOS = [
 export const LICENSE_DONTS = [
   ["Never pre-chart or falsify", "Documenting an assessment, vital sign or medication before it happens is falsification of a medical record, and Boards treat it as grounds for discipline."],
   ["Keep staffing complaints out of the chart", "\"Short-staffed, care delayed\" or \"pharmacy late again\" belongs in the hospital's incident reporting system, not the medical record. Don't mention in the chart that an incident report was filed. Protections for incident reports vary by state."],
-  ["Drop labels", "\"Combative\", \"uncooperative\", \"drunk\" and \"drug-seeking\" read as bias. Describe what you saw and heard instead: actions, measurements, quotes."],
+  ["Drop labels", "\"Combative,\" \"uncooperative,\" \"drunk\" and \"drug-seeking\" read as bias. Describe what you saw and heard instead: actions, measurements, quotes."],
   ["Never copy forward blindly", "Copying yesterday's assessment into today's note creates contradictions that are easy to expose under cross-examination. Reassess, then document what you actually found."],
 ];
 

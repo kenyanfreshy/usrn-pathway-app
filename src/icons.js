@@ -11,6 +11,7 @@ import {
   BedDouble,
   BellRing,
   BookOpen,
+  BookOpenCheck,
   Brain,
   Briefcase,
   Building2,
@@ -126,4 +127,4 @@ import {
   ClipboardList,
   LifeBuoy,
 } from "lucide-react-native";
-export const ICONS = { Activity, AlertTriangle, ArrowLeft, ArrowRight, ArrowRightLeft, ArrowUpRight, Award, BadgeCheck, BedDouble, BellRing, BookOpen, Brain, Briefcase, Building2, Calculator, CalendarCheck, CalendarClock, Car, Check, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Circle, ClipboardCheck, Clock, Copy, CreditCard, Crown, DollarSign, DoorOpen, Droplets, ExternalLink, FileCheck, FileEdit, FileText, FileWarning, Fingerprint, Flag, Flame, FlaskConical, Footprints, Gauge, Gavel, Globe, GraduationCap, HeartPulse, HelpCircle, Home, Hospital, Hourglass, IdCard, Info, Landmark, Languages, Layers, LayoutDashboard, LayoutGrid, Library, Lightbulb, ListChecks, Lock, Mail, Map, MapPin, MessageSquare, Minus, Moon, Network, PartyPopper, Phone, PhoneCall, PhoneOff, PiggyBank, Pill, Plane, PlaneLanding, Play, Plus, Receipt, RefreshCw, RotateCcw, RotateCw, Route, Scale, Search, SearchX, Send, Share2, Shield, ShieldAlert, ShieldCheck, ShieldX, Shuffle, Smartphone, Sparkles, Stamp, Stethoscope, Store, Tag, Target, Ticket, Timer, TrafficCone, Trash2, TrendingUp, Trophy, Umbrella, Undo2, Upload, User, UserCog, UserPlus, Users, Wallet, X, XCircle, Zap, CircleDot, History, TrendingDown, Syringe, ClipboardList, LifeBuoy };
+export const ICONS = { Activity, AlertTriangle, ArrowLeft, ArrowRight, ArrowRightLeft, ArrowUpRight, Award, BadgeCheck, BedDouble, BellRing, BookOpen, BookOpenCheck, Brain, Briefcase, Building2, Calculator, CalendarCheck, CalendarClock, Car, Check, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Circle, ClipboardCheck, Clock, Copy, CreditCard, Crown, DollarSign, DoorOpen, Droplets, ExternalLink, FileCheck, FileEdit, FileText, FileWarning, Fingerprint, Flag, Flame, FlaskConical, Footprints, Gauge, Gavel, Globe, GraduationCap, HeartPulse, HelpCircle, Home, Hospital, Hourglass, IdCard, Info, Landmark, Languages, Layers, LayoutDashboard, LayoutGrid, Library, Lightbulb, ListChecks, Lock, Mail, Map, MapPin, MessageSquare, Minus, Moon, Network, PartyPopper, Phone, PhoneCall, PhoneOff, PiggyBank, Pill, Plane, PlaneLanding, Play, Plus, Receipt, RefreshCw, RotateCcw, RotateCw, Route, Scale, Search, SearchX, Send, Share2, Shield, ShieldAlert, ShieldCheck, ShieldX, Shuffle, Smartphone, Sparkles, Stamp, Stethoscope, Store, Tag, Target, Ticket, Timer, TrafficCone, Trash2, TrendingUp, Trophy, Umbrella, Undo2, Upload, User, UserCog, UserPlus, Users, Wallet, X, XCircle, Zap, CircleDot, History, TrendingDown, Syringe, ClipboardList, LifeBuoy };

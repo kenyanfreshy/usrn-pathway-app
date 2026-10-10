@@ -1,4 +1,4 @@
-// "Meet your app developer / tutor" card, shown on the NCLEX and Bedside screens.
+// "Meet your app developer, tutor and author" card, shown on the NCLEX and Bedside screens.
 // Edit TUTOR to change the name, credentials or bio.
 import React, { useState } from "react";
 import { View, Pressable } from "react-native";
@@ -13,14 +13,15 @@ export const TUTOR = {
     ["APRN", "Advanced Practice Registered Nurse: licensed for advanced clinical practice beyond the RN role."],
     ["CCRN-CMC", "Critical Care Registered Nurse certification (AACN), with the Cardiac Medicine subspecialty."],
   ],
-  bio: "App developer and creator of the NCLEX practice, NGN case studies and bedside lessons in NurseBound, written for internationally educated nurses preparing for the bedside in the U.S., Canada, Australia and New Zealand.",
+  bio: "Author of multiple nursing books, and the app developer and creator of NurseBound's NCLEX-RN practice, NGN case studies and bedside lessons, all written for internationally educated nurses preparing for the bedside in the U.S., Canada, Australia and New Zealand.",
+  role: "Meet Your App Developer / Tutor / Author",
 };
 
 export function TutorCard({ mod }) {
   const t = useTheme(mod); const [open, setOpen] = useState(null);
   return (
     <Card mod={mod} style={{ gap: 12 }}>
-      <Txt v="eyebrow">Meet your app developer / tutor</Txt>
+      <Txt v="eyebrow">{TUTOR.role}</Txt>
       <Row gap={14}>
         <Grad mod={mod} style={{ width: 58, height: 58, borderRadius: 29, alignItems: "center", justifyContent: "center" }}>
           <Txt v="h2" color="#fff">{TUTOR.initials}</Txt>

@@ -27,7 +27,7 @@ export default function Driving() {
   return (
     <Screen mod={MOD}>
       <BackRow title="Driving" mod={MOD} />
-      <Hero mod={MOD} icon="Car" eyebrow="Before you travel" title="Learn to drive at home first"
+      <Hero mod={MOD} icon="Car" eyebrow="Before you travel" title="Learn to Drive at Home First"
         sub={US ? "In most of the U.S. and Canada, getting to work means driving yourself. Learning before you travel saves money, stress and favors once you land." : `${life.driving.intro} Learning before you travel saves money, stress and favors once you land.`}
         stats={[["Checklist", done + " / " + PREP.length], US ? ["Best time", "While you wait for your visa"] : ["Drives on the", left ? "Left" : "Right"]]} />
       <DestPill mod={MOD} />
@@ -45,7 +45,7 @@ export default function Driving() {
       <Card mod={MOD} accent style={{ gap: 12 }}>
         <View style={{ gap: 2 }}>
           <Txt v="eyebrow">Your prep checklist</Txt>
-          <Txt v="h2">Get road-ready before your flight</Txt>
+          <Txt v="h2">Get Road-Ready Before Your Flight</Txt>
         </View>
         <Row gap={12}>
           <View style={{ flex: 1 }}><Bar mod={MOD} pct={done / PREP.length} /></View>

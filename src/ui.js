@@ -339,7 +339,7 @@ export function Field({ label, value, onChangeText, placeholder, keyboardType, m
 /** Date entry as YYYY-MM-DD with validation (no extra native date-picker dependency). */
 export function DateField({ label, value, onChange, mod }) {
   const ok = !value || /^\d{4}-\d{2}-\d{2}$/.test(value);
-  return <Field mod={mod} label={label} value={value} onChangeText={(v) => onChange(v.replace(/[^\d-]/g, "").slice(0, 10))} placeholder="YYYY-MM-DD" keyboardType="numbers-and-punctuation" mono error={ok ? null : "Use the format 2026-05-31"} />;
+  return <Field mod={mod} label={label} value={value} onChangeText={(v) => onChange(v.replace(/[^\d-]/g, "").slice(0, 10))} placeholder="YYYY-MM-DD" keyboardType="numbers-and-punctuation" mono error={ok ? null : "Use the format YYYY-MM-DD, e.g. 2026-05-31."} />;
 }
 
 export function Sheet({ visible, onClose, title, children, mod }) {

@@ -61,7 +61,7 @@ function Plan() {
   // This week's milestone, by stage
   const milestone = !took("Diagnostic Benchmark") && !took("Diagnostic Baseline") ? { title: "Take the Diagnostic Benchmark", sub: "85 questions across all eight areas. It sets your starting point.", to: "/quiz?mode=t1" }
     : stage.id === "final" && !exams.slice(0, 5).some((e) => e.mode === "Comprehensive Predictor" || e.mode === "CAT Predictor") ? { title: "Take the Comprehensive Predictor", sub: "The adaptive exam (85–150 questions). Take it 1–2 weeks before your test.", to: "/quiz?mode=t3" }
-    : stage.id === "build" ? { title: "One NGN Clinical Judgment session this week", sub: "Practice the six clinical-judgment steps with a case study.", to: "/quiz?mode=ngn" }
+    : stage.id === "build" ? { title: "Do one NGN case study this week", sub: "Practice the six clinical-judgment steps with a case study.", to: "/quiz?mode=ngn" }
     : { title: "Review 25 flashcards", sub: "Quick recall of high-yield facts on a busy day.", to: "/quiz?mode=flash" };
   const setGoal = (g) => dispatch({ type: "plan", patch: { goal: g } });
   const toggleRemind = async () => {
@@ -92,20 +92,20 @@ function Plan() {
         <Bar mod={MOD} pct={Math.min(1, today / goal)} />
         <Task icon="RotateCcw" title={due ? `Smart review · ${Math.min(due, 25)} question${due === 1 ? "" : "s"}` : "Smart review · nothing due"}
           sub={due ? "Questions you missed, brought back at the right time. Get one right 3 times and it's mastered." : "Missed questions come back here 1, 3 and 7 days later."}
-          done={!due} action={due ? <Btn mod={MOD} small icon="Play" title="Start review" onPress={() => startReview(state)} /> : null} />
+          done={!due} action={due ? <Btn mod={MOD} small icon="Play" title="Start Review" onPress={() => startReview(state)} /> : null} />
         <Task icon="Target" title={`Practice · ${fresh || goal} questions`} sub={`Focus: ${weak.map((w) => w.cat).join(" and ")}. Unseen questions first.`}
-          done={today >= goal} action={<Btn mod={MOD} small icon="Play" title="Start practice" onPress={() => startPractice(state, weak.map((w) => w.cat), fresh || goal)} />} />
+          done={today >= goal} action={<Btn mod={MOD} small icon="Play" title="Start Practice" onPress={() => startPractice(state, weak.map((w) => w.cat), fresh || goal)} />} />
         <Task icon="Flag" title={milestone.title} sub={milestone.sub} action={<Btn mod={MOD} small kind="secondary" icon="ArrowRight" title="Open" onPress={() => { tap(); router.push(milestone.to); }} />} />
       </Card>
 
       <Card mod={MOD} style={{ gap: 10 }}>
-        <Txt v="h3">Last 7 days</Txt>
+        <Txt v="h3">Last 7 Days</Txt>
         <Bars days={lastDays(state, 7)} goal={goal} />
         <Txt v="tiny" muted>Green days met your goal.</Txt>
       </Card>
 
       <Card mod={MOD} style={{ gap: 10 }}>
-        <Txt v="h3">Accuracy by Client Needs area</Txt>
+        <Txt v="h3">Accuracy by Client Needs Area</Txt>
         {acc.map((a) => (
           <View key={a.cat} style={{ gap: 4 }}>
             <Row style={{ justifyContent: "space-between" }} gap={8}>
@@ -126,8 +126,8 @@ function Plan() {
 export default function PlanScreen() {
   return (
     <Screen mod={MOD}>
-      <BackRow mod={MOD} title="Study plan" />
-      <ProGate mod={MOD} feature="Personal study plan" desc="A daily plan paced to your exam date, built around your weakest areas, with smart review of every question you missed.">
+      <BackRow mod={MOD} title="Study Plan" />
+      <ProGate mod={MOD} feature="Personal Study Plan" desc="A daily plan paced to your exam date, built around your weakest areas, with smart review of every question you missed.">
         <Plan />
       </ProGate>
     </Screen>

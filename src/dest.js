@@ -71,7 +71,7 @@ export function DestPill({ mod }) {
         <Txt v="smallB">Headed to {info.name}</Txt>
         <Txt v="smallB" color={t.tint}>· Change</Txt>
       </Pressable>
-      <Sheet visible={open} onClose={() => setOpen(false)} title="Where are you headed?" mod={mod}>
+      <Sheet visible={open} onClose={() => setOpen(false)} title="Where Are You Headed?" mod={mod}>
         <Txt v="small" muted>The whole app follows this choice: roadmap, visa, boards, bedside, career and driving. Your progress for each country is kept.</Txt>
         <DestChoices mod={mod} onPicked={() => setOpen(false)} />
       </Sheet>
@@ -115,8 +115,8 @@ export function YourRegionCard({ mod, from }) {
             <Txt v="h3">Each {word} has its own nursing college and rules</Txt>
           </View>
         </Row>
-        <Txt v="small" muted>{from === "boards" ? `Tap "Choose this ${word}" on a college below. Your roadmap then follows that college's rules.` : `Choose where you'll register first. A license in one ${word} can later be used to apply in another.`}</Txt>
-        {from !== "boards" ? <Btn mod={mod} icon="MapPin" title={`Choose my ${word}`} onPress={() => router.push("/boards")} /> : null}
+        <Txt v="small" muted>{from === "boards" ? `Pick a college below to set your ${word}. Your roadmap then follows that college's rules.` : `Choose where you'll register first. A license in one ${word} can later be used to apply in another.`}</Txt>
+        {from !== "boards" ? <Btn mod={mod} icon="MapPin" title={`Choose My ${W}`} onPress={() => router.push("/boards")} /> : null}
       </Card>
     );
   }
@@ -137,11 +137,11 @@ export function YourRegionCard({ mod, from }) {
       {region.tags && region.tags.length ? <Row wrap gap={6}>{region.tags.map((x, k) => <Chip key={x} mod={mod} tone={k % 2 ? "acc2" : "acc"} text={x} />)}</Row> : null}
       <Row wrap gap={8}>
         {from === "boards"
-          ? <Btn mod={mod} icon="ArrowRight" title="Continue to next step" onPress={() => { tap(); router.push("/roadmap"); }} />
-          : <Btn mod={mod} small kind="secondary" icon="ArrowRightLeft" title={`Change ${word}`} onPress={() => { tap(); router.push("/boards"); }} />}
-        {region.url ? <Btn mod={mod} small kind="secondary" icon="Globe" title="College website" onPress={() => { tap(); Linking.openURL(region.url).catch(() => {}); }} /> : null}
+          ? <Btn mod={mod} icon="ArrowRight" title="Continue to Next Step" onPress={() => { tap(); router.push("/roadmap"); }} />
+          : <Btn mod={mod} small kind="secondary" icon="ArrowRightLeft" title={`Change ${W}`} onPress={() => { tap(); router.push("/boards"); }} />}
+        {region.url ? <Btn mod={mod} small kind="secondary" icon="Globe" title="College Website" onPress={() => { tap(); Linking.openURL(region.url).catch(() => {}); }} /> : null}
       </Row>
-      {from === "boards" ? <Txt v="tiny" muted>Your roadmap now follows {region.abbr || region.region}'s rules, and the first step is ticked.</Txt> : null}
+      {from === "boards" ? <Txt v="tiny" muted>Your roadmap now follows {region.abbr || region.region}'s rules, and the first step is checked off.</Txt> : null}
     </Card>
   );
 }

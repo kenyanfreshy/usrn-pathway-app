@@ -30,9 +30,9 @@ export function TaxPlaybook() {
 
       <Card mod={MOD}>
         <Chip text="New for 2025–2028" tone="acc" icon="Sparkles" />
-        <H>The overtime deduction</H>
+        <H>The Overtime Deduction</H>
         <RichBullets items={[
-          "You can deduct the **premium half** of FLSA overtime (the \"half\" in time-and-a-half), up to **$12,500** filing single.",
+          "You can deduct the **premium half** of FLSA overtime (the \"half\" in time-and-a-half), up to **$12,500** if you file as Single.",
           "It shrinks by $100 for every $1,000 of income above $150,000 and is gone at $275,000.",
           "You don't have to itemize. It cuts **federal income tax only** — Social Security, Medicare and state tax still apply.",
           "Overtime owed only under state law (like California's daily overtime), a union contract or hospital policy doesn't qualify. Shift differentials alone aren't overtime.",
@@ -47,17 +47,17 @@ export function TaxPlaybook() {
             <Select mod={MOD} label="Your top federal bracket" value={otMr} options={RATE_OPTS} onChange={setOtMr} />
           </FieldGrid>
           <Row gap={8} center={false} style={{ alignItems: "stretch" }}>
-            <ResultTile label="Deduction" value={money(ded)} sub={`premium ${money(premium)}${premium > cap ? `, capped at ${money(cap)}` : ""}`} />
+            <ResultTile label="Deduction" value={money(ded)} sub={`Premium ${money(premium)}${premium > cap ? `, capped at ${money(cap)}` : ""}`} />
             <GradTile label="Federal tax saved" value={`≈ ${money(otSave)}`} />
           </Row>
         </View>
       </Card>
 
       <Card mod={MOD}>
-        <H>Why you might owe in April</H>
+        <H>Why You Might Owe in April</H>
         <Rich v="body" text="One big overtime check usually isn't the problem — payroll treats it as if you earned that much all year and often over-withholds. The common surprise is **two W-2 jobs**, such as your staff job plus PRN or agency shifts. Each employer withholds as if it's your only income, so both apply the low brackets and the standard deduction." />
         <Grid basis={220}>
-          {[["Step 2(c)", "Two jobs with similar pay? Check the box on the W-4 for both jobs."], ["Step 4(c)", "Add a flat extra amount per paycheck, e.g. $100–$250, in your payroll portal (Workday, Kronos)."], ["IRS estimator", "Run the IRS Tax Withholding Estimator mid-year and after any big change in hours."]].map(([k, v]) => (
+          {[["Step 2(c)", "Two jobs with similar pay? Check the Step 2(c) box on the W-4 for both jobs."], ["Step 4(c)", "Enter a flat extra amount to withhold from each paycheck (e.g. $100–$250) on your W-4 or in your payroll portal (Workday, Kronos)."], ["IRS estimator", "Run the IRS Tax Withholding Estimator mid-year and after any big change in hours."]].map(([k, v]) => (
             <View key={k} style={{ backgroundColor: t.c.sunk, borderRadius: 14, padding: 12, gap: 8, flex: 1 }}>
               <Chip text={k} tone="acc2" />
               <Txt v="small">{v}</Txt>
@@ -67,7 +67,7 @@ export function TaxPlaybook() {
       </Card>
 
       <Card mod={MOD}>
-        <H>Shelter overtime with pre-tax accounts</H>
+        <H>Shelter Overtime with Pre-Tax Accounts</H>
         <View style={{ gap: 6 }}>
           {STACK.map(([a, b, c], k) => (
             <View key={a} style={{ backgroundColor: t.c.sunk, borderRadius: 12, padding: 10, gap: 2, marginLeft: k && k < 4 ? 16 : 0, borderLeftWidth: 3, borderLeftColor: c }}>
@@ -96,14 +96,14 @@ export function TaxPlaybook() {
 
       <Grid basis={300} gap={12}>
         <Card mod={MOD} style={{ flex: 1 }}>
-          <H size="h3">Roth IRA and the backdoor</H>
-          <Rich v="small" text="In 2026 you can put up to **$7,500** in an IRA. Direct Roth contributions phase out between **$153,000 and $168,000** of income for single filers — most staff nurses are below that and can contribute directly." />
+          <H size="h3">Roth IRA and the Backdoor</H>
+          <Rich v="small" text="In 2026 you can put up to **$7,500** in an IRA. Direct Roth contributions phase out between **$153,000 and $168,000** of income if you file as Single — most staff nurses are below that and can contribute directly." />
           <Rich v="small" text="Above it, a **backdoor Roth** works: contribute to a traditional IRA without deducting it, then convert to Roth. If you hold other pre-tax IRA money, the pro-rata rule makes part of the conversion taxable. File Form 8606 either way." />
         </Card>
         <Card mod={MOD} style={{ flex: 1 }}>
-          <H size="h3">For internationally educated nurses</H>
+          <H size="h3">For Internationally Educated Nurses</H>
           <RichBullets v="small" items={[
-            "As a green card holder you're taxed as a U.S. resident on your **worldwide income**, including income from home.",
+            "As a green card holder, you're taxed as a U.S. resident on your **worldwide income**, including income from home.",
             "If your foreign bank accounts total more than **$10,000** at any point in the year, file an **FBAR** (FinCEN 114).",
             "Your arrival year can be a \"dual-status\" year. Check your home country's tax treaty with the U.S.",
             "W-2 nurses can't deduct scrubs, commuting or licensing costs on their federal return, so pre-tax accounts do the heavy lifting.",

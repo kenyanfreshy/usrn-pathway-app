@@ -53,7 +53,7 @@ function Canada() {
       <Card mod={MOD} style={{ gap: 12 }}>
         <View style={{ gap: 4 }}>
           <Txt v="eyebrow">Express Entry · healthcare category</Txt>
-          <Txt v="h2">Healthcare draws in {draws[0] ? draws[0].date.slice(0, 4) : "2026"}</Txt>
+          <Txt v="h2">Healthcare Draws in {draws[0] ? draws[0].date.slice(0, 4) : "2026"}</Txt>
           <SourceLine dest="CA" />
         </View>
         <Grid min={130} gap={10}>
@@ -70,7 +70,7 @@ function Canada() {
         <LinkRow url={ee.url} label="IRCC rounds of invitations" />
       </Card>
 
-      <SectionTitle eyebrow="Provincial nominee programs" title="Healthcare streams by province" sub="Provinces can nominate nurses for permanent residence, usually with a job offer. Status changes often." />
+      <SectionTitle eyebrow="Provincial nominee programs" title="Healthcare Streams by Province" sub="Provinces can nominate nurses for permanent residence, usually with a job offer. Status changes often." />
       <Seg mod={MOD} value={prov} onChange={setProv} options={provinces.map((p) => ({ id: p, label: p }))} />
       {m.pnp.filter((p) => prov === "All" || p.province === prov).map((p) => (
         <Card key={p.province + p.stream} mod={MOD} style={{ gap: 8 }}>
@@ -83,7 +83,7 @@ function Canada() {
       ))}
       {m.notes && m.notes.length ? (
         <Card mod={MOD} accent style={{ gap: 8 }}>
-          <Row gap={8}><Icon name="Lightbulb" size={18} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>Good to know</Txt></Row>
+          <Row gap={8}><Icon name="Lightbulb" size={18} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>Good to Know</Txt></Row>
           <Bullets items={m.notes} />
         </Card>
       ) : null}
@@ -99,7 +99,7 @@ function Australia() {
       <Card mod={MOD} style={{ gap: 12 }}>
         <View style={{ gap: 4 }}>
           <Txt v="eyebrow">SkillSelect · points-tested visas</Txt>
-          <Txt v="h2">Points and invitations</Txt>
+          <Txt v="h2">Points and Invitations</Txt>
           <SourceLine dest="AU" />
         </View>
         <Grad mod={MOD} style={{ borderRadius: 16, padding: 14, flexDirection: "row", alignItems: "center", gap: 12 }}>
@@ -138,7 +138,7 @@ function Australia() {
         </Grid>
       </Card>
 
-      <SectionTitle eyebrow="State and territory nomination" title="190 and 491 programs" sub="Each state runs its own program. They reset every July and can close early." />
+      <SectionTitle eyebrow="State and territory nomination" title="190 and 491 Programs" sub="Each state runs its own program. They reset every July and can close early." />
       <Grid min={260} gap={10}>
         {m.states.map((s, k) => (
           <Card key={s.state} mod={MOD} style={{ gap: 6, flexGrow: 1 }}>
@@ -162,7 +162,7 @@ function Australia() {
       ) : null}
       {m.notes && m.notes.length ? (
         <Card mod={MOD} accent style={{ gap: 8 }}>
-          <Row gap={8}><Icon name="Lightbulb" size={18} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>Good to know</Txt></Row>
+          <Row gap={8}><Icon name="Lightbulb" size={18} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>Good to Know</Txt></Row>
           <Bullets items={m.notes} />
         </Card>
       ) : null}
@@ -206,7 +206,7 @@ function NewZealand() {
       </Card>
       {m.notes && m.notes.length ? (
         <Card mod={MOD} accent style={{ gap: 8 }}>
-          <Row gap={8}><Icon name="Lightbulb" size={18} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>Good to know</Txt></Row>
+          <Row gap={8}><Icon name="Lightbulb" size={18} color={t.tint} /><Txt v="h3" style={{ flex: 1 }}>Good to Know</Txt></Row>
           <Bullets items={m.notes} />
         </Card>
       ) : null}
@@ -215,9 +215,9 @@ function NewZealand() {
 }
 
 export const COUNTRY_HERO = {
-  CA: { title: "Canada migration monitor", sub: "Express Entry healthcare draws and provincial nominee streams for registered nurses (NOC 31301)." },
-  AU: { title: "Australia migration monitor", sub: "SkillSelect points, nursing occupations, state nomination and the Skills in Demand visa." },
-  NZ: { title: "New Zealand migration monitor", sub: "Green List Straight to Residence, the Accredited Employer Work Visa and the Skilled Migrant Category." },
+  CA: { title: "Canada Migration Monitor", sub: "Express Entry healthcare draws and provincial nominee streams for registered nurses (NOC 31301)." },
+  AU: { title: "Australia Migration Monitor", sub: "SkillSelect points, nursing occupations, state nomination and the Skills in Demand visa." },
+  NZ: { title: "New Zealand Migration Monitor", sub: "Green List Straight to Residence, the Accredited Employer Work Visa and the Skilled Migrant Category." },
 };
 
 export function CountryMonitor({ dest }) {
@@ -239,7 +239,7 @@ export function CountryDirectory({ dest }) {
   const list = d.directory.filter((x) => f === "All" || x.type === f);
   return (
     <View style={{ gap: 12 }}>
-      <SectionTitle eyebrow={`Employers and programs · ${info.flag} ${info.short}`} title="Where nurses get hired"
+      <SectionTitle eyebrow={`Employers and programs · ${info.flag} ${info.short}`} title="Where Nurses Get Hired"
         sub="Public health employers, private hospital groups and government programs that recruit or support internationally educated nurses. Links go to each organization's own site." />
       <Seg mod={MOD} value={f} onChange={setF} options={types.map((x) => ({ id: x, label: x === "All" ? "All" : TYPE_LABEL[x] || x, icon: TYPE_ICON[x] }))} />
       {list.map((x) => {
@@ -267,7 +267,7 @@ export function CountryDirectory({ dest }) {
         );
       })}
       <Card mod={MOD} style={{ gap: 10, borderColor: t.c.warn }}>
-        <Row gap={8}><Icon name="AlertTriangle" size={20} color={t.c.warn} /><Txt v="h3" style={{ flex: 1 }}>Recruitment safety</Txt></Row>
+        <Row gap={8}><Icon name="AlertTriangle" size={20} color={t.c.warn} /><Txt v="h3" style={{ flex: 1 }}>Recruitment Safety</Txt></Row>
         <Bullets items={[
           "Public employers and government programs don't charge you to apply or to be hired.",
           "Never pay a recruiter for a job offer, and never hand over your passport.",
@@ -276,7 +276,7 @@ export function CountryDirectory({ dest }) {
         ]} />
       </Card>
       {d.uncertain && d.uncertain.length ? (
-        <Accordion mod={MOD} title="What we couldn't confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
+        <Accordion mod={MOD} title="What We Couldn't Confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
           <Bullets items={d.uncertain} />
         </Accordion>
       ) : null}

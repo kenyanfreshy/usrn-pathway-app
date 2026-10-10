@@ -36,7 +36,7 @@ export function PhaseTimer({ phases, mod }) {
       </View>
       <Row wrap gap={8}>
         {!done ? <Btn mod={mod} small icon={on ? "Timer" : "Play"} title={on ? "Pause" : i === 0 && left === phases[0][1] ? "Start" : "Resume"} onPress={() => setOn(!on)} /> : null}
-        {on && i < phases.length - 1 ? <Btn mod={mod} small kind="secondary" icon="ArrowRight" title={`Skip to ${phases[i + 1][0].toLowerCase()}`} onPress={() => { setI(i + 1); setLeft(phases[i + 1][1]); }} /> : null}
+        {on && i < phases.length - 1 ? <Btn mod={mod} small kind="secondary" icon="ArrowRight" title={`Skip to ${phases[i + 1][0]}`} onPress={() => { setI(i + 1); setLeft(phases[i + 1][1]); }} /> : null}
         <Btn mod={mod} small kind="secondary" icon="RotateCcw" title="Reset" onPress={reset} />
       </Row>
       <Txt v="tiny" muted>{phases.map(([l, s]) => `${l} ${mmss(s)}`).join(" → ")}</Txt>

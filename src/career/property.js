@@ -12,21 +12,21 @@ export function AutoSection() {
   return (
     <View style={{ gap: 14 }}>
       <Card mod={MOD}>
-        <H>Why it matters for nurses</H>
+        <H>Why It Matters for Nurses</H>
         <RichBullets items={[
           "Every state except New Hampshire requires liability insurance to drive. Driving uninsured can mean fines, a suspended license and paying for a crash yourself.",
-          "Because most U.S. hospital commutes require driving, exhausted post-night-shift drives present a serious accident risk—making comprehensive auto coverage essential to protect your health, your hard-earned savings, and your professional future.",
+          "Most U.S. hospital jobs mean commuting by car, and driving home exhausted after a night shift is a serious accident risk. Strong auto coverage is essential to protect your health, your hard-earned savings and your career.",
           "One serious at-fault crash can lead to a lawsuit far bigger than state-minimum coverage. Without enough liability insurance, your wages and savings are exposed.",
         ]} />
       </Card>
       <Card mod={MOD}>
-        <H>Why your first quote may be high</H>
+        <H>Why Your First Quote May Be High</H>
         {[["No U.S. driving history", "Insurers often treat you like a new driver even after years of driving abroad. Ask each insurer whether it considers foreign driving records — some do."], ["Thin credit file", "In most states your credit history affects your rate. The credit-building steps on the Wealth tab help here too."], ["Foreign license", "Get your state driver's license as soon as you can. Many states only accept a foreign license for a limited time after you become a resident."]].map(([ti, d]) => (
           <Tile key={ti} title={ti} desc={d} />
         ))}
       </Card>
       <Card mod={MOD}>
-        <H>What a policy covers</H>
+        <H>What a Policy Covers</H>
         <Grid basis={250}>
           {AUTO_COVER.map(([ti, tag, d, tone]) => <CoverTile key={ti} title={ti} tag={tag} desc={d} tone={tone} />)}
         </Grid>
@@ -63,7 +63,7 @@ function PmiCalc() {
   const totalPmi = needs && s.m78 ? pmiMo * s.m78 : 0;
   return (
     <Card mod={MOD}>
-      <H eyebrow="Conventional loan" sub="See what PMI adds each month and when it comes off. PMI rates typically run about 0.3%–1.5% of the loan a year, depending on credit score and down payment.">PMI calculator</H>
+      <H eyebrow="Conventional loan" sub="See what PMI adds each month and when it comes off. PMI rates typically run about 0.3%–1.5% of the loan a year, depending on credit score and down payment.">PMI Calculator</H>
       <FieldGrid>{PMI_FIELDS.map(([k, l]) => <NumField key={k} label={l} value={raw[k]} onChange={(x) => setRaw({ ...raw, [k]: x })} />)}</FieldGrid>
       <View style={{ backgroundColor: t.c.sunk, borderRadius: 18, padding: 14, gap: 10 }}>
         <Row gap={8} center={false} style={{ alignItems: "stretch" }}>
@@ -74,12 +74,12 @@ function PmiCalc() {
           <View style={{ gap: 8 }}>
             <GradTile big label="PMI adds" value={money(pmiMo)} suffix="/mo" sub={`≈ ${money(totalPmi)} in total before it ends on its own`} />
             <Row gap={10} style={{ paddingVertical: 6 }}>
-              <Txt v="small" muted style={{ flex: 1 }}>You can ask to remove it (80% of original value)</Txt>
+              <Txt v="small" muted style={{ flex: 1 }}>You can ask to remove it (at 80% of the original value)</Txt>
               <Txt v="mono" style={{ fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{yrsMo(s.m80)}</Txt>
             </Row>
             <View style={{ height: 1, backgroundColor: t.c.line }} />
             <Row gap={10} style={{ paddingVertical: 6 }}>
-              <Txt v="small" muted style={{ flex: 1 }}>It must end automatically (78%)</Txt>
+              <Txt v="small" muted style={{ flex: 1 }}>It must end automatically (at 78%)</Txt>
               <Txt v="mono" style={{ fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{yrsMo(s.m78)}</Txt>
             </Row>
             <Txt v="tiny" muted>Extra payments toward principal reach these dates sooner. Taxes and homeowners insurance are not included.</Txt>
@@ -94,7 +94,7 @@ export function HomeSection() {
   return (
     <View style={{ gap: 14 }}>
       <Card mod={MOD}>
-        <H sub="These names get mixed up all the time. Only one of them protects you directly.">Three different "mortgage insurances"</H>
+        <H sub="These names get mixed up all the time. Only one of them protects you directly.">Three Different "Mortgage Insurances"</H>
         <Grid basis={250}>
           {[["Mortgage insurance (PMI / MIP)", "Protects the lender", "crit", "Required on a conventional loan with less than 20% down (PMI) and on FHA loans (MIP). You pay for it, but it only covers the lender if you stop paying. Plan to remove it as soon as you can."],
             ["Homeowners insurance", "Protects you", "ok", "Required by your lender. Covers the house, your belongings and your liability if someone is hurt on your property. Floods and earthquakes need separate policies."],
@@ -106,7 +106,7 @@ export function HomeSection() {
       <PmiCalc />
       <Grid basis={300} gap={12}>
         <Card mod={MOD} style={{ flex: 1 }}>
-          <H size="h3">FHA loans work differently</H>
+          <H size="h3">FHA Loans Work Differently</H>
           <RichBullets v="small" items={[
             "FHA allows as little as 3.5% down, which helps nurses still building savings.",
             "You pay an upfront MIP plus an annual MIP. With less than 10% down, the annual MIP lasts for the life of the loan; with 10% or more, it ends after 11 years.",
@@ -114,11 +114,11 @@ export function HomeSection() {
           ]} />
         </Card>
         <Card mod={MOD} style={{ flex: 1 }}>
-          <H size="h3">Renting first? Get renters insurance</H>
+          <H size="h3">Renting First? Get Renters Insurance</H>
           <Txt v="small">Most nurses rent when they first arrive. Your landlord's policy covers the building, not your things. Renters insurance covers your belongings against theft and fire, pays for a hotel if your unit becomes unlivable, and covers your liability. It's usually inexpensive, and bundling it with car insurance can lower both.</Txt>
         </Card>
         <Card mod={MOD} style={{ flex: 1 }}>
-          <H size="h3">Before you buy a home</H>
+          <H size="h3">Before You Buy a Home</H>
           <RichBullets v="small" items={[
             "Green card holders can get conventional and FHA mortgages. Lenders will check your work history, credit and permanent resident card.",
             "Get homeowners insurance quotes before you make an offer — in some areas, cost or availability can change the math.",

@@ -15,9 +15,9 @@ const toolsFor = (dest) => {
     { to: "/boards", mod: "boards", icon: "Landmark", title: W.boards, desc: W.boardsDesc },
     { to: "/bedside", mod: "bedside", icon: "Stethoscope", title: "Bedside", desc: US ? "6 U.S. hospital lessons, SBAR builder, charting & license protection" : `6 bedside lessons with ${name} notes, handover, charting & liability protection` },
     { to: "/career", mod: "career", icon: "TrendingUp", title: "Career", desc: US ? "Charge tools, careers, money & insurance" : `Career paths, pay, tax & health cover in ${name}` },
-    { to: "/driving", mod: "drive", icon: "Car", title: "Driving", desc: US ? "Why to learn before you travel" : `Licenses in ${name} & why to learn first` },
+    { to: "/driving", mod: "drive", icon: "Car", title: "Driving", desc: US ? "Why to learn to drive before you travel" : `Licenses in ${name} & why to learn first` },
     { to: "/interview", mod: "career", icon: "MessageSquare", title: "Interviews", desc: US ? "Job interviews & the visa interview" : "Job interviews & arriving" },
-    { to: "/plan", mod: "nclex", icon: "Route", title: "Study plan", desc: "Daily plan to your exam date & smart review" },
+    { to: "/plan", mod: "nclex", icon: "Route", title: "Study Plan", desc: "Daily plan to your exam date & smart review" },
   ];
 };
 
@@ -65,8 +65,8 @@ function Disclaimer() {
     <View accessibilityRole="text" style={{ flexDirection: "row", gap: 12, padding: 16, borderRadius: 18, backgroundColor: t.c.warnSoft, borderWidth: 2, borderColor: t.c.warn }}>
       <View style={{ width: 36, height: 36, borderRadius: 11, backgroundColor: t.c.warn, alignItems: "center", justifyContent: "center" }}><Icon name="AlertTriangle" size={20} color={t.c.surface} /></View>
       <View style={{ flex: 1, gap: 4 }}>
-        <Txt v="h3" color={t.c.warn}>For educational purposes only</Txt>
-        <Txt v="smallB">This app is not legal, immigration, medical or financial advice. Your progress is saved on your device.</Txt>
+        <Txt v="h3" color={t.c.warn}>For Educational Purposes Only</Txt>
+        <Txt v="smallB">This app does not give legal, immigration, medical or financial advice. Your progress is saved on your device.</Txt>
       </View>
     </View>
   );
@@ -78,7 +78,7 @@ export default function More() {
   const name = [state.profile.name, state.profile.lastName].filter(Boolean).join(" ");
   return (
     <Screen mod="more">
-      <Hero mod="more" icon="LayoutGrid" eyebrow="NurseBound" title="More tools" sub={dest === "US" ? "State boards, bedside skills, career and money, and getting on the road." : `Licensing, bedside skills, career and money, and getting on the road in ${destOf(dest).name}.`}
+      <Hero mod="more" icon="LayoutGrid" eyebrow="NurseBound" title="More Tools" sub={dest === "US" ? "State boards, bedside skills, career and money, and getting on the road." : `Licensing, bedside skills, career and money, and getting on the road in ${destOf(dest).name}.`}
         stats={[["Level", lvl.name], ["XP", m.xp], ["Badges", `${seen}/${BADGES.length}`]]} />
 
       <DestPill mod="more" />
@@ -89,9 +89,9 @@ export default function More() {
       <Card mod="more" padding={6} style={{ gap: 0 }}>
         <LinkRow icon="Award" title="Achievements" sub={`${seen} of ${BADGES.length} badges unlocked`} to="/badges" colors={["#d97706", "#ea580c"]} />
         <View style={{ height: 1, backgroundColor: t.c.line, marginHorizontal: 12 }} />
-        <LinkRow icon="UserCog" title="Profile & settings" sub={name ? `${name} · dates, theme and reset` : "Your name, dates, theme and reset"} to="/settings" />
+        <LinkRow icon="UserCog" title="Profile & Settings" sub={name ? `${name} · dates, theme and reset` : "Your name, dates, theme and reset"} to="/settings" />
         <View style={{ height: 1, backgroundColor: t.c.line, marginHorizontal: 12 }} />
-        <LinkRow icon="Crown" title="NurseBound Pro" sub={isPro ? "You're a Pro member — thank you" : "NGN case studies, expiry alerts, endorsement wizard and more"} to="/paywall" colors={["#f59e0b", "#db2777"]}
+        <LinkRow icon="Crown" title="NurseBound Pro" sub={isPro ? "You're a Pro member — thank you" : "NGN case studies, expiration alerts, endorsement wizard and more"} to="/paywall" colors={["#f59e0b", "#db2777"]}
           right={isPro ? <View style={{ backgroundColor: "#f59e0b", paddingHorizontal: 8, paddingVertical: 3, borderRadius: 99 }}><Txt v="eyebrow" color="#1a1204">Pro</Txt></View> : null} />
       </Card>
 

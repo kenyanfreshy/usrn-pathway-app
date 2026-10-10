@@ -24,7 +24,7 @@ function PayCalc() {
   return (
     <View style={{ gap: 14 }}>
       <FieldGrid>{PAY_FIELDS.map(([k, l]) => <NumField key={k} label={l} value={raw[k]} onChange={(v) => setRaw({ ...raw, [k]: v })} />)}</FieldGrid>
-      <GradTile big label="Estimated gross annual" value={money(total)} sub="Before tax and overtime. Example figures, not a job offer." />
+      <GradTile big label="Estimated gross annual pay" value={money(total)} sub="Before tax and overtime. Example figures, not a job offer." />
       {parts.map(([l, v]) => <BarRow key={l} label={l} value={v} pct={total ? v / total : 0} />)}
       <Note mod={MOD} tone="acc" icon="MapPin">Geographic arbitrage: the same rate goes further in a lower-cost metro, and some high-cost states pay enough to offset rent. Compare take-home after rent, not just the hourly rate.</Note>
     </View>
@@ -39,7 +39,7 @@ export function Wealth() {
       <Note mod={MOD} tone="warn" icon="AlertTriangle">General education, not personalized financial advice. Talk to a licensed advisor or tax professional for your situation.</Note>
 
       <Card mod={MOD}>
-        <IconHead icon="CreditCard">Credit-building roadmap · secured card → 720+</IconHead>
+        <IconHead icon="CreditCard">Credit-Building Roadmap · Secured Card → 720+</IconHead>
         <Row gap={10}>
           <View style={{ flex: 1 }}><Bar mod={MOD} pct={done / CREDIT.length} /></View>
           <Txt v="mono" style={{ fontFamily: FONTS.monoBold }}>{done}/{CREDIT.length}</Txt>
@@ -53,14 +53,14 @@ export function Wealth() {
       </Card>
 
       <Card mod={MOD}>
-        <IconHead icon="Layers">Salary stacking calculator</IconHead>
+        <IconHead icon="Layers">Salary Stacking Calculator</IconHead>
         <PayCalc />
       </Card>
 
       <Grid basis={240} gap={12}>
         {[["PiggyBank", "401(k) / 403(b)", "Contribute at least enough to get the full employer match — it is part of your pay. The 2026 employee deferral limit is $24,500."],
-          ["HeartPulse", "HSA", "Only with a high-deductible health plan. 2026 limits: $4,400 self-only, $8,750 family. Tax-free in, growth, and out for medical costs."],
-          ["ShieldCheck", "Emergency fund", "Aim for 3–6 months of expenses before investing beyond the match — especially while your status depends on one employer."]].map(([ic, h, d]) => (
+          ["HeartPulse", "HSA", "Only with a high-deductible health plan. 2026 limits: $4,400 self-only, $8,750 family. Money goes in, grows and comes out tax-free when spent on medical costs."],
+          ["ShieldCheck", "Emergency Fund", "Aim for 3–6 months of expenses before investing beyond the match — especially while your status depends on one employer."]].map(([ic, h, d]) => (
           <Card key={h} mod={MOD} style={{ flex: 1 }}>
             <IconHead icon={ic}>{h}</IconHead>
             <Txt v="small">{d}</Txt>

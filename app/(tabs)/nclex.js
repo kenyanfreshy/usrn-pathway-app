@@ -79,15 +79,15 @@ function BankBuilder({ bank, state }) {
       <Row gap={12} center={false}>
         <IconTile mod={MOD} icon="Library" size={48} />
         <View style={{ flex: 1, gap: 2 }}>
-          <Txt v="h2">Question bank</Txt>
-          <Txt v="small" muted>{bank.length} NCLEX-RN questions with full rationales, organized by the NCSBN client-needs categories.</Txt>
+          <Txt v="h2">Question Bank</Txt>
+          <Txt v="small" muted>{bank.length} NCLEX-RN questions with full rationales, organized by the NCSBN Client Needs categories.</Txt>
         </View>
       </Row>
       <Row gap={8}>
         {[["Seen", seen], ["Mastered", mastered], ["To review", missed]].map(([k, v]) => <MiniStat key={k} k={k} v={v} />)}
       </Row>
       <Bar mod={MOD} pct={bank.length ? seen / bank.length : 0} />
-      <Seg mod={MOD} even value={filter} onChange={setFilter} options={[{ id: "all", label: "All questions" }, { id: "unseen", label: "Unseen" }, { id: "missed", label: "Missed" }]} />
+      <Seg mod={MOD} even value={filter} onChange={setFilter} options={[{ id: "all", label: "All Questions" }, { id: "unseen", label: "Unseen" }, { id: "missed", label: "Missed" }]} />
       <View style={{ gap: 8 }}>
         <Row>
           <Txt v="eyebrow" style={{ flex: 1 }}>Topics {topics.length ? `(${topics.length} selected)` : "(all)"}</Txt>
@@ -120,9 +120,9 @@ function BankBuilder({ bank, state }) {
 const MODES = [
   { id: "t1", n: "Test 1", title: TESTS.t1.title, desc: `${TESTS.t1.count} questions across all 8 Client Needs categories, with a category breakdown.`, icon: "Activity", save: "t1" },
   { id: "t2", n: "Test 2", title: TESTS.t2.title, desc: `${TESTS.t2.count} items: 4 unfolding NGN case studies (from ${NGN_CASES.length}) plus SATA and ordered-response questions.`, icon: "Network", save: "t2", pro: true },
-  { id: "t3", n: "Test 3", title: TESTS.t3.title, desc: `Adaptive like the NCLEX: 85–150 questions from a ${TESTS.t3.count}-question pool, stops at 95% confidence.`, icon: "Gauge", save: "t3" },
+  { id: "t3", n: "Test 3", title: TESTS.t3.title, desc: `Adaptive, like the NCLEX: 85–150 questions from a ${TESTS.t3.count}-question pool. Stops at 95% confidence.`, icon: "Gauge", save: "t3" },
   { id: "ngn", n: "Practice", title: "NGN Case Practice", desc: "Pick one case study and work through its six clinical-judgment steps.", icon: "Stethoscope", pro: true },
-  { id: "flash", n: "Review", title: "Flashcards", desc: "Swipe through high-yield takeaways. Right = got it, left = again.", icon: "Layers" },
+  { id: "flash", n: "Review", title: "Flashcards", desc: "Swipe through high-yield takeaways. Swipe right if you know it, left to see it again.", icon: "Layers" },
 ];
 const OLD_NAME = { t1: "Diagnostic Baseline", t2: "NGN Case Study", t3: "CAT Predictor" };
 
@@ -145,7 +145,7 @@ function Benchmarks({ state }) {
             <Txt v="small" muted style={{ flexGrow: 1 }}>{md.desc}</Txt>
             {md.id === "t1" ? <Check mod={MOD} checked={timed} onToggle={() => setTimed(!timed)} label="Timed (90 s per question)" /> : null}
             <Txt v="tiny" muted style={{ fontFamily: FONTS.mono }}>{md.id === "flash" ? `${state.flash || 0} reviewed` : saved ? "In progress — resume anytime" : l ? `Last: ${l.score}` : md.id === "ngn" ? `${NGN_CASES.length} cases` : "Not taken yet"}</Txt>
-            <Btn mod={MOD} small full icon="Play" title={md.id === "flash" ? "Open deck" : saved ? "Resume" : l ? "Retake" : "Start"} onPress={() => start(md.id)} />
+            <Btn mod={MOD} small full icon="Play" title={md.id === "flash" ? "Open Deck" : saved ? "Resume" : l ? "Retake" : "Start"} onPress={() => start(md.id)} />
           </Card>
         );
       })}
@@ -156,10 +156,10 @@ function Benchmarks({ state }) {
 /* Short, readable names for each kind of attempt (used as heatmap column headers and history filters). */
 const KINDS = [
   { id: "diag", label: "Diagnostic", match: (m) => m === "Diagnostic Benchmark" || m === "Diagnostic Baseline" },
-  { id: "ngn", label: "NGN exam", match: (m) => m === "NGN Clinical Judgment Simulator" },
+  { id: "ngn", label: "NGN Exam", match: (m) => m === "NGN Clinical Judgment Simulator" },
   { id: "pred", label: "Predictor", match: (m) => m === "Comprehensive Predictor" || m === "CAT Predictor" },
-  { id: "case", label: "Case study", match: (m) => m === "NGN Case Study" },
-  { id: "bank", label: "Question bank", match: () => true },
+  { id: "case", label: "Case Study", match: (m) => m === "NGN Case Study" },
+  { id: "bank", label: "Question Bank", match: () => true },
 ];
 const kindOf = (mode) => KINDS.find((k) => k.match(mode));
 const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -214,7 +214,7 @@ function Heatmap({ exams }) {
   return (
     <Card mod={MOD} style={{ gap: 10 }}>
       <View style={{ gap: 2 }}>
-        <Txt v="h3">Category heatmap</Txt>
+        <Txt v="h3">Category Heatmap</Txt>
         <Txt v="tiny" muted>Your last {rows.length} scored attempts, oldest → newest. Each cell is your score in that Client Needs area.</Txt>
       </View>
       <View onLayout={(e) => { const nw = Math.floor(e.nativeEvent.layout.width); if (Math.abs(nw - w) > 1) setW(nw); }}>
@@ -279,12 +279,12 @@ function History({ exams }) {
   return (
     <Card mod={MOD} style={{ gap: 10 }}>
       <View style={{ gap: 2 }}>
-        <Txt v="h3">Score history</Txt>
+        <Txt v="h3">Score History</Txt>
         <Txt v="tiny" muted>Tap an attempt to see how you did in each Client Needs area.</Txt>
       </View>
       {present.length > 1 ? <Seg mod={MOD} value={f} onChange={(v) => { setF(v); setMore(false); }} options={[{ id: "all", label: `All (${exams.length})` }, ...present.map((k) => ({ id: k.id, label: `${k.label} (${exams.filter((e) => kindOf(e.mode).id === k.id).length})` }))]} /> : null}
       {shown.map((e, i) => <HistoryRow key={(e.date || "") + e.mode + i} e={e} />)}
-      {list.length > 8 ? <Btn mod={MOD} small kind="secondary" icon={more ? "ChevronUp" : "ChevronDown"} title={more ? "Show fewer" : `Show all ${list.length}`} onPress={() => setMore(!more)} /> : null}
+      {list.length > 8 ? <Btn mod={MOD} small kind="secondary" icon={more ? "ChevronUp" : "ChevronDown"} title={more ? "Show Fewer" : `Show All ${list.length}`} onPress={() => setMore(!more)} /> : null}
     </Card>
   );
 }
@@ -317,12 +317,12 @@ function StudyCard({ state }) {
       <Row gap={12} center={false}>
         <IconTile mod={MOD} icon="Route" size={44} />
         <View style={{ flex: 1, gap: 2 }}>
-          <Row gap={6}><Txt v="h3">Study plan & smart review</Txt>{!isPro ? <ProBadge /> : null}</Row>
+          <Row gap={6}><Txt v="h3">Study Plan & Smart Review</Txt>{!isPro ? <ProBadge /> : null}</Row>
           <Txt v="small" muted>{days !== null && days >= 0 ? `${days} days to your exam. ` : ""}{due ? `${due} missed question${due === 1 ? "" : "s"} due for review today.` : "Missed questions come back here 1, 3 and 7 days later."}</Txt>
         </View>
       </Row>
       <Row wrap gap={8}>
-        <Btn mod={MOD} small icon="Route" title="Open my plan" onPress={() => { tap(); router.push("/plan"); }} />
+        <Btn mod={MOD} small icon="Route" title="Open My Plan" onPress={() => { tap(); router.push("/plan"); }} />
         {due ? <Btn mod={MOD} small kind="secondary" icon="RotateCcw" title={`Review ${Math.min(due, 25)}`} onPress={() => (isPro ? startReview(state) : router.push("/paywall"))} /> : null}
       </Row>
     </Card>
@@ -345,8 +345,8 @@ export default function Exam() {
         </>
       ) : (
         <>
-          <Hero mod={MOD} icon="Brain" eyebrow="Exam · NCLEX-RN" title="Benchmark exam engine"
-            sub="Three benchmark exams with 600 different questions, Next Gen case studies, a full question bank with rationales, and flashcards."
+          <Hero mod={MOD} icon="Brain" eyebrow="Exam · NCLEX-RN" title="Benchmark Exam Engine"
+            sub={`A ${String(bank.length).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}-question bank with rationales for every answer, three benchmark exams, Next Generation NCLEX (NGN) case studies and flashcards.`}
             stats={[["Question bank", bank.length], ["Attempts", state.exams.length], ["Last result", state.exams[0] ? state.exams[0].score : "—"]]} />
           <NclexFit dest={destId(state)} />
           <StudyCard state={state} />

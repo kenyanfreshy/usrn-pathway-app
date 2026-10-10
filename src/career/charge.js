@@ -25,7 +25,7 @@ function AcuityCalc() {
 
   return (
     <View style={{ gap: 14 }}>
-      <Note mod={MOD}>Each patient starts at 1 point; indicators add weight (pressors and CRRT +3; neuro checks, insulin drip, 1:1 safety, total care +2; others +1). Patients are dealt heaviest-first to the lightest assignment. Always check against your unit's ratios and staff competencies.</Note>
+      <Note mod={MOD}>Each patient starts at 1 point; indicators add weight (pressors and CRRT +3; neuro checks, insulin drip, 1:1 safety, total care +2; others +1). Patients are assigned heaviest first, each to the nurse with the lightest load so far. Always check against your unit's ratios and staff competencies.</Note>
 
       <Row gap={10} wrap style={{ justifyContent: "space-between" }}>
         <View style={{ gap: 5 }}>
@@ -36,7 +36,7 @@ function AcuityCalc() {
             <Pressable onPress={() => step(1)} disabled={nurses >= 8} accessibilityRole="button" accessibilityLabel="More nurses" style={{ paddingHorizontal: 14, paddingVertical: 10, opacity: nurses >= 8 ? 0.4 : 1 }}><Icon name="Plus" size={18} color={t.c.ink} /></Pressable>
           </Row>
         </View>
-        <Btn mod={MOD} kind="secondary" icon="Plus" title="Add patient" style={{ alignSelf: "flex-end" }}
+        <Btn mod={MOD} kind="secondary" icon="Plus" title="Add Patient" style={{ alignSelf: "flex-end" }}
           onPress={() => setPts([...pts, { id: uid(), room: String(300 + pts.length + 1), flags: {} }])} />
       </Row>
 
@@ -73,7 +73,7 @@ function AcuityCalc() {
       </View>
 
       <Row wrap gap={8}>
-        <Txt v="bodyB">Suggested assignments</Txt>
+        <Txt v="bodyB">Suggested Assignments</Txt>
         <Chip text={`Load spread ${spread} pts ${spread <= 2 ? "· balanced" : "· review"}`} tone={spread <= 2 ? "ok" : spread <= 4 ? "warn" : "crit"} />
       </Row>
       <Grid basis={150}>
@@ -131,7 +131,7 @@ If I don't see improvement or can't reach you in 15 minutes, I will call the rap
 
       <Row style={{ marginTop: 4 }}>
         <Txt v="eyebrow" style={{ flex: 1 }}>Your script</Txt>
-        <CopyButton mod={MOD} text={script} label="Copy SBAR script" />
+        <CopyButton mod={MOD} text={script} label="Copy SBAR Script" />
       </Row>
       <View style={{ backgroundColor: t.dark ? "#05070f" : "#0d1324", borderRadius: 16, padding: 14, borderWidth: 1, borderColor: t.dark ? t.c.line : "#0d1324" }}>
         <Txt v="mono" color="#e7ecf7" selectable>{script}</Txt>
@@ -159,7 +159,7 @@ ${state.ladder.map((x) => `${x.date} | ${x.type} | ${x.hours} h | ${x.note}`).jo
 IMPACT STATEMENT (edit before submitting)
 Over this review period I served as charge nurse, precepted new staff, and contributed to unit quality work. I request advancement to the next clinical ladder level.`;
   const add = () => { dispatch({ type: "addLadder", entry: { ...e, hours: num(e.hours), id: uid() } }); buzz(); setE({ ...e, note: "" }); };
-  const share = async () => { try { await Share.share({ message: dossier, title: "Clinical ladder dossier" }); } catch (err) {} };
+  const share = async () => { try { await Share.share({ message: dossier, title: "Clinical Ladder Dossier" }); } catch (err) {} };
 
   return (
     <View style={{ gap: 14 }}>
@@ -170,7 +170,7 @@ Over this review period I served as charge nurse, precepted new staff, and contr
           <View style={{ flex: 1 }}><Field mod={MOD} label="Hours" value={e.hours} onChangeText={(v) => setE({ ...e, hours: v.replace(/[^\d.]/g, "") })} keyboardType="decimal-pad" /></View>
         </Row>
         <Field mod={MOD} label="Notes" value={e.note} onChangeText={(v) => setE({ ...e, note: v })} placeholder="e.g. Charge, 6 admissions, managed rapid response" />
-        <Btn mod={MOD} icon="Plus" title="Log entry" full onPress={add} disabled={!/^\d{4}-\d{2}-\d{2}$/.test(e.date)} />
+        <Btn mod={MOD} icon="Plus" title="Log Entry" full onPress={add} disabled={!/^\d{4}-\d{2}-\d{2}$/.test(e.date)} />
       </View>
 
       <Grid basis={140} gap={8}>
@@ -178,7 +178,7 @@ Over this review period I served as charge nurse, precepted new staff, and contr
           <View key={ty} style={{ backgroundColor: t.c.sunk, borderRadius: 14, padding: 12, gap: 2 }}>
             <Row gap={6}><Icon name={TYPE_ICON[ty]} size={13} color={t.tint} /><Txt v="eyebrow" style={{ flex: 1 }} numberOfLines={2}>{ty}</Txt></Row>
             <Txt v="h3" style={{ fontFamily: FONTS.monoBold }}>{h} h</Txt>
-            <Txt v="tiny" muted>{c} entries</Txt>
+            <Txt v="tiny" muted>{c} {c === 1 ? "entry" : "entries"}</Txt>
           </View>
         ))}
       </Grid>
@@ -200,14 +200,14 @@ Over this review period I served as charge nurse, precepted new staff, and contr
         ))}
       </View>
 
-      <Btn mod={MOD} icon="FileText" title="Export clinical ladder dossier" onPress={() => setShow(true)} />
-      <Sheet mod={MOD} visible={show} onClose={() => setShow(false)} title="Clinical ladder dossier">
+      <Btn mod={MOD} icon="FileText" title="Export Clinical Ladder Dossier" onPress={() => setShow(true)} />
+      <Sheet mod={MOD} visible={show} onClose={() => setShow(false)} title="Clinical Ladder Dossier">
         <Txt v="small" muted>Copy this into an email or your HR portal. Edit the impact statement first.</Txt>
         <View style={{ backgroundColor: t.c.surface, borderRadius: 14, padding: 12, borderWidth: 1, borderColor: t.c.line }}>
           <Txt v="mono" selectable>{dossier}</Txt>
         </View>
         <Row gap={8} wrap>
-          <CopyButton mod={MOD} text={dossier} label="Copy dossier" />
+          <CopyButton mod={MOD} text={dossier} label="Copy Dossier" />
           <Btn mod={MOD} small kind="secondary" icon="Share2" title="Share" onPress={share} />
         </Row>
       </Sheet>
@@ -219,7 +219,7 @@ export function ChargeCommand() {
   const [tool, setTool] = useState("acuity");
   return (
     <Card mod={MOD} style={{ gap: 14 }}>
-      <Seg mod={MOD} value={tool} onChange={setTool} options={[{ id: "acuity", label: "Acuity & assignments", icon: "Calculator" }, { id: "sbar", label: "SBAR call script", icon: "PhoneCall" }, { id: "ladder", label: "Clinical ladder log", icon: "ListChecks" }]} />
+      <Seg mod={MOD} value={tool} onChange={setTool} options={[{ id: "acuity", label: "Acuity & Assignments", icon: "Calculator" }, { id: "sbar", label: "SBAR Call Script", icon: "PhoneCall" }, { id: "ladder", label: "Clinical Ladder Log", icon: "ListChecks" }]} />
       {tool === "acuity" ? <AcuityCalc /> : null}
       {tool === "sbar" ? <SbarGen /> : null}
       {tool === "ladder" ? <Ladder /> : null}

@@ -120,11 +120,11 @@ function PhaseRow({ p, i, US, prev }) {
               const id = `${p.id}-${j}`;
               // Canada: steps written for one province are marked, so the nurse can follow only their college's rules.
               const dest = destId(state); const mine = regionOf(state); const sr = stepRegion(dest, s);
-              const other = /^Other provinces:/.test(s) && mine ? (["ON", "BC", "AB"].includes(mine.code) ? "Not for your province. Tick it to skip." : `Your ${REGION_WORD[dest]}: check ${mine.abbr}'s rules`) : null;
-              const sub = other ? other : !sr ? null : mine && sr.code === mine.code ? `Your ${REGION_WORD[dest]}` : mine ? `Only for ${sr.region}. Tick it to skip.` : null;
+              const other = /^Other provinces:/.test(s) && mine ? (["ON", "BC", "AB"].includes(mine.code) ? "Not for your province. Check it to skip." : `Your ${REGION_WORD[dest]}: check ${mine.abbr}'s rules`) : null;
+              const sub = other ? other : !sr ? null : mine && sr.code === mine.code ? `Your ${REGION_WORD[dest]}` : mine ? `Only for ${sr.region}. Check it to skip.` : null;
               return <Check key={id} mod={MOD} checked={!!state.steps[id]} disabled={st.locked} strike label={s} sub={sub} onToggle={() => dispatch({ type: "step", id })} />;
             })}
-            {/English/.test(p.title) ? <Btn mod={MOD} small kind="secondary" icon="Languages" title="English test prep" onPress={() => { tap(); router.push({ pathname: "/nclex", params: { section: "english" } }); }} style={{ alignSelf: "flex-start", marginTop: 6 }} /> : null}
+            {/English/.test(p.title) ? <Btn mod={MOD} small kind="secondary" icon="Languages" title="English Test Prep" onPress={() => { tap(); router.push({ pathname: "/nclex", params: { section: "english" } }); }} style={{ alignSelf: "flex-start", marginTop: 6 }} /> : null}
             {st.locked && prev ? <Txt v="tiny" muted>Finish “{prev.title}” to unlock, or turn on flexible order.</Txt> : null}
             {p.links && p.links.length ? (
               <View style={{ gap: 6, marginTop: 6 }}>
@@ -190,8 +190,8 @@ function Timeline() {
     <Card mod={MOD} style={{ gap: 14 }}>
       <View style={{ gap: 4 }}>
         <Txt v="eyebrow">Personalized timeline</Txt>
-        <Txt v="h2">Projected path to arrival</Txt>
-        <Txt v="small" muted>{US ? `From today, based on your progress, typical phase lengths, and the ${row.name} EB-3 queue at ${row.rate} months of bulletin movement per year.` : "From today, based on your progress and typical phase lengths. Visa times vary a lot; see the Visa tab for current draws and processing times."}</Txt>
+        <Txt v="h2">Projected Path to Arrival</Txt>
+        <Txt v="small" muted>{US ? `From today, based on your progress, typical phase lengths and the ${row.name} EB-3 queue at ${row.rate} months of bulletin movement per year.` : "From today, based on your progress and typical phase lengths. Visa times vary a lot; see the Visa tab for current draws and processing times."}</Txt>
       </View>
       <Grad mod={MOD} style={{ borderRadius: 18, padding: 14, flexDirection: "row", alignItems: "center", gap: 12 }}>
         <View style={{ width: 42, height: 42, borderRadius: 14, backgroundColor: "rgba(255,255,255,0.2)", alignItems: "center", justifyContent: "center" }}>
@@ -238,7 +238,7 @@ function Timeline() {
           })}
         </View>
       </HScroll>
-      <Txt v="tiny" muted>{US ? "Estimates only. Bulletin movement is unpredictable and can retrogress. Change your chargeability country in Settings or on the Visa tab." : "Estimates only, for planning. Regulator and visa processing times change often; check the official pages linked in each phase."}</Txt>
+      <Txt v="tiny" muted>{US ? "Estimates only. Bulletin movement is unpredictable and can retrogress. Change your chargeability country in Profile & Settings or on the Visa tab." : "Estimates only, for planning. Regulator and visa processing times change often; check the official pages linked in each phase."}</Txt>
     </Card>
   );
 }
@@ -267,7 +267,7 @@ function CostTracker() {
     <Card mod={MOD} style={{ gap: 14 }}>
       <View style={{ gap: 4 }}>
         <Txt v="eyebrow">Cost tracker</Txt>
-        <Txt v="h2">What you've actually paid</Txt>
+        <Txt v="h2">What You've Actually Paid</Txt>
       </View>
       <View style={{ alignItems: "center", gap: 6 }}>
         <Svg width={210} height={210} viewBox="0 0 200 200" accessibilityLabel={`Total paid ${fmt(total)}`}>
@@ -281,7 +281,7 @@ function CostTracker() {
           <SvgText x={100} y={100} textAnchor="middle" fontSize={US ? 26 : 21} fontWeight="800" fill={t.c.ink} fontFamily={FONTS.displayX}>{fmt(total)}</SvgText>
           <SvgText x={100} y={120} textAnchor="middle" fontSize={10} fill={t.c.muted} fontFamily={FONTS.mono} letterSpacing={1}>PAID SO FAR</SvgText>
         </Svg>
-        <Txt v="small" muted style={{ textAlign: "center" }}>{US ? `Estimated journey total ${money(lo)}–${money(hi)}` : `Log amounts in ${cur}. Fees for each phase are listed on the roadmap above.`}</Txt>
+        <Txt v="small" muted style={{ textAlign: "center" }}>{US ? `Estimated journey total: ${money(lo)}–${money(hi)}` : `Log amounts in ${cur}. Fees for each phase are listed on the roadmap above.`}</Txt>
       </View>
       <Grid min={140} gap={8}>
         {by.map((x) => (
@@ -331,14 +331,14 @@ function docSummary(state) {
     lines.push(c.toUpperCase());
     state.docs.filter((d) => d.cat === c).forEach((d) => {
       const n = daysUntil(d.expires);
-      const status = !d.expires ? "no expiry" : n < 0 ? `EXPIRED ${fmtDate(d.expires)}` : `expires ${fmtDate(d.expires)}${n <= 90 ? " (renew soon)" : ""}`;
+      const status = !d.expires ? "no expiration date" : n < 0 ? `EXPIRED ${fmtDate(d.expires)}` : `expires ${fmtDate(d.expires)}${n <= 90 ? " (renew soon)" : ""}`;
       lines.push(`• ${d.title}${d.issued ? `, issued ${fmtDate(d.issued)}` : ""} · ${status}`);
     });
     lines.push("");
   });
   lines.push("ROADMAP");
   PH.forEach((ph, i) => { const st = phaseStatus(state, i); lines.push(`${st.complete ? "✓" : "○"} ${ph.title} (${st.done}/${ph.steps.length})`); });
-  lines.push("", "Copies available on request. Originals are kept by the nurse.");
+  lines.push("", "Copies are available on request. The nurse keeps the originals.");
   return lines.join("\n");
 }
 
@@ -348,7 +348,7 @@ function DocSummaryBtn() {
     if (!isPro) { router.push("/paywall"); return; }
     try { await Share.share({ title: "Document summary", message: docSummary(state) }); } catch (e) {}
   };
-  return <Btn mod={MOD} small kind="secondary" icon="Share2" title={isPro ? "Share document summary" : "Document summary · Pro"} onPress={go} />;
+  return <Btn mod={MOD} small kind="secondary" icon="Share2" title={isPro ? "Share Document Summary" : "Document Summary · Pro"} onPress={go} />;
 }
 
 /* ---------- document vault ---------- */
@@ -390,18 +390,18 @@ function Vault() {
 
   const alerts = state.docs.map((d) => ({ d, n: daysUntil(d.expires) })).filter((x) => x.n !== null && x.n <= 90).sort((a, b) => a.n - b.n);
   const list = state.docs.filter((d) => filter === "All" || d.cat === filter);
-  const status = (n) => n === null ? <Chip text="No expiry" tone="mute" /> : n < 0 ? <Chip text={`Expired ${Math.abs(n)}d ago`} tone="crit" icon="AlertTriangle" /> : n <= 90 ? <Chip text={`${n}d left`} tone="warn" icon="Clock" /> : <Chip text="Valid" tone="ok" icon="Check" />;
+  const status = (n) => n === null ? <Chip text="No expiration" tone="mute" /> : n < 0 ? <Chip text={`Expired ${Math.abs(n)}d ago`} tone="crit" icon="AlertTriangle" /> : n <= 90 ? <Chip text={`${n}d left`} tone="warn" icon="Clock" /> : <Chip text="Valid" tone="ok" icon="Check" />;
 
   return (
     <View style={{ gap: 14 }}>
-      <SectionTitle eyebrow="Document Vault" title="Documents and expiry alerts"
-        sub="English scores expire for VisaScreen 2 years after the test date, so the vault fills that in for you. Files stay on this device; the vault keeps only the file name and dates." />
+      <SectionTitle eyebrow="Document Vault" title="Documents and Expiration Alerts"
+        sub="For VisaScreen, English scores expire 2 years after the test date, so the vault fills in that date for you. Files stay on this device; the vault keeps only the file name and dates." />
 
-      {/* In-app expiry warnings are free; only the automated phone reminders (notification toggle) are Pro. */}
+      {/* In-app expiration warnings are free; only the automated phone reminders (notification toggle) are Pro. */}
       <Card mod={MOD} style={{ gap: 10 }}>
           <Row gap={10}>
             <IconTile mod={MOD} icon="BellRing" size={36} colors={["#f59e0b", "#ea580c"]} />
-            <Txt v="bodyB" style={{ flex: 1 }}>Expiry alerts</Txt>
+            <Txt v="bodyB" style={{ flex: 1 }}>Expiration Alerts</Txt>
             {isPro && state.alertsOn ? <Chip text="On" tone="ok" icon="Check" /> : null}
           </Row>
           {alerts.map(({ d, n }) => (
@@ -416,7 +416,7 @@ function Vault() {
           {alerts.length === 0 ? <Note tone="ok" icon="CheckCircle2">Nothing in your vault expires in the next 90 days.</Note> : null}
       </Card>
 
-      <ProGate feature="Automated expiry alerts" desc="Phone reminders 90 and 30 days before scores and licenses expire" mod={MOD}>
+      <ProGate feature="Automated Expiration Alerts" desc="Phone reminders 90 and 30 days before scores and licenses expire" mod={MOD}>
         <Card mod={MOD} style={{ gap: 10 }}>
           <View style={{ padding: 10, borderRadius: 14, backgroundColor: t.c.sunk }}>
             <Check mod={MOD} checked={!!state.alertsOn} onToggle={toggleAlerts} label="Remind me on this phone" sub="90 and 30 days before, and on the day each document expires" />
@@ -426,7 +426,7 @@ function Vault() {
       </ProGate>
 
       <Card mod={MOD} style={{ gap: 12 }}>
-        <Row gap={8}><Icon name="Upload" size={17} color={t.tint} /><Txt v="bodyB">Add a document</Txt></Row>
+        <Row gap={8}><Icon name="Upload" size={17} color={t.tint} /><Txt v="bodyB">Add a Document</Txt></Row>
         <Field mod={MOD} label="Document name" value={form.title} onChangeText={(v) => set("title", v)} placeholder="e.g. PTE Academic score report" />
         <Select mod={MOD} label="Category" value={form.cat} options={DOC_CATS} onChange={(v) => set("cat", v)} />
         <Field mod={MOD} label="File name (optional)" value={form.file} onChangeText={(v) => set("file", v)} placeholder="e.g. pte_score_report.pdf" autoCapitalize="none" />
@@ -435,7 +435,7 @@ function Vault() {
           <View style={{ flex: 1 }}><DateField mod={MOD} label="Expires" value={form.expires} onChange={(v) => set("expires", v)} /></View>
         </Row>
         {err ? <Txt v="small" color={t.c.crit}>{err}</Txt> : null}
-        <Btn mod={MOD} icon="Plus" title="Add to vault" onPress={add} />
+        <Btn mod={MOD} icon="Plus" title="Add to Vault" onPress={add} />
       </Card>
 
       <Card mod={MOD} style={{ gap: 12 }}>
@@ -449,7 +449,7 @@ function Vault() {
         {list.map((d) => {
           const c = DOC_STYLE[d.cat] || DOC_STYLE.Credentials;
           const ext = ((d.file || "").match(/\.([a-z0-9]+)$/i) || [])[1];
-          const meta = d.cat + ", " + (d.expires ? "expires " + fmtDate(d.expires) : "no expiry") + (ext ? " · " + ext.toUpperCase() : "");
+          const meta = d.cat + ", " + (d.expires ? "expires " + fmtDate(d.expires) : "no expiration") + (ext ? " · " + ext.toUpperCase() : "");
           return (
             <Row key={d.id} gap={12} center={false} style={{ padding: 12, borderRadius: 16, backgroundColor: mix(c[0], t.c.surface, 0.9), borderWidth: 1, borderColor: mix(c[0], t.c.line, 0.72) }}>
               <IconTile icon={c[2]} size={38} colors={[c[0], c[1]]} />

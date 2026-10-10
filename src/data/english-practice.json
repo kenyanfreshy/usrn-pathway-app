@@ -2,7 +2,7 @@
   "caseNotes": [
     {
       "id": "c1",
-      "title": "Post-MI discharge to cardiac rehabilitation",
+      "title": "Post-MI Discharge to Cardiac Rehabilitation",
       "reader": "Ms. Laura Chen, Cardiac Rehabilitation Nurse Coordinator, Riverside Cardiac Rehabilitation Center",
       "task": "Using the information in the case notes, write a letter of referral to Ms. Laura Chen, Cardiac Rehabilitation Nurse Coordinator, Riverside Cardiac Rehabilitation Center, [Address], requesting that Mr. Hartley be enrolled in outpatient cardiac rehabilitation. In your answer: expand the relevant notes into complete sentences; do not use note form. The body of the letter should be approximately 180–200 words. Reading time: 5 minutes. Writing time: 40 minutes.",
       "sections": [
@@ -176,7 +176,7 @@
     },
     {
       "id": "c2",
-      "title": "Venous leg ulcer: community wound-care referral",
+      "title": "Venous Leg Ulcer: Community Wound-Care Referral",
       "reader": "Ms. Priya Nair, Home Health Nurse, Northside Home Health Nursing Service",
       "task": "Using the information in the case notes, write a letter of referral to Ms. Priya Nair, Home Health Nurse, Northside Home Health Nursing Service, [Address], requesting ongoing wound care for Mrs. Brooks at home. In your answer: expand the relevant notes into complete sentences; do not use note form. The body of the letter should be approximately 180–200 words. Reading time: 5 minutes. Writing time: 40 minutes.",
       "sections": [
@@ -276,7 +276,7 @@
             {
               "text": "IV cefazolin x 5 days → oral cephalexin 500 mg QID until 10/14",
               "relevant": true,
-              "why": "The nurse must check the course is completed."
+              "why": "The nurse must check that the course is completed."
             },
             {
               "text": "CRP 112 mg/L (10/02) → 14 mg/L (10/08)",
@@ -347,31 +347,31 @@
   "letterSteps": [
     {
       "id": "s1",
-      "title": "Salutation & opening",
-      "tip": "Address the named reader with title and surname, then add a 'Re:' line with the patient's full name and DOB. If you know the name, close with 'Yours sincerely'.",
+      "title": "Salutation & Opening",
+      "tip": "Address the named reader by title and surname, then add a 'Re:' line with the patient's full name and DOB. If you know the name, close with 'Yours sincerely'.",
       "example": "Dear Ms. Chen,\n\nRe: Mr. Daniel Hartley, DOB 03/14/1968"
     },
     {
       "id": "s2",
-      "title": "Reason for referral (urgent need first)",
+      "title": "Reason for Referral (Urgent Need First)",
       "tip": "In the first 1–2 sentences, state who the patient is, why you are writing, and what you want the reader to do. Put the most urgent or time-sensitive point first.",
       "example": "I am writing to refer Mr. Hartley, who is being discharged today following an anterior ST-elevation myocardial infarction (STEMI), for enrollment in your outpatient cardiac rehabilitation program. He is motivated and keen to start within the next two weeks."
     },
     {
       "id": "s3",
-      "title": "Relevant hospital course & current status",
-      "tip": "Summarize only what this reader needs: the key diagnosis, procedure and results, then current function. Use past tenses for events and the present for current status.",
+      "title": "Relevant Hospital Course & Current Status",
+      "tip": "Summarize only what this reader needs: the key diagnosis, procedure and results, then current function. Use the past tense for events and the present tense for current status.",
       "example": "On October 1, he underwent emergency percutaneous coronary intervention, with a drug-eluting stent placed in the left anterior descending artery. An echocardiogram the following day showed a mildly reduced left ventricular ejection fraction of 45%. He is now mobilizing independently and can walk 200 meters without chest pain or breathlessness."
     },
     {
       "id": "s4",
-      "title": "Medications, allergies & risks",
+      "title": "Medications, Allergies & Risks",
       "tip": "Group medications and history in one paragraph. Always include allergies. Highlight any safety-critical instruction with clear modal verbs such as 'must not'.",
       "example": "His history includes hypertension and hyperlipidemia. Although he declined a statin in 2022, he is now taking atorvastatin, together with aspirin, ticagrelor, metoprolol and lisinopril, and sublingual nitroglycerin as needed. Dual antiplatelet therapy must not be interrupted without cardiology advice. He is allergic to penicillin. He smoked 20 cigarettes daily until admission and is using nicotine patches."
     },
     {
       "id": "s5",
-      "title": "Ongoing care plan & close",
+      "title": "Ongoing Care Plan & Close",
       "tip": "Make polite, specific requests ('I would be grateful if you could...'), mention psychosocial needs, then end with a brief offer of further information.",
       "example": "I would be grateful if you could provide supervised exercise training, smoking-cessation support and education on medication adherence. He has also expressed anxiety about returning to his office job as an accountant and having another heart attack, so psychological support would be beneficial.\n\nShould you require any further information, please do not hesitate to contact me."
     }
@@ -728,7 +728,7 @@
   "oetRoleplays": [
     {
       "id": "r1",
-      "title": "Anxious post-op patient reluctant to walk",
+      "title": "Anxious Post-op Patient Reluctant to Walk",
       "setting": "Surgical ward, hospital",
       "nurse": "Setting: Surgical ward\nNurse: You are talking to Ms. Jordan Lee, 58, on day 1 after an open bowel resection. The surgical team wants her to walk today, but she has refused to get out of bed. Pain is 4/10 at rest with her current analgesia.\nTask:\n• Find out why the patient is reluctant to walk.\n• Explain the benefits of early mobilization (e.g. lower risk of blood clots and chest infection, faster return of bowel function).\n• Reassure her about the wound and explain how pain will be managed (e.g. analgesia beforehand, supporting the wound with a pillow).\n• Agree on a gradual plan for today (e.g. check for dizziness, sit on the edge of the bed, then a chair, then a short supported walk).",
       "tasks": [
@@ -748,7 +748,7 @@
     },
     {
       "id": "r2",
-      "title": "Teaching insulin injection to a newly diagnosed patient with diabetes",
+      "title": "Teaching Insulin Injection to a Newly Diagnosed Patient with Diabetes",
       "setting": "Diabetes education clinic, outpatient department",
       "nurse": "Setting: Diabetes education clinic\nNurse: You are talking to Mr. Chris Novak, 34, who has just been diagnosed with type 1 diabetes and has been prescribed an insulin pen. This is his first education session.\nTask:\n• Find out what he already knows and how he feels about injecting insulin.\n• Explain the steps of using the pen (e.g. attach a new needle, do a 2-unit safety test, inject at 90°, hold for 10 seconds).\n• Explain the need to rotate injection sites (abdomen, thighs) to prevent lumpy skin, which can affect how insulin is absorbed.\n• Explain how to recognize and treat low blood sugar (e.g. 15 g fast-acting glucose, recheck in 15 minutes, repeat if still below 70 mg/dL) and arrange follow-up.",
       "tasks": [

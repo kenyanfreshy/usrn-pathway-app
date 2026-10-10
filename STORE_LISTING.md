@@ -8,7 +8,7 @@ _Renamed from USRN Pathway to NurseBound. Bundle ID / package: `com.alexkorir.nu
 **Google short description (80 max):** NCLEX prep and roadmaps for nurses moving to the U.S., Canada, Australia or NZ.
 
 **Promotional text (iOS, 170 max):**
-Roadmaps for the U.S., Canada, Australia and New Zealand, 600+ NCLEX-RN questions, a daily study plan, OET practice and interview prep — all on your phone.
+Roadmaps for the U.S., Canada, Australia and New Zealand, 1,200+ NCLEX-RN questions, a daily study plan, OET practice and interview prep — all on your phone.
 
 **Description:**
 NurseBound guides internationally educated nurses from credential evaluation to the bedside in the United States, Canada, Australia or New Zealand — and beyond.
@@ -21,7 +21,7 @@ ROADMAP & DOCUMENTS
 • A cost tracker for every fee you pay
 
 NCLEX-RN PRACTICE
-• 600+ NCLEX-RN questions with rationales for every answer choice, including select-all-that-apply and ordered-response
+• 1,200+ NCLEX-RN questions with rationales for every answer choice, including select-all-that-apply and ordered-response
 • Three benchmark exams: an 85-question Diagnostic, a 150-item NGN Clinical Judgment Simulator and an adaptive Comprehensive Predictor (85–150 questions)
 • All NCLEX-RN client-needs areas, including maternal-newborn, pediatrics, mental health and high-acuity care
 • Eight Next Generation NCLEX (NGN) case studies with chart tabs, bowtie, trend, SATA, matrix, highlight, drop-down and ordered-response items

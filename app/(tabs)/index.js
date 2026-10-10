@@ -4,6 +4,7 @@ import { View, Pressable, ScrollView } from "react-native";
 import { router } from "expo-router";
 import Svg, { Path, Circle, G, Text as SvgText, Defs, LinearGradient as SvgGradient, Stop } from "react-native-svg";
 import { Screen, Txt, Row, Card, Grad, Btn, Chip, Note, Option, Icon, IconTile, Field, Check, tap, Grid, HScroll } from "../../src/ui";
+import { SourcesLink } from "../../src/ui-extra";
 import { useTheme, FONTS, PHASE_COLORS } from "../../src/theme";
 import { useApp, phaseStatus, phasesOf, badgesFor } from "../../src/state";
 import { DestPill, DestChoices, RegionSelect } from "../../src/dest";
@@ -96,7 +97,7 @@ function Journey() {
   return (
     <Card mod="home" padding={14} style={{ backgroundColor: t.dark ? t.c.surface : t.soft, overflow: "hidden" }}>
       <Row wrap style={{ justifyContent: "space-between" }}>
-        <Txt v="h3">Your journey {destOf(destId(state)).flag}</Txt>
+        <Txt v="h3">Your Journey {destOf(destId(state)).flag}</Txt>
         <Chip tone="acc" mod="roadmap" icon={done < 6 ? "MapPin" : "PartyPopper"} text={done < 6 ? `Next stop: ${JLABELS[done + 1]}` : "You made it"} />
       </Row>
       <HScroll mod="home" fade={t.dark ? t.c.surface : t.soft} hint="Swipe to see your whole journey" accessible accessibilityRole="image" accessibilityLabel={`Journey progress: ${done} of 6 phases complete`}>
@@ -204,7 +205,7 @@ function QOTD() {
   return (
     <Card mod="nclex">
       <Row wrap style={{ justifyContent: "space-between" }}>
-        <Row gap={8}><IconTile mod="nclex" icon="CalendarCheck" size={32} /><Txt v="h3">Question of the day</Txt></Row>
+        <Row gap={8}><IconTile mod="nclex" icon="CalendarCheck" size={32} /><Txt v="h3">Question of the Day</Txt></Row>
         {q.cat ? <Chip tone="acc" mod="nclex" text={q.cat} /> : null}
       </Row>
       <Txt v="bodyB">{q.stem}</Txt>
@@ -227,6 +228,7 @@ function QOTD() {
             </Note>
           ) : null}
           {!rec.correct && right ? <Txt v="tiny" muted>Correct answer: {right.text}</Txt> : null}
+          <SourcesLink mod="nclex" />
         </View>
       ) : null}
     </Card>
@@ -240,8 +242,8 @@ function Disclaimer() {
     <View accessibilityRole="text" style={{ flexDirection: "row", gap: 12, padding: 16, borderRadius: 18, backgroundColor: t.c.warnSoft, borderWidth: 2, borderColor: t.c.warn }}>
       <View style={{ width: 36, height: 36, borderRadius: 11, backgroundColor: t.c.warn, alignItems: "center", justifyContent: "center" }}><Icon name="AlertTriangle" size={20} color={t.c.surface} /></View>
       <View style={{ flex: 1, gap: 4 }}>
-        <Txt v="h3" color={t.c.warn}>For educational purposes only</Txt>
-        <Txt v="smallB">This app is not legal, immigration, medical or financial advice. Your progress is saved on your device.</Txt>
+        <Txt v="h3" color={t.c.warn}>For Educational Purposes Only</Txt>
+        <Txt v="smallB">This app does not give legal, immigration, medical or financial advice. Your progress is saved on your device.</Txt>
       </View>
     </View>
   );
@@ -317,13 +319,13 @@ function NextStep({ next }) {
           <Pressable onPress={() => { tap(); setOpen(!open); }} accessibilityRole="button" accessibilityState={{ expanded: open }}>
             <Row gap={8}>
               <Icon name="ListChecks" size={18} color={t.tint} />
-              <Txt v="bodyB" style={{ flex: 1 }}>Completed steps ({completed.length})</Txt>
+              <Txt v="bodyB" style={{ flex: 1 }}>Completed Steps ({completed.length})</Txt>
               <Icon name={open ? "ChevronUp" : "ChevronDown"} size={18} color={t.c.muted} />
             </Row>
           </Pressable>
           {open ? (
             <View style={{ gap: 2 }}>
-              <Txt v="tiny" muted>Untick a step to mark it not done. It goes back on your roadmap.</Txt>
+              <Txt v="tiny" muted>Uncheck a step to mark it not done. It goes back on your roadmap.</Txt>
               {completed.map((x) => (
                 <View key={x.id} style={{ flexDirection: "row", gap: 8, alignItems: "flex-start" }}>
                   <View style={{ width: 6, alignSelf: "stretch", borderRadius: 3, backgroundColor: PHASE_COLORS[x.i], marginVertical: 6 }} />
@@ -352,7 +354,7 @@ function Welcome() {
         <IconTile mod="home" icon="Sparkles" size={44} />
         <View style={{ flex: 1, gap: 2 }}>
           <Txt v="eyebrow">Welcome to NurseBound</Txt>
-          <Txt v="h2">Set up your pathway</Txt>
+          <Txt v="h2">Set Up Your Pathway</Txt>
         </View>
       </Row>
       <Field mod="home" label="First name (optional)" value={name} onChangeText={setName} placeholder="e.g. Grace" autoCapitalize="words" />
@@ -361,8 +363,8 @@ function Welcome() {
         <DestChoices mod="home" />
       </View>
       <RegionSelect mod="home" label="Which province will you register in first?" />
-      <Txt v="tiny" muted>The roadmap, visa, licensing, bedside, career and driving guides all follow this choice. You can change it any time in Profile & settings.</Txt>
-      <Btn mod="home" icon="ArrowRight" title="Start my pathway" onPress={start} full />
+      <Txt v="tiny" muted>The roadmap, visa, licensing, bedside, career and driving guides all follow this choice. You can change it anytime in Profile & Settings.</Txt>
+      <Btn mod="home" icon="ArrowRight" title="Start My Pathway" onPress={start} full />
     </Card>
   );
 }
@@ -465,7 +467,7 @@ export default function Today() {
             <SvgText x="105" y="127" textAnchor="middle" fontSize={9} fill={t.c.muted} fontFamily={FONTS.mono} letterSpacing={1}>READY</SvgText>
           </G>
         } />
-        <Txt v="h3" style={{ textAlign: "center" }}>Activity rings</Txt>
+        <Txt v="h3" style={{ textAlign: "center" }}>Activity Rings</Txt>
         <View style={{ gap: 2 }}>
           {rings.map((r) => (
             <Pressable key={r.label} onPress={() => { tap(); router.push(r.to); }} accessibilityRole="button" accessibilityLabel={`${r.label} ${Math.round(r.pct * 100)} percent. Open`}
@@ -477,7 +479,7 @@ export default function Today() {
             </Pressable>
           ))}
         </View>
-        <Txt v="tiny" muted>Readiness blends roadmap 40%, benchmarks 30%, lessons 15%, document health 15%.</Txt>
+        <Txt v="tiny" muted>Readiness blends roadmap (40%), benchmarks (30%), lessons (15%) and document health (15%).</Txt>
       </Card>
 
       {/* next step, with undo and the list of completed steps */}
@@ -489,7 +491,7 @@ export default function Today() {
         {US ? <Countdown icon="Hourglass" label="ATT closes" date={p.attEnd} empty="Add ATT window" onSet={toSettings} /> : null}
         {docSoon
           ? <Countdown icon="FileWarning" label={docSoon.d.title.length > 22 ? docSoon.d.title.slice(0, 21) + "…" : docSoon.d.title} date={docSoon.d.expires} />
-          : <Countdown icon="FileCheck" label="Documents" empty="Add expiry dates" onSet={() => router.push("/roadmap")} />}
+          : <Countdown icon="FileCheck" label="Documents" empty="Add expiration dates" onSet={() => router.push("/roadmap")} />}
         {!US ? (
           <Tile onPress={() => router.push("/visa")} label="Open migration monitor">
             <Row gap={6}><Icon name="Plane" size={15} color={t.c.muted} /><Txt v="eyebrow" numberOfLines={1} style={{ flex: 1 }}>Visa · {info.short}</Txt></Row>
@@ -511,7 +513,7 @@ export default function Today() {
       <Card mod="home">
         <Row style={{ justifyContent: "space-between" }}>
           <Txt v="h3">Achievements</Txt>
-          <Btn small kind="secondary" title="View all" icon="Award" onPress={() => router.push("/badges")} />
+          <Btn small kind="secondary" title="View All" icon="Award" onPress={() => router.push("/badges")} />
         </Row>
         <Grid min={64} gap={8}>
           {BADGES.slice(0, 12).map((b, i) => {

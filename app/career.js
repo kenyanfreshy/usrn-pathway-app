@@ -13,8 +13,8 @@ import { Wealth } from "../src/career/wealth";
 import { TaxPlaybook } from "../src/career/taxes";
 import { InsuranceHub } from "../src/career/insurance";
 
-const TABS_INTL = [{ id: "charge", label: "Charge command", icon: "LayoutGrid" }, { id: "tracks", label: "Career tracks", icon: "Route" }, { id: "magnet", label: "Quality & EBP", icon: "Award" }, { id: "wealth", label: "Credit & pay", icon: "PiggyBank" }, { id: "taxes", label: "Tax & retirement", icon: "Receipt" }, { id: "insure", label: "Health & insurance", icon: "Umbrella" }];
-const TABS = [{ id: "charge", label: "Charge command", icon: "LayoutGrid" }, { id: "tracks", label: "Career tracks", icon: "Route" }, { id: "magnet", label: "Magnet & EBP", icon: "Award" }, { id: "wealth", label: "Wealth & credit", icon: "PiggyBank" }, { id: "taxes", label: "Overtime & taxes", icon: "Receipt" }, { id: "insure", label: "Insurance", icon: "Umbrella" }];
+const TABS_INTL = [{ id: "charge", label: "Charge Command", icon: "LayoutGrid" }, { id: "tracks", label: "Career Tracks", icon: "Route" }, { id: "magnet", label: "Quality & EBP", icon: "Award" }, { id: "wealth", label: "Credit & Pay", icon: "PiggyBank" }, { id: "taxes", label: "Tax & Retirement", icon: "Receipt" }, { id: "insure", label: "Health & Insurance", icon: "Umbrella" }];
+const TABS = [{ id: "charge", label: "Charge Command", icon: "LayoutGrid" }, { id: "tracks", label: "Career Tracks", icon: "Route" }, { id: "magnet", label: "Magnet & EBP", icon: "Award" }, { id: "wealth", label: "Wealth & Credit", icon: "PiggyBank" }, { id: "taxes", label: "Overtime & Taxes", icon: "Receipt" }, { id: "insure", label: "Insurance", icon: "Umbrella" }];
 
 export default function Career() {
   const { state } = useApp();
@@ -23,14 +23,14 @@ export default function Career() {
   const CRED = creditList(state); const credDone = CRED.filter((_, i) => state.credit[creditKey(state, i)]).length;
   return (
     <Screen mod="career">
-      <BackRow title="Career & wealth" mod="career" />
-      <Hero mod="career" icon="TrendingUp" eyebrow={`Module 6 · Career & wealth · ${info.flag} ${info.short}`} title="Lead, grow and build wealth"
+      <BackRow title="Career & Wealth" mod="career" />
+      <Hero mod="career" icon="TrendingUp" eyebrow={`Module 6 · Career & wealth · ${info.flag} ${info.short}`} title="Lead, Grow and Build Wealth"
         sub={US ? "Tools for your first years at the bedside and the plan beyond them." : `Tools for your first years at the bedside in ${info.name}: career paths, pay, tax, retirement and insurance.`}
-        stats={[["Ladder entries", state.ladder.length], ["Credit steps", credDone + " / " + CRED.length], ["Career tracks", careersOf(state).length]]} />
+        stats={[["Ladder entries", state.ladder.length], ["Credit steps", credDone + " / " + CRED.length], ["Career Tracks", careersOf(state).length]]} />
       <DestPill mod="career" />
       <Seg mod="career" value={tab} onChange={setTab} options={US ? TABS : TABS_INTL} />
       {tab === "charge" ? (
-        <ProGate feature="Charge nurse command center" desc="Acuity balancer, SBAR call scripts and clinical ladder dossier" mod="career">
+        <ProGate feature="Charge Nurse Command Center" desc="Acuity balancer, SBAR call scripts and clinical ladder dossier" mod="career">
           <ChargeCommand />
         </ProGate>
       ) : null}
@@ -38,7 +38,7 @@ export default function Career() {
       {tab === "magnet" ? <MagnetEbp /> : null}
       {tab === "wealth" ? (US ? <Wealth /> : <CountryWealth />) : null}
       {tab === "taxes" ? (US ? (
-        <ProGate feature="Overtime tax shield" desc="Overtime deduction, W-4 withholding and pre-tax savings calculators" mod="career">
+        <ProGate feature="Overtime Tax Shield" desc="Overtime deduction, W-4 withholding and pre-tax savings calculators" mod="career">
           <TaxPlaybook />
         </ProGate>
       ) : <CountryMoney />) : null}

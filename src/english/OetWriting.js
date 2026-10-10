@@ -20,7 +20,7 @@ function Transformer({ mod }) {
     <Card mod={mod} style={{ gap: 12 }}>
       <View style={{ gap: 2 }}>
         <Txt v="eyebrow">Case note transformer · Purpose & content</Txt>
-        <Txt v="h3">Keep what the reader needs</Txt>
+        <Txt v="h3">Keep What the Reader Needs</Txt>
       </View>
       <Seg mod={mod} even value={cid} onChange={(v) => { setCid(v); setPick({}); setChecked(false); }} options={P.caseNotes.map((x, k) => ({ id: x.id, label: `Case ${k + 1}` }))} />
       <Txt v="bodyB">{c.title}</Txt>
@@ -56,12 +56,12 @@ function Transformer({ mod }) {
         <Note mod={mod} tone={right / lines.length >= 0.8 ? "ok" : "warn"} icon="ClipboardCheck">{right} of {lines.length} choices match an assessor's view. Read the reasons on any you missed, then compare with the model letter below.</Note>
       ) : <Txt v="tiny" muted>{answered} of {lines.length} lines sorted.</Txt>}
       <Row wrap gap={8}>
-        {!checked ? <Btn mod={mod} icon="ClipboardCheck" title="Check my choices" disabled={answered < lines.length} onPress={() => { buzz(); setChecked(true); }} />
-          : <Btn mod={mod} kind="secondary" icon="RotateCcw" title="Try again" onPress={() => { setPick({}); setChecked(false); }} />}
+        {!checked ? <Btn mod={mod} icon="ClipboardCheck" title="Check My Choices" disabled={answered < lines.length} onPress={() => { buzz(); setChecked(true); }} />
+          : <Btn mod={mod} kind="secondary" icon="RotateCcw" title="Try Again" onPress={() => { setPick({}); setChecked(false); }} />}
       </Row>
-      <Accordion mod={mod} title="Model letter for this case">
+      <Accordion mod={mod} title="Model Letter for This Case">
         <Txt v="body" style={{ lineHeight: 23 }}>{c.model}</Txt>
-        <CopyButton mod={mod} text={c.model} label="Copy letter" />
+        <CopyButton mod={mod} text={c.model} label="Copy Letter" />
       </Accordion>
     </Card>
   );
@@ -96,7 +96,7 @@ function Register({ mod }) {
     <Card mod={mod} style={{ gap: 10 }}>
       <View style={{ gap: 2 }}>
         <Txt v="eyebrow">Professional register</Txt>
-        <Txt v="h3">Say it like a clinician</Txt>
+        <Txt v="h3">Say It Like a Clinician</Txt>
       </View>
       {P.register.map(([a, b, why]) => (
         <View key={a} style={{ gap: 4, padding: 10, borderRadius: 12, backgroundColor: t.c.sunk }}>
@@ -132,11 +132,11 @@ export function OetWriting({ mod }) {
   return (
     <View style={{ gap: 12 }}>
       <Note mod={mod} icon="Timer">OET Writing: 5 minutes to read the case notes (no writing), then 40 minutes to write a letter of about 180–200 words in the body.</Note>
-      <Seg mod={mod} value={part} onChange={setPart} options={[{ id: "transform", label: "Case notes", icon: "ClipboardCheck" }, { id: "build", label: "Letter builder", icon: "FileEdit" }, { id: "register", label: "Register", icon: "Languages" }, { id: "tasks", label: "Tasks", icon: "FileText" }]} />
+      <Seg mod={mod} value={part} onChange={setPart} options={[{ id: "transform", label: "Case Notes", icon: "ClipboardCheck" }, { id: "build", label: "Letter Builder", icon: "FileEdit" }, { id: "register", label: "Register", icon: "Languages" }, { id: "tasks", label: "Tasks", icon: "FileText" }]} />
       {part === "transform" ? <Transformer mod={mod} /> : null}
-      {part === "build" ? <ProGate mod={mod} feature="OET letter builder" desc="Build a referral or discharge letter step by step, with model paragraphs to copy and compare."><Builder mod={mod} /></ProGate> : null}
+      {part === "build" ? <ProGate mod={mod} feature="OET Letter Builder" desc="Build a referral or discharge letter step by step, with model paragraphs to copy and compare."><Builder mod={mod} /></ProGate> : null}
       {part === "register" ? <ProGate mod={mod} feature="Professional register" desc="Common learner phrasing next to the professional clinical register assessors expect."><Register mod={mod} /></ProGate> : null}
-      {part === "tasks" ? <ProGate mod={mod} feature="Timed letter tasks" desc="Full OET-style case notes with model letters."><Tasks mod={mod} /></ProGate> : null}
+      {part === "tasks" ? <ProGate mod={mod} feature="Timed Letter Tasks" desc="Full OET-style case notes with model letters."><Tasks mod={mod} /></ProGate> : null}
     </View>
   );
 }

@@ -4,11 +4,11 @@
   "pathway": {
     "title": "Registered Nurse in New Zealand",
     "regulator": "Nursing Council of New Zealand | Te Kaunihera Tapuhi o Aotearoa (NCNZ)",
-    "summary": "Internationally qualified nurses (IQNs) first verify their documents with TruMerit (formerly CGFNS), then apply to the Nursing Council, complete the free 'Welcome to Aotearoa New Zealand' cultural safety courses and police checks, and, if the Council requires it, pass the Council's own theory exam (not NCLEX) and a clinical OSCE in Christchurch. The old Competence Assessment Programme (CAP) has been replaced by this exam model (RNs from 4 December 2023; enrolled nurses from 1 September 2025). Registered nurses are on Green List Tier 1, so once registered and offered a qualifying job by an accredited employer you can apply for the Straight to Residence Visa, or come first on an Accredited Employer Work Visa (AEWV).",
+    "summary": "Internationally qualified nurses (IQNs) first verify their documents with TruMerit (formerly CGFNS), then apply to the Nursing Council, complete the free 'Welcome to Aotearoa New Zealand' cultural safety courses and police checks, and, if the Council requires it, pass the Council's own theory exam (not the NCLEX) and a clinical OSCE in Christchurch. The old Competence Assessment Programme (CAP) has been replaced by this exam model (RNs from 4 December 2023; enrolled nurses from 1 September 2025). Registered nurses are on Green List Tier 1, so once you are registered and offered a qualifying job by an accredited employer, you can apply for the Straight to Residence Visa, or come first on an Accredited Employer Work Visa (AEWV).",
     "phases": [
       {
         "id": "nz-1",
-        "title": "Check eligibility and pass English",
+        "title": "Check Eligibility and Pass English",
         "sub": "Degree, 1,800 practice hours, OET or IELTS Academic",
         "time": "varies (often 1–3 months for English test preparation)",
         "cost": "varies (English test fees are set by OET/IELTS)",
@@ -17,7 +17,7 @@
           "Make sure you have at least 1,800 hours of post-registration nursing practice. Nurses with no post-registration experience are not eligible; practice older than 10 years may need more information.",
           "Pass OET (350 in Reading, Listening and Speaking; 300 in Writing) or IELTS Academic (7.0 in Reading, Listening and Speaking; 6.5 in Writing). PTE is not accepted.",
           "Scores can be combined across sittings, but must all be reached within 12 months of your first sitting, and all sittings must be within 3 years before you apply. Home/online tests are not accepted; test-center computer tests are.",
-          "If your nursing education was in English in the UK, Ireland, Canada, the USA or Singapore, or you are registered in the UK, Ireland, Canada or USA after an English test, TruMerit may invite you to use an alternative English pathway (Council discretion).",
+          "If your nursing education was in English in the UK, Ireland, Canada, the U.S. or Singapore, or you are registered in the UK, Ireland, Canada or the U.S. after an English test, TruMerit may invite you to use an alternative English pathway (Council discretion).",
           "Use the NCNZ IQN self-assessment tool to see if you are likely to need the competence exams."
         ],
         "links": [
@@ -27,16 +27,16 @@
       },
       {
         "id": "nz-2",
-        "title": "Verify documents with TruMerit",
+        "title": "Verify Documents with TruMerit",
         "sub": "Formerly CGFNS – the Council's only verification provider",
         "time": "varies (TruMerit sets its own processing time)",
         "cost": "USD 380 (TruMerit verification fee)",
         "steps": [
           "Create a TruMerit account and select verification for the Nursing Council of New Zealand.",
-          "Send notarised or certified color copies of your passport and one other ID, plus name-change documents if needed.",
+          "Send notarized or certified color copies of your passport and one other ID, plus name-change documents if needed.",
           "Arrange verification of your nursing qualification, all registrations held in the last 10 years, English evidence and 1,800 practice hours.",
           "Wait for TruMerit to finish verification – you cannot apply to the Council until this is done.",
-          "If you are linked to a U.S.-sanctioned country or region, contact the Council first (TruMerit cannot process these without U.S. government authorisation)."
+          "If you are linked to a U.S.-sanctioned country or region, contact the Council first (TruMerit cannot process these without U.S. government authorization)."
         ],
         "links": [
           ["NCNZ – Requirements (TruMerit)", "https://nursingcouncil.org.nz/IQN/H5"],
@@ -53,7 +53,7 @@
           "Accept the invitation to apply in MyIQN and pay the NZD 485 application and processing fee (non-refundable).",
           "Complete the free 'Welcome to Aotearoa New Zealand' program on Ko Awatea LEARN: Foundations in Cultural Competency and Module 1 | Ngā Paerewa Te Tiriti o Waitangi (Module 2 is not required). Upload your record PDF to MyIQN.",
           "Complete criminal history checks through Fit2Work for every country you lived in for 12 months or more in the last 7 years (plus a NZ Ministry of Justice check if you lived in NZ 6+ months).",
-          "If you use an agent, submit the authorisation form – but sign statutory declarations yourself.",
+          "If you use an agent, submit the authorization form – but sign statutory declarations yourself.",
           "Wait for the Council's decision on whether you must complete the competence assessment (theory exam + OSCE). Some nurses (depending on where they trained and practiced) may not need it; the Council decides case by case."
         ],
         "links": [
@@ -63,13 +63,13 @@
       },
       {
         "id": "nz-4",
-        "title": "Pass the NCNZ theory exam",
-        "sub": "Online multiple-choice exam at a Pearson VUE center (not NCLEX)",
+        "title": "Pass the NCNZ Theory Exam",
+        "sub": "Online multiple-choice exam at a Pearson VUE center (not the NCLEX)",
         "time": "varies (book after Council approval; up to 3 attempts)",
         "cost": "NZD 140 (Parts A+B); re-sit NZD 32 (Part A) or NZD 108 (Part B)",
         "steps": [
           "Book the exam only after the Council has assessed your application and approved you to sit it.",
-          "Sit it at a Pearson test center overseas or in New Zealand – you do not need to travel to NZ yet.",
+          "Sit it at a Pearson VUE test center overseas or in New Zealand – you do not need to travel to NZ yet.",
           "RN exam: 120 questions in 165 minutes. Part A = 12 medication safety questions (30 min); Part B = 108 nursing knowledge questions (135 min).",
           "Study NZ ethics and law, medication calculations and nursing care management.",
           "You must sit both parts the first time; if you fail one part, re-sit only that part. You have three attempts."
@@ -81,13 +81,13 @@
       },
       {
         "id": "nz-5",
-        "title": "Orientation course and OSCE",
+        "title": "Orientation Course and OSCE",
         "sub": "In person in Christchurch",
-        "time": "2-day course + 3-hour OSCE (wait for dates varies)",
+        "time": "2-day course + 3-hour OSCE (waiting time for dates varies)",
         "cost": "NZD 500 course + NZD 3,000 OSCE (re-sit NZD 3,000), plus travel and visitor visa costs",
         "steps": [
           "After passing the theory exam and getting Council approval, book the compulsory 2-day orientation and preparation course in Christchurch (run by Nurse Maude, delivered by the University of Canterbury).",
-          "Book the OSCE at Nurse Maude Simulation and Assessment Centre, Christchurch – the only accredited OSCE center.",
+          "Book the OSCE at the Nurse Maude Simulation and Assessment Centre, Christchurch – the only accredited OSCE center.",
           "Arrange the right visa to travel to New Zealand for the exam (check Immigration NZ).",
           "RN OSCE: 10 stations, 12 minutes each (2 min reading, 8 min scenario, 2 min moving).",
           "If you fail, you can re-sit up to two more times. The old Competence Assessment Programme (CAP) is no longer offered to new applicants."
@@ -99,7 +99,7 @@
       },
       {
         "id": "nz-6",
-        "title": "Register, get your APC, job and visa",
+        "title": "Register, Get Your APC, Job and Visa",
         "sub": "Annual Practising Certificate, employer offer, AEWV or Straight to Residence",
         "time": "varies; Straight to Residence: 80% decided within 3 months; AEWV: 80% within 5 weeks",
         "cost": "APC NZD 130/yr; Straight to Residence from NZD 6,450; AEWV from NZD 1,540",
@@ -126,7 +126,7 @@
       "requirements": [
         "Full New Zealand registration with the Nursing Council and a current Annual Practising Certificate",
         "Job offer or current job in the Green List Tier 1 role with an accredited employer",
-        "Job must be permanent or fixed-term for at least 12 months (or contracts totalling at least 6 months)",
+        "Job must be permanent or fixed-term for at least 12 months (or contracts totaling at least 6 months)",
         "Pay at least the rate set for that Tier 1 role; if none is set, at least the median wage (NZD 35.00/hour, from 9 March 2026)",
         "Aged 55 or younger when you apply",
         "Good health, good character and English ability; genuine relationship with any partner or children included"
@@ -135,7 +135,7 @@
       "url": "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/straight-to-residence-visa"
     },
     "aewv": {
-      "summary": "Temporary work visa for a full-time job (at least 30 hours/week) with an accredited employer that has an approved job check. Since 10 March 2025 the AEWV no longer requires the median wage: the employer must pay at least the NZ minimum wage and the NZ market rate for the role. Skill evidence is not needed if you hold the required occupational registration or are Green List eligible. Valid up to 5 years; fee from NZD 1,540; 80% processed within 5 weeks. Partners and children apply for their own visas, and supporting dependent children has an income threshold.",
+      "summary": "Temporary work visa for a full-time job (at least 30 hours/week) with an accredited employer that has an approved job check. Since 10 March 2025, the AEWV no longer requires the median wage: the employer must pay at least the NZ minimum wage and the NZ market rate for the role. Skill evidence is not needed if you hold the required occupational registration or are Green List eligible. Valid up to 5 years; fee from NZD 1,540; 80% processed within 5 weeks. Partners and children apply for their own visas, and supporting dependent children has an income threshold.",
       "url": "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/accredited-employer-work-visa"
     },
     "smc": {
@@ -232,7 +232,7 @@
       ["ACC no-fault system", "ACC covers injuries, including treatment injuries, on a no-fault basis. Patients generally do not sue for personal injury; providers help lodge ACC claims."],
       ["Open disclosure", "If something goes wrong, you are expected to tell the patient and whānau honestly and promptly, and report it through your employer's incident system."],
       ["ISBAR handover", "Many NZ services use ISBAR (Identify, Situation, Background, Assessment, Recommendation) for handover and escalating concerns."],
-      ["Enrolled nurses", "Enrolled nurses work with guidance from a registered nurse or other registered health practitioner. As an RN you may direct and delegate care to ENs and healthcare assistants and remain accountable."]
+      ["Enrolled nurses", "Enrolled nurses work with guidance from a registered nurse or other registered health practitioner. As an RN, you may direct and delegate care to ENs and healthcare assistants and remain accountable."]
     ]
   },
   "sources": [
@@ -266,6 +266,6 @@
     "Revised NCNZ Code of Conduct – consultation closed March 2026; effective date of the new code not confirmed.",
     "Health NZ international relocation package – listed as 'under review' since July 2024.",
     "AEWV English exemption for skill level 3 jobs is tied to 1 December 2026 and the ANZSCO-to-NOL switch is ongoing; rules may change.",
-    "Which countries' nurses usually skip the theory exam/OSCE is not listed by NCNZ; it decides case by case (it has named the UK, US, Ireland, Singapore and Canada as having similar standards)."
+    "Which countries' nurses usually skip the theory exam/OSCE is not listed by NCNZ; it decides case by case (it has named the UK, U.S., Ireland, Singapore and Canada as having similar standards)."
   ]
 }

@@ -10,7 +10,7 @@ import { jurisFor, RULES_META } from "./rules";
 
 const QS = [
   { id: "clin", q: "Have you worked at the bedside in the last 2 years?", opts: [["yes", "Yes"], ["no", "No"]] },
-  { id: "academic", q: "How comfortable are you with academic essays and describing charts?", opts: [["high", "Comfortable"], ["low", "Not very"]] },
+  { id: "academic", q: "How comfortable are you with academic essays and describing charts?", opts: [["high", "Comfortable"], ["low", "Not Very"]] },
   { id: "past", q: "Have you taken an English test before?", opts: [["none", "No"], ["oet", "OET"], ["ielts", "IELTS"]] },
   { id: "weak", q: "Which skill worries you most?", opts: [["W", "Writing"], ["S", "Speaking"], ["R", "Reading"], ["L", "Listening"]] },
 ];
@@ -18,8 +18,8 @@ const QS = [
 function recommend(a, j) {
   const accepts = (name) => (RULES_META.decision.acceptance[j.id] || []).some((x) => x.startsWith(name));
   const oetOk = accepts("OET") && !!j.oet, ieltsOk = accepts("IELTS") && !!j.ielts;
-  if (!oetOk && ieltsOk) return { pick: "IELTS Academic", why: [`${j.name} doesn't accept OET, so IELTS Academic (or another accepted test) is the way.`] };
-  if (oetOk && !ieltsOk) return { pick: "OET Nursing", why: [`${j.name} doesn't accept IELTS here, so OET is the way.`] };
+  if (!oetOk && ieltsOk) return { pick: "IELTS Academic", why: [`${j.name} doesn't accept OET, so take IELTS Academic (or another accepted test).`] };
+  if (oetOk && !ieltsOk) return { pick: "OET Nursing", why: [`${j.name} doesn't accept IELTS, so take OET.`] };
   let oet = 0, ielts = 0; const why = [];
   if (a.clin === "yes") { oet += 2; why.push("Recent bedside work helps on OET: the writing task is a nursing letter and speaking is nurse–patient role-play."); }
   if (a.clin === "no") { ielts += 1; why.push("Away from practice for a while? IELTS uses general academic topics, so no clinical knowledge is needed."); }
@@ -43,7 +43,7 @@ export function Choose({ mod }) {
       <Card mod={mod} style={{ gap: 12 }}>
         <View style={{ gap: 2 }}>
           <Txt v="eyebrow">OET or IELTS?</Txt>
-          <Txt v="h3">Which test fits you · {destOf(j.dest).flag} {j.name}</Txt>
+          <Txt v="h3">Which Test Fits You · {destOf(j.dest).flag} {j.name}</Txt>
         </View>
         {QS.map((q) => (
           <View key={q.id} style={{ gap: 6 }}>
@@ -61,11 +61,11 @@ export function Choose({ mod }) {
       </Card>
       <Grid min={260} gap={12}>
         <Card mod={mod} style={{ gap: 8, flexGrow: 1 }}>
-          <Txt v="h3">Why nurses choose OET</Txt>
+          <Txt v="h3">Why Nurses Choose OET</Txt>
           <Bullets items={RULES_META.decision.oetGood} />
         </Card>
         <Card mod={mod} style={{ gap: 8, flexGrow: 1 }}>
-          <Txt v="h3">Why nurses choose IELTS</Txt>
+          <Txt v="h3">Why Nurses Choose IELTS</Txt>
           <Bullets items={RULES_META.decision.ieltsGood} />
         </Card>
       </Grid>
@@ -75,7 +75,7 @@ export function Choose({ mod }) {
       </Card>
       {C ? (
         <Card mod={mod} style={{ gap: 10 }}>
-          <Txt v="h3">IELTS ⟷ OET, roughly</Txt>
+          <Txt v="h3">IELTS ⟷ OET, Roughly</Txt>
           <Note mod={mod} tone="warn" icon="AlertTriangle">{C.caution}</Note>
           <View style={{ borderRadius: 12, overflow: "hidden", borderWidth: 1, borderColor: t.c.line }}>
             <Row style={{ backgroundColor: t.soft }}><Txt v="smallB" style={{ flex: 1, padding: 9 }}>IELTS band</Txt><Txt v="smallB" style={{ flex: 1, padding: 9 }}>OET score (grade)</Txt></Row>

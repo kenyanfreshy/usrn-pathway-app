@@ -23,7 +23,7 @@ const BASE_CASES = [
   /* ------------------------------------------------------------------ 1 */
   {
     id: "adhf",
-    title: "Acute decompensated heart failure",
+    title: "Acute Decompensated Heart Failure",
     sub: "Flash pulmonary edema · Cardiac step-down",
     area: "Physiological Adaptation",
     icon: "HeartPulse",
@@ -85,7 +85,7 @@ const BASE_CASES = [
   /* ------------------------------------------------------------------ 2 */
   {
     id: "urosepsis",
-    title: "Septic shock from urosepsis",
+    title: "Septic Shock from Urosepsis",
     sub: "Catheter-associated urinary infection · Emergency department",
     area: "Physiological Adaptation",
     icon: "Activity",
@@ -143,7 +143,7 @@ const BASE_CASES = [
   /* ------------------------------------------------------------------ 3 */
   {
     id: "compartment",
-    title: "Acute compartment syndrome",
+    title: "Acute Compartment Syndrome",
     sub: "After tibial fracture surgery · Orthopedic unit",
     area: "Reduction of Risk Potential",
     icon: "Footprints",
@@ -168,7 +168,7 @@ const BASE_CASES = [
         options: [["a", "Pain 10/10 not relieved by opioids"], ["b", "Severe pain when the toe is passively stretched"], ["c", "Tense, firm, shiny calf"], ["d", "Tingling between the first and second toes"],
           ["e", "Right dorsalis pedis pulse palpable at +1"], ["f", "Right foot warm"], ["g", "Temperature 37.2 °C"], ["h", "CK 1,150 U/L"]],
         answer: ["a", "b", "c", "d"],
-        rationale: "Pain out of proportion to the injury, pain on passive stretch, a tense compartment and new paresthesia are the earliest signs. The deep peroneal nerve supplies the first web space, so tingling there is an early nerve warning. A warm foot and a palpable pulse are often still present early and do not rule it out; a pulse weaker than the other side (+1 vs +2) is a late sign. Report it, but it is not an early warning. A mildly raised CK is expected after bone surgery." },
+        rationale: "Pain out of proportion to the injury, pain on passive stretch, a tense compartment and new paresthesia are the earliest signs. The deep peroneal nerve supplies the first web space, so tingling there is an early nerve warning. A warm foot and a palpable pulse are often still present early and do not rule it out; a pulse weaker than the other side (+1 vs. +2) is a late sign. Report it, but it is not an early warning. A mildly raised CK is expected after bone surgery." },
       { id: "c2", step: "Analyze Cues", kind: "single", stem: "The client's right dorsalis pedis pulse is palpable at +1. How should the nurse interpret this?",
         options: [["a", "It does not rule out compartment syndrome; pulses often remain until very late"], ["b", "It rules out compartment syndrome because arterial flow is present"], ["c", "It shows the pain is from the surgical incision"], ["d", "It means the pain medicine dose is too low"]],
         answer: "a",
@@ -176,7 +176,7 @@ const BASE_CASES = [
       { id: "c3", step: "Prioritize Hypotheses", kind: "single", stem: "These findings represent which urgent priority?",
         options: [["a", "Impending muscle and nerve death from high compartment pressure"], ["b", "Deep vein thrombosis of the right calf"], ["c", "Fat embolism syndrome"], ["d", "Surgical site infection"]],
         answer: "a",
-        rationale: "Within 4 to 6 hours, ischemia from high compartment pressure can cause permanent muscle and nerve damage, contracture or limb loss, and can trigger rhabdomyolysis. DVT does not cause pain on passive toe stretch with paresthesia. Fat embolism shows breathing problems, confusion and petechiae. Infection usually appears later." },
+        rationale: "Within 4 to 6 hours, ischemia from high compartment pressure can cause permanent muscle and nerve damage, contracture or limb loss, and can trigger rhabdomyolysis. DVT does not cause pain on passive toe stretch with paresthesia. Fat embolism presents with breathing problems, confusion and petechiae. Infection usually appears later." },
       { id: "c4", step: "Generate Solutions", kind: "matrix", stem: "For each intervention, mark whether it is indicated or contraindicated now.", cols: ["Indicated", "Contraindicated"],
         rows: [
           ["r1", "Keep the right leg elevated above the level of the heart", "Contraindicated"],
@@ -204,7 +204,7 @@ const BASE_CASES = [
   /* ------------------------------------------------------------------ 4 */
   {
     id: "postop-sepsis",
-    title: "Sepsis after surgery",
+    title: "Sepsis After Surgery",
     sub: "Post-op day 2, sigmoid colectomy · Surgical unit",
     area: "Physiological Adaptation",
     icon: "Stethoscope",
@@ -234,7 +234,7 @@ const BASE_CASES = [
           ["r1", "Obtain blood cultures before antibiotics", "Indicated"], ["r2", "30 mL/kg IV crystalloid bolus", "Indicated"],
           ["r3", "Broad-spectrum antibiotics within 1 hour", "Indicated"], ["r4", "Repeat lactate within 2–4 hours", "Indicated"],
           ["r5", "Furosemide 40 mg IV for low urine output", "Not indicated"], ["r6", "Hold IV fluids because of the client's age", "Not indicated"] ],
-        rationale: "These follow the Surviving Sepsis hour-1 bundle. Diuretics in a hypoperfused patient worsen the kidney injury. Age alone is not a reason to withhold resuscitation, though lungs are reassessed after each bolus." },
+        rationale: "These follow the Surviving Sepsis hour-1 bundle. Diuretics in a hypoperfused client worsen the kidney injury. Age alone is not a reason to withhold resuscitation, though lungs are reassessed after each bolus." },
       { id: "n5", step: "Take Action", kind: "multi", stem: "Select all actions the nurse should take now.",
         options: [["a", "Call the provider using SBAR and request a sepsis evaluation / rapid response"], ["b", "Draw blood cultures before the first antibiotic dose"], ["c", "Start the prescribed fluid bolus"], ["d", "Increase vital signs to at least every 15 minutes"], ["e", "Encourage the client to ambulate to raise BP"], ["f", "Give acetaminophen and recheck vitals in 4 hours before calling"]],
         answer: ["a", "b", "c", "d"],

@@ -107,7 +107,7 @@
     {
       "id": "celban",
       "name": "CELBAN",
-      "summary": "Canadian English Language Benchmark Assessment for Nurses. It uses nursing situations and is scored on Canadian Language Benchmarks (CLB). Accepted by many Canadian nursing regulators.",
+      "summary": "Canadian English Language Benchmark Assessment for Nurses. It uses nursing situations and is scored on the Canadian Language Benchmarks (CLB). It is accepted by many Canadian nursing regulators.",
       "sections": [
         [
           "Listening",
@@ -231,27 +231,27 @@
           "Listening 7.0, Reading 7.0, Speaking 7.0, Writing 6.5"
         ]
       ],
-      "notes": "Nursing Council of New Zealand accepts only OET and IELTS Academic. PTE is not accepted. You may reach the scores over more than one sitting, but within 12 months of your first sitting. All sittings must be within 3 years before you apply. Online at-home tests are not accepted; computer tests at an approved center are."
+      "notes": "The Nursing Council of New Zealand accepts only OET and IELTS Academic. PTE is not accepted. You may reach the scores over more than one sitting, but within 12 months of your first sitting. All sittings must be within 3 years before you apply. Online at-home tests are not accepted; computer tests at an approved center are."
     }
   },
   "writing": [
     {
       "id": "w1",
-      "title": "Referral to community nurse after hip surgery",
+      "title": "Referral to Community Nurse After Hip Surgery",
       "notes": "Patient: Mrs. Margaret Lewis, 78 years old\nDOB: 14/03/1948\nAdmitted: 28/09/2026  Discharge: 09/10/2026\nWard: Orthopedic Ward 4B, City General Hospital\n\nSocial background:\n- Widow, lives alone in 2-story house, bedroom upstairs\n- Daughter (Anne) lives 20 min away, visits 3x/week\n- Retired teacher, enjoys gardening\n- Independent before fall\n\nMedical history:\n- Type 2 diabetes (15 yrs), metformin 500 mg BD\n- Hypertension, amlodipine 5 mg daily\n- Mild osteoarthritis both knees\n- Cataract surgery 2022\n\nAdmission:\n- Fall at home 28/09, fractured R neck of femur\n- R total hip replacement 29/09\n- Post-op: confusion night 1, resolved\n- Wound: 15 cm incision R hip, staples in place, clean & dry, small serous ooze day 3, now resolved\n\nProgress:\n- Mobilizing with walking frame, 20 m, supervision on stairs\n- Pain: paracetamol 1 g QID, oxycodone 5 mg PRN (used 1x/day)\n- BGL 6–11 mmol/L\n- Enoxaparin 40 mg SC daily for 35 days total, started 29/09 (24 days remaining after today's dose)\n- Appetite fair; bowels opened 08/10\n\nNursing plan:\n- Staple removal day 14 (13/10)\n- Wound check, dressing change every 3 days\n- Monitor BGL, pain, signs of DVT\n- Pt anxious about falling again\n- Daughter taught enoxaparin injection, still unsure\n- Physio appointment outpatient 16/10",
       "task": "Using the information in the case notes, write a letter of referral to Ms. Carla Mendes, Community Nurse, Riverside Community Health Service, 45 Park Road, Riverside, who will provide home care for Mrs. Lewis after discharge today.\n\nIn your answer:\n- Expand the relevant notes into complete sentences\n- Do not use note form\n- Use letter format\n\nThe body of the letter should be approximately 180–200 words.",
       "model": "Ms. Carla Mendes\nCommunity Nurse\nRiverside Community Health Service\n45 Park Road\nRiverside\n\n9 October 2026\n\nDear Ms. Mendes,\n\nRe: Mrs. Margaret Lewis, DOB 14/03/1948\n\nI am writing to refer Mrs. Lewis, a 78-year-old woman who is being discharged home today following a right total hip replacement. She requires wound care, anticoagulant support and monitoring.\n\nMrs. Lewis was admitted on 28 September after a fall at home in which she fractured her right femur. She underwent surgery the next day.\n\nHer 15 cm incision is clean and dry, with staples in place. These are due for removal on 13 October. The dressing should be changed every three days. She also requires daily enoxaparin injections for a further 24 days. Although her daughter has been taught to give these, she still lacks confidence, so further support would be appreciated.\n\nMrs. Lewis has type 2 diabetes, and her blood glucose has ranged from 6 to 11 mmol/L. Her pain is managed with regular paracetamol and occasional oxycodone. Please also monitor her for signs of deep vein thrombosis.\n\nShe lives alone with her bedroom upstairs and is anxious about falling again. She walks with a frame and needs supervision on stairs. She has a physiotherapy appointment on 16 October.\n\nIf you have any questions, please do not hesitate to contact me.\n\nYours sincerely,\n\nRegistered Nurse\nOrthopedic Ward 4B\nCity General Hospital",
       "checklist": [
-        "First paragraph states who the patient is and why you are writing (wound care, injections, monitoring).",
+        "The first paragraph states who the patient is and why you are writing (wound care, injections, monitoring).",
         "Dates that need action are included: staple removal 13/10 and physio 16/10.",
         "Irrelevant details are left out (cataract surgery, teacher, gardening).",
-        "The safety risks are clear: lives alone, stairs, fear of falling, daughter unsure with injections.",
+        "The safety risks are clear: lives alone, stairs, fear of falling, daughter unsure about injections.",
         "Formal letter conventions: address block, date, 'Re:' line with DOB, 'Dear Ms. Mendes', 'Yours sincerely', no note form."
       ]
     },
     {
       "id": "w2",
-      "title": "Transfer to aged care facility after pneumonia",
+      "title": "Transfer to Aged Care Facility After Pneumonia",
       "notes": "Patient: Mr. Joseph Tan, 84 years old\nDOB: 02/11/1941\nAdmitted: 01/10/2026  Transfer: 09/10/2026\nWard: Medical Ward 6, Northside Hospital\n\nSocial background:\n- Lives at Greenfield Aged Care (low-care room) for 2 yrs\n- Wife died 2020; son overseas, phones weekly\n- Enjoys card games, watching soccer\n- Former engineer\n\nMedical history:\n- Mild dementia (diagnosed 2023)\n- Heart failure, furosemide 40 mg mane\n- Atrial fibrillation, apixaban 2.5 mg BD\n- Osteoporosis\n- Chronic kidney disease, creatinine 140 µmol/L\n\nAdmission:\n- Fever 38.9°C, productive cough, SOB, more confused\n- CXR: R lower lobe pneumonia\n- IV antibiotics 4 days, now oral amoxicillin 500 mg TDS, last dose 13/10\n- O2 weaned day 5; SpO2 95–97% on room air\n\nProgress:\n- Confusion improved, still forgetful at night\n- Mobility reduced: walks 10 m with 4-wheeled walker, needs 1 assist\n- Weight 64 kg (was 67 kg on admission)\n- Fluid intake poor, needs prompting; target 1.5 L/day\n- Swallow review by speech pathologist: soft diet, thin fluids OK\n- Sacrum: Stage 1 pressure injury (non-blanchable redness, skin intact)\n\nNursing plan:\n- Reposition 2-hourly in bed / encourage mobility\n- Daily weight (heart failure)\n- Monitor temp, SpO2, cough\n- Food & fluid chart\n- GP review at facility within 1 week\n- Now needs higher level of care",
       "task": "Using the information in the case notes, write a letter to Mr. David Okafor, Nurse Unit Manager, Greenfield Aged Care, 12 Hill Street, Northside, who will take over Mr. Tan's care when he returns today.\n\nIn your answer:\n- Expand the relevant notes into complete sentences\n- Do not use note form\n- Use letter format\n\nThe body of the letter should be approximately 180–200 words.",
       "model": "Mr. David Okafor\nNurse Unit Manager\nGreenfield Aged Care\n12 Hill Street\nNorthside\n\n9 October 2026\n\nDear Mr. Okafor,\n\nRe: Mr. Joseph Tan, DOB 02/11/1941\n\nI am writing to update you on Mr. Tan, an 84-year-old resident who is returning to your facility today after treatment for pneumonia. Please note that he now requires a higher level of care.\n\nMr. Tan was admitted on 1 October with fever, a productive cough, shortness of breath and increased confusion. A chest X-ray confirmed right lower lobe pneumonia. After four days of IV antibiotics, he is now taking oral amoxicillin 500 mg three times daily until 13 October. His oxygen saturation is 95–97% on room air.\n\nHis confusion has improved, but he remains forgetful at night. His mobility has declined, and he now needs the assistance of one person to walk 10 meters with a four-wheeled walker. He has also developed a stage 1 pressure injury on his sacrum, so 2-hourly repositioning is required.\n\nHe has lost 3 kg and needs prompting to reach his fluid target of 1.5 liters per day. He should have a soft diet; thin fluids are safe. As he has heart failure, please weigh him daily and monitor his temperature and cough.\n\nA GP review within one week is recommended.\n\nYours sincerely,\n\nRegistered Nurse\nMedical Ward 6\nNorthside Hospital",
@@ -267,9 +267,9 @@
   "speaking": [
     {
       "id": "s1",
-      "title": "Insulin pen at home",
+      "title": "Insulin Pen at Home",
       "setting": "Hospital ward, day of discharge",
-      "situation": "The patient is 55 and was diagnosed with type 2 diabetes. They are going home today on a once-daily insulin pen. They seem worried.",
+      "situation": "The patient is 55 and has type 2 diabetes. They are going home today on a once-daily insulin pen. They seem worried.",
       "tasks": [
         "Find out how the patient feels about starting insulin.",
         "Explain how to use the pen in simple steps (check dose, inject, hold for 10 seconds).",
@@ -280,7 +280,7 @@
     },
     {
       "id": "s2",
-      "title": "Refusing to get out of bed",
+      "title": "Refusing to Get Out of Bed",
       "setting": "Surgical ward, day 1 after abdominal surgery",
       "situation": "The patient had bowel surgery yesterday. The care plan says they should walk today. They refuse because of pain.",
       "tasks": [
@@ -293,7 +293,7 @@
     },
     {
       "id": "s3",
-      "title": "Worried parent: child with fever",
+      "title": "Worried Parent: Child with Fever",
       "setting": "Pediatric emergency department",
       "situation": "You are speaking to the parent of a 2-year-old with a fever of 38.5°C. The child has been seen and will go home. The parent wants antibiotics.",
       "tasks": [
@@ -302,11 +302,11 @@
         "Explain how to manage fever at home (fluids, light clothing, correct dose of medicine).",
         "Explain the warning signs that mean they should return right away."
       ],
-      "patient": "May insist on antibiotics and say the last time their child got sicker without them."
+      "patient": "May insist on antibiotics and say that last time, their child got sicker without them."
     },
     {
       "id": "s4",
-      "title": "Smoking and leg ulcer",
+      "title": "Smoking and Leg Ulcer",
       "setting": "Community clinic, wound care visit",
       "situation": "The patient has a leg ulcer that is healing slowly. They smoke 20 cigarettes a day.",
       "tasks": [
@@ -319,9 +319,9 @@
     },
     {
       "id": "s5",
-      "title": "Daughter upset about fall",
+      "title": "Daughter Upset About Fall",
       "setting": "Medical ward, visiting hours",
-      "situation": "An elderly patient fell overnight on the ward. They have a bruise but no fracture. Their daughter is upset and wants to know what happened.",
+      "situation": "An older patient fell overnight on the ward. They have a bruise but no fracture. Their daughter is upset and wants to know what happened.",
       "tasks": [
         "Acknowledge the daughter's feelings and apologize that the fall happened.",
         "Explain what happened and the checks that were done.",
@@ -332,14 +332,14 @@
     },
     {
       "id": "s6",
-      "title": "New blood thinner",
+      "title": "New Blood Thinner",
       "setting": "Cardiology outpatient clinic",
       "situation": "The patient has atrial fibrillation and is starting a new blood thinner (anticoagulant) today.",
       "tasks": [
         "Find out what the patient already knows about the medicine.",
         "Explain why they need it (to lower the risk of stroke).",
         "Explain the bleeding risks and what to report (black stools, blood in urine, bad bruising).",
-        "Advise them to tell other health workers and the dentist, and to avoid new medicines without checking."
+        "Advise them to tell other health workers and their dentist, and to avoid new medicines without checking."
       ],
       "patient": "May say they feel fine and do not want to take tablets for life."
     }

@@ -69,7 +69,7 @@ function Task1({ mod }) {
   return (
     <Card mod={mod} style={{ gap: 12 }}>
       <Txt v="eyebrow">Task 1 · at least 150 words · 20 minutes</Txt>
-      <Seg mod={mod} even value={id} onChange={(v) => { setId(v); setShow(false); }} options={P.task1.map((x, k) => ({ id: x.id, label: x.kind === "bar" ? "Bar chart" : "Line graph" }))} />
+      <Seg mod={mod} even value={id} onChange={(v) => { setId(v); setShow(false); }} options={P.task1.map((x, k) => ({ id: x.id, label: x.kind === "bar" ? "Bar Chart" : "Line Graph" }))} />
       <Txt v="bodyB">{d.title}</Txt>
       <View onLayout={(e) => setW(Math.floor(e.nativeEvent.layout.width))} style={{ borderRadius: 12, backgroundColor: t.c.sunk, paddingVertical: 8 }}
         accessible accessibilityLabel={`${d.title}. ${d.series.map((s) => `${s.name}: ${d.categories.map((c, i) => `${c} ${s.values[i]}`).join(", ")}`).join(". ")}`}>
@@ -87,7 +87,7 @@ function Task1({ mod }) {
         <Txt v="body">{d.overview}</Txt>
       </View>
       {show ? <><Txt v="body" style={{ lineHeight: 23 }}>{d.model}</Txt><CopyButton mod={mod} text={d.model} /></> : null}
-      <Btn mod={mod} small kind={show ? "secondary" : "primary"} icon="FileText" title={show ? "Hide model answer" : "Write yours, then show the model"} onPress={() => setShow(!show)} />
+      <Btn mod={mod} small kind={show ? "secondary" : "primary"} icon="FileText" title={show ? "Hide Model Answer" : "Write Yours, Then Show the Model"} onPress={() => setShow(!show)} />
     </Card>
   );
 }
@@ -120,7 +120,7 @@ function Vocab({ mod }) {
   const t = useTheme(mod);
   return (
     <Card mod={mod} style={{ gap: 8 }}>
-      <Txt v="h3">Vocabulary booster</Txt>
+      <Txt v="h3">Vocabulary Booster</Txt>
       <Txt v="small" muted>Swap everyday words for precise academic ones, but only where they fit the meaning.</Txt>
       {P.vocab.map(([a, b, ex]) => (
         <View key={a} style={{ padding: 10, borderRadius: 12, backgroundColor: t.c.sunk, gap: 3 }}>

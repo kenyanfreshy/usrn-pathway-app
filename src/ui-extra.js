@@ -19,3 +19,22 @@ export function BackRow({ title, mod }) {
     </Row>
   );
 }
+
+/** "Sources & references" link shown under each question's rationale. Opens Settings → References & Study Resources.
+ *  `before` closes a sheet first (a modal sheet would otherwise stay on top of the new screen). */
+export function SourcesLink({ mod, before, tab = "standards" }) {
+  const t = useTheme(mod);
+  const go = () => {
+    tap();
+    if (before) { before(); setTimeout(() => router.push({ pathname: "/references", params: { tab } }), 350); }
+    else router.push({ pathname: "/references", params: { tab } });
+  };
+  return (
+    <Pressable onPress={go} accessibilityRole="link" accessibilityLabel="Sources and references for this question" hitSlop={8}
+      style={({ pressed }) => ({ alignSelf: "flex-start", flexDirection: "row", alignItems: "center", gap: 6, paddingVertical: 6, opacity: pressed ? 0.6 : 1 })}>
+      <Icon name="BookOpenCheck" size={16} color={t.tint} />
+      <Txt v="smallB" color={t.tint}>Sources & references</Txt>
+      <Icon name="ChevronRight" size={15} color={t.tint} />
+    </Pressable>
+  );
+}

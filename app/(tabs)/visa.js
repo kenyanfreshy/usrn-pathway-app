@@ -24,7 +24,7 @@ const AGENCIES = [
   { id: 5, name: "Long-term care placement agency", model: "Staffing agency", contract: "3 yr contract", rate: [32, 37], bonus: 2500, gc: "Agency sponsors; family included", flags: "Lower rates; easier first placement" },
 ];
 
-const MODEL_TABS = [{ id: "All", label: "All" }, { id: "Direct hire", label: "Direct hire", icon: "Building2" }, { id: "Staffing agency", label: "Staffing agency", icon: "Users" }];
+const MODEL_TABS = [{ id: "All", label: "All" }, { id: "Direct hire", label: "Direct Hire", icon: "Building2" }, { id: "Staffing agency", label: "Staffing Agency", icon: "Users" }];
 
 const open = (url) => { tap(); Linking.openURL(url).catch(() => {}); };
 
@@ -103,7 +103,7 @@ function Calculator({ chart }) {
     <Card mod={MOD} style={{ gap: 14 }}>
       <Row gap={10}>
         <Icon name="CalendarClock" size={19} color={t.tint} />
-        <Txt v="h3" style={{ flex: 1 }}>Where does my priority date stand?</Txt>
+        <Txt v="h3" style={{ flex: 1 }}>Where Does My Priority Date Stand?</Txt>
       </Row>
       <Select mod={MOD} label="Country of chargeability" value={row.key} options={BULLETIN.rows.map((r) => ({ value: r.key, label: r.name }))}
         onChange={(v) => dispatch({ type: "profile", patch: { country: v } })} />
@@ -186,7 +186,7 @@ function SponsorCard({ x, k }) {
         ) : null}
       </View>
       {x.record ? (
-        <Accordion mod={MOD} title="Public legal record" meta={<Icon name="Scale" size={16} color={t.c.warn} />}>
+        <Accordion mod={MOD} title="Public Legal Record" meta={<Icon name="Scale" size={16} color={t.c.warn} />}>
           <Bullets items={x.record.map(([txt, u]) => (
             <Txt key={u} v="small">{txt} <Link v="smallB" url={u}>Source ↗</Link></Txt>
           ))} />
@@ -194,7 +194,7 @@ function SponsorCard({ x, k }) {
       ) : null}
       <Row wrap gap={8}>
         <Btn mod={MOD} small icon="Globe" title="Website" onPress={() => open(x.site)} />
-        <Btn mod={MOD} small kind="secondary" icon="Send" title="Contact page" onPress={() => open(x.contact)} />
+        <Btn mod={MOD} small kind="secondary" icon="Send" title="Contact Page" onPress={() => open(x.contact)} />
       </Row>
     </Card>
   );
@@ -206,7 +206,7 @@ function SponsorDirectory() {
   const list = SPONSORS.filter((x) => f === "All" || x.model === f);
   return (
     <View style={{ gap: 12 }}>
-      <SectionTitle eyebrow="Sponsoring agencies" title="Certified ethical recruiters"
+      <SectionTitle eyebrow="Sponsoring agencies" title="Certified Ethical Recruiters"
         sub="Each agency below is a Certified Ethical Recruiter of the CGFNS Alliance for Ethical International Recruitment Practices. Contact details come from each agency's own website." />
       <Seg mod={MOD} value={f} onChange={setF} options={MODEL_TABS} />
       <Pressable onPress={() => open(AEIRP_LIST)} accessibilityRole="link" style={{ alignSelf: "flex-start" }}>
@@ -215,7 +215,7 @@ function SponsorDirectory() {
       {list.map((x) => <SponsorCard key={x.name} x={x} k={SPONSORS.indexOf(x)} />)}
 
       <Card mod={MOD} accent style={{ gap: 10 }}>
-        <Row gap={8}><Icon name="ShieldCheck" size={20} color={t.c.ok} /><Txt v="h3" style={{ flex: 1 }}>What an ethical recruiter must do</Txt></Row>
+        <Row gap={8}><Icon name="ShieldCheck" size={20} color={t.c.ok} /><Txt v="h3" style={{ flex: 1 }}>What an Ethical Recruiter Must Do</Txt></Row>
         <Txt v="small" muted>From the Alliance's Health Care Code, which certified recruiters agree to follow.</Txt>
         <Bullets items={[
           <Txt key="a" v="small">Charge you <Txt v="smallB">no recruitment fees</Txt>.</Txt>,
@@ -227,16 +227,16 @@ function SponsorDirectory() {
         ]} />
       </Card>
       <Card mod={MOD} style={{ gap: 10, borderColor: t.c.warn }}>
-        <Row gap={8}><Icon name="AlertTriangle" size={20} color={t.c.warn} /><Txt v="h3" style={{ flex: 1 }}>Before you sign</Txt></Row>
+        <Row gap={8}><Icon name="AlertTriangle" size={20} color={t.c.warn} /><Txt v="h3" style={{ flex: 1 }}>Before You Sign</Txt></Row>
         <Bullets items={[
           <Txt key="a" v="small">Confirm the agency on the <Link url={AEIRP_LIST}>certified recruiter list</Link> yourself.</Txt>,
-          <Txt key="b" v="small">Being certified doesn't guarantee a clean record. Search the company name with "lawsuit" or "breach fee".</Txt>,
-          <Txt key="c" v="small">Get the breach or early-departure fee in writing, and how it's calculated.</Txt>,
+          <Txt key="b" v="small">Being certified doesn't guarantee a clean record. Search the company name with “lawsuit” or “breach fee.”</Txt>,
+          <Txt key="c" v="small">Get the breach or early-departure fee, and how it's calculated, in writing.</Txt>,
           <Txt key="d" v="small">Have an independent immigration or employment attorney read the contract — not one the agency picks.</Txt>,
           <Txt key="e" v="small">Report a problem to the <Link url={ALLIANCE_CONTACT}>Alliance</Link>.</Txt>,
         ]} />
       </Card>
-      <Txt v="tiny" muted>Details checked on each agency's website in October 2026. Listing here is not an endorsement. Contact details and certification can change; confirm before you apply.</Txt>
+      <Txt v="tiny" muted>Details checked on each agency's website in October 2026. Being listed here is not an endorsement. Contact details and certification can change; confirm before you apply.</Txt>
     </View>
   );
 }
@@ -256,9 +256,9 @@ function Offers() {
   const ag = AGENCIES.filter((a) => model === "All" || a.model === model).sort((a, b) => asort === "rate" ? b.rate[1] - a.rate[1] : b.bonus - a.bonus);
   return (
     <View style={{ gap: 12 }}>
-      <SectionTitle eyebrow="Comparing offers" title="Direct hire vs. staffing agency" sub="What to compare between the two sponsorship models. These are example profiles, not real companies." />
+      <SectionTitle eyebrow="Comparing offers" title="Direct Hire vs. Staffing Agency" sub="What to compare between the two sponsorship models. These are example profiles, not real companies." />
       <Seg mod={MOD} value={model} onChange={setModel} options={MODEL_TABS} />
-      <Select mod={MOD} label="Sort" value={asort} onChange={setAsort} options={[{ value: "rate", label: "Highest hourly rate" }, { value: "bonus", label: "Largest relocation" }]} />
+      <Select mod={MOD} label="Sort" value={asort} onChange={setAsort} options={[{ value: "rate", label: "Highest hourly rate" }, { value: "bonus", label: "Largest relocation bonus" }]} />
       {ag.map((a) => (
         <Card key={a.id} mod={MOD} style={{ gap: 10 }}>
           <View style={{ gap: 6 }}>
@@ -277,14 +277,14 @@ function Offers() {
           </Grid>
         </Card>
       ))}
-      <Accordion mod={MOD} title="Questions to ask any sponsor before you sign">
+      <Accordion mod={MOD} title="Questions to Ask Any Sponsor Before You Sign">
         <Bullets items={[
           "Who pays the I-140 filing fees and attorney costs? (Employer-paid is standard.)",
           "What is the breach or early-termination fee, and how is it calculated?",
           "Is the pay rate fixed in the contract or tied to the facility's prevailing wage?",
           "Can they move you to another facility or state, and with how much notice?",
           "Are your spouse and children included as derivatives?",
-          "Have an independent immigration attorney review the contract. This app is educational, not legal advice.",
+          "Have an independent immigration attorney review the contract. This app is for education only and does not give legal advice.",
         ]} />
       </Accordion>
     </View>
@@ -311,7 +311,7 @@ export default function Visa() {
   }
   return (
     <Screen mod={MOD}>
-      <Hero mod={MOD} icon="Plane" eyebrow="Module 4 · Immigration · 🇺🇸 U.S." title="EB-3 visa bulletin monitor"
+      <Hero mod={MOD} icon="Plane" eyebrow="Module 4 · Immigration · 🇺🇸 U.S." title="EB-3 Visa Bulletin Monitor"
         sub={`Priority dates from the State Department's ${monthName(BULLETIN.month)} bulletin. Final Action dates decide when a visa can be issued; Dates for Filing decide when you may submit documents.`}
         stats={[["Bulletin", monthName(BULLETIN.month).replace(/^(\w{3})\w* /, "$1 ")], ["Philippines FA", ph ? fmtDate(ph.fa) : "—"], ["Rest of world FA", row ? fmtDate(row.fa) : "—"]]} />
       <DestPill mod={MOD} />

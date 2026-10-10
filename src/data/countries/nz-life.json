@@ -2,7 +2,7 @@
   "country": "NZ",
   "checked": "2026-10-09",
   "regulators": {
-    "title": "Nursing Council & Health NZ regions",
+    "title": "Nursing Council & Health NZ Regions",
     "intro": "One national regulator, the Nursing Council of New Zealand (Te Kaunihera Tapuhi o Aotearoa), registers all nurses and issues the Annual Practising Certificate (APC). Health New Zealand | Te Whatu Ora is the main public employer, organized into four regions.",
     "list": [
       {
@@ -75,7 +75,7 @@
       }
     ],
     "mobility": {
-      "title": "Working in Australia too (TTMRA)",
+      "title": "Working in Australia Too (TTMRA)",
       "steps": [
         "Get registered in New Zealand and hold a current NCNZ APC.",
         "Apply online to Ahpra / the Nursing and Midwifery Board of Australia under Trans-Tasman Mutual Recognition (online is open to nurses with a current NCNZ APC).",
@@ -89,7 +89,7 @@
   "careers": [
     {
       "id": "pdrp",
-      "title": "PDRP levels (competent → proficient → expert)",
+      "title": "PDRP Levels (Competent → Proficient → Expert)",
       "items": [
         "Join your employer's Professional Development and Recognition Programme (PDRP) once you start.",
         "RN levels: Competent, Proficient, Expert, Designated Senior Nurse (EN levels: Competent, Proficient, Accomplished).",
@@ -101,18 +101,18 @@
     },
     {
       "id": "np",
-      "title": "Nurse Practitioner (Mātanga Tapuhi) scope",
+      "title": "Nurse Practitioner (Mātanga Tapuhi) Scope",
       "items": [
         "Gain advanced nursing experience in your chosen area.",
         "Complete an NCNZ-accredited clinical master's program (includes 300 hours of clinical learning).",
         "Complete at least 150 hours of prescribing practicum under a Designated Authorised Prescriber.",
         "Prepare a portfolio and pass the NCNZ panel assessment of competence.",
-        "As an NP you can prescribe medicines relevant to your area of practice, within your scope."
+        "As an NP, you can prescribe medicines relevant to your area of practice, within your scope."
       ]
     },
     {
       "id": "postgrad",
-      "title": "Specialty postgraduate study",
+      "title": "Specialty Postgraduate Study",
       "items": [
         "Talk to your manager about your career plan and a specialty area.",
         "Look at postgraduate certificates, diplomas or clinical master's programs.",
@@ -124,12 +124,12 @@
     },
     {
       "id": "lead",
-      "title": "Senior nurse, educator or charge roles",
+      "title": "Senior Nurse, Educator or Charge Roles",
       "items": [
         "Keep your PDRP at Proficient or Expert; it is needed for career progression.",
         "Take on preceptor or team leader duties on your ward.",
         "Add relevant postgraduate study (e.g. education or leadership papers).",
-        "Apply for Designated Senior Nurse PDRP level once in a senior role.",
+        "Apply for the Designated Senior Nurse PDRP level once you are in a senior role.",
         "Use the six NCNZ competence pou, including Rangatiratanga and leadership, to frame your evidence."
       ]
     }
@@ -180,7 +180,7 @@
     ],
     [
       "Government KiwiSaver contribution",
-      "Members get 25 cents per dollar they contribute, up to NZD 260.72 a year (2026). Not available if income is over NZD 180,000."
+      "Members get 25 cents per dollar they contribute, up to NZD 260.72 a year (2026). Not available if your income is over NZD 180,000."
     ],
     [
       "Temporary 3% option",
@@ -202,19 +202,19 @@
     ],
     [
       "Work injuries",
-      "If injured at work, your employer pays 80% of your usual pay for the first week; ACC weekly compensation is up to 80% of earnings after that."
+      "If you are injured at work, your employer pays 80% of your usual pay for the first week; ACC weekly compensation is up to 80% of earnings after that."
     ],
     [
       "Private health insurance",
-      "Optional, and only available if you are eligible for the public system. If not eligible, buy comprehensive travel insurance before you arrive."
+      "Optional, and only available if you are eligible for the public system. If you are not eligible, buy comprehensive travel insurance before you arrive."
     ],
     [
       "Income protection",
-      "Optional insurance that pays up to 75% of pre-disability income if illness stops you working."
+      "Optional insurance that pays up to 75% of pre-disability income if illness stops you from working."
     ],
     [
       "Contents insurance",
-      "Renters need their own; landlords only insure the building. Choose replacement or indemnity cover."
+      "Renters need their own; landlords insure only the building. Choose replacement or indemnity cover."
     ],
     [
       "Car insurance",
@@ -224,7 +224,7 @@
   "insureList": [
     "Applied for my IRD number through myIR",
     "Gave my employer a completed IR330 tax code declaration",
-    "Checked my work visa makes me eligible for public health care (2+ years)",
+    "Checked that my work visa makes me eligible for public health care (2+ years)",
     "Enrolled with a GP practice",
     "Know how to apply for ACC weekly compensation (MyACC or 0800 101 996)",
     "Arranged travel or private health insurance if I'm not yet eligible",
@@ -265,12 +265,12 @@
     ]
   },
   "lessonNotes": {
-    "sbar": "ISBAR (Identify, Situation, Background, Assessment, Request/Recommendation) is the handover tool used in NZ districts such as Capital & Coast, for handover, transfers and calls about a deteriorating patient.",
+    "sbar": "ISBAR (Identify, Situation, Background, Assessment, Request/Recommendation) is used in NZ districts such as Capital & Coast for handover, transfers and calls about a deteriorating patient.",
     "ehr": "Follow your district's documentation policy. The NCNZ Code of Conduct and its social media guideline warn that electronic messages and posts can breach confidentiality even without a name.",
     "hipaa": "The Privacy Act 2020 and the Health Information Privacy Code 2020 (HIPC) apply instead of HIPAA. The HIPC was amended in March 2026. HIPC rules cover how health agencies and nurses collect, use, hold and share health information.",
     "deleg": "RNs are accountable for directing and delegating to the wider healthcare team (such as health care assistants). Since 20 January 2025, enrolled nurses work under a new scope, with access to guidance from an RN, and the rules for RN direction and delegation of ENs have changed.",
     "code": "Goals of care are recorded on a 'shared goals of care' form agreed with the patient and whānau. The New Zealand Early Warning Score (NZEWS) on the national vital signs chart triggers escalation; a score of 10+ or any blue-zone sign triggers a rapid response. Patients and whānau can escalate concerns through Kōrero mai.",
-    "workplace": "NZNO is both union and professional body; the NZNO Nurses' MECA covers most Health NZ nurses. Cultural safety (kawa whakaruruhau) and Te Tiriti o Waitangi are core to the six NCNZ competence pou."
+    "workplace": "NZNO is both a union and a professional body; the NZNO Nurses' MECA covers most Health NZ nurses. Cultural safety (kawa whakaruruhau) and Te Tiriti o Waitangi are core to the six NCNZ competence pou."
   },
   "sources": [
     [

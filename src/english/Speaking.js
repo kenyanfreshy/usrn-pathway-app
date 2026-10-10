@@ -21,7 +21,7 @@ function OetRoleplay({ mod }) {
   const toggle = (k) => dispatch({ type: "english", patch: { [k]: !(state.english || {})[k] } });
   return (
     <View style={{ gap: 12 }}>
-      <Seg mod={mod} value={id} onChange={(v) => { setId(v); setShowP(false); }} options={all.map((x, k) => ({ id: x.id, label: `Role-play ${k + 1}` }))} />
+      <Seg mod={mod} value={id} onChange={(v) => { setId(v); setShowP(false); }} options={all.map((x, k) => ({ id: x.id, label: `Role-Play ${k + 1}` }))} />
       <Card mod={mod} style={{ gap: 10 }}>
         <Txt v="h3">{r.title}</Txt>
         <Txt v="small" muted><Txt v="smallB">Setting: </Txt>{r.setting}</Txt>
@@ -30,26 +30,26 @@ function OetRoleplay({ mod }) {
           <Txt v="body">{r.nurse}</Txt>
           <Bullets numbered items={r.tasks} />
         </View>
-        <PhaseTimer key={r.id} mod={mod} phases={[["Prepare", 180], ["Role-play", 300]]} />
+        <PhaseTimer key={r.id} mod={mod} phases={[["Prepare", 180], ["Role-Play", 300]]} />
         <Pressable onPress={() => { tap(); setShowP(!showP); }} accessibilityRole="button" style={{ alignSelf: "flex-start" }}>
           <Txt v="smallB" color={t.tint}>{showP ? "Hide patient card" : "Show patient card (for your practice partner)"}</Txt>
         </Pressable>
         {showP ? <Note mod={mod} tone="acc2" icon="User">{r.patient}</Note> : null}
-        {r.phrases && r.phrases.length ? <Accordion mod={mod} title="Useful phrases"><Bullets items={r.phrases.map((x) => `“${x}”`)} /></Accordion> : null}
+        {r.phrases && r.phrases.length ? <Accordion mod={mod} title="Useful Phrases"><Bullets items={r.phrases.map((x) => `“${x}”`)} /></Accordion> : null}
       </Card>
       <Card mod={mod} style={{ gap: 10 }}>
         <Row style={{ justifyContent: "space-between" }}>
-          <Txt v="h3">Score yourself</Txt>
+          <Txt v="h3">Score Yourself</Txt>
           <Chip mod={mod} tone={got / total >= 0.8 ? "ok" : "acc"} text={`${got}/${total}`} />
         </Row>
-        <Txt v="small" muted>After the role-play, tick what you did. These are the five clinical communication criteria OET assessors use.</Txt>
+        <Txt v="small" muted>After the role-play, check off what you did. These are the five clinical communication criteria OET assessors use.</Txt>
         {P.criteria.map((c) => (
           <View key={c.id} style={{ gap: 2 }}>
             <Txt v="smallB" color={t.tint}>{c.id}. {c.name}</Txt>
             {c.checks.map((x, i) => <Check key={i} mod={mod} checked={!!(state.english || {})[key(c.id, i)]} label={x} onToggle={() => toggle(key(c.id, i))} />)}
           </View>
         ))}
-        <Accordion mod={mod} title="Language criteria">
+        <Accordion mod={mod} title="Language Criteria">
           {P.linguistic.map((l) => <Txt key={l.name} v="small"><Txt v="smallB">{l.name}: </Txt>{l.tip}</Txt>)}
         </Accordion>
       </Card>

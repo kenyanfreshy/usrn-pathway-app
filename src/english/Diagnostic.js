@@ -12,7 +12,7 @@ const Q = P.diagnostic;
 const GROUPS = ["OET Listening", "OET Reading", "IELTS Reading", "Vocabulary"];
 
 function verdict(p) {
-  if (p >= 0.85) return ["Strong", "You're reading and listening at the level most nurse minimums ask for. Keep practicing writing and speaking, which decide most results."];
+  if (p >= 0.85) return ["Strong", "You're reading and listening at the level most nursing minimum scores require. Keep practicing writing and speaking, which decide most results."];
   if (p >= 0.65) return ["Close", "A solid base. Work on the sections below where you dropped points, then try again in two weeks."];
   return ["Building", "Start with the skill you scored lowest in. Short daily practice beats long weekly sessions."];
 }
@@ -59,7 +59,7 @@ export function Diagnostic({ mod }) {
             </Accordion>
           );
         })}
-        <Btn mod={mod} icon="RotateCcw" title="Try again" onPress={() => { setAns({}); setI(0); setDone(false); }} />
+        <Btn mod={mod} icon="RotateCcw" title="Try Again" onPress={() => { setAns({}); setI(0); setDone(false); }} />
       </View>
     );
   }
@@ -82,7 +82,7 @@ export function Diagnostic({ mod }) {
         <Row style={{ justifyContent: "space-between" }}>
           <Btn mod={mod} small kind="secondary" icon="ArrowLeft" title="Back" disabled={i === 0} onPress={() => setI(i - 1)} />
           {i < Q.length - 1 ? <Btn mod={mod} small icon="ArrowRight" title="Next" disabled={!ans[q.id]} onPress={() => setI(i + 1)} />
-            : <Btn mod={mod} small icon="Check" title="See my results" disabled={Object.keys(ans).length < Q.length} onPress={finish} />}
+            : <Btn mod={mod} small icon="Check" title="See My Results" disabled={Object.keys(ans).length < Q.length} onPress={finish} />}
         </Row>
       </Card>
       {q.section === "OET Listening" ? <Txt v="tiny" muted>The real Listening test is audio. Here you read a transcript, which practices the same skill of catching the key detail.</Txt> : null}

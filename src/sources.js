@@ -9,7 +9,7 @@ export function SourceList({ sources = [], uncertain = [], mod }) {
   return (
     <>
       {uncertain.length ? (
-        <Accordion mod={mod} title="What we couldn't confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
+        <Accordion mod={mod} title="What We Couldn't Confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
           <Bullets items={uncertain} />
         </Accordion>
       ) : null}

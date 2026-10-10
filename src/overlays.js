@@ -54,7 +54,7 @@ export function Overlays() {
   const { celebrate, popCelebrate, m, lvl, state } = useApp(); const t = useTheme();
   const item = celebrate[0];
   useEffect(() => { if (item) buzz(); }, [item]);
-  const share = () => Share.share({ message: `I'm ${Math.round(m.roadPct * 100)}% through my journey to the ${destOf(destId(state)).short} bedside — level: ${lvl.name}, ${m.streak}-day streak. Tracking it with NurseBound.` }).catch(() => {});
+  const share = () => Share.share({ message: `I'm ${Math.round(m.roadPct * 100)}% through my journey to the ${destOf(destId(state)).short} bedside. Level: ${lvl.name}. Streak: ${m.streak} ${m.streak === 1 ? "day" : "days"}. I'm tracking it with NurseBound.` }).catch(() => {});
   return (
     <>
       <Toast />
@@ -69,7 +69,7 @@ export function Overlays() {
               <Txt v="body" muted style={{ textAlign: "center" }}>{item.badge ? item.badge.desc : "You reached a new level. Keep the momentum going."}</Txt>
               <Row gap={10} style={{ marginTop: 6 }}>
                 <Btn kind="secondary" icon="Share2" title="Share" onPress={share} />
-                <Btn icon="Check" title="Keep going" onPress={popCelebrate} />
+                <Btn icon="Check" title="Keep Going" onPress={popCelebrate} />
               </Row>
             </View>
           ) : null}

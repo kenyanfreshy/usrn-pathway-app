@@ -60,7 +60,7 @@ function BoardCard({ b }) {
         {b.juris ? <Chip mod={MOD} tone="acc2" icon="Gavel" text="Jurisprudence exam" /> : <Chip tone="mute" text="No jurisprudence" />}
         {nlc}
       </Row>
-      {b.url ? <Btn mod={MOD} small kind="secondary" icon="Globe" title="Board website" onPress={() => { tap(); Linking.openURL(b.url).catch(() => {}); }} style={{ alignSelf: "flex-start" }} /> : null}
+      {b.url ? <Btn mod={MOD} small kind="secondary" icon="Globe" title="Board Website" onPress={() => { tap(); Linking.openURL(b.url).catch(() => {}); }} style={{ alignSelf: "flex-start" }} /> : null}
     </Card>
   );
 }
@@ -85,9 +85,9 @@ function EndorsementWizard() {
     <Card mod={MOD} accent style={{ gap: 14 }}>
       <Row gap={10}>
         <View style={{ width: 36, height: 36, borderRadius: 12, backgroundColor: t.soft, alignItems: "center", justifyContent: "center" }}><Icon name="ArrowRightLeft" size={18} color={t.tint} /></View>
-        <Txt v="h3" style={{ flex: 1 }}>Endorsement pathway wizard</Txt>
+        <Txt v="h3" style={{ flex: 1 }}>Endorsement Pathway Wizard</Txt>
       </Row>
-      <Select mod={MOD} label="I passed NCLEX / hold a license in" value={from} options={opts} onChange={setFrom} />
+      <Select mod={MOD} label="I passed the NCLEX-RN or hold a license in" value={from} options={opts} onChange={setFrom} />
       <Select mod={MOD} label="I want to work in" value={to} options={opts} onChange={setTo} />
       {from === to ? (
         <Note mod={MOD}>{"You already hold a license in " + dst.name + ". No endorsement needed."}</Note>
@@ -137,8 +137,8 @@ function RegulatorCard({ r }) {
       {r.tags && r.tags.length ? <Row wrap gap={6}>{r.tags.map((x, k) => <Chip key={x} mod={MOD} tone={k % 2 ? "acc2" : "acc"} text={x} />)}</Row> : null}
       <Row wrap gap={8}>
         {canPick && !mine ? <Btn mod={MOD} small icon="MapPin" title={`Choose this ${word}`} onPress={() => pick(r.code)} /> : null}
-        {mine ? <Btn mod={MOD} small icon="ArrowRight" title="Continue to next step" onPress={() => { tap(); router.push("/roadmap"); }} /> : null}
-        {r.url ? <Btn mod={MOD} small kind="secondary" icon="Globe" title="Official site" onPress={() => { tap(); Linking.openURL(r.url).catch(() => {}); }} /> : null}
+        {mine ? <Btn mod={MOD} small icon="ArrowRight" title="Continue to Next Step" onPress={() => { tap(); router.push("/roadmap"); }} /> : null}
+        {r.url ? <Btn mod={MOD} small kind="secondary" icon="Globe" title="Official Site" onPress={() => { tap(); Linking.openURL(r.url).catch(() => {}); }} /> : null}
       </Row>
       {mine ? <Chip mod={MOD} tone="ok" icon="CheckCircle2" text={`Your ${word}`} /> : null}
     </Card>
@@ -194,8 +194,8 @@ function UsBoards() {
   }, [q, noSSN, noJur, compact, sort]);
   return (
     <Screen mod={MOD}>
-      <BackRow mod={MOD} title="State boards" />
-      <Hero mod={MOD} icon="Landmark" eyebrow="Module 2 · Boards of Nursing" title="Pick the right state board"
+      <BackRow mod={MOD} title="State Boards" />
+      <Hero mod={MOD} icon="Landmark" eyebrow="Module 2 · Boards of Nursing" title="Pick the Right State Board"
         sub="Compare boards that accept internationally educated applicants, then plan your move to another state."
         stats={[["Boards listed", BOARDS.length], ["No SSN to apply", BOARDS.filter((b) => b.ssn === false).length], ["Compact states", BOARDS.filter((b) => b.nlc === "Yes").length]]} />
       <DestPill mod={MOD} />
@@ -222,7 +222,7 @@ function UsBoards() {
         </Card>
       ) : null}
       <Txt v="tiny" muted>Fees shown are board application fees only. Pearson VUE NCLEX registration is separate: $200, rising to $350 for registrations from Feb 1, 2027.</Txt>
-      <Accordion mod={MOD} title="What we couldn't confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
+      <Accordion mod={MOD} title="What We Couldn't Confirm" meta={<Icon name="HelpCircle" size={16} color={t.c.muted} />}>
         <Bullets items={BOARDS_META.uncertain} />
       </Accordion>
       <Accordion mod={MOD} title={`Sources (${BOARDS_META.sources.length})`} meta={<Icon name="BookOpen" size={16} color={t.c.muted} />}>
@@ -234,7 +234,7 @@ function UsBoards() {
           ))}
         </View>
       </Accordion>
-      <ProGate feature="Endorsement pathway wizard" desc="Step-by-step Nursys transfer between states" mod="boards">
+      <ProGate feature="Endorsement Pathway Wizard" desc="Step-by-step Nursys transfer between states" mod="boards">
         <EndorsementWizard />
       </ProGate>
     </Screen>

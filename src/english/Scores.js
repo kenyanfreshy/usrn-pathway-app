@@ -56,7 +56,7 @@ function Checker({ j, mod }) {
     <Card mod={mod} style={{ gap: 12 }}>
       <View style={{ gap: 2 }}>
         <Txt v="eyebrow">Check my scores</Txt>
-        <Txt v="h3">Did I meet the minimum?</Txt>
+        <Txt v="h3">Did I Meet the Minimum?</Txt>
       </View>
       <Seg mod={mod} even value={test} onChange={(v) => { setTest(v); dispatch({ type: "english", patch: { mine: { test: v, scores: sc, date } } }); }} options={[{ id: "oet", label: "OET Nursing" }, { id: "ielts", label: "IELTS Academic" }]} />
       <Grid min={130} gap={8}>
@@ -116,7 +116,7 @@ export function Scores({ mod }) {
           {j.validity ? <Row gap={8} center={false}><Icon name="Clock" size={16} color={t.tint} /><Txt v="small" style={{ flex: 1 }}><Txt v="smallB">How recent: </Txt>{j.validity}</Txt></Row> : null}
           {j.notes ? <Txt v="small" muted>{j.notes}</Txt> : null}
         </View>
-        {j.url ? <Btn mod={mod} small kind="secondary" icon="Globe" title="Official requirements" onPress={() => { tap(); Linking.openURL(j.url).catch(() => {}); }} style={{ alignSelf: "flex-start" }} /> : null}
+        {j.url ? <Btn mod={mod} small kind="secondary" icon="Globe" title="Official Requirements" onPress={() => { tap(); Linking.openURL(j.url).catch(() => {}); }} style={{ alignSelf: "flex-start" }} /> : null}
       </Card>
       <Checker j={j} mod={mod} />
     </View>

@@ -185,7 +185,7 @@ function Lessons({ dest, lessons, doneCount, dispatch, name }) {
 
         <KnowledgeCheck L={L} prev={lessons[L.id]} onPass={(score, max) => dispatch({ type: "lesson", id: L.id, result: { best: score, max, date: new Date().toISOString().slice(0, 10) } })} />
 
-        {idx < LESSONS.length - 1 ? <Btn mod={MOD} kind="secondary" small icon="ArrowRight" title="Next lesson" onPress={() => choose(LESSONS[idx + 1].id)} /> : null}
+        {idx < LESSONS.length - 1 ? <Btn mod={MOD} kind="secondary" small icon="ArrowRight" title="Next Lesson" onPress={() => choose(LESSONS[idx + 1].id)} /> : null}
       </Card>
     </>
   );
@@ -237,7 +237,7 @@ function KnowledgeCheck({ L, prev, onPass }) {
           {passed ? "Saved to your progress." : `You need ${PASS_MARK} of ${qs.length} to complete this lesson. Review the lesson and try again.`}
         </Note>
       ) : null}
-      {finished ? <Btn mod={MOD} kind="secondary" small icon="RotateCcw" title="Retake the check" onPress={() => { setPicks({}); setRun(run + 1); }} /> : null}
+      {finished ? <Btn mod={MOD} kind="secondary" small icon="RotateCcw" title="Retake the Check" onPress={() => { setPicks({}); setRun(run + 1); }} /> : null}
       {prev && typeof prev === "object" && !finished ? <Txt v="tiny" muted>Completed before · best {prev.best}/{prev.max}</Txt> : null}
     </View>
   );
@@ -274,7 +274,7 @@ function SbarBuilder({ name }) {
       </Card>
 
       <Card mod={MOD} style={{ gap: 12 }}>
-        <Txt v="h3">Who's calling</Txt>
+        <Txt v="h3">Who's Calling</Txt>
         <Grid min={150} gap={10}>
           <Field mod={MOD} label="Your name" value={me} onChangeText={setMe} placeholder="e.g. Grace" autoCapitalize="words" />
           <Field mod={MOD} label="Your unit" value={unit} onChangeText={setUnit} placeholder="e.g. 4 West" autoCapitalize="words" />
@@ -303,11 +303,11 @@ function SbarBuilder({ name }) {
       {complete ? (
         <Card mod={MOD} accent style={{ gap: 12 }}>
           <Row>
-            <Txt v="h3" style={{ flex: 1 }}>Your SBAR script</Txt>
+            <Txt v="h3" style={{ flex: 1 }}>Your SBAR Script</Txt>
             <Chip mod={MOD} tone={best === 4 ? "ok" : "warn"} text={`${best}/4 strongest`} />
           </Row>
           <Txt v="body" style={{ fontStyle: "italic" }}>"{script}"</Txt>
-          <CopyButton mod={MOD} text={script} label="Copy script" />
+          <CopyButton mod={MOD} text={script} label="Copy Script" />
         </Card>
       ) : null}
 
@@ -323,7 +323,7 @@ function SbarBuilder({ name }) {
               why={rb !== null && (good || rb === o) ? why : null}
               onPress={() => { setRb(o); if (good) buzz(); }} />
           ))}
-          {rb !== null ? <Btn mod={MOD} kind="secondary" small icon="RotateCcw" title="Try this scenario again" onPress={() => { setSel({}); setRb(null); }} /> : null}
+          {rb !== null ? <Btn mod={MOD} kind="secondary" small icon="RotateCcw" title="Try This Scenario Again" onPress={() => { setSel({}); setRb(null); }} /> : null}
         </Card>
       ) : <Txt v="tiny" muted>Choose one version for each of S, B, A and R to build your script.</Txt>}
     </>
@@ -341,7 +341,7 @@ function FlipCards() {
       <Row>
         <View style={{ flex: 1, gap: 2 }}>
           <Txt v="eyebrow">Flip cards</Txt>
-          <Txt v="h3">Chart this, not that</Txt>
+          <Txt v="h3">Chart This, Not That</Txt>
         </View>
         <Txt v="mono" muted>{i + 1}/{CHART_CARDS.length}</Txt>
       </Row>
@@ -375,7 +375,7 @@ function ChartTrainer({ dest }) {
       <Row wrap gap={8}>
         {CHART_CASES.map((x, k) => <Chip key={x.id} mod={MOD} icon={x.icon} text={x.title} tone={k === i ? "acc" : "mute"} active={k === i} onPress={() => { setI(k); setPick(null); }} />)}
       </Row>
-      <Txt v="h3">Which note holds up?</Txt>
+      <Txt v="h3">Which Note Holds Up?</Txt>
       <Txt v="small" muted>{dest === "US" ? "Which note would hold up in a Board investigation or a deposition? Tap one." : "Which note would hold up in a regulator investigation or in court? Tap one."}</Txt>
       {cards.map(([kind, text], k) => {
         const good = kind === "good";
@@ -399,7 +399,7 @@ function ChartTrainer({ dest }) {
             <Txt v="bodyB" style={{ flex: 1 }} color={pick === "good" ? t.c.ok : t.c.crit}>{pick === "good" ? "Right — that's the defensible note." : "That one would hurt you. Here's why the other holds up:"}</Txt>
           </Row>
           <Bullets items={c.why} />
-          {i < CHART_CASES.length - 1 ? <Btn mod={MOD} icon="ArrowRight" title="Next scenario" onPress={() => { setI(i + 1); setPick(null); }} /> : null}
+          {i < CHART_CASES.length - 1 ? <Btn mod={MOD} icon="ArrowRight" title="Next Scenario" onPress={() => { setI(i + 1); setPick(null); }} /> : null}
         </View>
       ) : null}
     </>
@@ -446,7 +446,7 @@ function LicenseHub({ dest }) {
             <IconTile mod={MOD} icon="Shield" size={42} />
             <View style={{ flex: 1, gap: 2 }}>
               <Txt v="eyebrow">Professional liability protection · {destOf(dest).flag}</Txt>
-              <Txt v="h2">Who protects you in {destOf(dest).name}</Txt>
+              <Txt v="h2">Who Protects You in {destOf(dest).name}</Txt>
             </View>
           </Row>
           <Txt v="body">{life.license.intro}</Txt>
@@ -477,7 +477,7 @@ function LicenseHub({ dest }) {
           <IconTile mod={MOD} icon="Shield" size={42} />
           <View style={{ flex: 1, gap: 2 }}>
             <Txt v="eyebrow">Individual malpractice insurance</Txt>
-            <Txt v="h2">Compare RN liability policies</Txt>
+            <Txt v="h2">Compare RN Liability Policies</Txt>
           </View>
         </Row>
         <Chip mod={MOD} icon="CalendarCheck" text="Figures checked Oct 2026" />
@@ -503,9 +503,9 @@ function LicenseHub({ dest }) {
             </View>
           ))}
         </Grid>
-        <Accordion mod={MOD} title="What to compare before you buy">
+        <Accordion mod={MOD} title="What to Compare Before You Buy">
           <Bullets items={[
-            <Txt v="body"><Txt v="bodyB">Occurrence vs. claims-made.</Txt> Occurrence covers incidents during the policy year forever. Claims-made needs "tail" coverage when you cancel.</Txt>,
+            <Txt v="body"><Txt v="bodyB">Occurrence vs. claims-made.</Txt> An occurrence policy covers incidents from the policy year, no matter when the claim is filed. A claims-made policy needs "tail" coverage when you cancel.</Txt>,
             <Txt v="body"><Txt v="bodyB">License defense amount</Txt> and whether it's per claim or per year.</Txt>,
             <Txt v="body"><Txt v="bodyB">Deposition coverage</Txt> for when you're a witness, not the defendant.</Txt>,
             <Txt v="body"><Txt v="bodyB">Consent to settle:</Txt> can the insurer settle in your name without your agreement?</Txt>,

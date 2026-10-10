@@ -64,10 +64,10 @@ export const JOURNEY = {
 };
 
 export const HERO = {
-  US: { title: "From foreign RN to U.S. bedside", sub: "Tick each step as you finish it. Phases unlock in order; switch on flexible order if you are running steps in parallel (most nurses study for NCLEX and English at the same time)." },
-  CA: { title: "From foreign RN to Canadian bedside", sub: "Pick one province and follow its college's process. Most nurses prepare English and the NCLEX while the college reviews their file, so flexible order helps here." },
-  AU: { title: "From foreign RN to Australian bedside", sub: "Start with the NMBA Self-check, or the IQRN fast track if you already practice in a comparable country. Fast-track nurses can skip the exam phase." },
-  NZ: { title: "From foreign RN to New Zealand bedside", sub: "New Zealand uses the Nursing Council's own theory exam and an OSCE in Christchurch, not the NCLEX. Registration comes before the visa." },
+  US: { title: "From Foreign RN to U.S. Bedside", sub: "Tick each step as you finish it. Phases unlock in order; switch on flexible order if you are running steps in parallel (most nurses study for the NCLEX and English at the same time)." },
+  CA: { title: "From Foreign RN to Canadian Bedside", sub: "Pick one province and follow its college's process. Most nurses prepare English and the NCLEX while the college reviews their file, so flexible order helps here." },
+  AU: { title: "From Foreign RN to Australian Bedside", sub: "Start with the NMBA Self-check, or the IQRN fast track if you already practice in a comparable country. Fast-track nurses can skip the exam phase." },
+  NZ: { title: "From Foreign RN to New Zealand Bedside", sub: "New Zealand uses the Nursing Council's own theory exam and an OSCE in Christchurch, not the NCLEX. Registration comes before the visa." },
 };
 
 /** Which roadmap phase each milestone badge follows (index into phasesFor), with country wording. */
@@ -102,7 +102,7 @@ export const BADGE_ROLES = {
     att: [2, "Council Approved", "Apply to the Nursing Council"],
     rn: [3, "Theory Exam Passed", "Pass the Nursing Council theory exam"],
     visa: [4, "OSCE Passed", "Finish the orientation course and the OSCE"],
-    touch: [5, "Kia ora, New Zealand", "Register, get your APC, job and visa"],
+    touch: [5, "Kia ora, New Zealand", "Register, then get your APC, a job and your visa"],
   },
 };
 

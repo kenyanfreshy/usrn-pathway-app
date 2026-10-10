@@ -4,21 +4,21 @@
   "pathway": {
     "title": "Registered Nurse in Australia: Ahpra/NMBA registration and skilled migration",
     "regulator": "Nursing and Midwifery Board of Australia (NMBA), with applications handled by Ahpra (Australian Health Practitioner Regulation Agency)",
-    "summary": "Since 23 April 2025, experienced RNs registered and working in an NMBA-approved comparable jurisdiction (UK, Ireland, US, Canada's British Columbia and Ontario, Singapore, Spain) can apply straight to Ahpra under the IQRN standard, with no NMBA exams or upgrade (about 1–6 months). Other internationally qualified nurses do the free Self-check and are placed in Stream A (Orientation, then apply), Stream B (Outcomes-Based Assessment: NCLEX-RN, then OSCE in Australia) or Stream C (upgrade qualification first). After registration, nurses usually get an ANMAC skills assessment and apply for a skilled visa (189, 190, 491) or an employer-sponsored visa (482 Skills in Demand, 186).",
+    "summary": "Since 23 April 2025, experienced RNs registered and working in an NMBA-approved comparable jurisdiction (UK, Ireland, U.S., Canada's British Columbia and Ontario, Singapore, Spain) can apply straight to Ahpra under the IQRN standard, with no NMBA exams or upgrade (about 1–6 months). Other internationally qualified nurses do the free Self-check and are placed in Stream A (Orientation, then apply), Stream B (Outcomes-Based Assessment: NCLEX-RN, then OSCE in Australia) or Stream C (upgrade qualification first). After registration, nurses usually get an ANMAC skills assessment and apply for a skilled visa (189, 190, 491) or an employer-sponsored visa (482 Skills in Demand, 186).",
     "phases": [
       {
         "id": "au-1",
-        "title": "Choose your route",
+        "title": "Choose Your Route",
         "sub": "IQRN fast track, Self-check streams, or Trans-Tasman (NZ)",
         "time": "1–2 weeks",
         "cost": "Self-check free",
         "steps": [
           "Check the IQRN standard (in effect 23 April 2025): you need at least 1,800 hours as an RN in an approved comparable jurisdiction since 1 January 2017.",
-          "Pathway 1: your nursing qualification and RN registration are from a comparable jurisdiction (UK, Ireland, US, British Columbia or Ontario in Canada, Singapore, Spain).",
-          "Pathway 2: you trained elsewhere but passed that jurisdiction's regulatory exam (for example NCLEX-RN for a US license) and hold or held RN registration there since 1 January 2017, plus the 1,800 hours there.",
+          "Pathway 1: your nursing qualification and RN registration are from a comparable jurisdiction (UK, Ireland, U.S., British Columbia or Ontario in Canada, Singapore, Spain).",
+          "Pathway 2: you trained elsewhere but passed that jurisdiction's regulatory exam (for example, the NCLEX-RN for a U.S. license) and hold or held RN registration there since 1 January 2017, plus the 1,800 hours there.",
           "If you are not eligible for IQRN, complete the free Ahpra/NMBA Self-check. It places you in Stream A, B or C (or asks Ahpra to assess an unlisted qualification).",
           "If you are registered in New Zealand, use Trans-Tasman Mutual Recognition instead (a separate process).",
-          "Note: a US license held while working outside a comparable jurisdiction does not count; the 1,800 hours must be worked in a comparable jurisdiction."
+          "Note: a U.S. license held while working outside a comparable jurisdiction does not count; the 1,800 hours must be worked in a comparable jurisdiction."
         ],
         "links": [
           ["NMBA – General registration for IQRN (standard, comparable jurisdictions list, fact sheet)", "https://www.nursingmidwiferyboard.gov.au/Registration-Standards/General-registration-for-IQRN.aspx"],
@@ -28,7 +28,7 @@
       },
       {
         "id": "au-2",
-        "title": "English language and documents",
+        "title": "English Language and Documents",
         "sub": "Meet the English language skills registration standard",
         "time": "4–12 weeks",
         "cost": "Varies by test provider",
@@ -37,7 +37,7 @@
           "OET: listening 350, reading 360, writing 350, speaking 360 (no overall score; letter grades no longer used for new tests).",
           "PTE Academic: overall 63 (listening 58, reading 59, writing 60, speaking 76). TOEFL iBT: overall 91 (listening 22, reading 22, writing 23, speaking 24).",
           "You may combine two sittings of the same test taken no more than 12 months apart, if each meets the overall score and the minimum floors.",
-          "Results are generally valid for 2 years before you apply. Tests taken on or before 22 April 2026 are judged against the older score table.",
+          "Results generally must be less than 2 years old when you apply. Tests taken on or before 22 April 2026 are judged against the older score table.",
           "Collect identity, qualification, registration history and employer statements of practice hours."
         ],
         "links": [
@@ -47,16 +47,16 @@
       },
       {
         "id": "au-3",
-        "title": "IQNM assessment fee, Orientation Part 1, Portfolio",
-        "sub": "For Self-check route (Streams A and B)",
+        "title": "IQNM Assessment Fee, Orientation Part 1, Portfolio",
+        "sub": "For the Self-check route (Streams A and B)",
         "time": "Varies (weeks)",
-        "cost": "IQNM assessment fee AUD 410 (fee schedule effective 20 Sep 2023; check current schedule)",
+        "cost": "IQNM assessment fee AUD 410 (fee schedule effective 20 Sep 2023; check the current schedule)",
         "steps": [
           "Pay the non-refundable IQNM assessment fee in your Ahpra IQNM dashboard. It covers Orientation Part 1 and Ahpra's document review.",
           "Complete Orientation Part 1: an online course about Australia and its healthcare system.",
-          "Stream A: after Orientation Part 1 you can apply for registration (documents are reviewed at registration).",
+          "Stream A: after Orientation Part 1, you can apply for registration (documents are reviewed at registration).",
           "Stream B: submit your Portfolio (identity and qualification documents) for review before the exams.",
-          "Stream C: you must first complete an approved upgrade (for example a bachelor of nursing) before you can continue."
+          "Stream C: you must first complete an approved upgrade (for example, a Bachelor of Nursing) before you can continue."
         ],
         "links": [
           ["NMBA – Steps after Self-check", "https://www.nursingmidwiferyboard.gov.au/Accreditation/IQNM/Self-check-and-Portfolio/Steps-after-Self-check.aspx"],
@@ -70,9 +70,9 @@
         "time": "Several months (whole OBA route often 9–12+ months)",
         "cost": "NCLEX-RN USD 200 + USD 150 international scheduling fee (NCLEX registration rises to USD 350 from 1 Feb 2027); OSCE AUD 4,000 per sitting",
         "steps": [
-          "After Portfolio approval, register and pay for NCLEX-RN with Pearson VUE through NCSBN; book at a Pearson VUE center after you get your Authorisation to Test.",
-          "If you already passed NCLEX-RN, send your candidate report (authorising jurisdiction, test date, result) so Ahpra can consider it.",
-          "After passing NCLEX-RN, pay the OSCE fee in your IQNM dashboard.",
+          "After Portfolio approval, register and pay for the NCLEX-RN with Pearson VUE through NCSBN; book at a Pearson VUE center after you get your Authorization to Test.",
+          "If you already passed the NCLEX-RN, send your candidate report (authorizing jurisdiction, test date, result) so Ahpra can consider it.",
+          "After passing the NCLEX-RN, pay the OSCE fee in your IQNM dashboard.",
           "Travel to Australia for the OSCE at Adelaide Health Simulation (Adelaide, SA) or RANZCOG (Melbourne, VIC). Sittings run each month.",
           "Contact only the IQNM exams team about the OSCE, not the test centers."
         ],
@@ -82,7 +82,7 @@
       },
       {
         "id": "au-5",
-        "title": "Apply for general registration",
+        "title": "Apply for General Registration",
         "sub": "Ahpra application, checks and registration",
         "time": "IQRN route about 1–6 months; Ahpra often 4–10 weeks once complete",
         "cost": "Application AUD 318 (2023 schedule) + registration AUD 193 (2025/26 fee)",
@@ -100,7 +100,7 @@
       },
       {
         "id": "au-6",
-        "title": "ANMAC skills assessment and visa",
+        "title": "ANMAC Skills Assessment and Visa",
         "sub": "189, 190, 491, 482 Skills in Demand, 186",
         "time": "varies (ANMAC does not publish a fixed time; visas take months)",
         "cost": "ANMAC Modified AUD 395 / Full AUD 595; visa fees vary",
@@ -108,8 +108,8 @@
           "If you hold Ahpra registration, apply to ANMAC for a skills assessment (Modified assessment, AUD 395). A Full assessment (AUD 595) exists for some unregistered overseas nurses.",
           "For points-tested visas (189, 190, 491), lodge an Expression of Interest in SkillSelect with your ANZSCO code; the pass mark is 65 points.",
           "For state nomination (190 or 491), check each state's current list and open rounds; many states open and close during the July–June program year.",
-          "For employer sponsorship, find an employer who will nominate you for the Skills in Demand visa (subclass 482, replaced the TSS visa in December 2024) or Employer Nomination Scheme (186).",
-          "Meet health and character checks; keep registration and skills assessment current while you wait."
+          "For employer sponsorship, find an employer who will nominate you for the Skills in Demand visa (subclass 482, which replaced the TSS visa in December 2024) or the Employer Nomination Scheme (186).",
+          "Pass health and character checks; keep registration and skills assessment current while you wait."
         ],
         "links": [
           ["ANMAC – Skilled migration fees", "https://anmac.org.au/skilled-migrants/fees"],
@@ -140,9 +140,9 @@
       "summary": "You need at least 65 points (age, English, work experience, qualifications, partner, Australian study and more) to lodge an Expression of Interest in SkillSelect. For the 189 visa, Home Affairs invites the highest-ranked EOIs per occupation in periodic rounds; ties are broken by date of effect. State nomination adds 5 points (190) or 15 points (491) and follows each state's own rules."
     },
     "rounds": [
-      {"date": "2026-06-04", "visa": "189", "notes": "Reported by third parties to include RN occupations; invitation numbers and point cut-offs not confirmed on the official Home Affairs page."},
-      {"date": "2025-11-13", "visa": "189", "notes": "Reported by third parties to include RN occupations; cut-offs not confirmed on the official Home Affairs page."},
-      {"date": "2025-08-21", "visa": "189 and 491 (family sponsored)", "notes": "Reported by third parties; invitation numbers and RN cut-offs not confirmed on the official Home Affairs page."}
+      {"date": "2026-06-04", "visa": "189", "notes": "Reported by third parties to include RN occupations; invitation numbers and point cutoffs not confirmed on the official Home Affairs page."},
+      {"date": "2025-11-13", "visa": "189", "notes": "Reported by third parties to include RN occupations; cutoffs not confirmed on the official Home Affairs page."},
+      {"date": "2025-08-21", "visa": "189 and 491 (family sponsored)", "notes": "Reported by third parties; invitation numbers and RN cutoffs not confirmed on the official Home Affairs page."}
     ],
     "states": [
       {"state": "NSW", "status": "Registered Nurses (ANZSCO 2544) are on the NSW Skills List (190) and NSW Regional Skills List (491). 2026-27 round status not shown on the official page.", "url": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists"},
@@ -167,7 +167,7 @@
   },
   "directory": [
     {"name": "NSW Health Careers", "type": "Public health employer", "region": "New South Wales", "model": "Statewide job board for NSW public hospitals and Local Health Districts, some of which run overseas nurse recruitment.", "site": "https://www.health.nsw.gov.au", "careers": "https://jobs.health.nsw.gov.au", "notes": "You need NMBA registration and Australian work rights; sponsorship is decided by each employer."},
-    {"name": "Sydney Children's Hospitals Network", "type": "Public health employer", "region": "New South Wales", "model": "International nurse recruitment page for internationally qualified pediatric nurses.", "site": "https://www.schn.health.nsw.gov.au", "careers": "https://www.schn.health.nsw.gov.au/about/work-us/nurses/international-recruitment", "notes": "Requires NMBA registration, Australian work rights and NSW Health immunisation evidence."},
+    {"name": "Sydney Children's Hospitals Network", "type": "Public health employer", "region": "New South Wales", "model": "International nurse recruitment page for internationally qualified pediatric nurses.", "site": "https://www.schn.health.nsw.gov.au", "careers": "https://www.schn.health.nsw.gov.au/about/work-us/nurses/international-recruitment", "notes": "Requires NMBA registration, Australian work rights and NSW Health immunization evidence."},
     {"name": "Queensland Health", "type": "Public health employer", "region": "Queensland", "model": "Careers portal with guidance for international healthcare applicants and overseas qualification recognition.", "site": "https://www.careers.health.qld.gov.au", "careers": "https://www.careers.health.qld.gov.au/apply-for-a-job/international-healthcare-applicants/getting-your-overseas-qualifications-recognized", "notes": "Vacancies listed on SmartJobs Queensland; NMBA registration required."},
     {"name": "Sunshine Coast Hospital and Health Service", "type": "Public health employer", "region": "Queensland", "model": "International applicants page; sometimes sponsors health professionals when no local candidate is available.", "site": "https://www.sunshinecoast.health.qld.gov.au", "careers": "https://www.sunshinecoast.health.qld.gov.au/careers/international-applicants", "notes": "Part of Queensland Health."},
     {"name": "WA Health", "type": "Public health employer", "region": "Western Australia", "model": "International applicants page and overseas recruitment site for nurses and midwives.", "site": "https://www.health.wa.gov.au", "careers": "https://www.osrecruitment.health.wa.gov.au/Nursing-and-midwifery-careers", "notes": "Sponsorship only for experienced nurses in critical-shortage areas; enrolled nurses generally not sponsored."},
@@ -185,8 +185,8 @@
       ["Open disclosure", "When a patient is harmed, you take part in open, honest and timely discussion with the patient and family under the Australian Open Disclosure Framework (revised version now published)."],
       ["ISBAR handover", "Clinical handover usually uses ISBAR (Identify, Situation, Background, Assessment, Recommendation) or ISOBAR, under the national Communicating for Safety standard."],
       ["Medicare and the public system", "Medicare funds public hospital care for eligible people. Most nurses work in state-run public hospitals, with a large private hospital sector alongside."],
-      ["Enrolled nurses (EN)", "ENs are registered by the NMBA and work under the direction and supervision of an RN. As an RN you delegate to and supervise ENs and assistants in nursing."],
-      ["Privacy", "Health information is protected under the Privacy Act and the Australian Privacy Principles, plus state health records laws. Only access records you need for care."],
+      ["Enrolled nurses (EN)", "ENs are registered by the NMBA and work under the direction and supervision of an RN. As an RN, you delegate to and supervise ENs and assistants in nursing."],
+      ["Privacy", "Health information is protected under the Privacy Act and the Australian Privacy Principles, plus state health records laws. Access only the records you need for care."],
       ["Annual renewal and CPD", "Registration is renewed every year by 31 May, and you must declare recency of practice, CPD and professional indemnity insurance."]
     ]
   },
@@ -214,10 +214,10 @@
   "uncertain": [
     "IQRN Pathway 1/2 detailed criteria come from NMBA summaries plus secondary sources; the standard PDF and the approved jurisdictions list could not be opened directly. Confirm on the NMBA page.",
     "IQNM assessment fee (AUD 410) and application fee (AUD 318) are from the NMBA schedule effective 20 Sep 2023; a newer schedule may apply. Only the AUD 193 registration fee (from 18 Sep 2025) is confirmed as current. No 2026/27 fee announcement was found.",
-    "SkillSelect round dates are from third-party summaries; the official Home Affairs rounds page (last updated 19 Aug 2026) did not render its tables, so invitation counts and RN point cut-offs were removed. A round around August 2026 may be missing from this list.",
+    "SkillSelect round dates are from third-party summaries; the official Home Affairs rounds page (last updated 19 Aug 2026) did not render its tables, so invitation counts and RN point cutoffs were removed. A round around August 2026 may be missing from this list.",
     "State 190/491 statuses for VIC, QLD, WA, SA, ACT and NT come from a third-party tracker (Sep–Oct 2026). Only NSW (RNs on lists) and TAS (opened 17 Aug 2026) were confirmed on official pages. Nurse eligibility for each state's 2026-27 list is not confirmed.",
     "Skills in Demand Core Skills Income Threshold of AUD 79,499 from 1 July 2026 is from a third-party alert; Home Affairs pages could not be fetched. Work experience requirement and whether every RN code is on the Core Skills Occupation List were not verified.",
-    "ANMAC fees are confirmed on its fees page (no effective date or GST shown); processing time is not published; ANMAC has signalled a new portal, renamed assessments and revised fees later in 2026. ANMAC site blocked direct reading of eligibility rules.",
+    "ANMAC fees are confirmed on its fees page (no effective date or GST shown); processing time is not published; ANMAC has signaled a new portal, renamed assessments and revised fees later in 2026. ANMAC site blocked direct reading of eligibility rules.",
     "Possible move from ANZSCO to OSCA codes for migration has not happened as of mid-2026 but may happen soon.",
     "Whether NMBA will add more comparable jurisdictions after its one-year review of the IQRN standard is unknown."
   ]

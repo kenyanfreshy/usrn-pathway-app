@@ -37,12 +37,12 @@ export function MagnetEbp() {
   return (
     <Grid basis={280} gap={12}>
       <Card mod={MOD}>
-        <IconHead icon="Landmark">Shared governance</IconHead>
+        <IconHead icon="Landmark">Shared Governance</IconHead>
         <Txt v="small">Magnet hospitals, and many others, give bedside nurses a formal voice through unit practice councils. Joining one is the fastest way to be seen by leadership, and it usually counts toward a clinical ladder or professional development program.</Txt>
         <RichBullets v="small" items={["Bring one measurable problem from your shift", "Volunteer to collect audit data", "Present results at the council meeting"]} />
       </Card>
       <Card mod={MOD}>
-        <IconHead icon="Activity">Quality metrics you can move</IconHead>
+        <IconHead icon="Activity">Quality Metrics You Can Move</IconHead>
         {METRICS.map(([k, n, d]) => (
           <View key={k} style={{ backgroundColor: t.c.sunk, borderRadius: 14, padding: 12, gap: 6 }}>
             <Row gap={8} wrap><Chip text={k} tone="acc2" /><Txt v="smallB" style={{ flexShrink: 1 }}>{n}</Txt></Row>
@@ -51,7 +51,7 @@ export function MagnetEbp() {
         ))}
       </Card>
       <Card mod={MOD}>
-        <IconHead icon="FlaskConical">Turn an idea into an EBP project</IconHead>
+        <IconHead icon="FlaskConical">Turn an Idea into an EBP Project</IconHead>
         <RichBullets v="small" numbered items={["Write a PICO question (Patient, Intervention, Comparison, Outcome)", "Search CINAHL / PubMed with your hospital librarian", "Pilot on your unit for 4–8 weeks with a baseline", "Report outcomes at council and log the hours in your ladder"]} />
       </Card>
     </Grid>

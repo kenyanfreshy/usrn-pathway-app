@@ -2,7 +2,7 @@
   "country": "CA",
   "checked": "2026-10-09",
   "regulators": {
-    "title": "Provincial nursing colleges",
+    "title": "Provincial Nursing Colleges",
     "intro": "There is no national nursing license in Canada. Each province or territory licenses its own RNs through a nursing college, and each sets its own route for internationally educated nurses (IENs). Outside Quebec, RN applicants write the NCLEX-RN. Quebec's OIIQ uses its own professional exam and requires French. Several colleges changed names in 2025–2026.",
     "list": [
       {
@@ -63,7 +63,7 @@
         "abbr": "CRNM",
         "region": "Manitoba",
         "url": "https://www.crnm.mb.ca/applicants/internationally-educated-nurses/",
-        "notes": "Get a credential assessment from an accepted provider first. There's an expedited route for nurses educated in Australia, Ireland, New Zealand, the UK or the US. Others may be referred for an RN Competence Assessment with Inspire (CAD 281.40). The application fee is CAD 483.",
+        "notes": "Get a credential assessment from an accepted provider first. There's an expedited route for nurses educated in Australia, Ireland, New Zealand, the UK or the U.S. Others may be referred for an RN Competence Assessment with Inspire (CAD 281.40). The application fee is CAD 483.",
         "tags": [
           "Credential assessment",
           "Competence assessment"
@@ -126,7 +126,7 @@
         "abbr": "NLCN",
         "region": "Newfoundland and Labrador",
         "url": "https://nlcn.ca/apply/rn-applicants/internationally-educated-nurse-rn/",
-        "notes": "Formed in April 2026 from the RN and LPN colleges. Education from Australia, Hong Kong, India, Ireland, New Zealand, Nigeria, the Philippines, the UK or the US meets the education requirement. Others need an Inspire assessment. You must complete your own application (no consultants), and the fee is CAD 172.50.",
+        "notes": "Formed in April 2026 from the RN and LPN colleges. Education from Australia, Hong Kong, India, Ireland, New Zealand, Nigeria, the Philippines, the UK or the U.S. meets the education requirement. Others need an Inspire assessment. You must complete your own application (no consultants), and the fee is CAD 172.50.",
         "tags": [
           "Designated countries",
           "NCLEX-RN",
@@ -151,7 +151,7 @@
         "abbr": "CNNN",
         "region": "Northwest Territories & Nunavut",
         "url": "https://cannn.ca/resources/internationally-educated-nurses/",
-        "notes": "One regulator for both territories. Recent practice must be in Canada, the US, Australia, New Zealand or the UK. Otherwise you need an approved bridging program or an Inspire assessment (CAD 2,415 incl. GST, by referral only).",
+        "notes": "One regulator for both territories. Recent practice must be in Canada, the U.S., Australia, New Zealand or the UK. Otherwise you need an approved bridging program or an Inspire assessment (CAD 2,415 incl. GST, by referral only).",
         "tags": [
           "Practice-country rule",
           "Inspire assessment"
@@ -159,7 +159,7 @@
       }
     ],
     "mobility": {
-      "title": "Moving between provinces",
+      "title": "Moving Between Provinces",
       "steps": [
         "Keep your current registration in good standing: no discipline or open investigations, and continuing competency up to date.",
         "Apply to the new province's college as a nurse already registered in Canada. This is a separate, shorter route than the IEN process.",
@@ -173,7 +173,7 @@
   "careers": [
     {
       "id": "crit",
-      "title": "Critical care or emergency certification (CNA CNCC(C) / ENC(C))",
+      "title": "Critical Care or Emergency Certification (CNA CNCC(C) / ENC(C))",
       "items": [
         "Get registered as an RN in Canada. CNA certification requires current Canadian registration.",
         "Log specialty hours: 1,950 hours in critical care or emergency over the past 5 years.",
@@ -191,13 +191,13 @@
         "Complete a nurse practitioner program at master's level (BC requires a program equivalent to a master's).",
         "Plan for the new national exam, the CNPLE: CNO requires it from July 1, 2026, and BCCNM from January 1, 2027.",
         "In BC, you also need an OSCE (clinical exam) and recent practice: 900 NP hours or a recent NP program.",
-        "Ontario uses one NP class since July 1, 2026, with an annual attestation at renewal.",
+        "Ontario has used one NP class since July 1, 2026, with an annual attestation at renewal.",
         "Budget for the exam: BCCNM lists CAD 887.50 plus tax per CNPLE attempt."
       ]
     },
     {
       "id": "edu",
-      "title": "Preceptor and educator path",
+      "title": "Preceptor and Educator Path",
       "items": [
         "Settle into your unit first, then tell your manager you'd like to precept students or new hires.",
         "In BC, designated preceptors of students or internationally trained nurses get a premium: CAD 1.50/hr for the shift under the NBA agreement (from August 2023).",
@@ -208,7 +208,7 @@
     },
     {
       "id": "comm",
-      "title": "Community, gerontology or palliative certification",
+      "title": "Community, Gerontology or Palliative Certification",
       "items": [
         "Pick a CNA specialty: Community Health CCHN(C), Gerontology GNC(C) or Hospice Palliative Care CHPCN(C).",
         "Build 1,950 hours in that specialty over 5 years. Direct care, education, policy and admin hours all count.",
@@ -221,7 +221,7 @@
   "credit": [
     "Get your SIN from Service Canada (online, by mail or in person; it's free).",
     "Open a bank account. You don't need a job or a deposit, but bring original ID (photocopies aren't accepted).",
-    "Bring your credit report from home. Some lenders will look at foreign credit history, but Canadian credit bureaus only record credit used in Canada.",
+    "Bring your credit report from home. Some lenders will look at foreign credit history, but Canadian credit bureaus record only credit used in Canada.",
     "With no Canadian history, start with a secured credit card: your deposit sets the limit. Avoid unknown issuers and cards without Visa, Mastercard or Amex.",
     "Pay on time every month. Payment history is the biggest factor in your score.",
     "Keep your balance under 30% of your credit limit, even if you pay it off in full.",
@@ -257,7 +257,7 @@
     ],
     [
       "RRSP",
-      "Your yearly RRSP room is 18% of last year's earned income, up to the annual limit (CAD 33,810 for 2026), minus any pension adjustment. In your first filing year you have no room yet."
+      "Your yearly RRSP room is 18% of last year's earned income, up to the annual limit (CAD 33,810 for 2026), minus any pension adjustment. In your first filing year, you have no room yet."
     ],
     [
       "TFSA",
@@ -275,7 +275,7 @@
   "health": [
     [
       "Provincial health card",
-      "Public insurance covers medically necessary doctor and hospital care. Apply in your province as soon as you arrive. In Ontario you apply in person at ServiceOntario with 3 original documents."
+      "Public insurance covers medically necessary doctor and hospital care. Apply in your province as soon as you arrive. In Ontario, you apply in person at ServiceOntario with 3 original documents."
     ],
     [
       "Waiting periods differ",
@@ -322,16 +322,16 @@
     "intro": "Canada drives on the right. Outside big-city transit, many shift workers find a car essential.",
     "side": "right",
     "points": [
-      "Ontario: you can drive on a foreign license for 60 days. Licenses from the Philippines, India, Nigeria or Kenya can't be exchanged, so you take a vision test, knowledge test and G2 road test, then a G road test at least 12 months later.",
+      "Ontario: you can drive on a foreign license for 60 days. Licenses from the Philippines, India, Nigeria or Kenya can't be exchanged, so you take a vision test, a knowledge test and a G2 road test, then a G road test at least 12 months later.",
       "Ontario: from July 1, 2026, you can get credit for up to 1 year of foreign driving experience with an authentication letter from your issuing government.",
       "BC: switch within 90 days. Without an exchange agreement, you take knowledge and road tests, and you need proof of 2+ years of experience to skip graduated licensing.",
       "Alberta: exchange within 90 days. Non-exchange licenses need a Class 7 knowledge test, then a Class 5 road test. Full Class 5 needs 2+ years of experience.",
-      "Quebec: drive on a foreign license for 6 months. Non-agreement countries need a knowledge test (CAD 13.50) and a road test (CAD 33.75)."
+      "Quebec: you can drive on a foreign license for 6 months. Non-agreement countries need a knowledge test (CAD 13.50) and a road test (CAD 33.75)."
     ],
-    "rules": "In Ontario, stop for a school bus with flashing red lights from either direction unless a median divides the road, and right turns on red are banned on the island of Montreal."
+    "rules": "In Ontario, stop for a school bus with flashing red lights from either direction unless a median divides the road. In Quebec, right turns on red are banned on the island of Montreal."
   },
   "license": {
-    "intro": "Most provinces make professional liability protection a condition of registration (for example BC, Alberta, New Brunswick, Newfoundland and Labrador). In Ontario and Quebec you buy it yourself. For almost all nurses it comes from CNPS.",
+    "intro": "Most provinces make professional liability protection a condition of registration (for example, BC, Alberta, New Brunswick, and Newfoundland and Labrador). In Ontario and Quebec, you buy it yourself. For almost all nurses it comes from CNPS.",
     "providers": [
       {
         "name": "CNPS",

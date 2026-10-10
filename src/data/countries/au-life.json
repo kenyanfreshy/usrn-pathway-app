@@ -2,7 +2,7 @@
   "country": "AU",
   "checked": "2026-10-09",
   "regulators": {
-    "title": "National registration & state employers",
+    "title": "National Registration & State Employers",
     "intro": "Nurses in Australia hold one national registration with the Nursing and Midwifery Board of Australia (NMBA), administered by Ahpra. State and territory health departments do not register nurses; they run the public hospitals that hire and sometimes sponsor you. Get registered first, then apply for jobs.",
     "list": [
       {
@@ -11,7 +11,7 @@
         "abbr": "NMBA",
         "region": "National",
         "url": "https://www.nursingmidwiferyboard.gov.au/Accreditation/IQNM/Before-you-apply.aspx",
-        "notes": "Start with the free Self-check: Stream A does Orientation Part 1 then applies; Stream B must pass the OBA (NCLEX-RN, then an in-person OSCE in Australia). Since 23 April 2025, RNs with 1,800+ hours since 2017 in the UK, Ireland, US, British Columbia, Ontario, Singapore or Spain can skip NMBA exams.",
+        "notes": "Start with the free Self-check: Stream A completes Orientation Part 1, then applies; Stream B must pass the OBA (NCLEX-RN, then an in-person OSCE in Australia). Since 23 April 2025, RNs with 1,800+ hours since 2017 in the UK, Ireland, U.S., British Columbia, Ontario, Singapore or Spain can skip NMBA exams.",
         "tags": [
           "Self-check",
           "NCLEX-RN",
@@ -25,7 +25,7 @@
         "abbr": "NSW Health",
         "region": "New South Wales",
         "url": "https://www.health.nsw.gov.au/nursing/careers/Pages/overseas-recruitment.aspx",
-        "notes": "Must already hold NMBA registration. Usually at least 24 months' experience is needed for visa sponsorship; overseas recruitment mainly targets rural/remote areas and mental health.",
+        "notes": "You must already hold NMBA registration. At least 24 months' experience is usually needed for visa sponsorship; overseas recruitment mainly targets rural/remote areas and mental health.",
         "tags": [
           "Registration first",
           "Rural focus",
@@ -61,7 +61,7 @@
         "abbr": "WA Health",
         "region": "Western Australia",
         "url": "https://www.osrecruitment.health.wa.gov.au/Nursing-and-midwifery-careers",
-        "notes": "Needs NMBA registration, a criminal record clearance and, for child areas, a working with children check. Sponsorship is only negotiated with experienced nurses in critical-shortage areas; ENs are generally not eligible.",
+        "notes": "You need NMBA registration, a criminal record clearance and, for child areas, a working with children check. Sponsorship is only negotiated with experienced nurses in critical-shortage areas; ENs are generally not eligible.",
         "tags": [
           "Sponsorship limited",
           "Police check"
@@ -116,13 +116,13 @@
       }
     ],
     "mobility": {
-      "title": "One registration, every state",
+      "title": "One Registration, Every State",
       "steps": [
         "Register once with the NMBA through Ahpra; national registration lets you work anywhere in Australia.",
-        "Renew every year by 31 May. You can still renew in the one-month late period (late fee); after that registration lapses and you're removed from the register.",
+        "Renew every year by 31 May. You can still renew in the one-month late period (late fee); after that, your registration lapses and you're removed from the register.",
         "Apply directly to the employer or health service in the new state.",
-        "Complete that employer's checks, e.g. criminal history check, working with children check, immunization records.",
-        "Update your driver license and car registration under the new state's rules."
+        "Complete that employer's checks, such as a criminal history check, a working with children check and immunization records.",
+        "Update your driver's license and car registration under the new state's rules."
       ],
       "notes": "All registered nurses meet the same national standards. Nurses who can legally practice in New Zealand have entitlements under the Trans-Tasman Mutual Recognition Act 1997 and still apply online to the NMBA."
     }
@@ -130,11 +130,11 @@
   "careers": [
     {
       "id": "crit",
-      "title": "Postgraduate critical care",
+      "title": "Postgraduate Critical Care",
       "items": [
         "Get general registration and start in an acute ward to build Australian experience.",
-        "Most graduate certificates need at least 1 year post-registration experience and current work in the specialty (e.g. ACN Graduate Certificate in Critical Care Nursing).",
-        "Expect about 1 year part-time study; ACN offers cardiac, emergency or intensive care electives. No Commonwealth supported places; FEE-HELP if eligible.",
+        "Most graduate certificates need at least 1 year of post-registration experience and current work in the specialty (e.g. ACN Graduate Certificate in Critical Care Nursing).",
+        "Expect about 1 year of part-time study; ACN offers cardiac, emergency or intensive care electives. No Commonwealth supported places; FEE-HELP if eligible.",
         "Ask your employer about employed-model transition programs into specialty areas.",
         "In Victoria, public-sector postgraduate scholarships prioritize intensive care and emergency, but need citizenship or permanent residency.",
         "With a relevant postgraduate qualification plus 12 months in the area, NSW nurses can apply for Clinical Nurse Specialist grade 1."
@@ -142,10 +142,10 @@
     },
     {
       "id": "np",
-      "title": "Nurse Practitioner endorsement (NMBA)",
+      "title": "Nurse Practitioner Endorsement (NMBA)",
       "items": [
         "Hold current general RN registration in Australia with no conditions related to performance or conduct.",
-        "Build advanced clinical practice: the equivalent of 3 years full time (5,000 hours) within the past 6 years.",
+        "Build advanced clinical practice: the equivalent of 3 years full-time (5,000 hours) within the past 6 years.",
         "Typical master's entry (NT Health): 2 years FTE as an RN in the field, 2 years FTE advanced practice and a relevant postgraduate qualification.",
         "Complete an NMBA-approved nurse practitioner master's program.",
         "Apply to the NMBA for endorsement and practice within the Nurse Practitioner standards for practice.",
@@ -209,7 +209,7 @@
     ],
     [
       "Tax withheld from pay (PAYG)",
-      "Fill in a TFN declaration for each employer. Without a TFN, employers must withhold the top rate. Claim the tax-free threshold from one payer only; foreign residents generally can't claim it."
+      "Fill out a TFN declaration for each employer. Without a TFN, employers must withhold the top rate. Claim the tax-free threshold from one payer only; foreign residents generally can't claim it."
     ],
     [
       "Medicare levy",
@@ -217,7 +217,7 @@
     ],
     [
       "Superannuation",
-      "Employers pay super guarantee of 12% (2026) on top of wages. From 1 July 2026 (Payday Super), it must reach your fund within 7 business days of each payday."
+      "Employers pay a super guarantee of 12% (2026) on top of wages. From 1 July 2026 (Payday Super), it must reach your fund within 7 business days of each payday."
     ],
     [
       "Salary packaging",
@@ -239,7 +239,7 @@
     ],
     [
       "Reciprocal agreements",
-      "Australia has health agreements with the UK, Ireland, NZ, Sweden, Netherlands, Finland, Belgium, Norway, Slovenia, Malta and Italy. The Philippines, India, Kenya and Nigeria are not on the list."
+      "Australia has health agreements with the UK, Ireland, NZ, Sweden, the Netherlands, Finland, Belgium, Norway, Slovenia, Malta and Italy. The Philippines, India, Kenya and Nigeria are not on the list."
     ],
     [
       "Private hospital cover",
@@ -250,8 +250,8 @@
       "New migrants avoid a 2%-per-year loading if they take hospital cover by the later of 1 July after their 31st birthday or 1 year after full Medicare registration."
     ],
     [
-      "Workers compensation",
-      "Employers must insure workers. If hurt at work, the scheme in your state or territory can pay part of your wages, medical and rehab costs."
+      "Workers' compensation",
+      "Employers must insure workers. If you are hurt at work, the scheme in your state or territory can pay part of your wages and your medical and rehab costs."
     ],
     [
       "Car insurance",
@@ -267,7 +267,7 @@
     "Confirmed my employer's PII covers my duties and arranged my own for private or volunteer work",
     "Chose a super fund and gave the details to my employer",
     "Decided on private hospital cover before my Lifetime Health Cover deadline",
-    "Know how to report a workplace injury for workers compensation",
+    "Know how to report a workplace injury for workers' compensation",
     "Bought CTP with my car registration and considered cover for vehicle damage"
   ],
   "driving": {
@@ -275,15 +275,15 @@
     "side": "left",
     "points": [
       "NSW: permanent residents can drive on an overseas license for 3 months after arrival, then need a NSW license. Temporary visa holders staying over 6 months must get one within 6 months.",
-      "Visitors need an English translation or International Driving Permit if their license isn't in English (NSW).",
+      "Visitors need an English translation or an International Driving Permit if their license isn't in English (NSW).",
       "Licenses from the Philippines, India, Kenya and Nigeria aren't on NSW's recognized list, so expect a knowledge test and a driving test. Queensland also names India as non-recognized.",
       "Queensland: permanent residents must transfer to a Queensland license after living there for 3 months.",
       "The national Experienced Driver Recognition shortcut for over-25s ended in early 2026."
     ],
-    "rules": "In NSW you may not hold a phone while driving (cameras catch it), and learner and P-plate drivers can't use a phone at all, even hands-free."
+    "rules": "In NSW, you may not hold a phone while driving (cameras catch it), and learner and P-plate drivers can't use a phone at all, even hands-free."
   },
   "license": {
-    "intro": "You must have professional indemnity insurance (PII) to practice and you declare it each year at renewal. Your employer's cover usually covers your employed duties only.",
+    "intro": "You must have professional indemnity insurance (PII) to practice, and you declare it each year at renewal. Your employer's cover usually covers your employed duties only.",
     "providers": [
       {
         "name": "Employer cover",
