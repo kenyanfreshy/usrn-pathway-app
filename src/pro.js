@@ -93,11 +93,11 @@ export function ProProvider({ children }) {
       setPackages(cur ? cur.availablePackages : []);
       const sp = offerings && offerings.all && offerings.all[SPECIAL_OFFERING];
       setSpecialPackages(sp ? sp.availablePackages : []);
-      if (!cur || !cur.availablePackages.length) { setError("No plans are available from the store right now."); setErrorDetail(cur ? "Current offering has no packages" : "No current offering"); }
+      if (!cur || !cur.availablePackages.length) { setError("No plans are available from the store right now."); setErrorDetail(__DEV__ ? (cur ? "Current offering has no packages" : "No current offering") : ""); }
     } catch (e) {
       // Code 23 = store/RevenueCat setup problem (e.g. products not set up yet), not the shopper's connection.
       setError(e && (e.code === 23 || e.code === "23") ? "Plans aren't available right now. Please try again later." : "Couldn't load plans from the store. Check your connection and try again.");
-      setErrorDetail(e ? [e.code != null ? `Code ${e.code}` : "", e.readableErrorCode || "", e.message || ""].filter(Boolean).join(" · ").slice(0, 300) : "");
+      setErrorDetail(e ? (__DEV__ ? [e.code != null ? `Code ${e.code}` : "", e.readableErrorCode || "", e.message || ""].filter(Boolean).join(" · ").slice(0, 300) : e.code != null ? `Error code ${e.code}` : "") : ""); // full text only in dev; customers and App Review see just the code
     }
   }, []);
 
