@@ -11,3 +11,4 @@ android/
 *.mobileprovision
 .env*
 .DS_Store
+nursebound-public/

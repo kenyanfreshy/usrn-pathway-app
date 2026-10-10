@@ -6,11 +6,11 @@ The store version of NurseBound, built with Expo (React Native). Bundle ID / pac
   The stores set local prices and currencies for each country — no outside payment links (that keeps the app within App Store
   guideline 3.1.1 and Google Play's payments policy worldwide).
 - **No accounts, no server.** Progress, documents and settings stay on the phone (AsyncStorage). Expiry reminders are local notifications.
-- **Live visa bulletin.** The app downloads `data/visa-bulletin.json` from this GitHub repo on launch (`expo.extra.bulletinUrl`),
-  so you update the dates monthly by editing that file — no app release needed. See `data/README.md`. The repo must be **public** for this to work.
+- **Live visa bulletin.** The app downloads `data/visa-bulletin.json` from the public repo kenyanfreshy/nursebound-public on launch (`expo.extra.bulletinUrl`),
+  so you update the dates monthly by editing that file — no app release needed. See `nursebound-public/data/README.md`. That repo (not this one) must stay **public**; it also hosts PRIVACY.md and SUPPORT.md.
 - **Four destinations.** U.S., Canada, Australia and New Zealand, each with its own 6-phase roadmap, migration monitor,
   employer directory and bedside notes. Researched data with sources lives in `src/data/countries/*.json`; the migration
-  figures also refresh from `data/migration.json` (`expo.extra.migrationUrl`). The U.S. roadmap is in `src/data/content.js`.
+  figures also refresh from `data/migration.json` in the public repo (`expo.extra.migrationUrl`). The U.S. roadmap is in `src/data/content.js`.
   The destination is part of the profile (U.S. by default; a first-run welcome card lets the nurse pick). Boards, Bedside,
   Career and Driving switch to the chosen country using `src/data/countries/*-life.json` (regulators, careers, pay, tax,
   health cover, credit, driving, liability protection and lesson notes, each with sources).

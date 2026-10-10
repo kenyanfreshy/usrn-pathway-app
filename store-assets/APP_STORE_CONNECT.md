@@ -15,7 +15,7 @@ Copy-ready text for the listing is in `STORE_LISTING.md`. Prices and products ar
 | Primary category | **Education** |
 | Secondary category | **Medical** |
 | Content rights | **Yes**, it contains third-party content and I have the necessary rights (visa bulletin dates are U.S. government public-domain data; migration and English-test requirements are facts summarized from official sources; lessons and questions are original) |
-| Privacy Policy URL | `https://github.com/kenyanfreshy/usrn-pathway-app/blob/main/PRIVACY.md` |
+| Privacy Policy URL | `https://github.com/kenyanfreshy/nursebound-public/blob/main/PRIVACY.md` |
 | License agreement | Apple's standard EULA (leave as is) |
 
 **Age Rating → Edit** (2025 questionnaire):
@@ -100,7 +100,7 @@ Leave VoiceOver, Voice Control and Reduced Motion unclaimed until you've tested 
 | Promotional text | from `STORE_LISTING.md` (155 characters) |
 | Description | from `STORE_LISTING.md` |
 | Keywords | `nurse,nursing,ngn,rn,ielts,eb3,ahpra,express entry,canada,australia,new zealand,abroad,study` |
-| Support URL | `https://github.com/kenyanfreshy/usrn-pathway-app/blob/main/SUPPORT.md` |
+| Support URL | `https://github.com/kenyanfreshy/nursebound-public/blob/main/SUPPORT.md` |
 | Marketing URL | leave blank |
 | Version | `1.0` |
 | Copyright | `2026 Alex Korir` |

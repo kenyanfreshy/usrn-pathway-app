@@ -53,15 +53,15 @@
       "revenueCatAppleKey": "appl_REPLACE_ME",
       "revenueCatGoogleKey": "goog_REPLACE_ME",
       "entitlementId": "pro",
-      "privacyPolicyUrl": "https://github.com/kenyanfreshy/usrn-pathway-app/blob/main/PRIVACY.md",
+      "privacyPolicyUrl": "https://github.com/kenyanfreshy/nursebound-public/blob/main/PRIVACY.md",
       "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
-      "supportEmail": "support@REPLACE_ME",
+      "supportEmail": "ak82korir@gmail.com",
       "router": {},
       "eas": {
         "projectId": "7d0d7a0e-4b70-46a7-b668-1c3ca3f5ed95"
       },
-      "bulletinUrl": "https://raw.githubusercontent.com/kenyanfreshy/usrn-pathway-app/main/data/visa-bulletin.json",
-      "migrationUrl": "https://raw.githubusercontent.com/kenyanfreshy/usrn-pathway-app/main/data/migration.json"
+      "bulletinUrl": "https://raw.githubusercontent.com/kenyanfreshy/nursebound-public/main/data/visa-bulletin.json",
+      "migrationUrl": "https://raw.githubusercontent.com/kenyanfreshy/nursebound-public/main/data/migration.json"
     },
     "owner": "ronnykip"
   }
