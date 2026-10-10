@@ -235,7 +235,9 @@ export default function Paywall() {
   const cardFor = (p, wide) => {
     const t = trialFor(p); const life = p.packageType === "LIFETIME"; const save = offerSave(p); const reg = save > 0 ? regularOf(p) : null;
     const lines = [];
-    if (t) lines.push(t.free ? `${t.length} free trial, then` : `${t.priceString} intro for ${t.words}, then`);
+    // e.g. "2 weeks free, then $99.99/year": the full price stays the biggest text on the card (App Store 3.1.2).
+    const pPer = PERIOD[p.packageType];
+    if (t) lines.push(t.free ? `${t.words} free, then ${p.product.priceString}${pPer ? "/" + pPer : ""}` : `${t.priceString} for ${t.words}, then ${p.product.priceString}${pPer ? "/" + pPer : ""}`);
     if (p.packageType === "ANNUAL" && p.product.pricePerMonthString) lines.push(`${p.product.pricePerMonthString}/mo billed yearly`);
     if (p.packageType === "MONTHLY") lines.push("Cancel anytime");
     if (life) lines.push("One payment · no renewal");
@@ -253,11 +255,11 @@ export default function Paywall() {
 
   const ctaTitle = freeChosen ? "Continue with Free"
     : !chosen ? "" : busy ? "Please wait…"
-    : trial ? (trial.free ? `Start ${trial.length} Free Trial` : `Start for ${trial.priceString}`)
+    : trial ? (trial.free ? "Start Free Trial" : `Start for ${trial.priceString}`)
     : chosen.packageType === "LIFETIME" ? `Buy All-Access — ${chosen.product.priceString}`
     : `Subscribe ${chosen.packageType === "ANNUAL" ? "Annual" : chosen.packageType === "MONTHLY" ? "Monthly" : ""} — ${chosen.product.priceString}${short}`;
   const ctaSub = freeChosen ? "Roadmap, visa bulletin and question bank stay free"
-    : !chosen ? "" : trial ? `then ${chosen.product.priceString}${short} · cancel any time`
+    : !chosen ? "" : trial ? `${trial.free ? `${trial.words} free` : `${trial.priceString} for ${trial.words}`}, then ${chosen.product.priceString}${per ? "/" + per : ""} · cancel any time`
     : chosen.packageType === "LIFETIME" ? "One-time payment · no subscription" : "Cancel any time";
 
   const renewLine = chosen && !freeChosen && chosen.packageType !== "LIFETIME"
