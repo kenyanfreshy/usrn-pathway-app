@@ -187,7 +187,7 @@ export const useApp = () => useContext(AppCtx);
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, null, initialState);
   const [ready, setReady] = useState(false);
-  const [celebrate, setCelebrate] = useState([]); // queue of { badge } | { level }
+  const [celebrate, setCelebrate] = useState([]); // queue of { badge } | { level } | { pro: { title, body } }
   const [toast, setToast] = useState(null);
 
   useEffect(() => {
@@ -230,6 +230,6 @@ export function AppProvider({ children }) {
     prev.current = { xp: m.xp, lvl: lvl.idx };
   }, [m.xp, ready]);
 
-  const value = { state, dispatch, m, lvl, ready, celebrate, popCelebrate: () => setCelebrate((q) => q.slice(1)), toast, clearToast: () => setToast(null) };
+  const value = { state, dispatch, m, lvl, ready, celebrate, popCelebrate: () => setCelebrate((q) => q.slice(1)), pushCelebrate: (item) => setCelebrate((q) => [...q, item]), toast, clearToast: () => setToast(null) };
   return <AppCtx.Provider value={value}>{children}</AppCtx.Provider>;
 }

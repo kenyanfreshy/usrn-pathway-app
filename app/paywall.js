@@ -18,6 +18,7 @@ import Svg, { Path, Defs, LinearGradient as SvgGrad, Stop, Rect, RadialGradient,
 import { Txt, Icon, Row, tap, buzz } from "../src/ui";
 import { usePro, PRO_FEATURES, LINKS } from "../src/pro";
 import { scheduleTrialReminder } from "../src/notify";
+import { useApp } from "../src/state";
 import { fmtDate } from "../src/util";
 
 let RC = {};
@@ -203,6 +204,7 @@ function LinkText({ children, onPress, color = C.cyan, underline, size = 17 }) {
 export default function Paywall() {
   const ins = useSafeAreaInsets();
   const { height } = useWindowDimensions();
+  const { pushCelebrate } = useApp();
   const { isPro, membership, packages, specialPackages, winBack, buy, restore, manage, reload, storeAvailable, ready, error, errorDetail, devUnlock, setDevUnlock } = usePro();
   const trialFor = useTrials([...packages, ...specialPackages]);
   const [sel, setSel] = useState(null);
@@ -227,7 +229,11 @@ export default function Paywall() {
   const regularOf = (p) => (winBack ? packages.find((r) => r.packageType === p.packageType) : null);
   const offerSave = (p) => { const r = regularOf(p); return r && r.product.price > p.product.price ? Math.round((1 - p.product.price / r.product.price) * 100) : 0; };
 
-  const close = () => { if (router.canGoBack()) router.back(); else router.replace("/"); };
+  // Leaving the paywall (close, subscribe or restore) always lands on Today.
+  const goToday = () => { try { if (router.dismissTo) router.dismissTo("/"); else router.replace("/"); } catch (e) { router.replace("/"); } };
+  const close = goToday;
+  // Confetti + welcome message, shown on Today after the paywall has finished closing (iOS can't present over a closing modal).
+  const celebratePro = (title, body) => { goToday(); setTimeout(() => pushCelebrate({ pro: { title, body } }), 700); };
   const purchase = async () => {
     if (freeChosen) { close(); return; }
     if (!chosen || busy) return; setBusy(true); setMsg("");
@@ -237,11 +243,14 @@ export default function Paywall() {
       if (trial) {
         const end = (r.membership && r.membership.expires) || new Date(Date.now() + 14 * 86400000).toISOString();
         scheduleTrialReminder(end, `${chosen.product.priceString} per ${per}`);
-        setMsg(`Your ${trial.words} free trial has started. Every Pro tool is unlocked. We'll remind you 2 days before it ends.`);
-      } else setMsg("Welcome to Pro! Every Pro tool is now unlocked.");
+        celebratePro("Welcome to NurseBound Pro!", `Your ${trial.words} free trial has started and every Pro tool is unlocked. We'll remind you 2 days before it ends.`);
+      } else celebratePro("Welcome to NurseBound Pro!", "Every Pro tool is now unlocked. Your NCLEX-RN prep just leveled up.");
     } else if (!r.cancelled) setMsg(r.message);
   };
-  const doRestore = async () => { setBusy(true); setMsg(""); const r = await restore(); setBusy(false); setMsg(r.message); };
+  const doRestore = async () => {
+    setBusy(true); setMsg(""); const r = await restore(); setBusy(false);
+    if (r.ok) { buzz(); celebratePro("Welcome Back to Pro!", "Your Pro membership is restored and every Pro tool is unlocked."); } else setMsg(r.message);
+  };
   const open = (url) => { if (url && !/REPLACE_ME/.test(url)) Linking.openURL(url).catch(() => {}); };
 
   const cardFor = (p, wide) => {

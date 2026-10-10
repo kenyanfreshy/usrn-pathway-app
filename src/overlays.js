@@ -63,14 +63,15 @@ export function Overlays() {
           {item ? <Confetti run={celebrate.length} /> : null}
           {item ? (
             <View style={{ backgroundColor: t.c.surface, borderRadius: 26, padding: 26, alignItems: "center", gap: 10, width: "100%", maxWidth: 380 }}>
-              <Txt v="eyebrow">{item.badge ? "Achievement unlocked" : "Level up"}</Txt>
-              {item.badge ? <Medal badge={item.badge} idx={Math.max(0, BADGES.findIndex((b) => b.id === item.badge.id))} size={108} /> : <Grad colors={["#2563eb", "#c026d3"]} style={{ width: 108, height: 108, borderRadius: 32, alignItems: "center", justifyContent: "center" }}><Icon name="Crown" size={50} color="#fff" /></Grad>}
-              <Txt v="h1" style={{ textAlign: "center" }}>{item.badge ? item.badge.name : item.level}</Txt>
-              <Txt v="body" muted style={{ textAlign: "center" }}>{item.badge ? item.badge.desc : "You reached a new level. Keep the momentum going."}</Txt>
-              <Row gap={10} style={{ marginTop: 6 }}>
+              <Txt v="eyebrow">{item.pro ? "NurseBound Pro" : item.badge ? "Achievement unlocked" : "Level up"}</Txt>
+              {item.pro ? <Grad colors={["#0891b2", "#10b981"]} style={{ width: 108, height: 108, borderRadius: 32, alignItems: "center", justifyContent: "center" }}><Icon name="PartyPopper" size={50} color="#fff" /></Grad>
+                : item.badge ? <Medal badge={item.badge} idx={Math.max(0, BADGES.findIndex((b) => b.id === item.badge.id))} size={108} /> : <Grad colors={["#2563eb", "#c026d3"]} style={{ width: 108, height: 108, borderRadius: 32, alignItems: "center", justifyContent: "center" }}><Icon name="Crown" size={50} color="#fff" /></Grad>}
+              <Txt v="h1" style={{ textAlign: "center" }}>{item.pro ? item.pro.title : item.badge ? item.badge.name : item.level}</Txt>
+              <Txt v="body" muted style={{ textAlign: "center" }}>{item.pro ? item.pro.body : item.badge ? item.badge.desc : "You reached a new level. Keep the momentum going."}</Txt>
+              {item.pro ? <Btn icon="ArrowRight" title="Start Studying" onPress={popCelebrate} full style={{ marginTop: 6 }} /> : <Row gap={10} style={{ marginTop: 6 }}>
                 <Btn kind="secondary" icon="Share2" title="Share" onPress={share} />
                 <Btn icon="Check" title="Keep Going" onPress={popCelebrate} />
-              </Row>
+              </Row>}
             </View>
           ) : null}
         </View>
