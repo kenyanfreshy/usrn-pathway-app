@@ -14,7 +14,7 @@ Copy-ready text for the listing is in `STORE_LISTING.md`. Prices and products ar
 | Primary language | English (U.S.) |
 | Primary category | **Education** |
 | Secondary category | **Medical** |
-| Content rights | **No**, it does not contain, show or access third-party content (all lessons and questions are original; official sites open in the browser) |
+| Content rights | **Yes**, it contains third-party content and I have the necessary rights (visa bulletin dates are U.S. government public-domain data; migration and English-test requirements are facts summarized from official sources; lessons and questions are original) |
 | Privacy Policy URL | `https://github.com/kenyanfreshy/usrn-pathway-app/blob/main/PRIVACY.md` |
 | License agreement | Apple's standard EULA (leave as is) |
 

@@ -1,0 +1,111 @@
+[
+ {
+  "src": "1-today.png",
+  "name": "01-today",
+  "title": "Your path to the bedside abroad",
+  "sub": "U.S., Canada, Australia or New Zealand",
+  "colors": [
+   "#2563eb",
+   "#c026d3"
+  ],
+  "crop_top": 0.062
+ },
+ {
+  "src": "11-tests.png",
+  "name": "02-tests",
+  "title": "Three NCLEX benchmark exams",
+  "sub": "Plus Next Gen case studies and flashcards",
+  "colors": [
+   "#ea580c",
+   "#c026d3"
+  ],
+  "crop_top": 0.062
+ },
+ {
+  "src": "2-roadmap.jpg",
+  "name": "03-roadmap",
+  "title": "Every step, fee and form",
+  "sub": "A roadmap built for your destination",
+  "colors": [
+   "#0891b2",
+   "#10b981"
+  ]
+ },
+ {
+  "src": "10-english-au.png",
+  "name": "04-english",
+  "title": "Your OET and IELTS targets",
+  "sub": "The exact scores your country accepts",
+  "colors": [
+   "#10b981",
+   "#0891b2"
+  ],
+  "crop_top": 0.062
+ },
+ {
+  "src": "5-visa-canada.png",
+  "name": "05-visa",
+  "title": "Live visa and migration updates",
+  "sub": "Visa bulletin, Express Entry draws and more",
+  "colors": [
+   "#9333ea",
+   "#db2777"
+  ],
+  "crop_top": 0.062
+ },
+ {
+  "src": "4-topics.png",
+  "name": "06-topics",
+  "title": "Practice any topic",
+  "sub": "Tutor mode explains every answer choice",
+  "colors": [
+   "#4f46e5",
+   "#8b5cf6"
+  ],
+  "crop_top": 0.062
+ },
+ {
+  "src": "9-today-next.png",
+  "name": "07-daily",
+  "title": "Never miss a deadline",
+  "sub": "Your next step, test dates and a daily question",
+  "colors": [
+   "#0891b2",
+   "#2563eb"
+  ],
+  "crop_top": 0.062
+ },
+ {
+  "src": "3-exam.png",
+  "name": "08-exam",
+  "title": "600+ NCLEX-RN questions",
+  "sub": "Three benchmark exams and NGN case studies",
+  "colors": [
+   "#ea580c",
+   "#e11d48"
+  ],
+  "crop_top": 0.062
+ },
+ {
+  "src": "6-employers-au.png",
+  "name": "09-employers",
+  "title": "Hospitals that hire abroad",
+  "sub": "Public and private employers in each country",
+  "colors": [
+   "#e11d48",
+   "#f97316"
+  ],
+  "crop_top": 0.062
+ },
+ {
+  "src": "12-english-diag.png",
+  "name": "10-english-diagnostic",
+  "title": "Check your English level",
+  "sub": "A 20-question OET and IELTS diagnostic",
+  "colors": [
+   "#0284c7",
+   "#4f46e5"
+  ],
+  "crop_top": 0.062
+ }
+]
