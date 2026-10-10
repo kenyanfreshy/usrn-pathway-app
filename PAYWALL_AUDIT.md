@@ -10,9 +10,9 @@ Product IDs (must match App Store Connect and RevenueCat exactly):
 
 | Plan | App Store product ID | RevenueCat package | Entitlement |
 |---|---|---|---|
-| Pro annual (auto-renewing, 2-week free trial for new subscribers) | `nursebound_pro_annual` | Annual | `nursebound_pro` |
-| Pro monthly (auto-renewing, 2-week free trial for new subscribers) | `nursebound_pro_monthly` | Monthly | `nursebound_pro` |
-| All-access pass (non-consumable, one-time) | `nursebound_pro_lifetime` | Lifetime | `nursebound_pro` |
+| Pro annual (auto-renewing, 2-week free trial for new subscribers) | `com.nursebound.pro.annual` | Annual | `nursebound_pro` |
+| Pro monthly (auto-renewing, 2-week free trial for new subscribers) | `com.nursebound.pro.monthly` | Monthly | `nursebound_pro` |
+| All-access pass (non-consumable, one-time) | `com.nursebound.pro.lifetime` | Lifetime | `nursebound_pro` |
 
 ## App Review checklist
 

@@ -8,9 +8,9 @@ The app never picks a price based on where it thinks someone is, and never links
 
 | Product | Apple ID | Google Play ID | Trial |
 |---|---|---|---|
-| Pro annual (auto-renewing) — shown first, "Best value" | `nursebound_pro_annual` | subscription `nursebound_pro`, base plan `annual` | **2 weeks free**, new subscribers only |
-| Pro monthly (auto-renewing) | `nursebound_pro_monthly` | subscription `nursebound_pro`, base plan `monthly` | **2 weeks free**, new subscribers only |
-| All-access pass (one-time) | `nursebound_pro_lifetime` (Non-Consumable) | in-app product `nursebound_pro_lifetime` | none |
+| Pro annual (auto-renewing) — shown first, "Best value" | `com.nursebound.pro.annual` | subscription `nursebound_pro`, base plan `annual` | **2 weeks free**, new subscribers only |
+| Pro monthly (auto-renewing) | `com.nursebound.pro.monthly` | subscription `nursebound_pro`, base plan `monthly` | **2 weeks free**, new subscribers only |
+| All-access pass (one-time) | `com.nursebound.pro.lifetime` (Non-Consumable) | in-app product `com.nursebound.pro.lifetime` | none |
 
 All three unlock the RevenueCat entitlement `nursebound_pro`. The 2-week trial is set up on both subscriptions. It belongs to the
 store product, not the app's code. If you'd rather not offer the one-time pass, remove it from the RevenueCat
@@ -41,7 +41,7 @@ with its own lower price. The app works out the saving from the two store prices
 price of the same plan. There's no made-up "was" price and no fake countdown, which Apple and Google both reject.
 
 1. Create the discounted products:
-   - Apple: in the **same subscription group**, add `nursebound_pro_monthly_offer` (1 month) at the lower price.
+   - Apple: in the **same subscription group**, add `com.nursebound.pro.monthly.offer` (1 month) at the lower price.
      Group B and C countries can get their own lower prices too.
    - Google: on subscription `nursebound_pro`, add a second base plan `monthly-offer` at the lower price.
 2. In RevenueCat, attach them to the `pro` entitlement. Create an offering with the identifier **`special_offer`**
@@ -55,12 +55,12 @@ and the button reads "Subscribe now".
 ## App Store Connect (iPhone)
 
 1. **Monetization → Subscriptions →** create a subscription group named "NurseBound Pro", then two subscriptions:
-   `nursebound_pro_annual` (duration **1 year**) and `nursebound_pro_monthly` (duration **1 month**). Put annual at the higher level in the group. Give each a display name ("Pro annual", "Pro monthly"), a description and a review screenshot of the paywall.
+   `com.nursebound.pro.annual` (duration **1 year**) and `com.nursebound.pro.monthly` (duration **1 month**). Put annual at the higher level in the group. Give each a display name ("Pro annual", "Pro monthly"), a description and a review screenshot of the paywall.
 2. **Subscription Prices → Add pricing:** choose the United States and US$14.99. Apple fills in every other country.
    Then use **Edit country or region prices** to set groups B and C from the table.
 3. **Introductory Offers → Create** on **each** subscription: all countries and regions, start date today, no end date, type **Free**, duration **2 weeks**.
    Apple gives each Apple ID one free trial per subscription group. The app checks this before it mentions a trial.
-4. **In-App Purchases → Non-Consumable** `nursebound_pro_lifetime`: set prices the same way.
+4. **In-App Purchases → Non-Consumable** `com.nursebound.pro.lifetime`: set prices the same way.
 5. Add both products to the app version you submit (**App Store → your version → In-App Purchases and Subscriptions**).
 6. **App Information:** add your Privacy Policy URL. Keep the Terms link (Apple's standard EULA) or upload your own EULA.
 
@@ -71,14 +71,14 @@ and the button reads "Subscribe now".
 2. **Prices:** set US$14.99, let Play convert it, then edit the group B and C countries.
 3. **Add offer** on **each** base plan: offer ID `free-trial`, eligibility **New customer acquisition → never had
    this subscription**, phase **Free trial, 14 days**. Activate it.
-4. **In-app products →** `nursebound_pro_lifetime`, prices set the same way.
+4. **In-app products →** `com.nursebound.pro.lifetime`, prices set the same way.
 
 ## RevenueCat
 
 - Products: attach all six (three Apple, three Google). Entitlement `pro` → attach all of them.
-- Offering `default` (current): package **Annual** (`$rc_annual`) → `nursebound_pro_annual` / `nursebound_pro:annual`;
-  package **Monthly** (`$rc_monthly`) → `nursebound_pro_monthly` / `nursebound_pro:monthly`;
-  package **Lifetime** (`$rc_lifetime`) → `nursebound_pro_lifetime`.
+- Offering `default` (current): package **Annual** (`$rc_annual`) → `com.nursebound.pro.annual` / `nursebound_pro:annual`;
+  package **Monthly** (`$rc_monthly`) → `com.nursebound.pro.monthly` / `nursebound_pro:monthly`;
+  package **Lifetime** (`$rc_lifetime`) → `com.nursebound.pro.lifetime`.
 - Put the public SDK keys in `app.json → expo.extra.revenueCatAppleKey / revenueCatGoogleKey`.
 
 ## What the app already does to meet the store rules
