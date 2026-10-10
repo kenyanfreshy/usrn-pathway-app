@@ -147,9 +147,10 @@ export function Chip({ text, tone = "mute", icon, mod, onPress, active }) {
   const map = { ok: [t.c.okSoft, t.c.ok], warn: [t.c.warnSoft, t.c.warn], crit: [t.c.critSoft, t.c.crit], acc: [t.soft, t.tint], acc2: [t.soft2, t.tint2], mute: [t.c.sunk, t.c.muted] };
   const [bg, fg] = map[tone] || map.mute;
   const body = (
-    <View style={{ flexDirection: "row", alignItems: "center", gap: 4, backgroundColor: bg, paddingHorizontal: 10, paddingVertical: 5, borderRadius: 999, alignSelf: "flex-start", borderWidth: active ? 1.5 : 0, borderColor: fg }}>
+    <View style={{ flexDirection: "row", alignItems: "center", gap: 4, backgroundColor: bg, paddingHorizontal: 10, paddingVertical: 5, borderRadius: 999, alignSelf: "flex-start", maxWidth: "100%", borderWidth: active ? 1.5 : 0, borderColor: fg }}>
       {icon ? <Icon name={icon} size={12} color={fg} /> : null}
-      <Text style={{ color: fg, fontSize: 11.5, fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{text}</Text>
+      {/* One line, never broken mid-word (e.g. "Pharmacological & Parenteral Therapies"): shrinks slightly instead of wrapping. */}
+      <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75} style={{ flexShrink: 1, color: fg, fontSize: 11.5, fontFamily: FONTS.monoBold, fontWeight: FONTS.monoBold ? undefined : "700" }}>{text}</Text>
     </View>
   );
   return onPress ? <Pressable onPress={() => { tap(); onPress(); }}>{body}</Pressable> : body;

@@ -54,19 +54,54 @@ export function breakdown(items, ans) {
 /* ---------------- the three benchmark exams ---------------- */
 /** Test 2 uses 4 of the case studies (picked at random each attempt) so it stays at 150 items. */
 export const T2_CASES = 4;
+// Legacy fixed exam sets (the `exam` field). Kept for reference; exams are now assembled from the whole bank.
 export const EXAM_ITEMS = { 1: BANK.filter((q) => q.exam === 1), 2: BANK.filter((q) => q.exam === 2), 3: BANK.filter((q) => q.exam === 3) };
+export const T1_COUNT = 85, T2_COUNT = 150;
+/** 1205 → "1,205" (no Intl needed). */
+export const fmtN = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 export const TESTS = {
-  t1: { title: "Diagnostic Benchmark", count: EXAM_ITEMS[1].length },
-  t2: { title: "NGN Clinical Judgment Simulator", count: EXAM_ITEMS[2].length + T2_CASES * 6 },
-  t3: { title: "Comprehensive Predictor", count: EXAM_ITEMS[3].length },
+  t1: { title: "Diagnostic Benchmark", count: T1_COUNT },
+  t2: { title: "NGN Clinical Judgment Simulator", count: T2_COUNT },
+  t3: { title: "Comprehensive Predictor", count: BANK.length },
 };
 
-export function buildTest1() { return shuffle(EXAM_ITEMS[1]).map(shuffleItem); }
+/* ---------------- blueprint assembly ----------------
+ * Every benchmark exam is assembled on the phone from the whole bank (no network) with fixed Client Needs quotas
+ * from CN_TARGET (mid-points of the NCSBN test plan; pharmacology 15%, never above 16% of an exam). Questions the
+ * nurse hasn't answered yet are used first, so repeat attempts see new questions. The assembled list is saved with
+ * the in-progress run, so a resumed exam keeps exactly the same questions. */
+export function examQuotas(n) { return allocate(BANK, n); }
 
-/** Test 2: the NGN case studies interleaved with the stand-alone items, like sections of the real exam. */
-export function buildTest2() {
-  const items = shuffle(EXAM_ITEMS[2]).map(shuffleItem);
+/** Pick `want` questions per category from pool, unseen first. Tops up from any category if one runs short. */
+function fill(pool, want, seen) {
+  const s = seen instanceof Set ? seen : new Set(seen || []);
+  const by = {};
+  shuffle(pool).forEach((q) => { (by[q.cat] = by[q.cat] || []).push(q); });
+  Object.keys(by).forEach((c) => { by[c].sort((x, y) => (s.has(x.id) ? 1 : 0) - (s.has(y.id) ? 1 : 0)); });
+  const picked = [], spare = [];
+  Object.keys(by).forEach((c) => { const k = want[c] || 0; picked.push(...by[c].slice(0, k)); spare.push(...by[c].slice(k)); });
+  const total = Object.values(want).reduce((a, b) => a + b, 0);
+  if (picked.length < total) picked.push(...spare.sort((x, y) => (s.has(x.id) ? 1 : 0) - (s.has(y.id) ? 1 : 0)).slice(0, total - picked.length));
+  return shuffle(picked);
+}
+
+/** Test 1: 85 questions in blueprint proportions. `seen`: ids already answered (state.qstats keys). */
+export function buildTest1(seen) { return fill(BANK, examQuotas(T1_COUNT), seen).map(shuffleItem); }
+
+/** Test 2: 4 NGN case studies (6 items each) plus stand-alone items. The stand-alone quotas are the 150-item
+ *  blueprint minus the case items' own categories, so the whole exam stays on blueprint. */
+export function buildTest2(seen) {
   const cases = shuffle(NGN_CASES.map((c) => c.id)).slice(0, T2_CASES);
+  const want = examQuotas(T2_COUNT);
+  cases.forEach((id) => { const cs = NGN_CASES.find((c) => c.id === id); const per = cs.items ? cs.items.length : 6; if (cs.area) want[cs.area] = Math.max(0, (want[cs.area] || 0) - per); });
+  const caseItems = cases.reduce((n, id) => { const cs = NGN_CASES.find((c) => c.id === id); return n + (cs.items ? cs.items.length : 6); }, 0);
+  // keep the total at 150 even if a case's area quota hit zero
+  let short = T2_COUNT - caseItems - Object.values(want).reduce((a, b) => a + b, 0);
+  const order = Object.keys(CN_TARGET).sort((a, b) => CN_TARGET[b] - CN_TARGET[a]).filter((c) => c !== "Pharmacological & Parenteral Therapies");
+  for (let i = 0; short > 0; i++, short--) want[order[i % order.length]] += 1;
+  // too many (a case-heavy draw, e.g. four Physiological Adaptation cases): trim the largest stand-alone quotas
+  while (short < 0) { const c = Object.keys(want).sort((x, y) => want[y] - want[x])[0]; want[c] -= 1; short += 1; }
+  const items = fill(BANK, want, seen).map(shuffleItem);
   const per = Math.ceil(items.length / cases.length); const blocks = [];
   cases.forEach((id, k) => {
     blocks.push({ kind: "case", id });
@@ -124,7 +159,7 @@ export function stopRule(hist) {
 /** Next item: keep the Client Needs mix on target, prefer items not seen in earlier attempts, match difficulty to ability. */
 export function nextItem(hist, seen = []) {
   const used = new Set(hist.map((h) => h.item.id));
-  const pool = EXAM_ITEMS[3].filter((q) => !used.has(q.id)); if (!pool.length) return null;
+  const pool = BANK.filter((q) => !used.has(q.id)); if (!pool.length) return null;
   const n = hist.length; const count = {};
   hist.forEach((h) => { count[h.item.cat] = (count[h.item.cat] || 0) + 1; });
   const cats = Object.keys(CN_TARGET).filter((c) => pool.some((q) => q.cat === c));

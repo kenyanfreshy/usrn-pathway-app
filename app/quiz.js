@@ -14,7 +14,7 @@ import { todayKey, shuffle } from "../src/util";
 import { getRun } from "../src/runStore";
 import { DIAG, CAT_POOL, DIFF } from "../src/data/content";
 import { NGN_CASES, scoreNgnItem } from "../src/data/ngn";
-import { typeOf, scoreItem, isCorrect, isAnswered, answerText, breakdown, TESTS, T2_CASES, buildTest1, buildTest2, nextItem, stopRule, difficultyOf, CAT_MIN, CAT_MAX } from "../src/exam";
+import { typeOf, scoreItem, isCorrect, isAnswered, answerText, breakdown, TESTS, T2_CASES, buildTest1, buildTest2, nextItem, stopRule, difficultyOf, CAT_MIN, CAT_MAX, fmtN } from "../src/exam";
 import BANK_ALL from "../src/data/questions.json";
 
 const MOD = "nclex";
@@ -615,7 +615,7 @@ function Test1({ timed, onDone }) {
         intro={`${TESTS.t1.count} questions balanced across all eight NCLEX-RN Client Needs categories, scored like the NCLEX, with a full category breakdown and a rationale for every answer.${timed ? " Timed: 90 seconds per question." : ""}`}
         progress={saved ? `Question ${saved.i + 1} of ${saved.items.length}` : null}
         onResume={() => setRun(saved)}
-        onNew={() => { const r = { items: buildTest1(), timed, i: 0, ans: {}, left: timed ? TESTS.t1.count * 90 : null }; save(r); setRun(r); }} />
+        onNew={() => { const r = { items: buildTest1(Object.keys(state.qstats || {})), timed, i: 0, ans: {}, left: timed ? TESTS.t1.count * 90 : null }; save(r); setRun(r); }} />
     );
   }
   return (
@@ -636,7 +636,7 @@ function Test2({ onDone }) {
         intro={`${TESTS.t2.count} items: ${T2_CASES} unfolding Next Generation NCLEX (NGN) case studies placed between sections of stand-alone questions. The cases are picked from ${NGN_CASES.length}, so each attempt is different, and each case has 6 clinical-judgment steps and chart tabs. The stand-alone questions include select-all-that-apply and ordered-response items.`}
         progress={saved ? `Section ${saved.b + 1} of ${saved.blocks.length} · ${qCount(saved)} of ${TESTS.t2.count} items done` : null}
         onResume={() => setRun(saved)}
-        onNew={() => { const r = { blocks: buildTest2(), b: 0, results: [], cur: null }; save(r); setRun(r); }} />
+        onNew={() => { const r = { blocks: buildTest2(Object.keys(state.qstats || {})), b: 0, results: [], cur: null }; save(r); setRun(r); }} />
     );
   }
 
@@ -757,7 +757,7 @@ function Test3({ onDone }) {
   if (!run) {
     return (
       <StartGate title={TESTS.t3.title} saved={saved}
-        intro={`Computer-adaptive, like the real NCLEX-RN: questions get harder after correct answers and easier after misses, drawn from a ${TESTS.t3.count}-question pool with the official Client Needs mix. It stops between 85 and 150 questions, as soon as the result is 95% certain. Each retake starts with questions you haven't seen yet.`}
+        intro={`Computer-adaptive, like the real NCLEX-RN: questions get harder after correct answers and easier after misses, drawn from a ${fmtN(TESTS.t3.count)}-question pool with the official Client Needs mix. It stops between 85 and 150 questions, as soon as the result is 95% certain. Each retake starts with questions you haven't seen yet.`}
         progress={saved ? `Question ${saved.hist.length + 1} · ${saved.hist.length} answered` : null}
         onResume={() => setRun(saved)}
         onNew={() => { const r = { hist: [], cur: nextItem([], state.catSeen || []), result: null }; save(r); setRun(r); }} />

@@ -12,7 +12,7 @@ import { NCLEX_FIT, destId, destOf, DESTINATIONS } from "../../src/data/global";
 import { usePro, ProBadge } from "../../src/pro";
 import { dueCount, startReview, daysToExam } from "../../src/study";
 import { shuffle, fmtDate } from "../../src/util";
-import { shuffleItem, TESTS, blueprintSample, CAT_SHORT } from "../../src/exam";
+import { shuffleItem, TESTS, blueprintSample, CAT_SHORT, fmtN } from "../../src/exam";
 import { NGN_CASES } from "../../src/data/ngn";
 import { setRun } from "../../src/runStore";
 import BANK_ALL from "../../src/data/questions.json";
@@ -120,7 +120,7 @@ function BankBuilder({ bank, state }) {
 const MODES = [
   { id: "t1", n: "Test 1", title: TESTS.t1.title, desc: `${TESTS.t1.count} questions across all 8 Client Needs categories, with a category breakdown.`, icon: "Activity", save: "t1" },
   { id: "t2", n: "Test 2", title: TESTS.t2.title, desc: `${TESTS.t2.count} items: 4 unfolding NGN case studies (from ${NGN_CASES.length}) plus SATA and ordered-response questions.`, icon: "Network", save: "t2", pro: true },
-  { id: "t3", n: "Test 3", title: TESTS.t3.title, desc: `Adaptive, like the NCLEX: 85–150 questions from a ${TESTS.t3.count}-question pool. Stops at 95% confidence.`, icon: "Gauge", save: "t3" },
+  { id: "t3", n: "Test 3", title: TESTS.t3.title, desc: `Adaptive, like the NCLEX: 85–150 questions from a ${fmtN(TESTS.t3.count)}-question pool. Stops at 95% confidence.`, icon: "Gauge", save: "t3" },
   { id: "ngn", n: "Practice", title: "NGN Case Practice", desc: "Pick one case study and work through its six clinical-judgment steps.", icon: "Stethoscope", pro: true },
   { id: "flash", n: "Review", title: "Flashcards", desc: "Swipe through high-yield takeaways. Swipe right if you know it, left to see it again.", icon: "Layers" },
 ];
