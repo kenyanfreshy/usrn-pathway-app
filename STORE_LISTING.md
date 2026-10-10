@@ -29,7 +29,7 @@ NCLEX-RN PRACTICE
 • Tutor and exam modes, flashcards, and save-and-resume for long exams
 
 ENGLISH & INTERVIEWS
-• An English tab: the OET and IELTS scores your destination (and Canadian province) accepts, with a score checker
+• OET & IELTS in the Exam tab: the scores your destination (and Canadian province) accepts, with a score checker
 • "Which test?" guide, a 20-question English diagnostic, and test results saved to your document vault with expiry dates
 • OET case-note sorting, a letter builder and model letters; IELTS Task 1 and Task 2 models; timed speaking role-plays
 • Hospital interview questions with STAR answers, plus visa and arrival interview prep
@@ -47,7 +47,7 @@ BEDSIDE & CAREER
 • Defensible charting practice and license-protection guidance
 • Guides to health cover, insurance, credit building, pay, tax and driving for each country
 
-PRO (optional — 2-week free trial for new subscribers, then a monthly subscription; or a one-time pass)
+PRO (optional — 2-week free trial for new subscribers, then an annual or monthly subscription; or a one-time pass)
 • Personal study plan & smart review • NGN Clinical Judgment Simulator • OET writing & speaking practice
 • Interview prep with sample answers • Document summary to share • Expiry reminders on your phone
 • Charge nurse tools • U.S. endorsement wizard and overtime tax calculators
@@ -56,7 +56,9 @@ Your data stays on your phone. No account needed — back it up and restore it o
 
 NurseBound is for education only. It is not legal, immigration, medical or financial advice.
 
-**Keywords (iOS, 100 max):** nclex,ngn,nursing,nurse,visa,eb-3,ahpra,express entry,canada,australia,new zealand,ielts,oet
+NCLEX® and NCLEX-RN® are registered trademarks of the National Council of State Boards of Nursing (NCSBN). OET and IELTS are trademarks of their owners. NurseBound is independent and is not affiliated with or endorsed by NCSBN, OET, IELTS or any government agency.
+
+**Keywords (iOS, 100 max — don't repeat words already in the name or subtitle):** nurse,nursing,ngn,rn,ielts,eb3,ahpra,express entry,canada,australia,new zealand,abroad,study
 
 
 **Screenshots (6.9" and 6.5" iPhone, plus Android phone) — suggested order:**
