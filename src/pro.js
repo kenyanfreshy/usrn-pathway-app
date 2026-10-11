@@ -118,7 +118,8 @@ export function ProProvider({ children }) {
       // Development builds use RevenueCat's Test Store (simulated purchases, no charge). Store builds must
       // use the real App Store / Google Play keys, so the test key is never used outside __DEV__.
       const storeKey = Platform.OS === "ios" ? extra.revenueCatAppleKey : extra.revenueCatGoogleKey;
-      const key = __DEV__ && extra.revenueCatTestKey ? extra.revenueCatTestKey : storeKey;
+      // Dev builds use the real App Store sandbox (your App Store Connect prices) unless app.json sets "useTestStore": true.
+      const key = __DEV__ && extra.useTestStore === true && extra.revenueCatTestKey ? extra.revenueCatTestKey : storeKey;
       if (!Purchases || !key || /REPLACE_ME/.test(key)) { setReady(true); return; }
       try {
         if (Purchases.setLogLevel && Purchases.LOG_LEVEL) Purchases.setLogLevel(__DEV__ ? Purchases.LOG_LEVEL.DEBUG : Purchases.LOG_LEVEL.WARN);

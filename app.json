@@ -53,6 +53,7 @@
       "revenueCatAppleKey": "appl_YmsgjutHrmZHxMomTtuJAXazcDJ",
       "revenueCatGoogleKey": "goog_REPLACE_ME",
       "revenueCatTestKey": "test_xuGIJyIklIqCakdhkyWdptLEvwb",
+      "useTestStore": false,
       "entitlementId": "nursebound_pro",
       "privacyPolicyUrl": "https://github.com/kenyanfreshy/nursebound-public/blob/main/PRIVACY.md",
       "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",

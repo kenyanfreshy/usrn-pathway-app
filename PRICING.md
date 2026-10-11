@@ -23,12 +23,12 @@ it shows dollars.
 
 | Group | Countries (main nurse-recruitment markets) | Annual | Monthly | One-time pass |
 |---|---|---|---|---|
-| A | United States, Canada, United Kingdom, Ireland, Australia, New Zealand, UAE, Saudi Arabia, Qatar, Singapore, EU | US$99.99 | US$14.99 | US$149.99 |
+| A | United States, Canada, United Kingdom, Ireland, Australia, New Zealand, UAE, Saudi Arabia, Qatar, Singapore, EU | US$99.99 | US$9.99 | US$149.99 |
 | B | South Africa, Mexico, Jamaica, Trinidad & Tobago, Brazil, Colombia, Malaysia, Thailand, Caribbean | US$49.99 | US$7.99 | US$79.99 |
 | C | Philippines, India, Nigeria, Kenya, Ghana, Uganda, Zimbabwe, Cameroon, Pakistan, Nepal, Bangladesh, Sri Lanka, Egypt, Vietnam, Indonesia | US$24.99 | US$3.99 | US$39.99 |
 
 The paywall works out "Save ~X%" on the annual card from the real store prices (annual vs 12 × monthly).
-At these prices that's about 44% in group A, 48% in group B and 48% in group C.
+At these prices that's about 17% in group A, 48% in group B and 48% in group C.
 The one-time pass is priced above the annual plan, so it doesn't undercut the subscription.
 
 Every other country: let the store convert your U.S. price automatically, then lower any that look too high.

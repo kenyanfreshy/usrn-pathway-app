@@ -14,7 +14,7 @@
   "src": "11-tests.png",
   "name": "02-tests",
   "title": "Three NCLEX benchmark exams",
-  "sub": "Plus Next Gen case studies and flashcards",
+  "sub": "Plus NGN case studies and flashcards",
   "colors": [
    "#ea580c",
    "#c026d3"
@@ -78,7 +78,7 @@
  {
   "src": "3-exam.png",
   "name": "08-exam",
-  "title": "600+ NCLEX-RN questions",
+  "title": "1,200+ NCLEX-RN questions",
   "sub": "Three benchmark exams and NGN case studies",
   "colors": [
    "#ea580c",
